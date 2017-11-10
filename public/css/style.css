@@ -8,7 +8,6 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
-
 }
 
 body {
@@ -26,6 +25,11 @@ body {
     background-position: bottom;
 }*/
 
+.container-fluid2{
+    display:flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
 
 .content {
     text-align: center;
@@ -74,6 +78,7 @@ body {
 .navbar-inverse .navbar-nav>li>a {
     color:white;
     font-family: 'Roboto Slab', serif;
+
 }
 
 .navbar-brand>img {
@@ -125,6 +130,9 @@ body {
 
 
 
+
+
+
 .search {
     position: relative;
     background: url("../img/header2_new.jpg");
@@ -133,9 +141,7 @@ body {
     max-width: 100%;
     background-repeat: no-repeat;
     background-size: 100%, 100%;
-
 }
-
 
 #searchCity, #datevon, #datebis {
     font-size: 15px;
@@ -442,4 +448,37 @@ body {
 
 #AutoButton,#FahrradButton{
     background: rgb(255,159,63);
+}
+
+
+
+
+
+
+#ImpressumUeberschrift{
+    margin-top: 55px;
+}
+
+@media screen and (max-width: 450px){
+    #ImpressumUeberschrift{
+        text-align: center;
+    }
+    .ImpressumText{
+        text-align: left;
+    }
+}
+
+.ImpressumText{
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.ImpressumTeilüberschrift{
+    margin-left: 4px;
+}
+
+.ImpressumTeilüberschrift1{
+    margin-left: 4px;
+    margin-top:30px;
 }
