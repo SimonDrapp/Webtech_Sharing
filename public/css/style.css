@@ -78,7 +78,6 @@ body {
 .navbar-inverse .navbar-nav>li>a {
     color:white;
     font-family: 'Roboto Slab', serif;
-
 }
 
 .navbar-brand>img {
@@ -194,8 +193,8 @@ body {
     width: 70%;
     margin-left: 0%;
     margin-right: 0%;
-
 }
+
 #buttonSearch, .buttonsearch{
     max-width: 100%;
     width: 100%;
@@ -214,8 +213,8 @@ body {
     padding-right: 0%;
     padding-bottom: 1%;
     /*background:rgba(217,217,217, 0.4);*/
-
 }
+
 .aligns1{
     margin-top: 10%;
     margin-left: 0%;
@@ -450,11 +449,6 @@ body {
     background: rgb(255,159,63);
 }
 
-
-
-
-
-
 #ImpressumUeberschrift{
     margin-top: 55px;
 }
@@ -482,3 +476,51 @@ body {
     margin-left: 4px;
     margin-top:30px;
 }
+
+
+
+
+
+ .VermietungÜberschrift{
+    text-align: center;
+    margin-top: 80px;
+    font-size: 35px;
+    font-family: "Book Antiqua";
+}
+
+
+/*.AutobildVermietung ,.img-responsive {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top:100px;
+
+} */
+
+/* .FahrradbildVermietung, .img-responsive{
+    max-width: 100%;
+    height: auto;
+    display: block;
+   margin-bottom: 108px;
+}*/
+
+.FahrradbildVermietung, .AutobildVermietung, .img-responsive{
+    height: 400px;
+    width: 600px;
+    display: block;
+    margin-top:30px;
+    margin-left: 20px;
+}
+
+#AutoButtonVermietung, #FahrradButtonVermietung {
+    margin-top: 30px;
+    display: block;
+    background: rgb(255, 159, 63);
+    margin-bottom: 53px;
+    margin-left: 120px;
+}
+
+.jetzt{
+
+}
+
