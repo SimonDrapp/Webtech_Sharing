@@ -419,8 +419,6 @@ body {
     /*See for yourself*/
 }
 
-
-
 .button2{
     margin-left: 200px;
     margin-top: -90px;
@@ -449,6 +447,10 @@ body {
     background: rgb(255,159,63);
 }
 
+
+
+
+
 #ImpressumUeberschrift{
     margin-top: 55px;
 }
@@ -468,59 +470,142 @@ body {
     font-size: 14px;
 }
 
-.ImpressumTeilüberschrift{
-    margin-left: 4px;
-}
-
-.ImpressumTeilüberschrift1{
+.ImpressumTeilüberschrift1, .ImpressumTeilüberschrift{
     margin-left: 4px;
     margin-top:30px;
 }
-
-
-
-
 
  .VermietungÜberschrift{
     text-align: center;
-    margin-top: 80px;
-    font-size: 35px;
+    margin-top: 90px;
+    font-size: 30px;
     font-family: "Book Antiqua";
 }
 
-
-/*.AutobildVermietung ,.img-responsive {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-top:100px;
-
-} */
-
-/* .FahrradbildVermietung, .img-responsive{
-    max-width: 100%;
-    height: auto;
-    display: block;
-   margin-bottom: 108px;
-}*/
-
 .FahrradbildVermietung, .AutobildVermietung, .img-responsive{
     height: 400px;
-    width: 600px;
+    width: 580px;
     display: block;
     margin-top:30px;
     margin-left: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #AutoButtonVermietung, #FahrradButtonVermietung {
-    margin-top: 30px;
+    margin-top: 25px;
     display: block;
     background: rgb(255, 159, 63);
-    margin-bottom: 53px;
-    margin-left: 120px;
+    margin-bottom: 65px;
+    margin-left: 215px;
 }
 
-.jetzt{
-
+@media  screen and (max-width: 1200px) {
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 300px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 500px;
+    }
+    .VermietungÜberschrift{
+        font-size: 25px;
+    }
 }
 
+@media screen and (max-width: 1050px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 200px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 410px;
+    }
+}
+
+@media screen and (max-width: 930px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 180px;
+        height:300px;
+        width: 480px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 350px;
+    }
+    .VermietungÜberschrift{
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 790px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 130px;
+        height:300px;
+        width: 480px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 300px;
+    }
+    .VermietungÜberschrift{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 720px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 130px;
+        height:230px;
+        width: 380px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 240px;
+    }
+    .VermietungÜberschrift{
+        font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 110px;
+        height:230px;
+        width: 320px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 190px;
+    }
+    .VermietungÜberschrift{
+        font-size: large;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 70px;
+        height:180px;
+        width: 280px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 140px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 60px;
+        height:140px;
+        width: 230px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 100px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .AutobildVermietung, .FahrradbildVermietung{
+        margin-left: 15px;
+        height:130px;
+        width: 220px;
+    }
+    #FahrradButtonVermietung, #AutoButtonVermietung{
+        margin-left: 50px;
+    }
+}
