@@ -609,3 +609,16 @@ body {
         margin-left: 50px;
     }
 }
+
+.buttonUndText{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.dropdown-menu{
+    overflow-y: scroll;
+}
+
+.Text{
+    font-size: 20px;
+}

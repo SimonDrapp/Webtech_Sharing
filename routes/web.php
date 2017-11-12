@@ -23,6 +23,10 @@ Route::get('/Vermieten', function () {
     return view('Vermieten');
 });
 
+Route::get('/Autoeigenschaft', function () {
+    return view('EigenschaftAutovermietung');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
