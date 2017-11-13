@@ -12,13 +12,18 @@
     <!-- Bild mit Buttons-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-m-12 search">
+            <div class="col-12 search">
 
                 <div class="content">
                     <h1>Egal ob im Berufsalltag, in der Freizeit oder im Urlaub</h1>
                     <h2>-</h2>
                     <h1>Bei uns findest du immer was!</h1>
                 </div>
+
+
+
+
+
 
                 <div class="container">
                     <div class="col-xs-2 col-sm-5 col-lg-4 aligns">

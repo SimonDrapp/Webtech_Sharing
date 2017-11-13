@@ -448,32 +448,47 @@ body {
 }
 
 
-
-
-
-#ImpressumUeberschrift{
-    margin-top: 55px;
+.agb_content h6, .impressum_content h1 {
+    margin-top: 70px;
+    font-size: 40px;
+}
+.agb_content, .impressum_content {
+    text-align: center;
 }
 
-@media screen and (max-width: 450px){
-    #ImpressumUeberschrift{
-        text-align: center;
-    }
-    .ImpressumText{
-        text-align: left;
-    }
+.agb_div h7, .impressum_content h3{
+    font-size:30px;
+    text-transform: uppercase;
+    text-align: center!important;
+    letter-spacing: 0.05px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-decoration-line: underline;
+}
+.unterteil{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0%;
+    margin-bottom: -2%;
+}
+.ImpressumTeilüberschrift1{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0%;
+    margin-bottom: -2%;
+    text-align: center!important;
+
+}
+.agb_div p, .impressum_div p{
+    font-size: 20px;
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 1.2%;
+    padding-bottom: 1.2%;
 }
 
-.ImpressumText{
-    margin-left: 8px;
-    margin-right: 8px;
-    font-size: 14px;
-}
-
-.ImpressumTeilüberschrift1, .ImpressumTeilüberschrift{
-    margin-left: 4px;
-    margin-top:30px;
-}
 
  .VermietungÜberschrift{
     text-align: center;
@@ -510,6 +525,17 @@ body {
     .VermietungÜberschrift{
         font-size: 25px;
     }
+    .agb_div p, .impressum_div p{
+        margin-left: 18%;
+        margin-right: 18%;
+        font-size: 17px;
+    }
+    .agb_div h7, .impressum_div h3{
+        font-size: 27px;
+    }
+    .agb_content h6, .impressum_content h1{
+        font-size: 37px;
+    }
 }
 
 @media screen and (max-width: 1050px){
@@ -518,6 +544,17 @@ body {
     }
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 410px;
+    }
+    .agb_div p, .impressum_div p{
+        margin-left: 16%;
+        margin-right: 16%;
+        font-size: 15px;
+    }
+    .agb_div h7, .impressum_div h3{
+        font-size: 25px;
+    }
+    .agb_content h6, .impressum_content h1{
+        font-size: 35px;
     }
 }
 
@@ -547,6 +584,17 @@ body {
     .VermietungÜberschrift{
         font-size: 25px;
     }
+    .agb_div p, .impressum_div p{
+        margin-left: 14%;
+        margin-right: 14%;
+        font-size: 13px;
+    }
+    .agb_div h7, .impressum_div h3{
+        font-size: 23px;
+    }
+    .agb_content h6, .impressum_content h1{
+        font-size: 33px;
+    }
 }
 
 @media screen and (max-width: 720px){
@@ -575,6 +623,17 @@ body {
     .VermietungÜberschrift{
         font-size: large;
     }
+    .agb_div p, .impressum_div p{
+        margin-left: 12%;
+        margin-right: 12%;
+        font-size: 11px;
+    }
+    .agb_div h7, .impressum_div h3{
+        font-size: 21px;
+    }
+    .agb_content h6, .impressum_content h1{
+        font-size: 31px;
+    }
 }
 
 @media screen and (max-width: 480px){
@@ -585,6 +644,17 @@ body {
     }
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 140px;
+    }
+    .agb_div p, .impressum_div p{
+        margin-left: 10%;
+        margin-right: 10%;
+        font-size: 9px;
+    }
+    .agb_div h7, .impressum_div h3{
+        font-size: 15px;
+    }
+    .agb_content h6, .impressum_content h1{
+        font-size: 25px;
     }
 }
 
@@ -597,6 +667,17 @@ body {
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 100px;
     }
+    .agb_div p, .impressum_div p{
+        margin-left: 9%;
+        margin-right: 9%;
+        font-size: 9px;
+    }
+    .agb_div h7, .impressum_div h3{
+        font-size: 12px;
+    }
+    .agb_content h6, .impressum_content h1{
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 320px){
@@ -608,4 +689,19 @@ body {
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 50px;
     }
+    .agb_div p, .impressum_div p{
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 8px;
+    }
+    .agb_div h7, .impressum_div h3{
+        font-size: 10px;
+    }
+    .agb_content h6, .impressum_content h1{
+        font-size: 15px;
+    }
+
 }
+
+
+

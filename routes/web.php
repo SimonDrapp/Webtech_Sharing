@@ -23,6 +23,10 @@ Route::get('/Vermieten', function () {
     return view('Vermieten');
 });
 
+Route::get('/AGB', function () {
+    return view('AGB');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
