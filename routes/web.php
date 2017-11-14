@@ -23,6 +23,7 @@ Route::get('/Vermieten', function () {
     return view('Vermieten');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
