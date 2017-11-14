@@ -78,8 +78,10 @@
         </div>
 
 
+
         <div class="container-fluid">
             <div class="row">
+                <form class="form-inline">
                 <div class="col-xs-6 col-md-3">
                     <div class="buttonUndText">
                         <p class="Text">Kraftstoff</p>
@@ -94,46 +96,52 @@
                     </div>
                 </div>
 
-
-                <form class="form-inline">
-                    <div class="col-xs-6 col-md-6">
+                    <div class="col-xs-6 col-md-4">
                         <div class="buttonUndText">
-                            <p class="TextBildHochladen">Bild hochladen</p>
-                    <div class="form-group mx-sm-4">
-                        <label for="input" class="sr-only"></label>
-                        <input type="text" class="form-control" id="input">
-                    </div>
-                            <button id="buttonGPS" type="button" class="form-group btn btn-basic">Bild auswählen
+                            <p class="TextBild">Bild</p>
+                            <div class="form-group mx-sm-4">
+                                <label for="input" class="sr-only"></label>
+                                <input class="form-control" id="input">
+                            </div>
+                            <button id="buttonBild" type="button" class="form-group btn btn-basic">Öffnen
                                 <span class="glyphicon glyphicon-picture"></span></button>
                         </div>
                     </div>
                 </form>
+                </div>
             </div>
-        </div>
+
+
+
+
 
         <div class="container-fluid">
             <div class="row">
+                <form class="form-inline">
                 <div class="col-xs-6 col-md-3">
                     <div class="buttonUndText">
                         <p class="Text">Details</p>
                             <div class="form-group2">
-                                <textarea class="form-control" rows="4" id="Details" placeholder="Details zum Auto ..."></textarea>
+                                <textarea class="form-control detailsInput" rows="4" id="Details" placeholder="Details zum Auto ..."></textarea>
                             </div>
                     </div>
                 </div>
-                <form class="form-inline">
+
+
                 <div class="col-xs-6 col-md-3">
-                    <div class="buttonUndText">
-                        <p class="TextPreisProTag">Preis pro Tag</p>
+                    <div class="buttonUndTextFuerPreis">
+                        <p class="TextPreisProTag">Preis/T.</p>
                         <div class="form-group2 mx-sm-4">
-                            <label for="input" class="sr-only"></label>
-                            <input type="text" class="form-control" id="input">
+                            <label for="inputPreis" class="sr-only"></label>
+                            <input type="text" class="form-control" id="inputPreis">
                         </div>
                     </div>
                 </div>
                 </form>
             </div>
         </div>
+
+
 
         <div class="Verschieben">
         <div class="container-fluid">
@@ -162,6 +170,7 @@
                                 <span class="glyphicon glyphicon-calendar"></span></button>
                         </div>
                     </div>
+
                     <div class="col-xs-12 col-md-4">
                         <div class="buttonUndText">
                         <button type="button" class="btn btn-basic1 btn-responsive" id="MeldeAutoAn"><a href="#"></a>Melde mein Auto an<span

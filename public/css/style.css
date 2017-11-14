@@ -119,6 +119,12 @@ body {
     .collapse.in{
         display:block !important;
     }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
@@ -499,6 +505,9 @@ body {
     .VermietungÜberschrift{
         font-size: 25px;
     }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
 }
 
 @media screen and (max-width: 1050px){
@@ -507,6 +516,9 @@ body {
     }
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 410px;
+    }
+    .TextPreisProTag{
+        margin-left: 35px;
     }
 }
 
@@ -522,6 +534,15 @@ body {
     .VermietungÜberschrift{
         font-size: 30px;
     }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
 }
 
 @media screen and (max-width: 790px){
@@ -535,6 +556,18 @@ body {
     }
     .VermietungÜberschrift{
         font-size: 25px;
+    }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
+    #inputPreis{
+        margin-left: -20px;
     }
 }
 
@@ -550,6 +583,15 @@ body {
     .VermietungÜberschrift{
         font-size: 24px;
     }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
 }
 
 @media screen and (max-width: 600px){
@@ -564,6 +606,16 @@ body {
     .VermietungÜberschrift{
         font-size: large;
     }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .detailsInput{
+        margin-left: -30px;
+        width: 200px;
+    }
 }
 
 @media screen and (max-width: 480px){
@@ -574,6 +626,16 @@ body {
     }
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 140px;
+    }
+    .TextBild{
+        margin-left: 85px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .detailsInput{
+        margin-left: -35px;
+        width: 170px;
     }
 }
 
@@ -586,6 +648,19 @@ body {
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 100px;
     }
+    .TextBild{
+        margin-left: 70px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .detailsInput{
+        margin-left: -70px;
+        width: 170px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
 }
 
 @media screen and (max-width: 320px){
@@ -596,6 +671,24 @@ body {
     }
     #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 50px;
+    }
+    .TextBild{
+        margin-left: 30px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
+    .detailsInput{
+        margin-left: -70px;
+        width: 130px;
+    }
+    #inputPreis{
+        margin-left: -25px;
+        height: 40px;
+        width: 80px;
     }
 }
 
@@ -614,9 +707,6 @@ body {
 
 /* --------------- */
 
-
-
-
 .TextDetails{
     font-size: 20px;
 }
@@ -630,24 +720,26 @@ body {
     margin-left:80px;
 }
 
-.TextBildHochladen{
-    margin-left: -274px;
-    font-size: 20px;
-}
-
-.TextPreisProTag{
-    margin-left: 50px;
-    font-size: 20px;
-}
-
 #MeldeAutoAn{
     background: rgb(255,159,63);
 }
+
 .Verschieben{
     margin-bottom: 30px;
 }
 
 .TextVon{
     margin-left: -110px;
+    font-size: 20px;
+}
+
+.TextBild{
+    margin-right: 100px;
+    font-size: 20px;
+}
+.buttonUndTextFuerPreis{
+    margin-top: 100px;
+    text-align: center;
+    margin-left: -30px;
     font-size: 20px;
 }
