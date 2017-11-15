@@ -8,6 +8,7 @@
 
     <body>
         @include('includes.header')
+        <img class="HintergrundBildAutoeigenshaft" src="img/header1.jpg" alt="AutovermietungBild">
 
         <div class="container-fluid">
             <div class="row">
@@ -100,8 +101,8 @@
                         <div class="buttonUndText">
                             <p class="TextBild">Bild</p>
                             <div class="form-group mx-sm-4">
-                                <label for="input" class="sr-only"></label>
-                                <input class="form-control" id="input">
+                                <label for="inputBild" class="sr-only"></label>
+                                <input class="form-control" id="inputBild">
                             </div>
                             <button id="buttonBild" type="button" class="form-group btn btn-basic">Öffnen
                                 <span class="glyphicon glyphicon-picture"></span></button>
@@ -142,7 +143,6 @@
         </div>
 
 
-
         <div class="Verschieben">
         <div class="container-fluid">
             <div class="row">
@@ -151,8 +151,8 @@
                         <div class="buttonUndText">
                             <p class="TextVon">Von</p>
                             <div class="form-group mx-sm-4">
-                                <label for="input" class="sr-only"></label>
-                                <input placeholder="DD/MM/YYYY" class="form-control" id="input">
+                                <label for="inputVon" class="sr-only"></label>
+                                <input placeholder="DD/MM/YYYY" class="form-control" id="inputVon">
                             </div>
                             <button id="buttonGPS" type="button" class="form-group btn btn-basic">
                                 <span class="glyphicon glyphicon-calendar"></span></button>
@@ -163,8 +163,8 @@
                         <div class="buttonUndText">
                             <p class="Text">Bis</p>
                             <div class="form-group mx-sm-4">
-                                <label for="input" class="sr-only"></label>
-                                <input placeholder="DD/MM/YYYY" class="form-control" id="input">
+                                <label for="inputBis" class="sr-only"></label>
+                                <input placeholder="DD/MM/YYYY" class="form-control" id="inputBis">
                             </div>
                             <button id="buttonGPS" type="button" class="form-group btn btn-basic">
                                 <span class="glyphicon glyphicon-calendar"></span></button>
@@ -181,7 +181,6 @@
             </div>
         </div>
         </div>
-
         @include('includes.footer')
     </body>
 </html>
