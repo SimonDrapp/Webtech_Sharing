@@ -107,7 +107,7 @@
     </section>
 
 </article>
-
+<!-- hallo rindrit!!-->
 
 @include('includes.footer')
 
