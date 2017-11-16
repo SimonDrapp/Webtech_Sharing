@@ -130,5 +130,8 @@
 
     @include('includes.footer')
 
+    <!-- contact form -->
+    @include('includes.Kontakt')
+
     </body>
 </html>
