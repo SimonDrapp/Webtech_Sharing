@@ -23,6 +23,10 @@ Route::get('/Vermieten', function () {
     return view('Vermieten');
 });
 
+Route::get('/AGB', function () {
+    return view('AGB');
+});
+
 Route::get('/Autoeigenschaft', function () {
     return view('EigenschaftAutovermietung');
 });
