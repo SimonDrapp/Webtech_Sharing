@@ -769,5 +769,10 @@ body {
     position: fixed;
     background-size: cover;
     width: 1349px;
+    opacity: 0.8;
 }
 
+#LinkAutoeigenschaft{
+    text-decoration: none;
+    color: inherit;
+}
