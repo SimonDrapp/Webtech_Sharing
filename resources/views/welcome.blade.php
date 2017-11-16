@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+
     @include('includes.head')
     <title>my-easysharing | Home </title>
-
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 search">
-            
+
             <div class="content">
                 <h1>Egal ob im Berufsalltag, in der Freizeit oder im Urlaub</h1>
                 <h2>-</h2>
@@ -43,7 +43,6 @@
                            placeholder="DD/MM/YYYY">
                 </div>
                 <div class="form-group">
-
                     <button id="buttonBis" type="button" class="btn btn-basic visible-lg">
                         <span class="glyphicon glyphicon-calendar"></span></button>
                 </div>
@@ -57,7 +56,6 @@
         </div>
     </div>
 </div>
-
 
 <article id="main">
 
@@ -109,6 +107,7 @@
     </section>
 
 </article>
+
 
 @include('includes.footer')
 

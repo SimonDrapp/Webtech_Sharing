@@ -127,6 +127,10 @@ body {
     .collapse.in {
         display: block !important;
     }
+    .content{
+        padding-top: 220px!important;
+    }
+
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:focus, .navbar-inverse .navbar-nav > .active > a:hover {
@@ -140,7 +144,7 @@ body {
     height: 667px;
     max-width: 100%;
     background-repeat: no-repeat;
-    background-size: 100% 100%2;
+    background-size: 100% 100%;
 }
 
 #searchCity, #datevon, #datebis {
@@ -274,6 +278,7 @@ body {
     #buttonGPS, #buttonSearch {
         height: 90%;
     }
+
 }
 
 @media screen and (max-width: 650px) {
@@ -311,6 +316,7 @@ body {
         font-size: 80%;
         margin: 0;
     }
+
 }
 
 @media screen and (max-width: 390px) {
@@ -318,6 +324,7 @@ body {
         height: 300px;
         width: 300px;
     }
+
 }
 
 .button1 {
@@ -469,6 +476,7 @@ body {
     .col-4 {
         margin-left: 30%;
     }
+
 }
 
 @media screen and (max-width: 1050px) {
@@ -493,6 +501,7 @@ body {
     .agb_content h6, .impressum_content h1 {
         font-size: 35px;
     }
+
 }
 
 @media screen and (max-width: 930px) {
@@ -513,6 +522,7 @@ body {
     .col-4 {
         margin-left: 27%;
     }
+
 }
 
 @media screen and (max-width: 790px) {
@@ -552,6 +562,7 @@ body {
         font-size: 15px;
         min-height: 50%;
     }
+
 }
 
 @media screen and (max-width: 720px) {
@@ -647,6 +658,7 @@ body {
 
     .col-4 {
         margin-left: 22%;
+        padding-bottom: 20%;
     }
 
     #buttonGPS, #buttonSearch {
@@ -655,6 +667,14 @@ body {
 
     #searchCity {
         font-size: 10px;
+    }
+    .content{
+        padding-top: 30%!important;
+    }
+
+    .search{
+        width: 100%;
+        height: auto;
     }
 }
 
@@ -694,6 +714,10 @@ body {
     #searchCity {
         font-size: 10px;
     }
+    .search{
+        width: 100%;
+        height: auto;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -732,6 +756,10 @@ body {
     #searchCity {
         font-size: 9px;
         min-height: 80%;
+    }
+    .search{
+        width: 100%;
+        height: auto;
     }
 
 }
