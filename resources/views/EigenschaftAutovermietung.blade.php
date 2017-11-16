@@ -154,7 +154,7 @@
                                 <label for="inputVon" class="sr-only"></label>
                                 <input placeholder="DD/MM/YYYY" class="form-control" id="inputVon">
                             </div>
-                            <button id="buttonGPS" type="button" class="form-group btn btn-basic">
+                            <button id="buttonGPS1" type="button" class="form-group btn btn-basic">
                                 <span class="glyphicon glyphicon-calendar"></span></button>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
                                 <label for="inputBis" class="sr-only"></label>
                                 <input placeholder="DD/MM/YYYY" class="form-control" id="inputBis">
                             </div>
-                            <button id="buttonGPS" type="button" class="form-group btn btn-basic">
+                            <button id="buttonGPS1" type="button" class="form-group btn btn-basic">
                                 <span class="glyphicon glyphicon-calendar"></span></button>
                         </div>
                     </div>
@@ -182,5 +182,7 @@
         </div>
         </div>
         @include('includes.footer')
+        <!-- contact form -->
+        @include('includes.Kontakt')
     </body>
 </html>
