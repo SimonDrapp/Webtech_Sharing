@@ -10,5 +10,7 @@
         </div>
     </nav>
 </footer>
+<!-- contact form -->
+@include('includes.Kontakt')
 
 
