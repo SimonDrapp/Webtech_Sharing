@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
     <head>
         @include('includes.head')
@@ -15,16 +15,15 @@
                 <div class="col-md-12 col-lg-6">
                     <img class="AutobildVermietung img-rounded" src="img/car2.jpg" data-src="holder.js/300x480/auto" alt="AutobildVermietung">
                         <div class="bottonver">
-                            <button type="button" class="btn btn-basic1 btn-responsive" id="AutoButtonVermietung">Hier vermieten<span
-                                        class="glyphicon glyphicon-triangle-right"></span></button>
+                            <a href="/Autoeigenschaft" id="LinkAutoeigenschaft" ><button  type="button" class="btn btn-basic1 btn-responsive" id="AutoButtonVermietung">Hier vermieten<span
+                                            class="glyphicon glyphicon-triangle-right"></span></button></a>
                         </div>
                 </div>
-
 
                 <div class="col-md-12 col-lg-6">
                     <img class="FahrradbildVermietung img-rounded" src="img/bike1.jpg" data-src="holder.js/300x480/auto" alt="FahrradbildVermietung">
                         <div class="bottonver">
-                            <button type="button" class="btn btn-basic1 btn-responsive" id="FahrradButtonVermietung">Hier vermieten<span
+                            <button type="button" class="btn btn-basic1 btn-responsive" id="FahrradButtonVermietung"><a href="Vermieten/Auto"></a>Hier vermieten<span
                                         class="glyphicon glyphicon-triangle-right"></span></button>
                         </div>
                 </div>

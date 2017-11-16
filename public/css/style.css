@@ -13,8 +13,9 @@ html, body {
 body {
     overflow-x: hidden;
     overflow-y: scroll;
-    background: rgb(219, 227, 243);
+    background: rgb(219,227,243);
 }
+
 
 /*.home-section{
     height: 80%;
@@ -24,8 +25,8 @@ body {
     background-position: bottom;
 }*/
 
-.container-fluid2 {
-    display: flex;
+.container-fluid2{
+    display:flex;
     justify-content: center;
     flex-wrap: nowrap;
 }
@@ -33,7 +34,7 @@ body {
 .content {
     text-align: center;
     color: white;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 0  rgba(0,0,0,0.7);
     padding-top: 150px;
     font-family: 'Roboto', sans-serif;
 }
@@ -51,19 +52,21 @@ body {
 
 .navbar {
     opacity: 0.8;
-    background: #3c3c3c;
+    background:#3c3c3c;
     margin-bottom: 0;
 }
+
 
 .navbar-brand {
     padding: 10px 15px 15px 15px;
     margin-top: -10px;
-    margin-left: -15px;;
+    margin-left: -15px;
+
 }
 
 #brand-image {
     height: 60px;
-    padding-bottom: 5px;
+   padding-bottom: 5px;
 }
 
 #brand-text {
@@ -73,12 +76,12 @@ body {
     font-size: 25px;
 }
 
-.navbar-inverse .navbar-nav > li > a {
-    color: white;
+.navbar-inverse .navbar-nav>li>a {
+    color:white;
     font-family: 'Roboto Slab', serif;
 }
 
-.navbar-brand > img {
+.navbar-brand>img {
     display: inline;
 }
 
@@ -86,46 +89,43 @@ body {
     .navbar-header {
         float: none;
     }
-
-    .navbar-left, .navbar-right {
+    .navbar-left,.navbar-right {
         float: none !important;
     }
-
     .navbar-toggle {
         display: block;
     }
-
     .navbar-collapse {
         border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
 
     }
-
     .navbar-fixed-top {
         top: 0;
         border-width: 0 0 1px;
     }
-
     .navbar-collapse.collapse {
-        display: none !important;
+        display: none!important;
     }
-
     .navbar-nav {
-        float: none !important;
+        float: none!important;
         margin-top: 7.5px;
     }
-
-    .navbar-nav > li {
+    .navbar-nav>li {
         float: none;
     }
-
-    .navbar-nav > li > a {
+    .navbar-nav>li>a {
         padding-top: 10px;
         padding-bottom: 10px;
     }
-
-    .collapse.in {
-        display: block !important;
+    .collapse.in{
+        display:block !important;
+    }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
     }
     .content{
         padding-top: 220px!important;
@@ -176,7 +176,7 @@ body {
     margin-top: 5%;
 }
 
-.AutoBild {
+.AutoBild{
     margin-top: 15px;
     height: 360px;
     width: 530px;
@@ -191,7 +191,7 @@ body {
     max-width: 100%;
 }
 
-.Autoseite {
+.Autoseite{
     overflow-x: hidden;
 }
 
@@ -199,21 +199,21 @@ body {
     overflow-x: hidden;
 }
 
-.col-md-7 {
+.col-md-7{
     margin-top: 80px;
     font-size: 17px;
     font-family: 'Roboto Slab', serif;
 }
 
-.AutoÜberschrift {
+.AutoÜberschrift{
     font-size: 35px;
 }
 
-.FahrradÜberschrift {
+.FahrradÜberschrift{
     font-size: 35px;
 }
 
-.Fahrradtext {
+.Fahrradtext{
     font-size: 17px;
 }
 
@@ -240,12 +240,10 @@ body {
         font-size: 250%;
         margin: 0;
     }
-
     .content h2 {
         font-size: 250%;
         margin: 0;
     }
-
     .content {
         padding-top: 100px;
     }
@@ -256,7 +254,7 @@ body {
     }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 850px){
     .content h1 {
         font-size: 200%;
         margin: 0;
@@ -281,24 +279,22 @@ body {
 
 }
 
-@media screen and (max-width: 650px) {
-    .FahrradÜberschrift, .AutoÜberschrift {
+@media screen and (max-width: 650px){
+    .FahrradÜberschrift,.AutoÜberschrift{
         text-align: center;
         font-size: 25px;
     }
-
-    .col-md-7 {
+    .col-md-7{
         font-size: 15px;
     }
 
     .content h1 {
         font-size: 130%;
-        margin: 0;
+        margin:0;
     }
-
     .content h2 {
         font-size: 130%;
-        margin: 0;
+        margin:0;
     }
 
     .content {
@@ -306,25 +302,22 @@ body {
     }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 450px){
     .content h1 {
-        font-size: 80%;
-        margin: 0;
-    }
-
+         font-size: 80%;
+         margin:0;
+     }
     .content h2 {
         font-size: 80%;
-        margin: 0;
+        margin:0;
     }
-
 }
 
-@media screen and (max-width: 390px) {
-    .FahrradBild, .AutoBild {
+@media screen and (max-width: 390px){
+    .FahrradBild,.AutoBild{
         height: 300px;
         width: 300px;
     }
-
 }
 
 .button1 {
@@ -335,33 +328,32 @@ body {
     /*See for yourself*/
 }
 
-.button2 {
+.button2{
     margin-left: 200px;
     margin-top: -90px;
     width: 130px;
     height: 50px;
 }
 
-@media screen and (max-width: 390px) {
-    .button1 {
+@media screen and (max-width: 390px){
+    .button1{
         margin-top: 0em;
         margin-left: 90px;
     }
-
-    .button2 {
+    .button2{
         margin-top: -2.5em;
         margin-left: 85px;
     }
 }
 
-@media screen and (min-width: 390px) and (max-width: 992px) {
-    .button1, .button2 {
-        display: none;
+@media screen and (min-width: 390px) and (max-width: 992px){
+    .button1, .button2{
+        display:none;
     }
 }
 
-#AutoButton, #FahrradButton {
-    background: rgb(255, 159, 63);
+#AutoButton,#FahrradButton{
+    background: rgb(255,159,63);
 }
 
 .agb_content h6, .impressum_content h1 {
@@ -409,18 +401,18 @@ body {
     padding-bottom: 1.2%;
 }
 
-.VermietungÜberschrift {
+ .VermietungÜberschrift{
     text-align: center;
     margin-top: 90px;
     font-size: 30px;
     font-family: "Book Antiqua";
 }
 
-.FahrradbildVermietung, .AutobildVermietung, .img-responsive {
+.FahrradbildVermietung, .AutobildVermietung, .img-responsive{
     height: 400px;
     width: 580px;
     display: block;
-    margin-top: 30px;
+    margin-top:30px;
     margin-left: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -450,13 +442,14 @@ body {
     .AutobildVermietung, .FahrradbildVermietung {
         margin-left: 300px;
     }
-
-    #FahrradButtonVermietung, #AutoButtonVermietung {
+    #FahrradButtonVermietung, #AutoButtonVermietung{
         margin-left: 500px;
     }
-
-    .VermietungÜberschrift {
+    .VermietungÜberschrift{
         font-size: 25px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
     }
 
     .agb_div p, .impressum_div p {
@@ -486,6 +479,9 @@ body {
 
     #FahrradButtonVermietung, #AutoButtonVermietung {
         margin-left: 410px;
+    }
+    .TextPreisProTag{
+        margin-left: 35px;
     }
 
     .agb_div p, .impressum_div p {
@@ -518,6 +514,15 @@ body {
     .VermietungÜberschrift {
         font-size: 30px;
     }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
 
     .col-4 {
         margin-left: 27%;
@@ -538,6 +543,18 @@ body {
 
     .VermietungÜberschrift {
         font-size: 25px;
+    }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
+    #inputPreis{
+        margin-left: -20px;
     }
 
     .agb_div p, .impressum_div p {
@@ -579,6 +596,19 @@ body {
     .VermietungÜberschrift {
         font-size: 24px;
     }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
+    #inputBild{
+        width:220px;
+        margin-left: 55px;
+    }
 
     .col-4 {
         margin-left: 24%;
@@ -602,6 +632,20 @@ body {
 
     .VermietungÜberschrift {
         font-size: large;
+    }
+    .TextBild{
+        margin-left: 100px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .detailsInput{
+        margin-left: -30px;
+        width: 200px;
+    }
+    #inputBild{
+        width:170px;
+        margin-left: 45px;
     }
 
     .agb_div p, .impressum_div p {
@@ -640,6 +684,20 @@ body {
 
     #FahrradButtonVermietung, #AutoButtonVermietung {
         margin-left: 140px;
+    }
+    .TextBild{
+        margin-left: 85px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .detailsInput{
+        margin-left: -35px;
+        width: 170px;
+    }
+    #inputBild{
+        width:150px;
+        margin-left: 25px;
     }
 
     .agb_div p, .impressum_div p {
@@ -688,6 +746,23 @@ body {
     #FahrradButtonVermietung, #AutoButtonVermietung {
         margin-left: 100px;
     }
+    .TextBild{
+        margin-left: 70px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .detailsInput{
+        margin-left: -70px;
+        width: 170px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
+    #inputBild{
+        width:110px;
+        margin-left: 30px;
+    }
 
     .agb_div p, .impressum_div p {
         margin-left: 9%;
@@ -730,6 +805,28 @@ body {
     #FahrradButtonVermietung, #AutoButtonVermietung {
         margin-left: 50px;
     }
+    .TextBild{
+        margin-left: 30px;
+    }
+    .TextVon{
+        margin-right: -100px;
+    }
+    .TextPreisProTag{
+        margin-left: 50px;
+    }
+    .detailsInput{
+        margin-left: -70px;
+        width: 130px;
+    }
+    #inputPreis{
+        margin-left: -25px;
+        height: 40px;
+        width: 80px;
+    }
+    #inputBild{
+        width:100px;
+        margin-left: 10px;
+    }
 
     .agb_div p, .impressum_div p {
         margin-left: 5%;
@@ -766,3 +863,81 @@ body {
 
 
 
+
+/*------Kontaktseite--------------*/
+
+.red{
+    color:red;
+}
+.modal-content
+{
+    background-color: #FAFAFA;
+    padding: 10px 40px 60px;
+    margin: 10px 0px 60px;
+    border: 1px solid GREY;
+}
+
+.buttonUndText{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.dropdown-menu{
+    overflow-y: scroll;
+}
+
+.Text{
+    font-size: 20px;
+  /*  color:white;  */
+}
+
+/* --------------- */
+.TextDetails{
+    font-size: 20px;
+}
+
+.form-control{
+    resize: none;
+}
+
+.form-group2{
+    resize: none;
+    margin-left:80px;
+}
+
+#MeldeAutoAn{
+    background: rgb(255,159,63);
+}
+
+.Verschieben{
+    margin-bottom: 30px;
+}
+
+.TextVon{
+    margin-left: -110px;
+    font-size: 20px;
+}
+
+.TextBild{
+    margin-right: 100px;
+    font-size: 20px;
+}
+.buttonUndTextFuerPreis{
+    margin-top: 100px;
+    text-align: center;
+    margin-left: -30px;
+    font-size: 20px;
+}
+
+.HintergrundBildAutoeigenshaft{
+    background-repeat: no-repeat;
+    position: fixed;
+    background-size: cover;
+    width: 1349px;
+    opacity: 0.8;
+}
+
+#LinkAutoeigenschaft{
+    text-decoration: none;
+    color: inherit;
+}

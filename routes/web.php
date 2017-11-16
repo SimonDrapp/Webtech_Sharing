@@ -27,6 +27,10 @@ Route::get('/AGB', function () {
     return view('AGB');
 });
 
+Route::get('/Autoeigenschaft', function () {
+    return view('EigenschaftAutovermietung');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
