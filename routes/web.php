@@ -31,6 +31,10 @@ Route::get('/Autoeigenschaft', function () {
     return view('EigenschaftAutovermietung');
 });
 
+/*------Notification---------*/
+
+Route::post('/BenachrichtigungSpeichern', 'NotificationController@validateAndSave');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

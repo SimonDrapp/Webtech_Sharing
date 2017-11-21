@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="my_form" onsubmit="submitForm(); return false;">
+                <form method="post" action="/BenachrichtigungSpeichern">
                     <div class="form-group">
                         <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Your name" required>
                     </div>
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <input type="submit" id="btnSubmit" name="submit" class="btn btn-primary" value="Submit Form">
                         </input>
-                        <span id="status"></span>
+                        <!--<span id="status"></span>-->
                     </div>
                 </form>
             </div>
