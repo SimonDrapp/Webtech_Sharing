@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 /*-------------eigentliches Senden der Daten-----------*/
 
-function _(id) {
+/*function _(id) {
     return document.getElementById(id);
 }
 
@@ -49,4 +49,4 @@ function submitForm(){
         }
     }
     ajax.send(formdata);
-}
+}*/
