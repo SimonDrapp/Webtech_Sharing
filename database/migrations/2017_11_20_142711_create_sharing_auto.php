@@ -18,8 +18,10 @@ class CreateSharingAuto extends Migration
             $table->String('details');
             $table->Integer('idFarbe')->unsigned();
             $table->Integer('idAmodell')->unsigned();
+            $table->Integer('idBaujahr')->unsigned();
             $table->foreign('idFarbe')->references('id')->on('Farbe');
             $table->foreign('idAmodell')->references('id')->on('AModell');
+            $table->foreign('idBaujahr')->references('id')->on('Baujahr');
             $table->timestamps();
         });
     }

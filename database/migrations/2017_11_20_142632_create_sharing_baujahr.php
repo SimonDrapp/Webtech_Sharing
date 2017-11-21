@@ -14,10 +14,11 @@ class CreateSharingBaujahr extends Migration
     public function up()
     {
         Schema::create('Baujahr', function (Blueprint $table) {
-            $table->increments('id');
-            $table->String('name');
+            $table->increments('id',1);
+            $table->Integer('jahr');
             $table->timestamps();
         });
+        DB::update("ALTER TABLE Baujahr AUTO_INCREMENT=100");
     }
 
     /**

@@ -18,10 +18,8 @@ class CreateSharingAmodell extends Migration
             $table->String('name');
             $table->Integer('idAmarke')->unsigned();
             $table->Integer('idKraftstoff')->unsigned();
-            $table->Integer('idBaujahr')->unsigned();
             $table->foreign('idAmarke')->references('id')->on('AMarke');
             $table->foreign('idKraftstoff')->references('id')->on('Kraftstoff');
-            $table->foreign('idBaujahr')->references('id')->on('Baujahr');
             $table->timestamps();
         });
     }
