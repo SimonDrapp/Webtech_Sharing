@@ -23,7 +23,7 @@ class CreateSharingMieten extends Migration
             $table->foreign('idVermieten')->references('id')->on('Vermieten');
             $table->timestamps();
         });
-        DB::statement('ALTER TABLE Vermieten ADD CONSTRAINT check_date_mieten CHECK (von<bis);');
+        DB::statement('ALTER TABLE Mieten ADD CONSTRAINT check_date_mieten CHECK (von<bis);');
     }
 
     /**

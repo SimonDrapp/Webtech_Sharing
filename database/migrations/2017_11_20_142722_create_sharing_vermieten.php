@@ -20,7 +20,7 @@ class CreateSharingVermieten extends Migration
             $table->date('bis');
             $table->Integer('idAuto')->unsigned()->nullable();
             $table->Integer('idFahrrad')->unsigned()->nullable();
-            $table->Integer('idBenutzer')->unsigned();
+            $table->Integer('idBenutzer')->unsigned()->nullable();
             $table->foreign('idAuto')->references('id')->on('Auto')->onDelete('cascade');
             $table->foreign('idFahrrad')->references('id')->on('Fahrrad')->onDelete('cascade');
             $table->foreign('idBenutzer')->references('id')->on('Benutzer');
