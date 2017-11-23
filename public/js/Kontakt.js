@@ -1,3 +1,21 @@
+/*-------------Einbinden von #myModal--------------*/
+$(document).ready(function(){
+        $("#modal").click(function(){
+            $('#myModal').modal({
+                keyboard:true, //ESC-Taste schließt Modal
+                backdrop:true, //beim Klick außerhalb des Modals, wird dieses geschlossen
+                show: true //Modal wird nach dem Initialisieren angezeigt
+            });
+
+        });
+});
+
+
+/*----------------csdofcnsdoc----------------------*/
+
+
+
+
 /*-------------Begrenzung der Zeichen--------------*/
 $(document).ready(function(){
 
