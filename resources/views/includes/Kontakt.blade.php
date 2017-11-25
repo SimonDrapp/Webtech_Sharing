@@ -11,6 +11,7 @@
             </div>
             <div class="modal-body">
                 <form method="post" action="/BenachrichtigungSpeichern">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Your name" required>
                     </div>

@@ -44,6 +44,11 @@ Route::get('/Ansicht', function () {
 
 Route::post('/BenachrichtigungSpeichern', 'NotificationController@validateAndSave');
 
+Route::get('/Thankyou', function () {
+    return view('notification.thankyou');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
