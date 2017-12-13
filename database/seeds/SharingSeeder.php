@@ -141,19 +141,6 @@ class SharingSeeder extends Seeder
 
         */
 
-        DB::insert("INSERT INTO AMarke VALUES (1, 'Alfa Romeo', NOW(), NOW())");
-        $this->command->info('aMarke angelegt!!');
-        DB::insert("INSERT INTO Kraftstoff VALUES (1,'Benzin', NOW(), NOW())");
-        $this->command->info('Kraftstoff angelegt!!');
-        DB::insert("INSERT INTO AModell VALUES (1,'A1',1,1, NOW(), NOW())");
-        $this->command->info('Amodell angelegt!!');
-        DB::insert("INSERT INTO Farbe VALUES (1,'Blau', NOW(), NOW())");
-        $this->command->info('Farbe angelegt!!');
-        DB::insert("INSERT INTO Baujahr VALUES (1, 1990, NOW(), NOW())");
-        $this->command->info('Baujahr angelegt!!');
-
-
-
         $kraftstoff1 = kraftstoff:: create(array(
             'name'=> 'Benzin'
         ));
@@ -187,6 +174,7 @@ class SharingSeeder extends Seeder
         $firstAMarke1 = AMarke:: create(array(
             'name' => 'Audi'
         ));
+
 
 
 

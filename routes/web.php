@@ -40,6 +40,10 @@ Route::get('/Ansicht', function () {
     return view('AnsichtAuto');
 });
 
+Route::get('/Autoeigenschaft2', function () {
+    return view('EigenschaftAutovermietung2');
+});
+
 /*------Notification---------*/
 
 Route::post('/BenachrichtigungSpeichern', 'NotificationController@validateAndSave');
