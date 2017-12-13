@@ -21,7 +21,7 @@
                 <ul class="nav navbar-nav navbar-right ">
                     <li class="active"><a href="/">Startseite</a></li>
                     <li><a href="/Registrieren">Registrieren</a></li>
-                    <li><a href="/Einloggen">Einloggen</a></li>
+                    <li><a href="/Login">Einloggen</a></li>
                     <li><a href="/Vermieten">Vermieten</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hilfe<b class="caret"></b></a>

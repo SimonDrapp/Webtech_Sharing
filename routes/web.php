@@ -26,9 +26,18 @@ Route::get('/Vermieten', function () {
 Route::get('/AGB', function () {
     return view('AGB');
 });
+Route::get('/Login', function () {
+    return view('/auth/login');
+});
+Route::get('/Registrieren', function () {
+    return view('/auth/register');
+});
 
 Route::get('/Autoeigenschaft', function () {
     return view('EigenschaftAutovermietung');
+});
+Route::get('/Ansicht', function () {
+    return view('AnsichtAuto');
 });
 
 /*------Notification---------*/

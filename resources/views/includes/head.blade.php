@@ -24,6 +24,8 @@
 <!-- contact form -->
 <script type="text/javascript" src="/../../js/Kontakt.js"></script>
 
+
+
 <link rel="icon" href="img/logo_new.png">
 
 <!-- Bootstrap
