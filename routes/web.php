@@ -52,6 +52,10 @@ Route::get('/Thankyou', function () {
     return view('notification.thankyou');
 });
 
+Route::get('/NachrichtenAnzeigen', 'NotificationController@showAllContacts');
+
+Route::get('/NachrichtAnzeigen/{id}', 'NotificationController@showContact');
+
 
 Auth::routes();
 
