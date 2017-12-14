@@ -24,6 +24,7 @@
 <!-- contact form -->
 <script type="text/javascript" src="/../../js/Kontakt.js"></script>
 <script type="text/javascript" src="/../../js/Bildauswahl.js"></script>
+<script type="text/javascript" src="/../../js/Kalender.js"></script>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
