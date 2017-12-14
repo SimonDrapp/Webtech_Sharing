@@ -40,6 +40,10 @@ Route::get('/Ansicht', function () {
     return view('AnsichtAuto');
 });
 
+Route::get('/allgemeineSuche', function () {
+    return view('allgemeineSuche');
+});
+
 /*------Notification---------*/
 
 Route::post('/BenachrichtigungSpeichern', 'NotificationController@validateAndSave');

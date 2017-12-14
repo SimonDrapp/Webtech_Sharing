@@ -47,7 +47,7 @@
                             <span class="glyphicon glyphicon-calendar"></span></button>
                     </div>
                     <div class="form-group">
-                        <a href="/Ansicht" >
+                        <a href="/allgemeineSuche" >
                         <button id="buttonSearch" class=" btn btn-basic " type="button">Suchen
                             <span class="glyphicon glyphicon-search"></span></button>
                         </a>
@@ -74,6 +74,7 @@
                                 tellus ac cursus commodo.</p>
                         </div>
                         <div class="col-md-5">
+                            <a href="/Ansicht" >
                             <img class="AutoBild img-rounded" src="img/car1.jpg" data-src="holder.js/500x500/auto"
                                  alt="Auto">
                         </div>

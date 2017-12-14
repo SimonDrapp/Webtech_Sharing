@@ -394,4 +394,20 @@ body {
     padding-bottom: 10.2%;
 }
 
+/*---------allgemeine Suche-------------*/
+.search2 {
+    position: relative;
+    background: url("../img/car1.jpg");
+    height: 667px;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+}
+.eingabefeld {
+   margin-top: 200px;
+}
+.btnFilter {
+
+}
+
 
