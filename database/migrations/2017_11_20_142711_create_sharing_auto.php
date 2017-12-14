@@ -31,8 +31,7 @@ class CreateSharingAuto extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        Schema::dropIfExists('Auto');
+    public function down(){
+     Schema::dropIfExists('Auto');
     }
 }

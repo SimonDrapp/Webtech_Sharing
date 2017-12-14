@@ -291,6 +291,7 @@ body {
 
 .form-control {
     resize: none;
+
 }
 
 .form-group2 {
@@ -298,8 +299,10 @@ body {
     margin-left: 80px;
 }
 
-#MeldeAutoAn {
+#MeldeAutoAn, #MeldeAutoAnButton {
     background: rgb(255, 159, 63);
+    text-decoration: none;
+    color: inherit;
 }
 
 .Verschieben {
@@ -394,6 +397,10 @@ body {
     padding-bottom: 10.2%;
 }
 
+.file{
+    visibility: hidden;
+    position: fixed;
+}
 /*---------allgemeine Suche-------------*/
 .search2 {
     position: relative;
@@ -411,3 +418,17 @@ body {
 }
 
 
+#inputBild{
+    width: 190px;
+
+}
+
+.TextPreisProTag{
+    margin-top: -14px;
+}
+
+.TextBis{
+    margin-top:-20px;
+    margin-left: -100px;
+    font-size: 20px;
+}

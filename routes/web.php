@@ -44,6 +44,10 @@ Route::get('/allgemeineSuche', function () {
     return view('allgemeineSuche');
 });
 
+Route::get('/Autoeigenschaft2', function () {
+    return view('EigenschaftAutovermietung2');
+});
+
 /*------Notification---------*/
 
 Route::post('/BenachrichtigungSpeichern', 'NotificationController@validateAndSave');
