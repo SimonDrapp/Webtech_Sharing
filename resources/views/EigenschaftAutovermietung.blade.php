@@ -21,11 +21,17 @@
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
                                 <span class="caret"></span></button>
                             <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="option"><a role="menu" tabindex="-1">Audi</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">BMW</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">Mercedes-Benz</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">Volkswagen</a></li>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
+
+                                <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=db_sharing', 'sharing1', 'shqiptar');
+
+                                $sql = "SELECT name FROM amarke";
+                                foreach ($pdo->query($sql) as $row) {
+                                    echo $row['name']. "<br />";
+                                }
+                                ?>
+
                             </ul>
                             </form>
                         </div>
@@ -40,10 +46,7 @@
                                     <span class="caret"></span></button>
                                 <form action="EigenschaftAutovermietung2.blade.php" method="post">
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                    <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                    <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                    <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                    <li role="option"><a role="menu" tabindex="-1">#</a></li>
+
                                 </ul>
                                 </form>
                             </div>
@@ -59,10 +62,7 @@
                                 <span class="caret"></span></button>
                             <form action="EigenschaftAutovermietung2.blade.php" method="post">
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
+
                             </ul>
                             </form>
                         </div>
@@ -76,10 +76,7 @@
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
                                 <span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
+
                             </ul>
                             </form>
                         </div>
@@ -101,10 +98,7 @@
                                 <span class="caret"></span></button>
 
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
-                                <li role="option"><a role="menu" tabindex="-1">#</a></li>
+
                             </ul>
                     </div>
                 </div>
