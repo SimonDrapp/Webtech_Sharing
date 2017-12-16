@@ -4,6 +4,22 @@
         @include('includes.head')
         <title>my-easysharing | Autovermietung</title>
 
+    <script>
+ function Eingabe(Wert)
+ {
+     for(i = 0; i < document.getElementById('id1').options.length; i++)
+     {
+         if(Wert.substr(0, Wert.length).toLowerCase() == document.getElementById('s1').options[i].value.substr(0, Wert.length).toLowerCase()
+             && Wert.length != 0)
+         {
+             document.getElementById('s1').options[i].selected = true;
+             break;
+         }
+     }
+ }
+    </script>
+
+
 
     </head>
 
@@ -17,22 +33,22 @@
                 <div class="col-xs-6 col-md-3">
                     <div class="buttonUndText">
                         <p class="Text">Marke</p>
-                        <div class="dropdown">
+                        <div class="dropdown">  <!--
                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
-                                <span class="caret"></span></button>
-                            <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenuButton">
-
+                                <span class="caret"></span></button>            -->
+                            <form name="form1" onkeyup="Eingabe(this.value);">
+                            <select class="form-control" name="auswahl" role="menu" aria-labelledby="dropdownMenuButton" id="s1">
+                                <option selected>Auswählen</option>
                                 <?php
                                 $pdo = new PDO('mysql:host=localhost;dbname=db_sharing', 'sharing1', 'shqiptar');
 
-                                $sql = "SELECT name FROM amarke";
-                                foreach ($pdo->query($sql) as $row) {
-                                    echo $row['name']. "<br />";
+                              $sql1 = "SELECT name FROM amarke";
+                                foreach ($pdo->query($sql1) as $row) {
+                                    echo "<option >" .$row['name']."</option>";
                                 }
                                 ?>
 
-                            </ul>
+                            </select>
                             </form>
                         </div>
                     </div>
@@ -42,12 +58,20 @@
                     <div class="buttonUndText">
                         <p class="Text">Modell</p>
                             <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
-                                    <span class="caret"></span></button>
-                                <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+   <!--                             <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
+                                    <span class="caret"></span></button>            -->
+                                <form name="form">
+                                <select class="form-control" role="menu" aria-labelledby="menu1">
+                                    <option selected>Auswählen</option>
+                                    <?php
+                                    $pdo = new PDO('mysql:host=localhost;dbname=db_sharing', 'sharing1', 'shqiptar');
 
-                                </ul>
+                                    $sql2 = "SELECT amodell.aModellname FROM amodell ,amarke WHERE amodell.idAmarke = amarke.id";
+                                    foreach ($pdo->query($sql2) as $row) {
+                                        echo "<option >" .$row['aModellname']."</option>";
+                                    }
+                                    ?>
+                                </select>
                                 </form>
                             </div>
                     </div>
@@ -58,12 +82,15 @@
                     <div class="buttonUndText">
                         <p class="Text">Autotyp</p>
                         <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
-                                <span class="caret"></span></button>
+         <!--                   <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
+                                <span class="caret"></span></button>        -->
                             <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <select class="form-control" role="menu" aria-labelledby="menu1">
+                                <option selected>Auswählen</option>
 
-                            </ul>
+
+
+                            </select>
                             </form>
                         </div>
                     </div>
@@ -73,11 +100,19 @@
                         <p class="Text">Baujahr</p>
                         <div class="dropdown">
                             <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+        <!--                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
+                                <span class="caret"></span></button>        -->
+                            <select class="form-control" role="menu" aria-labelledby="menu1">
+                                <option selected>Auswählen</option>
+                                <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=db_sharing', 'sharing1', 'shqiptar');
 
-                            </ul>
+                                $sql3 = "SELECT jahr FROM baujahr";
+                                foreach ($pdo->query($sql3) as $row) {
+                                    echo "<option >" .$row['jahr']."</option>";
+                                }
+                                ?>
+                            </select>
                             </form>
                         </div>
                     </div>
@@ -94,12 +129,20 @@
                     <div class="buttonUndText">
                         <p class="Text">Kraftstoff</p>
 
-                            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
-                                <span class="caret"></span></button>
+     <!--                       <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Auswählen
+                                <span class="caret"></span></button>        -->
 
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <select class="form-control" role="menu" aria-labelledby="menu1">
+                                <option selected>Auswählen</option>
+                                <?php
+                                $pdo = new PDO('mysql:host=localhost;dbname=db_sharing', 'sharing1', 'shqiptar');
 
-                            </ul>
+                                $sql4 = "SELECT name FROM kraftstoff";
+                                foreach ($pdo->query($sql4) as $row) {
+                                    echo "<option >" .$row['name']."</option>";
+                                }
+                                ?>
+                            </select>
                     </div>
                 </div>
 
@@ -191,6 +234,12 @@
         </div>
     </div>
 
+
+        <script>
+            function auswahl(){
+
+            }
+    </script>
 
         @include('includes.footer')
     </body>

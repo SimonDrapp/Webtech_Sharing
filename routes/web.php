@@ -48,6 +48,12 @@ Route::get('/Autoeigenschaft2', function () {
     return view('EigenschaftAutovermietung2');
 });
 
+
+
+Route::get('/EigenschaftAutovermietung', 'amarken@validateAndSave');
+
+
+
 /*------Notification---------*/
 
 Route::post('/BenachrichtigungSpeichern', 'NotificationController@validateAndSave');

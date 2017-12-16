@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Notification;
+use Mockery\Matcher\Not;
 
 class amarken extends Controller
 {
@@ -11,11 +12,17 @@ class amarken extends Controller
     {
         $amarke = new Notification;
         $amarke->name = $request->name;
+
+        if ($amarke->save()) {
+
+            return view('showAmarke', ['amarke' => $amarke]);
+        } else {
+            return view('EigenschaftAutovermietung', ['amarke' => $amarke]);
+        }
     }
 
-    public function showAmarke(Request $request){
+    public function showAllInputs(Request $request){
 
-        $amarke = DB::select('select * from amarke wehere id=1');
-        return view('EigenschaftenAutovermietung.blade.php', ['name' =>$amarke]);
+
     }
 }

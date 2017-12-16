@@ -15,7 +15,7 @@ class CreateSharingAmodell extends Migration
     {
         Schema::create('AModell', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('name');
+            $table->String('aModellname');
             $table->Integer('idAmarke')->unsigned();
             $table->Integer('idKraftstoff')->unsigned();
             $table->foreign('idAmarke')->references('id')->on('AMarke');

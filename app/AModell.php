@@ -10,6 +10,6 @@ class AModell extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'Integer';
     public $incrementing = true;
-    protected $fillable = array('name');
+    protected $fillable = array('aModellname');
 
 }
