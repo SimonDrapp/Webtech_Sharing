@@ -76,7 +76,7 @@
                         <div class="col-md-5">
                             <a href="/Ansicht" >
                             <img class="AutoBild img-rounded" src="img/car1.jpg" data-src="holder.js/500x500/auto"
-                                 alt="Auto">
+                                 alt="Auto"></a>
                         </div>
 
                     </div>
@@ -117,6 +117,24 @@
                 </section>
 
 </article>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-6">
+            <div id="googleMap"></div>
+            <script>
+                function myMap() {
+                    var myCenter= new google.maps.LatLng(47.6724811,9.1679752);
+                    var mapCanvas= document.getElementById("googleMap");
+                    var mapOptions={center: myCenter, zoom:13};
+                    var map = new google.maps.Map(mapCanvas, mapOptions);
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+        </div>
+    </div>
+</div>
+
 @include('includes.footer')
 
 

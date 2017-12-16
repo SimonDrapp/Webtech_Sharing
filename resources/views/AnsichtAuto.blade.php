@@ -52,7 +52,7 @@
 </div>
 
 
-<div class="conatiner">
+<div class="container">
     <div class="row">
         <div class="col-lg-12 lol">
             <div class="form-group">
@@ -75,6 +75,36 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-6 eigenschaft">
+            <p><b>Marke:</b></p>
+            <p><b>Modell:</b></p>
+            <p><b>Autotyp:</b></p>
+            <p><b>Kraftstoff:</b></p>
+            <p><b>Baujahr:</b></p>
+            <p><b>Details:</b></p>
+            <p><b>Preis pro Tag:</b></p>
+        </div>
+        <div class="col-md-4 col-lg-6">
+            <div id="googleMap"></div>
+            <script>
+                function myMap() {
+                    var myCenter= new google.maps.LatLng(47.6724811,9.1679752);
+                    var mapCanvas= document.getElementById("googleMap");
+                    var mapOptions={center: myCenter, zoom:15};
+                    var map = new google.maps.Map(mapCanvas, mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: myCenter,
+                        title:"Hindenburgstraße 9"
+                    });
+                    marker.setMap(map);
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+        </div>
+    </div>
+</div>
 
 @include('includes.footer')
 </body>

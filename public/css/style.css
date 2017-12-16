@@ -380,10 +380,17 @@ body {
     justify-content: center;
     margin-top: 2% !important;
 }
-.full-screen {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.eigenschaft{
+    font-family: Arial;
+    font-size: 20px;
+    margin-left: 5%;
+}
+#googleMap{
+    margin-top: 5%;
+    width:100%;
+    height:350px;
+    margin-left: 0;
+
 }
 
 /*-----------Seite Login--------------*/
