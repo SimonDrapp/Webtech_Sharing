@@ -151,7 +151,7 @@
                             <p class="TextBild">Bild</p>
                             <input type="file" name="img[]" class="file" accept="image/*" id="file1">
                             <div class="input-group mx-sm-4">
-                                <form action="EigenschaftAutovermietung2.blade.php" method="post" enctype="multipart/form-data">
+                                <form enctype="multipart/form-data">
                                     <input type="text" id="inputBild" class="form-control input">
                                 </form>
                             </div>
@@ -206,7 +206,7 @@
                                 <label for="inputVon" class="sr-only"></label>
                                 <input placeholder="DD/MM/YYYY" class="form-control" id="inputVon" name="inputVon">
                             </div>
-                            <button id="buttonGPS1" type="button" class="form-group btn btn-basic">
+                            <button id="buttonGPS1" type="button" class="form-group btn btn-basic" name="inputVon">
                                 <span class="glyphicon glyphicon-calendar"></span></button>
                         </div>
                     </div>
@@ -218,7 +218,7 @@
                                 <label for="inputBis" class="sr-only"></label>
                                 <input placeholder="DD/MM/YYYY" class="form-control" id="inputBis" name="inputBis">
                             </div>
-                            <button id="buttonGPS1" type="date" class="form-group btn btn-basic">
+                            <button id="buttonGPS1" type="button" class="form-group btn btn-basic" name="inputBis">
                                 <span class="glyphicon glyphicon-calendar"></span></button>
                         </div>
                     </div>

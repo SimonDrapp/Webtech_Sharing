@@ -31,19 +31,19 @@
                             <span class="glyphicon glyphicon-map-marker"></span></button>
                     </div>
                     <div class="form-group">
-                        <input class="form-control visible-lg" id="datevon" type="text" name="date"
+                        <input class="form-control visible-lg" id="datevon" type="text" name="datevon"
                                placeholder="DD/MM/YYYY">
                     </div>
                     <div class="form-group">
-                        <button id="buttonVon" type="button" class="btn btn-basic visible-lg">
+                        <button id="buttonVon" type="button" class="btn btn-basic visible-lg" name="datevon">
                             <span class="glyphicon glyphicon-calendar"></span></button>
                     </div>
                     <div class="form-group">
-                        <input class="form-control visible-lg" id="datebis" type="text" name="date"
+                        <input class="form-control visible-lg" id="datebis" type="text" name="datebis"
                                placeholder="DD/MM/YYYY">
                     </div>
                     <div class="form-group">
-                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg">
+                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg" name="datebis">
                             <span class="glyphicon glyphicon-calendar"></span></button>
                     </div>
                     <div class="form-group">
