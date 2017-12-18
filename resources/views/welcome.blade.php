@@ -43,12 +43,12 @@
                                placeholder="DD/MM/YYYY">
                     </div>
                     <div class="form-group">
-                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg" name="datebis">
+                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg buttonS" name="datebis">
                             <span class="glyphicon glyphicon-calendar"></span></button>
                     </div>
                     <div class="form-group">
                         <a href="/allgemeineSuche" >
-                        <button id="buttonSearch" class=" btn btn-basic " type="button">Suchen
+                        <button id="buttonSearch" class=" btn btn-basic" type="button">Suchen
                             <span class="glyphicon glyphicon-search"></span></button>
                         </a>
                     </div>
@@ -82,8 +82,8 @@
                     </div>
 
                     <div class="button1">
-                        <button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
-                                    class="glyphicon glyphicon-triangle-right"></span></button>
+                        <a href="/Ansicht" ><button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
+                                        class="glyphicon glyphicon-triangle-right"></span></button></a>
                     </div>
                 </section>
 
@@ -121,11 +121,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-lg-6">
-            <div id="googleMap"></div>
+            <div id="googleMap1"></div>
             <script>
                 function myMap() {
                     var myCenter= new google.maps.LatLng(47.6724811,9.1679752);
-                    var mapCanvas= document.getElementById("googleMap");
+                    var mapCanvas= document.getElementById("googleMap1");
                     var mapOptions={center: myCenter, zoom:13};
                     var map = new google.maps.Map(mapCanvas, mapOptions);
                 }
