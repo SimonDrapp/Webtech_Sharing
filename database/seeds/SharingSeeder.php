@@ -141,6 +141,11 @@ class SharingSeeder extends Seeder
 
         */
 
+ /*       $farbe1 = farbe:: create(array(
+            'name'=> 'rot'
+        ));
+
+*/
         $kraftstoff1 = kraftstoff:: create(array(
             'name'=> 'Benzin'
         ));
@@ -153,19 +158,19 @@ class SharingSeeder extends Seeder
 
 
         $firstbaujahr1 = Baujahr:: create(array(
-            'jahr' => 2014
+            'jahr' => 2017
         ));
 
         $firstbaujahr2 = Baujahr:: create(array(
-            'jahr' => 2015
-        ));
-
-        $firstbaujahr3 = Baujahr:: create(array(
             'jahr' => 2016
         ));
 
+        $firstbaujahr3 = Baujahr:: create(array(
+            'jahr' => 2015
+        ));
+
         $firstbaujahr4 = Baujahr:: create(array(
-            'jahr' => 2017
+            'jahr' => 2014
         ));
 
 
@@ -174,34 +179,40 @@ class SharingSeeder extends Seeder
         $firstAMarke1 = AMarke:: create(array(
             'name' => 'Audi'
         ));
+        $firstAMarke2 = AMarke:: create(array(
+            'name' => 'BMW'
+        ));
+        $firstAMarke3 = AMarke:: create(array(
+            'name' => 'Mercedes'
+        ));
 
 
 
 
 
         $firstmodelA1 = AModell::create(array(
-            'name' => 'A1',
+            'aModellname' => 'A1',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
         $firstmodelA2 = AModell::create(array(
-            'name' => 'A2',
+            'aModellname' => 'A2',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff2->id
         ));
         $this->command->info('AModell angelegt!!');
 
         $firstmodelA3 = AModell::create(array(
-            'name' => 'A3',
+            'aModellname' => 'A3',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff2->id
         ));
         $this->command->info('AModell angelegt!!');
 
         $firstmodelA4 = AModell::create(array(
-            'name' => 'A4',
+            'aModellname' => 'A4',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
@@ -209,10 +220,10 @@ class SharingSeeder extends Seeder
 
 
 
-
+/*
         $secondcar1= Auto:: create(array(
             'details' => 'ausprobieren',
-            'idFarbe' => 1,
+            'idFarbe' => $farbe1->id,
             'idAmodell' => $firstmodelA1->id,
             'idBaujahr' => $firstbaujahr1->id
         ));
@@ -220,7 +231,7 @@ class SharingSeeder extends Seeder
 
         $secondcar2= Auto:: create(array(
             'details' => 'ausprobieren',
-            'idFarbe' => 1,
+            'idFarbe' => $farbe1->id,
             'idAmodell' => $firstmodelA2->id,
             'idBaujahr' => $firstbaujahr2->id
         ));
@@ -228,7 +239,7 @@ class SharingSeeder extends Seeder
 
         $secondcar3= Auto:: create(array(
             'details' => 'ausprobieren',
-            'idFarbe' => 1,
+            'idFarbe' => $farbe1->id,
             'idAmodell' => $firstmodelA3->id,
             'idBaujahr' => $firstbaujahr3->id
         ));
@@ -236,7 +247,7 @@ class SharingSeeder extends Seeder
 
         $secondcar4= Auto:: create(array(
             'details' => 'ausprobieren',
-            'idFarbe' => 1,
+            'idFarbe' => $farbe1->id,
             'idAmodell' => $firstmodelA4->id,
             'idBaujahr' => $firstbaujahr4->id
         ));
@@ -253,6 +264,6 @@ class SharingSeeder extends Seeder
             'idFahrrad' => null,
             'idAuto' => $secondcar2->id
         ));
-
+*/
     }
 }

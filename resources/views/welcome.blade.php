@@ -31,24 +31,24 @@
                             <span class="glyphicon glyphicon-map-marker"></span></button>
                     </div>
                     <div class="form-group">
-                        <input class="form-control visible-lg" id="datevon" type="text" name="date"
+                        <input class="form-control visible-lg" id="datevon" type="text" name="datevon"
                                placeholder="DD/MM/YYYY">
                     </div>
                     <div class="form-group">
-                        <button id="buttonVon" type="button" class="btn btn-basic visible-lg">
+                        <button id="buttonVon" type="button" class="btn btn-basic visible-lg" name="datevon">
                             <span class="glyphicon glyphicon-calendar"></span></button>
                     </div>
                     <div class="form-group">
-                        <input class="form-control visible-lg" id="datebis" type="text" name="date"
+                        <input class="form-control visible-lg" id="datebis" type="text" name="datebis"
                                placeholder="DD/MM/YYYY">
                     </div>
                     <div class="form-group">
-                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg">
+                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg buttonS" name="datebis">
                             <span class="glyphicon glyphicon-calendar"></span></button>
                     </div>
                     <div class="form-group">
                         <a href="/allgemeineSuche" >
-                        <button id="buttonSearch" class=" btn btn-basic " type="button">Suchen
+                        <button id="buttonSearch" class=" btn btn-basic" type="button">Suchen
                             <span class="glyphicon glyphicon-search"></span></button>
                         </a>
                     </div>
@@ -76,14 +76,14 @@
                         <div class="col-md-5">
                             <a href="/Ansicht" >
                             <img class="AutoBild img-rounded" src="img/car1.jpg" data-src="holder.js/500x500/auto"
-                                 alt="Auto">
+                                 alt="Auto"></a>
                         </div>
 
                     </div>
 
                     <div class="button1">
-                        <button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
-                                    class="glyphicon glyphicon-triangle-right"></span></button>
+                        <a href="/Ansicht" ><button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
+                                        class="glyphicon glyphicon-triangle-right"></span></button></a>
                     </div>
                 </section>
 
@@ -117,6 +117,24 @@
                 </section>
 
 </article>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-6">
+            <div id="googleMap1"></div>
+            <script>
+                function myMap() {
+                    var myCenter= new google.maps.LatLng(47.6724811,9.1679752);
+                    var mapCanvas= document.getElementById("googleMap1");
+                    var mapOptions={center: myCenter, zoom:13};
+                    var map = new google.maps.Map(mapCanvas, mapOptions);
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+        </div>
+    </div>
+</div>
+
 @include('includes.footer')
 
 
