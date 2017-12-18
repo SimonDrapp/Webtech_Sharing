@@ -24,6 +24,7 @@
 <!-- contact form -->
 <script type="text/javascript" src="/../../js/Kontakt.js"></script>
 <script type="text/javascript" src="/../../js/Bildauswahl.js"></script>
+<script type="text/javascript" src="/../../js/Bildauswahl.js"></script>
 <script type="text/javascript" src="/../../js/Kalender.js"></script>
 
 

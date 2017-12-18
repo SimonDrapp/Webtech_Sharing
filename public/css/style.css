@@ -291,7 +291,6 @@ body {
 
 .form-control {
     resize: none;
-
 }
 
 .form-group2 {
@@ -417,6 +416,10 @@ body {
 
 }
 
+.file{
+    visibility: hidden;
+    position: fixed;
+}
 
 #inputBild{
     width: 190px;
