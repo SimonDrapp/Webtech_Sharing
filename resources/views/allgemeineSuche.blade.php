@@ -3,14 +3,17 @@
     <head>
         @include('includes.head')
         <title>my-easysharing | allgemeine Suche </title>
+
+
+
     </head>
 
     <body>
         @include('includes.header')
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-12 search2">
+                <div class="col-12">
                     <div class="row">
                         <div class="col-4  eingabefeld">
                             <div class="form-group">
@@ -21,21 +24,15 @@
                                 <button id="buttonGPS" type="button" class="form-group btn btn-basic ">
                                     <span class="glyphicon glyphicon-map-marker"></span></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group InputWithIcon">
                                 <input class="form-control visible-lg" id="datevon" type="text" name="date"
                                        placeholder="DD/MM/YYYY">
+                                <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
                             </div>
-                            <div class="form-group">
-                                <button id="buttonVon" type="button" class="btn btn-basic visible-lg">
-                                    <span class="glyphicon glyphicon-calendar"></span></button>
-                            </div>
-                            <div class="form-group">
+                            <div class="form-group InputWithIcon">
                                 <input class="form-control visible-lg" id="datebis" type="text" name="date"
                                        placeholder="DD/MM/YYYY">
-                            </div>
-                            <div class="form-group">
-                                <button id="buttonBis" type="button" class="btn btn-basic visible-lg">
-                                    <span class="glyphicon glyphicon-calendar"></span></button>
+                                <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
                             </div>
                             <div class="form-group">
                                 <a href="/allgemeineSuche" >
@@ -49,8 +46,48 @@
             </div>
         </div>
 
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-9">
+                    <div class="myBtnContainer">
+                        <button class="btn active" onclick="filterSelection('all')"> alle anzeigen</button>
+                        <button class="btn" onclick="filterSelection('cars')"> Autos</button>
+                        <button class="btn" onclick="filterSelection('animals')"> Fahrräder</button>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="myBtnContainer">
+                        <button class="btn active" onclick="filterSelection('all')"> Preis</button>
+                        <button class="btn" onclick="filterSelection('cars')"> Entfernung</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="container-fluid">
+        <div class="searchResultsWrapper">
+            <div class="searchFilter">
+                <div class="searchFilter_block">
+                    <div class="searchFilter_filter">
+                        <h5 class="searchFilter_filter-title">Preis pro Tag</h5>
+                        <div class="searchFilter_filter-content">
+                            <div id="slidecontainer">
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                <p>Preis: <span id="demo"></span></p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="searchResults">
+
+            </div>
+
+        </div>
+
+
+       <!-- <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6"></div>
 
@@ -81,9 +118,19 @@
                 </div>
             </div>
         </div>
+        -->
 
 
 
         @include('includes.footer')
+        <script>
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+            output.innerHTML = slider.value;
+
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+            }
+        </script>
     </body>
 </html>
