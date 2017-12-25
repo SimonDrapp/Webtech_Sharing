@@ -11,4 +11,5 @@ class Art extends Model
     protected $keyType = 'Integer';
     public $incrementing = true;
     protected $fillable = array('name');
+
 }

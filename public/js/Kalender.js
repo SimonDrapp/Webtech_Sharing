@@ -1,4 +1,4 @@
-
+/*
 $(document).ready(function (){
     var date_von=$('input[name="inputVon"]');
     var date_bis=$('input[name="inputBis"]');
@@ -15,6 +15,8 @@ $(document).ready(function (){
         orientation: "bottom-left",
         todayHighlight: true,
         autoclose: true,
+        mindate: 0,
+        changeMonth:true
 
     };
 
@@ -27,3 +29,6 @@ $(document).ready(function (){
     date_von2_startseite.datepicker(options);
     date_bis2_startseite.datepicker(options);
 });
+
+
+*/

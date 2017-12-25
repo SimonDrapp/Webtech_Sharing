@@ -305,7 +305,7 @@ body {
     font-size: 20px;
 }
 
-#Details{
+#Details, #Details2{
     resize: none;
 }
 
@@ -318,6 +318,13 @@ body {
     background: rgb(255, 159, 63);
     text-decoration: none;
     color: inherit;
+}
+
+#MeldeAutoAn2, #MeldeAutoAnButton2 {
+    background: rgb(255, 159, 63);
+    text-decoration: none;
+    color: inherit;
+    margin-bottom:20px;
 }
 
 .Verschieben {
@@ -339,16 +346,6 @@ body {
     text-align: center;
     margin-left: -30px;
     font-size: 20px;
-}
-
-.HintergrundBildAutoeigenshaft {
-    background-repeat: no-repeat;
-    position: fixed;
-    background-size: cover;
-    width: 1349px;
-    opacity: 0.8;
-    -webkit-filter: blur(2px);
-    filter:blur(2px);
 }
 
 #LinkAutoeigenschaft {
@@ -536,6 +533,22 @@ body {
     font-size: 20px;
 }
 
-#googleMap{
-    margin-bottom: 20px;
+.verschieben2{
+    margin-top: -12px;
 }
+
+#buttonBild2{
+    margin-left: 10px;
+}
+
+#Zurueck, #Zurueck2{
+    background: rgb(255, 60, 60);       /*background: rgb(0, 153, 204); */
+    text-decoration: none;
+    color: inherit;
+}
+
+.AGBFeld{
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
