@@ -28,7 +28,7 @@
         @include('includes.header')
         <img class="HintergrundBildAutoeigenshaft" src="img/header1.jpg" alt="AutovermietungBild">
 
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-md-3">
                     <div class="buttonUndText">

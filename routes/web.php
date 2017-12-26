@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,9 +42,16 @@ Route::get('/Ansicht', function () {
     return view('AnsichtAuto');
 });
 
-Route::get('/allgemeineSuche', function () {
-    return view('allgemeineSuche');
-});
+/*Route::get('/allgemeineSuche', function () {
+
+    $aMarken = DB::table('AMarke')->get();
+
+
+    return view('allgemeineSuche',compact('aMarken'));
+});*/
+
+Route::resource('allgemeineSuche','allgemeineSucheController');
+
 
 Route::get('/Autoeigenschaft2', function () {
     return view('EigenschaftAutovermietung2');

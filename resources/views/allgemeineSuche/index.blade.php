@@ -6,6 +6,7 @@
 
 
 
+
     </head>
 
     <body>
@@ -71,19 +72,92 @@
                         <h5 class="searchFilter_filter-title">Preis pro Tag</h5>
                         <div class="searchFilter_filter-content">
                             <div id="slidecontainer">
-                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                                <p>Preis: <span id="demo"></span></p>
+                                <input type="range" min="1" max="200" value="100" class="slider" id="myRangePrice">
+                                <p>Preis: <span id="demoPrice"></span>€</p>
                             </div>
-
+                        </div>
+                    </div>
+                    <div class="searchFilter_filter">
+                        <h5 class="searchFilter_filter-title">Entfernung</h5>
+                        <div class="searchFilter_filter-content">
+                            <div id="slidecontainer">
+                                <input type="range" min="1" max="300" value="150" class="slider" id="myRangeDistance">
+                                <p>Entfernung: <span id="demoDistance"></span>km</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="searchFilter_filter">
+                        <h5 class="searchFilter_filter-title">Marke</h5>
+                        <div class="searchFilter_filter-content">
+                            <ul>
+                                @foreach ($aMarken as $aMarke)
+                                    <li><a href="/allgemeineSuche/{{$aMarke->id}}">{{ $aMarke->name }}</a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="searchFilter_filter">
+                        <h5 class="searchFilter_filter-title">Modell</h5>
+                        <div class="searchFilter_filter-content">
+                            <ul>
+                                @foreach ($aModelle as $aModell)
+                                    <li>{{ $aModell->aModellname }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="searchFilter_filter">
+                        <h5 class="searchFilter_filter-title">Kraftstoff</h5>
+                        <div class="searchFilter_filter-content">
+                            <ul>
+                                @foreach ($Kraftstoffe as $Kraftstoff)
+                                    <li>{{ $Kraftstoff->name }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="searchFilter_filter">
+                        <h5 class="searchFilter_filter-title">Baujahr</h5>
+                        <div class="searchFilter_filter-content">
+                            <select class="form-control" role="menu" aria-labelledby="menu1">
+                                <option selected>Auswählen</option>
+                                @foreach ($Baujahre as $Baujahr)
+                                    <option>{{ $Baujahr->jahr }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="searchResults">
+                <ul type="none">
+                    <li data-index="0">
+                        <a href="#">
+                          <div class="searchResults_image">
+                              <h3>AutoBild</h3>
 
+                          </div>
+                          <div class="searchResults_info">
+                              <div class="searchResults_info-inner">
+                                  <h3 class="searchResults_title">
+                                      <a>Automarke + Modell</a>
+                                  </h3>
+                                  <div>
+                                      <p>Straße, Ort</p>
+                                  </div>
+                              </div>
+                              <div class="searchResults_priceContainer">
+                                  <h3 class="searchResults_price">
+                                      € 42,50
+                                  </h3>
+                                  <span>pro Tag</span>
+                              </div>
+                          </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
-
         </div>
 
 
@@ -124,12 +198,20 @@
 
         @include('includes.footer')
         <script>
-            var slider = document.getElementById("myRange");
-            var output = document.getElementById("demo");
-            output.innerHTML = slider.value;
+            var slider_P = document.getElementById("myRangePrice");
+            var output_P = document.getElementById("demoPrice");
+            output_P.innerHTML = slider_P.value;
 
-            slider.oninput = function() {
-                output.innerHTML = this.value;
+            slider_P.oninput = function() {
+                output_P.innerHTML = this.value;
+            }
+
+            var slider_E = document.getElementById("myRangeDistance");
+            var output_E = document.getElementById("demoDistance");
+            output_E.innerHTML = slider_E.value;
+
+            slider_E.oninput = function() {
+                output_E.innerHTML = this.value;
             }
         </script>
     </body>

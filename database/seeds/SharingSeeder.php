@@ -218,6 +218,27 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('AModell angelegt!!');
 
+        $firstmodelM2 = AModell::create(array(
+            'aModellname' => 'M2',
+            'idaMarke' => $firstAMarke2->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelM3 = AModell::create(array(
+            'aModellname' => 'M3',
+            'idaMarke' => $firstAMarke2->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelC = AModell::create(array(
+            'aModellname' => 'C-Klasse',
+            'idaMarke' => $firstAMarke3->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
 
 
 /*

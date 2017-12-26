@@ -50,6 +50,7 @@ body {
     opacity: 0.8;
     background: #3c3c3c;
     margin-bottom: 0;
+    clear: both;
 }
 
 .navbar-brand {
@@ -477,7 +478,7 @@ body {
     background-color: #ccc;
 }
 #slidecontainer {
-    width: 20%;
+    width: 90%;
 }
 
 .slider {
@@ -513,6 +514,58 @@ body {
     background: #4CAF50;
     cursor: pointer;
 }
+
+.searchFilter{
+    border: 2px solid;
+    border-radius: 5px;
+    width:30%;
+    margin-left: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.searchFilter_filter-title{
+    border-bottom: 2px solid;
+    text-align: center;
+    padding-bottom: 8px;
+}
+.searchFilter_filter-content{
+    border-bottom: 2px solid;
+    padding: 10px;
+}
+
+.searchFilter_filter-content p {
+    padding-top: 10px;
+}
+
+.searchFilter_filter-content .form-control {
+    width: 50%;
+    margin: auto;
+}
+
+.searchFilter{
+    float:left;
+}
+
+.searchResults{
+    border: 2px solid;
+    width: 50%;
+    margin-right: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    float:right;
+}
+.searchResults .searchResults_image{
+    border: 2px solid;
+    width: 30%;
+    float:left;
+}
+
+.searchResults .searchResults_info{
+    border: 2px solid;
+    float:right;
+}
+
+
 
 
 /*---------------------------------*/
