@@ -520,6 +520,16 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.searchFilter_block{
+    background-color: whitesmoke;
+}
+
+
+h5 {
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
 .searchFilter_filter-title{
     border-bottom: 2px solid;
     text-align: center;
@@ -545,21 +555,36 @@ body {
 
 .searchResults{
     border: 2px solid;
-    width: 50%;
-    margin-right: 150px;
+    width: 45%;
+    margin-right: 425px;
     margin-top: 50px;
     margin-bottom: 50px;
     float:right;
+    background-color: whitesmoke;
 }
+
+/*.searchResults .searchResults_result{
+
+}*/
 .searchResults .searchResults_image{
     border: 2px solid;
-    width: 30%;
+    width: 400px;
+    height: 250px;
     float:left;
 }
 
 .searchResults .searchResults_info{
     border: 2px solid;
     float:right;
+    margin-right: 300px;
+}
+
+.searchResults .searchResults_info .searchResults_info-inner{
+     float: left;
+ }
+
+.searchResults .searchResults_info .searchResults_priceContainer{
+    float: right;
 }
 
 

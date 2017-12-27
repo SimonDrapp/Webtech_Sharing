@@ -21,7 +21,7 @@ class allgemeineSucheController extends Controller
         $aModelle = AModell::all();
         $Kraftstoffe = Kraftstoff::all();
         $Baujahre = Baujahr::all();
-        return view('allgemeineSuche.index',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre]);
+        return view('allgemeineSuche',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre]);
     }
 
     /**
@@ -53,8 +53,7 @@ class allgemeineSucheController extends Controller
      */
     public function show($id)
     {
-        $autoModelle = AModell::where('idAmarke',$id)->get();
-        return view('allgemeineSuche.show',['autoModelle' => $autoModelle]);
+
     }
 
     /**
@@ -92,6 +91,9 @@ class allgemeineSucheController extends Controller
     }
 
     public function findAutoModelle(Request $request){
+
+        $data= AModell::where('idAmarke', $request->id)->get();
+        return response()->json($data);
 
     }
 }

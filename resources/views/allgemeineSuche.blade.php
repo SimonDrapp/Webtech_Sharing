@@ -89,8 +89,7 @@
                 <div class="searchFilter_filter-content">
                     <ul>
                         @foreach ($aMarken as $aMarke)
-                          <!--  <li value="{{$aMarke->id}}"><a  href="/allgemeineSuche/{{$aMarke->id}}">{{ $aMarke->name }}</a></li>-->
-                              <li><a id="AutoMarken" value="{{$aMarke->id}}">{{ $aMarke->name }}</a></li>
+                            <li><a id="AutoMarken" value="{{$aMarke->id}}">{{ $aMarke->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -98,9 +97,9 @@
             <div class="searchFilter_filter">
                 <h5 class="searchFilter_filter-title">Modell</h5>
                 <div class="searchFilter_filter-content">
-                    <ul>
+                    <ul id="aModelle">
                         @foreach ($aModelle as $aModell)
-                            <li>{{ $aModell->aModellname }}</li>
+                            <li><a id="AutoModelle" value="{{$aModell->id}}}}">{{ $aModell->aModellname }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -110,7 +109,7 @@
                 <div class="searchFilter_filter-content">
                     <ul>
                         @foreach ($Kraftstoffe as $Kraftstoff)
-                            <li>{{ $Kraftstoff->name }}</li>
+                            <li><a id="AutoKraftsoff" value="{{$Kraftstoff->id}}}}">{{ $Kraftstoff->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -132,28 +131,31 @@
     <div class="searchResults">
         <ul type="none">
             <li data-index="0">
-                <a href="#">
-                    <div class="searchResults_image">
-                        <h3>AutoBild</h3>
+                <div class="searchResults_result">
+                    <a href="#">
+                        <div class="searchResults_image">
+                            <!--<img src="img/searchPictures/Auto/audiA4.jpg" alt="Audi A3" height="400" width="600">-->
+                            <h3>Auto Bild</h3>
 
-                    </div>
-                    <div class="searchResults_info">
-                        <div class="searchResults_info-inner">
-                            <h3 class="searchResults_title">
-                                <a>Automarke + Modell</a>
-                            </h3>
-                            <div>
-                                <p>Straße, Ort</p>
+                        </div>
+                        <div class="searchResults_info">
+                            <div class="searchResults_info-inner">
+                                <h3 class="searchResults_title">
+                                    <a>Automarke + Modell</a>
+                                </h3>
+                                <div>
+                                    <p>Straße, Ort</p>
+                                </div>
+                            </div>
+                            <div class="searchResults_priceContainer">
+                                <h3 class="searchResults_price">
+                                    € 42,50
+                                </h3>
+                                <span>pro Tag</span>
                             </div>
                         </div>
-                        <div class="searchResults_priceContainer">
-                            <h3 class="searchResults_price">
-                                € 42,50
-                            </h3>
-                            <span>pro Tag</span>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </li>
         </ul>
     </div>
@@ -218,14 +220,33 @@
 
         <!-- Ajax-->
 
-        $(document).on('click','#AutoMarken',function () {
+        $(document).on('click', '#AutoMarken', function () {
+
+            var aMarken_id = $(this).attr('value');
+            //console.log(aMarken_id);
+            var $aModelle = $('#aModelle');
+
+            $.ajax({
+                type: 'GET',
+                url: '/findAutoModelle',
+                data: {'id': aMarken_id},
+                success: function (data) {
+
+                    $("#aModelle").empty();
+                    $.each(data, function (i, aModell) {
+                        console.log(aModell);
+                        $aModelle.append('<li><a id="AutoModelle" value=' + aModell.id + '>' + aModell.aModellname + '</a></li>')
+                    });
+                },
+
+                error: function () {
+
+                    alert("Ein Fehler ist aufgetreten");
+
+                }
 
 
-
-            var aMarken_id = $(this).val();
-            console.log("hallo "+aMarken_id);
-            alert(aMarken_id);
-
+            })
 
 
         });
