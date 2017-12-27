@@ -63,6 +63,13 @@ Route::get('/allgemeineSuche', function () {
     return view('allgemeineSuche');
 });
 
+Route::get('/Bild', function () {
+    return view('bild');
+});
+
+Route::get('/Bild2', function () {
+    return view('bild2');
+});
 
 
 
@@ -73,6 +80,12 @@ Route::get('/findModellName','AutovermietungController@findModellName');
 Route::get('/findAutotyp','AutovermietungController@findAutotyp');
 
 
+
+Route::get('/Fahrradeigenschaft', 'FahrradvermietungController@findFahrrad');
+
+Route::get('findMarkeNameFahrrad', 'FahrradvermietungController@findMarkeNameFahrrad');
+
+Route::get('findModellNameFahrrad', 'FahrradvermietungController@findModellNameFahrrad');
 
 /*Route::get('/Amarke', function(){
     $amarke = AMarke::all();

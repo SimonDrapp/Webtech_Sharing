@@ -384,44 +384,51 @@ class SharingSeeder extends Seeder
 
 
         $fart1 = Art:: create(array(
-            'name'=> 'Mountainbike'
+            'name'=> 'Kinderräder'
         ));
         $fart2 = Art:: create(array(
             'name'=> 'Sporträder'
+        ));
+        $fart3 = Art:: create(array(
+            'name'=> 'Freizeitbike'
         ));
 
 
 
 
         $fmarke1 = FMarke:: create(array(
-            'name'=> 'Bavaria'
+            'name'=> 'Bavaria',
+            'idArt' => $fart1->id,
         ));
 
         $fmarke2 = FMarke:: create(array(
-            'name'=> 'Bernds'
+            'name'=> 'Bernds',
+            'idArt' => $fart3->id,
+        ));
+
+        $fmarke3 = FMarke:: create(array(
+            'name'=> 'Alpina',
+            'idArt' => $fart2->id,
         ));
 
 
 
 
         $firstmodelF1 = FModell::create(array(
-            'name' => 'Rennrad',
-            'idArt' => $fart1->id,
+            'name' => 'Junior Bike',
             'idMarke' => $fmarke1->id
         ));
         $this->command->info('FModell angelegt!!');
 
         $firstmodelF2 = FModell::create(array(
-            'name' => 'Rennrad',
-            'idArt' => $fart1->id,
-            'idMarke' => $fmarke1->id
+            'name' => 'Mountainbike',
+            'idMarke' => $fmarke3->id
         ));
         $this->command->info('FModell angelegt!!');
 
         $firstmodelF3 = FModell::create(array(
             'name' => 'Rennrad',
-            'idArt' => $fart2->id,
-            'idMarke' => $fmarke1->id
+            'idMarke' => $fmarke2->id
         ));
         $this->command->info('FModell angelegt!!');
 
