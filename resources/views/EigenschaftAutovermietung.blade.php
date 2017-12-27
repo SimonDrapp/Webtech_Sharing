@@ -138,9 +138,9 @@
                         <div class="form-group2">
                             <form action="EigenschaftAutovermietung2.blade.php" method="post">
                                 <div class="input-group">
-                                    <span class="input-group-addon">€</span>
                             <label for="inputPreis" class="sr-only"></label>
                             <input type="text" class="form-control" id="inputPreis" name="inputPreis">
+                                    <span class="input-group-addon">€</span>
                                 </div>
                             </form>
                         </div>

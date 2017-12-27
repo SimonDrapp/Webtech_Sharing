@@ -15,11 +15,9 @@
             <div class="buttonUndText">
                 <p class="Text">Marke</p>
                 <div class="dropdown">
-
                     <form name="form1">
                         <select class="form-control" name="auswahl" role="menu" aria-labelledby="dropdownMenuButton" id="s1" disabled>
                             <option selected>Auswählen</option>
-
                         </select>
                     </form>
                 </div>
@@ -30,20 +28,10 @@
             <div class="buttonUndText">
                 <p class="Text">Modell</p>
                 <div class="dropdown">
-
                     <form name="form">
                         <select class="form-control" role="menu" aria-labelledby="menu1" id="s2" name="role_id" disabled>
-                            <option selected>
-                          <script>
-
-
-                          </script>
-
-                            </option>
-
+                            <option selected>Auswählen</option>
                         </select>
-
-                        <p></p>
                     </form>
                 </div>
             </div>
@@ -54,13 +42,9 @@
             <div class="buttonUndText">
                 <p class="Text">Autotyp</p>
                 <div class="dropdown">
-
                     <form action="EigenschaftAutovermietung2.blade.php" method="post">
                         <select class="form-control" role="menu" aria-labelledby="menu1" disabled>
                             <option selected>Auswählen</option>
-
-
-
                         </select>
                     </form>
                 </div>
@@ -71,10 +55,8 @@
                 <p class="Text">Baujahr</p>
                 <div class="dropdown">
                     <form action="EigenschaftAutovermietung2.blade.php" method="post">
-
                         <select class="form-control" role="menu" aria-labelledby="menu1" disabled>
                             <option selected>Auswählen</option>
-
                         </select>
                     </form>
                 </div>
@@ -91,10 +73,8 @@
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="Text">Kraftstoff</p>
-
                     <select class="form-control" role="menu" aria-labelledby="menu1" disabled>
                         <option selected>Auswählen</option>
-
                     </select>
                 </div>
             </div>
@@ -138,9 +118,9 @@
                     <div class="form-group2 mx-sm-4">
                         <form action="EigenschaftAutovermietung2.blade.php" method="post">
                             <div class="input-group">
-                                <span class="input-group-addon">€</span>
                             <label for="inputPreis" class="sr-only"></label>
                             <input type="text" class="form-control" id="inputPreis" name="inputPreis" disabled>
+                                <span class="input-group-addon">€</span>
                             </div>
                         </form>
                     </div>
