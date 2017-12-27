@@ -66,6 +66,8 @@ Route::get('/Ansicht', function () {
 });*/
 
 Route::resource('allgemeineSuche','allgemeineSucheController');
+Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
+
 
 
 Route::get('/Bild', function () {

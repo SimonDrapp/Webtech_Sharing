@@ -90,4 +90,8 @@ class allgemeineSucheController extends Controller
     {
         //
     }
+
+    public function findAutoModelle(Request $request){
+
+    }
 }
