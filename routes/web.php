@@ -11,7 +11,9 @@
 |
 */
 
-
+use App\AMarke;
+use App\AModell;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +40,19 @@ Route::get('/Registrieren', function () {
 Route::get('/Autoeigenschaft', function () {
     return view('EigenschaftAutovermietung');
 });
+
+Route::get('/Fahrradeigenschaft', function () {
+    return view('Fahrradvermietung');
+});
+
+Route::get('/Autoeigenschaft2', function () {
+    return view('EigenschaftAutovermietung2');
+});
+
+Route::get('/Fahrradeigenschaft2', function () {
+    return view('Fahrradvermietung2');
+});
+
 Route::get('/Ansicht', function () {
     return view('AnsichtAuto');
 });
@@ -53,14 +68,32 @@ Route::get('/Ansicht', function () {
 Route::resource('allgemeineSuche','allgemeineSucheController');
 
 
-Route::get('/Autoeigenschaft2', function () {
-    return view('EigenschaftAutovermietung2');
+
+
+
+Route::get('/Autoeigenschaft', 'AutovermietungController@prodfunct');
+
+Route::get('/findModellName','AutovermietungController@findModellName');
+
+Route::get('/findAutotyp','AutovermietungController@findAutotyp');
+
+
+
+/*Route::get('/Amarke', function(){
+    $amarke = AMarke::all();
+    return view('posts.index')->with('amarke',$amarke);
 });
 
+Route::get('/ajax-subcat', function() {
 
+    $cat_id = Input::get('cat_id');
+    $amodelle = AModell::where('idAmarke', '=', $cat_id)->get();
 
-Route::get('/EigenschaftAutovermietung', 'amarken@validateAndSave');
+    return Response::json($amodelle);
 
+});
+
+*/
 
 
 /*------Notification---------*/

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Farbe extends Model
 {
-    protected $table = 'farbe';
+    protected $table = 'Farbe';
     protected $primaryKey = 'id';
     protected $keyType = 'Integer';
     public $incrementing = true;

@@ -555,6 +555,10 @@
         padding-top: 22%;
         padding-bottom: 6%;
     }
+
+    #MeldeAutoAnButton2{
+        margin-left:-10px;
+    }
 }
 
 /*-----------450px-------*/
@@ -633,6 +637,13 @@
     .search {
         width: 100%;
         height: auto;
+    }
+    #MeldeAutoAnButton2{
+        margin-left:-45px;
+    }
+
+    #Zurueck2{
+        margin-left:-35px;
     }
 }
 

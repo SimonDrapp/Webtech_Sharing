@@ -18,7 +18,6 @@ class CreateSharingBaujahr extends Migration
             $table->Integer('jahr');
             $table->timestamps();
         });
-        DB::update("ALTER TABLE Baujahr AUTO_INCREMENT=100");
     }
 
     /**
