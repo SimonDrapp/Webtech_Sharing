@@ -16,9 +16,7 @@ class CreateSharingFmodell extends Migration
         Schema::create('FModell', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
-            $table->integer('idArt')->unsigned();
             $table->integer('idMarke')->unsigned();
-            $table->foreign('idArt')->references('id')->on('Art');
             $table->foreign('idMarke')->references('id')->on('FMarke');
             $table->timestamps();
         });

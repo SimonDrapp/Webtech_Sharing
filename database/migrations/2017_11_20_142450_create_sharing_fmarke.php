@@ -16,6 +16,8 @@ class CreateSharingFmarke extends Migration
         Schema::create('FMarke', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
+            $table->integer('idArt')->unsigned();
+            $table->foreign('idArt')->references('id')->on('Art');
             $table->timestamps();
         });
     }
