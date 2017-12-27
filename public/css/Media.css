@@ -185,6 +185,9 @@
         padding-top: 12%;
         padding-bottom: 8.3%!important;
     }
+    #agb{
+        margin-left: 250px;
+    }
 }
 
 /*-----------930px-------*/
@@ -248,7 +251,9 @@
     #buttonGPS, #buttonSearch {
         height: 90%;
     }
-
+    #agb{
+        margin-left: 200px;
+    }
 }
 
 /*-----------790px-------*/
@@ -361,6 +366,9 @@
     #buttonGPS, #buttonSearch {
         font-size: 14px;
     }
+    #agb{
+        margin-left: 160px;
+    }
 }
 
 /*-----------650px-------*/
@@ -401,6 +409,9 @@
     #inputBild {
         width: 200px;
         margin-left: 60px;
+    }
+    #agb{
+        margin-left: 120px;
     }
 }
 
@@ -465,6 +476,9 @@
     }
     .lol{
         margin-left: 5%!important;
+    }
+    #agb{
+        margin-left: 70px;
     }
 }
 
@@ -558,6 +572,9 @@
 
     #MeldeAutoAnButton2{
         margin-left:-10px;
+    }
+    #agb{
+        margin-left: 30px;
     }
 }
 
@@ -670,6 +687,9 @@
     #inputBild {
         width: 100px;
         margin-left: 30px;
+    }
+    #agb{
+        margin-left: -50px;
     }
 }
 
