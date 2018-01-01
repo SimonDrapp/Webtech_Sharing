@@ -60,6 +60,43 @@
         padding-top: 15%;
         padding-bottom: 8.2%;
     }
+    #googleMap1{
+        width:200%;
+        height:500px;
+        margin-left: 60%;
+
+    }
+    .eigenschaft{
+        font-size: 20px;
+        padding-left: 0px;
+        margin-top: 5%;
+    }
+    #googleMap{
+        margin-top: 5%;
+        width:200%;
+        height:450px;
+        margin-left: 20%;
+    }
+    #btMieten {
+        margin-left: 0;
+    }
+    #kon{
+        margin-left: 0;
+        margin-top: 5%;
+    }
+    #AnsichtBetreff{
+        margin-top: 7%;
+        margin-left: -30%;
+    }
+    #areaKontakt{
+        margin-top: 5%;
+        margin-left: 45%;
+
+    }
+    #btAnliegen{
+        margin-top: 20%;
+        margin-left: 80%;
+    }
 }
 
 /*-----------1050px-------*/
@@ -91,6 +128,17 @@
     }
     .lol{
         margin-left: 25%!important;
+    }
+    .eigenschaft{
+        font-size: 18px;
+        padding-left: 5%;
+        margin-top: 5%;
+    }
+    #googleMap{
+        margin-top: 5%;
+        width:150%;
+        height:400px;
+        margin-left: 30%;
     }
 
 }
@@ -187,6 +235,46 @@
     }
     #agb{
         margin-left: 250px;
+    }
+    #googleMap1{
+        margin-top: 1%;
+        width:100%;
+        height:400px;
+        margin-left: 0;
+    }
+
+    .eigenschaft{
+        font-size: 18px;
+        margin-top: 5%;
+        margin-left: 25%;
+    }
+    #googleMap{
+        margin-top: 5%;
+        width:100%;
+        height:400px;
+        margin-left: 0;
+    }
+    #btMieten {
+        margin-left: 0;
+    }
+    #kon{
+        margin-left: 0;
+        margin-top: 3%;
+    }
+    #AnsichtBetreff{
+        margin-top: 3%;
+        margin-left: 0;
+    }
+    #areaKontakt{
+        margin-top: 3%;
+        margin-left: 0;
+        margin-bottom: 0;
+
+    }
+    #btAnliegen{
+        margin-top: 2%;
+        margin-left: 0;
+        margin-bottom: 2%;
     }
 }
 
@@ -313,6 +401,23 @@
     .lol{
         margin-left: 18%!important;
     }
+    #googleMap1{
+        margin-top: -2%;
+        width:100%;
+        height: 300px;
+        margin-left: 1%;
+    }
+    .eigenschaft{
+        font-size: 16px;
+        margin-top: 3%;
+        margin-left: 30%;
+    }
+    #googleMap{
+        margin-top: 5%;
+        width:80%;
+        height: 300px;
+        margin-left: 10%;
+    }
 
 }
 
@@ -413,6 +518,7 @@
     #agb{
         margin-left: 120px;
     }
+
 }
 
 /*-----------600px-------*/
@@ -480,6 +586,24 @@
     #agb{
         margin-left: 70px;
     }
+    #googleMap1{
+        margin-top: -5%;
+        width:100%;
+        height: 250px;
+        margin-left: 1%;
+    }
+    .eigenschaft{
+        font-size: 14px;
+        margin-top: 3%;
+        margin-left: 25%;
+    }
+    #googleMap{
+        margin-top: 5%;
+        width: 85%;
+        height: 320px;
+        margin-left: 7%;
+    }
+
 }
 
 /*-----------480px-------*/
@@ -548,19 +672,19 @@
         height: auto;
     }
     .lol{
-        margin: 0!important;
+        margin-left: 0!important;
+        margin-top: 5%!important;
+
     }
     #datevon2, #datebis2{
-        width: 65%!important;
-        margin-right: 1%!important;
-        margin-left:3% !important;
+        width: 69%!important;
+        margin-right: 0!important;
+        margin-left: 20%!important;
     }
     #buttonBis2, #buttonVon2{
-        margin-right: 0 !important;
-        margin-left:0 !important;
-        padding-right: 0 !important;
-        width: 100%;
+        margin-left: 0px !important;
     }
+
     .login{
         padding-top: 19%!important;
         padding-bottom: 6%!important;
@@ -576,6 +700,33 @@
     #agb{
         margin-left: 30px;
     }
+    #googleMap1{
+        margin-top: -5%;
+        width:100%;
+        height: 250px;
+        margin-left: 0;
+    }
+    .eigenschaft{
+        font-size: 12px;
+        margin-top: 3%;
+        margin-left: 15%;
+    }
+    #googleMap{
+        margin-top: 5%;
+        width: 85%;
+        height: 320px;
+        margin-left: 0;
+    }
+    #datevon2, #datebis2{
+        width: 80%;
+        margin: auto;
+    }
+    #buttonBis2, #buttonVon2{
+        position: relative;
+        max-width: 100%;
+        margin: auto;
+    }
+
 }
 
 /*-----------450px-------*/
@@ -690,6 +841,12 @@
     }
     #agb{
         margin-left: -50px;
+    }
+    #googleMap1{
+        margin-top: 0;
+        width:100%;
+        height: 250px;
+        margin-left: 1%;
     }
 }
 
