@@ -11,59 +11,68 @@
 @include('includes.header')
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-4  eingabefeld">
-                    <div class="form-group">
-                        <input id="searchCity" type="text" class="form-control"
+    <form>
+        <div class="row">
+            <div class="eingabefeld">
+                <div class="col-xs-10 col-sm-4 form-group searchPadding">
+                    <div class="input-group">
+                        <input id="searchCity1" type="text" class="form-control"
                                placeholder="Postleitzahl oder Ort">
-                    </div>
-                    <div class="form-group">
-                        <button id="buttonGPS" type="button" class="form-group btn btn-basic ">
+                        <span class="input-group-btn">
+                            <button id="buttonGPS2" type="button" class=" btn btn-basic ">
                             <span class="glyphicon glyphicon-map-marker"></span></button>
+                        </span>
                     </div>
-                    <div class="form-group InputWithIcon">
-                        <input class="form-control visible-lg" id="datevon" type="text" name="date"
-                               placeholder="DD/MM/YYYY">
-                        <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
-                    </div>
-                    <div class="form-group InputWithIcon">
-                        <input class="form-control visible-lg" id="datebis" type="text" name="date"
-                               placeholder="DD/MM/YYYY">
-                        <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
-                    </div>
-                    <div class="form-group">
-                        <a href="/allgemeineSuche">
-                            <button id="buttonSearch" class=" btn btn-basic " type="button">Suchen
-                                <span class="glyphicon glyphicon-search"></span></button>
-                        </a>
-                    </div>
+                </div>
+                <!--<div class="col-xs-2 col-sm-1 GpsPadding">
+                    <button id="buttonGPS2" type="button" class=" btn btn-basic ">
+                        <span class="glyphicon glyphicon-map-marker"></span></button>
+                </div>-->
+
+                <div class="col-xs-12 col-sm-3 form-group InputWithIcon changePadding">
+                    <input class="form-control" id="datevon1" type="text" name="date"
+                           placeholder="Abholung">
+                    <!--<i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>-->
+                </div>
+                <div class="col-xs-12 col-sm-3 form-group InputWithIcon changePadding">
+                    <input class="form-control" id="datebis1" type="text" name="date"
+                           placeholder="Rückgabe">
+                    <!--<i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>-->
+                </div>
+                <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+                    <button id="buttonSearch1" class="btn btn-basic btn-block">Filter</button>
+                </div>
+
+                <div class="col-xs-12 col-sm-2 form-group searchBtnPadding hidden-xs">
+                    <a href="/allgemeineSuche">
+                        <button id="buttonSearch1" class=" btn btn-basic">Suchen
+                            <span class="glyphicon glyphicon-search"></span></button>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-9">
-            <div class="myBtnContainer">
-                <button class="btn active" onclick="filterSelection('all')"> alle anzeigen</button>
+<div class="container hidden-xs">
+    <div class="row" id="buttonSortByAll">
+        <div class="col-sm-9">
+            <div class="btn-group myBtnContainer">
+                <button class="btn" onclick="filterSelection('all')"> alle anzeigen</button>
                 <button class="btn" onclick="filterSelection('cars')"> Autos</button>
                 <button class="btn" onclick="filterSelection('animals')"> Fahrräder</button>
             </div>
         </div>
-        <div class="col-xs-3">
-            <div class="myBtnContainer">
-                <button class="btn active" onclick="filterSelection('all')"> Preis</button>
+        <div class="col-sm-2" id="buttonSortBy">
+            <div class="myBtnContainer btn-group">
+                <button class="btn" onclick="filterSelection('all')"> Preis</button>
                 <button class="btn" onclick="filterSelection('cars')"> Entfernung</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="searchResultsWrapper">
+<div class="container-fluid searchResultsWrapper">
     <div class="searchFilter">
         <div class="searchFilter_block">
             <div class="searchFilter_filter">
@@ -129,74 +138,38 @@
     </div>
 
     <div class="searchResults">
-        <ul type="none">
-            <li data-index="0">
+        <div class="searchResults_block">
+            @foreach($Vermieten as $ver)
                 <div class="searchResults_result">
-                    <a href="#">
-                        <div class="searchResults_image">
-                            <!--<img src="img/searchPictures/Auto/audiA4.jpg" alt="Audi A3" height="400" width="600">-->
-                            <h3>Auto Bild</h3>
+                    <!-- <a href="#">-->
+                    <div class="searchResults_image">
 
-                        </div>
-                        <div class="searchResults_info">
-                            <div class="searchResults_info-inner">
-                                <h3 class="searchResults_title">
-                                    <a>Automarke + Modell</a>
-                                </h3>
-                                <div>
-                                    <p>Straße, Ort</p>
-                                </div>
-                            </div>
-                            <div class="searchResults_priceContainer">
-                                <h3 class="searchResults_price">
-                                    € 42,50
-                                </h3>
-                                <span>pro Tag</span>
+                    </div>
+                    <div class="searchResults_info">
+                        <div class="searchResults_info-inner">
+                            <h3 class="searchResults_title">
+                                <a>{{$ver->idAuto}}</a>
+                            </h3>
+                            <div>
+                                <p>Straße, Ort</p>
                             </div>
                         </div>
-                    </a>
+                        <div class="searchResults_priceContainer">
+                            <h3 class="searchResults_price">
+                                € 42,50
+                            </h3>
+                            <span>pro Tag</span>
+                        </div>
+                    </div>
+                    <!-- </a>-->
                 </div>
-            </li>
-        </ul>
+            @endforeach
+        </div>
     </div>
 </div>
 
+<!--include footer-->
 
-<!-- <div class="container-fluid">
-     <div class="row">
-         <div class="col-md-6"></div>
-
-         <div class="col-xs-6 col-md-2">
-             <button type="button" class="btn btn-basic" id="btnFilter">Filter</button>
-         </div>
-
-         <div class="col-xs-6 col-md-2">
-             <div class="dropdown">
-                 <button class="btn btn-primary dropdown-toggle" type="button" id="btnFilter" data-toggle="dropdown">Auswahl
-                     <span class="caret"></span></button>
-                 <ul class="dropdown-menu">
-                     <li><a href="#">Auto</a></li>
-                     <li><a href="#">Fahrrad</a></li>
-                 </ul>
-             </div>
-         </div>
-
-         <div class="col-xs-6 col-md-2">
-             <div class="dropdown">
-                 <button class="btn btn-primary dropdown-toggle" type="button" id="btnFilter" data-toggle="dropdown">Sortierung
-                     <span class="caret"></span></button>
-                 <ul class="dropdown-menu">
-                     <li><a href="#">Preis</a></li>
-                     <li><a href="#">Umkreis</a></li>
-                 </ul>
-             </div>
-         </div>
-     </div>
- </div>
- -->
-
-
-@include('includes.footer')
 <script>
 
     $(document).ready(function () {

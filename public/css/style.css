@@ -15,7 +15,7 @@ html, body {
 body {
     overflow-x: hidden;
     overflow-y: scroll;
-    background: rgb(219, 227, 243);
+    background: rgb(224,224,224);
 }
 
 /*------------Footer-------------*/
@@ -437,6 +437,49 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 90%;
 }*/
+
+.searchPadding{
+    padding-right: 0px;
+}
+
+.GpsPadding{
+    padding-left:0px;
+}
+
+
+#searchCity1 {
+    font-size: 18px;
+    font-family: Tahoma;
+    max-width: 100%;
+    padding-right: 0px;
+
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+#buttonGPS2 {
+    font-size: 14px;
+    font-family: Tahoma;
+    max-width:100%;
+    background:rgb(255, 159, 63);
+    border-radius: 0;
+}
+
+#datebis1, #datevon1 {
+    font-size: 18px;
+    font-family: Tahoma;
+    max-width: 100%;
+    padding-right: 0px;
+    border-radius: 0;
+}
+
+#buttonSearch1 {
+    font-size: 14px;
+    font-family: Tahoma;
+    max-width: 100%;
+    background-color: rgba(112, 173, 71, 1);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
 .eingabefeld {
    margin-top: 75px;
     margin-left: auto;
@@ -451,13 +494,21 @@ body {
     position: absolute;
     left: 0;
     top: 8px;
-    padding: 3px 40px;
+    padding: 3px 15px;
     color: #aaa;
 
 }
 
 .InputWithIcon input[type=text]{
     padding-left: 40px;
+}
+
+#buttonSortByAll{
+    padding-top: 10px;
+}
+
+#buttonSortBy{
+    right: 24px;
 }
 .myBtnContainer {
     float:right;
@@ -469,10 +520,11 @@ body {
     padding: 12px 16px;
     background: rgb(255, 159, 63);
     cursor: pointer;
+    font-size: 12px;
 }
 
 .myBtnContainer .btn:hover, .active {
-    background-color: #ccc;
+    background-color: rgba(112, 173, 71, 1);
 }
 #slidecontainer {
     width: 90%;
@@ -512,13 +564,27 @@ body {
     cursor: pointer;
 }
 
+.searchResultsWrapper{
+
+
+    /*margin: 50px 180px 50px 150px;*/
+}
+
+
+.searchResultsWrapper:after{
+    clear:both;
+    content:"";
+    display: block;
+}
+
 .searchFilter{
     border: 2px solid;
     border-radius: 5px;
     width:30%;
-    margin-left: 150px;
+    margin-left: 160px;
     margin-top: 50px;
     margin-bottom: 50px;
+    float:left;
 }
 .searchFilter_block{
     background-color: whitesmoke;
@@ -548,42 +614,75 @@ h5 {
     width: 50%;
     margin: auto;
 }
-
-.searchFilter{
-    float:left;
-}
-
 .searchResults{
-    border: 2px solid;
     width: 45%;
-    margin-right: 425px;
+    margin-right: 160px;
     margin-top: 50px;
-    margin-bottom: 50px;
     float:right;
-    background-color: whitesmoke;
+
 }
 
-/*.searchResults .searchResults_result{
+.searchResults_block > :first-child{
+    margin-top: 0px;
+}
 
-}*/
-.searchResults .searchResults_image{
+.searchResults_block:after{
+    clear:both;
+    content:"";
+    display: block;
+}
+
+.searchResults_result{
     border: 2px solid;
-    width: 400px;
-    height: 250px;
+    background-color: whitesmoke;
+    margin-top: 15px;
+}
+
+.searchResults_result:after{
+    clear:both;
+    content:"";
+    display: block;
+}
+.searchResults_image{
+    /*border: 2px solid;*/
+    width: 250px;
+    height: 200px;
     float:left;
 }
 
-.searchResults .searchResults_info{
-    border: 2px solid;
-    float:right;
-    margin-right: 300px;
+.searchResults_image img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.searchResults .searchResults_info .searchResults_info-inner{
+.searchResults_info{
+   /* border: 2px solid;*/
+    float: right;
+    height: 200px;
+}
+
+.searchResults_info-inner{
      float: left;
+    padding-right: 50px;
+    padding-top: 10px;
  }
 
-.searchResults .searchResults_info .searchResults_priceContainer{
+.searchResults_info-inner p {
+    padding-top: 35px;
+
+}
+
+.searchResults_priceContainer{
+    float: right;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+
+.searchResults_priceContainer h3{
+    margin: 0px;
+}
+
+.searchResults_priceContainer span{
     float: right;
 }
 

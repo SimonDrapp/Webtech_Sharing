@@ -324,6 +324,24 @@
         width: 220px;
         margin-left: 55px;
     }
+
+    /*----allgemeineSuche----*/
+    .searchResultsWrapper{
+
+    }
+    .searchFilter{
+        border: 2px solid;
+        border-radius: 5px;
+        width:100%;
+        margin-left: 0px;
+    }
+    .searchResults{
+        width: 100%;
+        margin-right: 160px;
+        margin-top: 50px;
+        margin-right: 0px;
+
+    }
 }
 
 /*-----------720px-------*/
@@ -786,6 +804,21 @@
 @media screen and (min-width: 390px) and (max-width: 992px) {
     .button1, .button2 {
         display: none;
+    }
+}
+
+/*----------min 768px-----------*/
+@media screen and (min-width: 768px){
+    /*-----allgemeineSuche-----*/
+    .changePadding{
+        padding-right: 0px;
+        padding-left:0px;
+    }
+    .searchBtnPadding{
+        padding-left: 0px;
+    }
+    .GpsPadding{
+        padding-right: 0px;
     }
 }
 

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\AModell;
 use App\Baujahr;
+use App\Bilder;
 use App\Kraftstoff;
+use App\Vermieten;
 use Illuminate\Http\Request;
 use App\AMarke;
 
@@ -21,7 +23,9 @@ class allgemeineSucheController extends Controller
         $aModelle = AModell::all();
         $Kraftstoffe = Kraftstoff::all();
         $Baujahre = Baujahr::all();
-        return view('allgemeineSuche',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre]);
+        $Vermieten = Vermieten::all();
+        return view('allgemeineSuche',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'Kraftstoffe' => $Kraftstoffe,
+            'Baujahre' => $Baujahre, 'Vermieten' => $Vermieten]);
     }
 
     /**
