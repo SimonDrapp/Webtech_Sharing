@@ -78,12 +78,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-lg-6 eigenschaft">
-            <p><b>Marke:</b></p>
-            <p><b>Modell:</b></p>
-            <p><b>Autotyp:</b></p>
-            <p><b>Kraftstoff:</b></p>
-            <p><b>Baujahr:</b></p>
-            <p><b>Details:</b></p>
+            <p><b>Marke:</b></p><p>Audi<br><br></p>
+            <p><b>Modell:</b></p><p> hahahaha<br><br></p>
+            <p><b>Autotyp:</b><br><br></p>
+            <p><b>Kraftstoff:</b><br><br></p>
+            <p><b>Baujahr:</b><br><br></p>
+            <p><b>Details:</b><br><br></p>
             <p><b>Preis pro Tag:</b></p>
         </div>
         <div class="col-md-4 col-lg-6">
@@ -102,6 +102,29 @@
                 }
             </script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <button id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-4">
+            <p id="kon">Anbieter kontaktieren:</p>
+        </div>
+        <div class="col-md-2 col-lg-6">
+            <input id="AnsichtBetreff" type="text" placeholder="Betreff">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <textarea id="areaKontakt" rows="6" cols="50" name="comment" form="usrform" placeholder="Die Fragen.."></textarea>
+        </div>
+        <div class="col-md-2 col-lg-2">
+            <button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button>
         </div>
     </div>
 </div>
