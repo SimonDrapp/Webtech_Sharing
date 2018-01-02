@@ -9,194 +9,154 @@
 <body>
 @include('includes.header')
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-6 col-md-3">
-            <div class="buttonUndText">
-                <p class="Text">Marke</p>
-                <div class="dropdown">
-                    <form name="form1">
-                        <select class="form-control" name="auswahl" role="menu" aria-labelledby="dropdownMenuButton" id="s1" disabled>
-                            <option selected>Auswählen</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-        </div>
+{{csrf_field()}}
 
-        <div class="col-xs-6 col-md-3">
-            <div class="buttonUndText">
-                <p class="Text">Modell</p>
-                <div class="dropdown">
-                    <form name="form">
-                        <select class="form-control" role="menu" aria-labelledby="menu1" id="s2" name="role_id" disabled>
-                            <option selected>Auswählen</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-        </div>
+<?php
+$values = $_POST['marke'];
+$values = explode(', ', $values);
+$value2 = $values[1];
+?>
 
-
-        <div class="col-xs-6 col-md-3">
-            <div class="buttonUndText">
-                <p class="Text">Autotyp</p>
-                <div class="dropdown">
-                    <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                        <select class="form-control" role="menu" aria-labelledby="menu1" disabled>
-                            <option selected>Auswählen</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <div class="buttonUndText">
-                <p class="Text">Baujahr</p>
-                <div class="dropdown">
-                    <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                        <select class="form-control" role="menu" aria-labelledby="menu1" disabled>
-                            <option selected>Auswählen</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+<?php
+$values2 = $_POST['modell'];
+$values2 = explode(', ', $values2);
+$value3 = $values2[1];
+?>
 
 
 <div class="container-fluid">
     <div class="row">
-        <form class="form-inline">
-            <div class="col-xs-6 col-md-3">
-                <div class="buttonUndText">
-                    <p class="Text">Kraftstoff</p>
-                    <select class="form-control" role="menu" aria-labelledby="menu1" disabled>
-                        <option selected>Auswählen</option>
-                    </select>
+        <form action="#" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Marke</p>
+                <label for="marke"></label>
+                <input style="text-align: center" type="text" class="form-control" name="modell" value="<?php echo $value2; ?>" disabled>
+            </div>
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Modell</p>
+                <label for="modell"></label>
+                <input style="text-align: center" type="text" class="form-control" name="modell" value="<?php echo $value3; ?>" disabled>
+            </div>
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Baujahr</p>
+                <label for="baujahr"></label>
+                <input style="text-align: center" type="text" class="form-control" name="baujahr" value="{{$autovermietungen -> baujahr}}" disabled>
+            </div>
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Farbe</p>
+                <label for="farbe"></label>
+                <input style="text-align: center" type="text" class="form-control" name="farbe" value="{{$autovermietungen -> farbe}}" disabled>
+            </div>
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Kraftstoff</p>
+                <label for="kraftstoff"></label>
+                <input style="text-align: center" type="text" class="form-control" name="kraftstoff" value="{{$autovermietungen -> kraftstoff}}" disabled>
+            </div>
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Preis</p>
+                <label for="preis"></label>
+                <div class="input-group">
+                    <input style="text-align: center" type="text" class="form-control" name="preis" value="{{$autovermietungen -> preis}}" disabled>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-euro"></span>
+                    </span>
                 </div>
             </div>
-
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Bild</p>
+                <label for="bild"></label>
+                <div class="input-group">
+                    <input style="text-align: center" type="text" class="form-control" name="bild" value="{{$autovermietungen -> bild}}" disabled>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-picture"></span>
+                        </span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-3 speichern">
+                <p class="daten2">Details</p>
+                <label for="details"></label>
+                <textarea type="text" rows="3" class="form-control details" id="detail" name="details" disabled>{{$autovermietungen -> details}}</textarea>
+            </div>
+            <div class="col-xs-6 col-md-4 speichern">
+                <p class="daten2">Postleitzahl</p>
+                <label for="postleitzahl"></label>
+                <div class="input-group">
+                    <input style="text-align: center" type="text" class="form-control" name="postleitzahl" value="{{$autovermietungen -> postleitzahl}}" disabled>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-4 speichern">
+                <p class="daten2">Ort</p>
+                <label for="ort"></label>
+                <div class="input-group">
+                    <input style="text-align: center" type="text" class="form-control" name="ort" value="{{$autovermietungen -> ort}}" disabled>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4 speichern">
+                <p class="daten2">Strasse/Nr.</p>
+                <label for="strasseNr"></label>
+                <div class="input-group">
+                    <input style="text-align: center" type="text" class="form-control" name="strasseNr" value="{{$autovermietungen -> strasseNr}}" disabled>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-road"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-6 speichern">
+                <p class="daten2">Von</p>
+                <label for="startdate"></label>
+                <div class="input-group">
+                    <input style="text-align: center" type="text" class="form-control" name="startdate" value="{{$autovermietungen -> startdate}}" disabled>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-6 speichern">
+                <p class="daten2">Bis</p>
+                <label for="enddate"></label>
+                <div class="input-group">
+                    <input style="text-align: center" type="text" class="form-control" name="enddate" value="{{$autovermietungen -> enddate}}" disabled>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <form class="AGBFeld">
+                    <fieldset id="agb">
+                        <input type="radio" name="agb" id="akzeptieren" value="ok">
+                        <label for="akzeptieren">unsere <a href="/AGB">AGB</a> akzeptieren</label>
+                        <br>
+                        <input type="radio" name="agb" id="ablehnen" value="no" checked>
+                        <label for="ablehnen">ablehnen</label>
+                    </fieldset>
+                </form>
+            </div>
             <div class="col-xs-6 col-md-4">
                 <div class="buttonUndText">
-                    <p class="TextBild">Bild</p>
-                    <input type="file" name="img[]" class="file" accept="image/*" id="file1">
-                    <div class="input-group mx-sm-4">
-                        <form enctype="multipart/form-data">
-                            <input type="text" id="inputBild" class="form-control input" disabled>
-                        </form>
-                    </div>
-                    <button id="buttonBild" class="browse btn btn-basic input" type="button" disabled>Öffnen
-                        <span class="glyphicon glyphicon-picture"></span></button>
+                    <a href="/Autoeigenschaft" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2"><span
+                                    class="glyphicon glyphicon-triangle-left"></span>Zurück</button></a>
                 </div>
             </div>
-        </form>
-    </div>
-</div>
-
-
-<div class="container-fluid">
-    <div class="row">
-        <form class="form-inline">
-            <div class="col-xs-6 col-md-3">
+            <div class="col-xs-6 col-md-4">
                 <div class="buttonUndText">
-                    <p class="Text">Details</p>
-                    <div class="form-group2">
-                        <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                            <textarea class="form-control detailsInput" rows="4" id="Details" name="inputDetails" placeholder="Details zum Auto ..." disabled></textarea>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-xs-6 col-md-3">
-                <div class="buttonUndTextFuerPreis">
-                    <p class="TextPreisProTag">Preis/T.</p>
-                    <div class="form-group2 mx-sm-4">
-                        <form action="EigenschaftAutovermietung2.blade.php" method="post">
-                            <div class="input-group">
-                            <label for="inputPreis" class="sr-only"></label>
-                            <input type="text" class="form-control" id="inputPreis" name="inputPreis" disabled>
-                                <span class="input-group-addon">€</span>
-                            </div>
-                        </form>
-                    </div>
+                    <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton2" disabled>Auto anmelden<span
+                                class="glyphicon glyphicon-triangle-right"></span></button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
-
-<div class="Verschieben">
-    <div class="container-fluid">
-        <div class="row">
-            <div class='col-xs-6 col-md-4'>
-                <div class="form-group">
-                    <div class="buttonUndText">
-                        <p class="TextVon">Von</p>
-                        <div class='input-group date' id='datetimepicker6'>
-                            <input type='text' class="form-control" name="startdate" id="startdate" disabled/>
-                            <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='col-xs-6 col-md-4'>
-                <div class="form-group">
-                    <div class="buttonUndText">
-                        <p class="TextVon">Bis</p>
-                        <div class='input-group date' id='datetimepicker7'>
-                            <input type='text' class="form-control" name="enddate" id="enddate" disabled/>
-                            <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-md-4">
-            <form class="AGBFeld">
-                <fieldset id="agb">
-                    <input type="radio" name="agb" id="akzeptieren" value="ok">
-                    <label for="akzeptieren">unsere <a href="/AGB">AGB</a> akzeptieren</label>
-                    <br>
-                    <input type="radio" name="agb" id="ablehnen" value="no" checked>
-                    <label for="ablehnen">ablehnen</label>
-                </fieldset>
-            </form>
-        </div>
-
-        <div class="col-xs-6 col-md-4">
-            <div class="buttonUndText">
-                <a href="/Fahrradeigenschaft" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2"><span
-                                class="glyphicon glyphicon-triangle-left"></span>Zurück</button></a>
-            </div>
-        </div>
-
-        <div class="col-xs-6 col-md-4">
-            <div class="buttonUndText">
-                <a href="#" id="MeldeAutoAn2"> <button type="button" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton2" disabled>Auto anmelden<span
-                                class="glyphicon glyphicon-triangle-right"></span></button></a>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 @include('includes.footer')
+
 
 
 <script>
@@ -214,6 +174,9 @@
         }
 
     });
-    </script>
+</script>
+
 </body>
 </html>
+
+

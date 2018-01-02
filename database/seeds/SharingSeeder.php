@@ -268,72 +268,6 @@ class SharingSeeder extends Seeder
 
 
 
-
-
-        $firstAuto1 = Auto::create(array(
-            'details' => 'Sportback',
-            'idFarbe' => $farbe1->id,
-            'idAModell'=> $firstmodelA1->id,
-            'idBaujahr' => $firstbaujahr1->id
-        ));
-        $this->command->info('Auto angelegt!!');
-
-        $firstAuto2 = Auto::create(array(
-            'details' => 'Kleinwagen',
-            'idFarbe' => $farbe1->id,
-            'idAmodell'=> $firstmodelA2->id,
-            'idBaujahr' => $firstbaujahr2->id
-        ));
-        $this->command->info('Auto angelegt!!');
-
-
-        $firstAuto3 = Auto::create(array(
-            'details' => 'Limousine',
-            'idFarbe' => $farbe2->id,
-            'idAModell'=> $firstmodelA3->id,
-            'idBaujahr' => $firstbaujahr3->id
-        ));
-        $this->command->info('Auto angelegt!!');
-
-        $firstAuto4 = Auto::create(array(
-            'details' => 'Kombi',
-            'idFarbe' => $farbe2->id,
-            'idAModell'=> $firstmodelA4-> id,
-            'idBaujahr' => $firstbaujahr4->id
-        ));
-        $this->command->info('Auto angelegt!!');
-
-        $firstAuto5 = Auto::create(array(
-            'details' => 'Coupe',
-            'idFarbe' => $farbe1->id,
-            'idAModell'=> $firstmodelBMW1->id,
-            'idBaujahr' => $firstbaujahr1->id
-        ));
-        $this->command->info('Auto angelegt!!');
-
-        $firstAuto6 = Auto::create(array(
-            'details' => 'Coupe',
-            'idFarbe' => $farbe1->id,
-            'idAmodell'=> $firstmodelBMW2->id,
-            'idBaujahr' => $firstbaujahr1->id
-        ));
-        $this->command->info('Auto angelegt!!');
-
-        $firstAuto6 = Auto::create(array(
-            'details' => 'Coupe',
-            'idFarbe' => $farbe1->id,
-            'idAmodell'=> $firstmodelM1->id,
-            'idBaujahr' => $firstbaujahr1->id
-        ));
-        $this->command->info('Auto angelegt!!');
-
-        $firstAuto6 = Auto::create(array(
-            'details' => 'Sportwagen',
-            'idFarbe' => $farbe1->id,
-            'idAmodell'=> $firstmodelM2->id,
-            'idBaujahr' => $firstbaujahr1->id
-        ));
-        $this->command->info('Auto angelegt!!');
 /*
         $secondcar1= Auto:: create(array(
             'details' => 'ausprobieren',
@@ -432,6 +366,34 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('FModell angelegt!!');
 
+
+/*
+        $firstvermieten1 = FModell::create(array(
+            'idArt'=> $fart1,
+            'idMarke' => $fmarke1->id,
+            'idModell'=> $firstmodelF1,
+            'idFarbe'=> $farbe1
+        ));
+        $this->command->info('FVermietung angelegt!!');
+
+        $firstvermieten2 = FModell::create(array(
+            'idArt'=> $fart2,
+            'idMarke' => $fmarke2->id,
+            'idModell'=> $firstmodelF2,
+            'idFarbe'=> $farbe1
+        ));
+        $this->command->info('FVermietung angelegt!!');
+
+        $firstvermieten3 = FModell::create(array(
+            'idArt'=> $fart3,
+            'idMarke' => $fmarke2->id,
+            'idModell'=> $firstmodelF3,
+            'idFarbe'=> $farbe2
+        ));
+        $this->command->info('FVermietung angelegt!!');
+
+
+        */
 
     }
 }

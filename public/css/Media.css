@@ -5,7 +5,6 @@
     .col-4 {
         margin-left: 10%;
     }
-
 }
 
 /*-----------1200px-------*/
@@ -60,6 +59,10 @@
         padding-top: 15%;
         padding-bottom: 8.2%;
     }
+    #MeldeAutoAnButton{
+        margin-left: 480px;
+        margin-top: -70px;
+    }
 }
 
 /*-----------1050px-------*/
@@ -92,6 +95,10 @@
     .lol{
         margin-left: 25%!important;
     }
+    #MeldeAutoAnButton{
+        margin-left: 420px;
+        margin-top: -70px;
+    }
 
 }
 
@@ -121,6 +128,7 @@
 
         margin-left: 25%;
     }
+
 }
 
 /*-----------990px-------*/
@@ -186,7 +194,20 @@
         padding-bottom: 8.3%!important;
     }
     #agb{
-        margin-left: 250px;
+        margin-left: 350px;
+    }
+    #inputBild{
+        width: 300px;
+    }
+    .angabeStandort{
+        margin-top:820px;
+    }
+    #MeldeAutoAnButton{
+        margin-left: 5px;
+        margin-top: -70px;
+    }
+    .angabeFahrrad{
+        margin-top: -830px;
     }
 }
 
@@ -252,7 +273,16 @@
         height: 90%;
     }
     #agb{
-        margin-left: 200px;
+        margin-left: 290px;
+    }
+}
+
+@media screen and (max-width: 833px){
+    #buttonBild{
+        margin-top: 6px;
+    }
+    #inputBild{
+        margin-left:30px;
     }
 }
 
@@ -284,9 +314,7 @@
         margin-left: 50px;
     }
 
-    #inputPreis {
-        margin-left: -20px;
-    }
+
 
     .agb_div p, .impressum_div p {
         margin-left: 14%;
@@ -367,7 +395,7 @@
         font-size: 14px;
     }
     #agb{
-        margin-left: 160px;
+        margin-left: 250px;
     }
 }
 
@@ -411,7 +439,7 @@
         margin-left: 60px;
     }
     #agb{
-        margin-left: 120px;
+        margin-left: 200px;
     }
 }
 
@@ -437,11 +465,6 @@
 
     .TextVon {
         margin-right: -100px;
-    }
-
-    .detailsInput {
-        margin-left: -30px;
-        width: 200px;
     }
 
     #inputBild {
@@ -478,7 +501,7 @@
         margin-left: 5%!important;
     }
     #agb{
-        margin-left: 70px;
+        margin-left: 160px;
     }
 }
 
@@ -500,11 +523,6 @@
 
     .TextVon {
         margin-right: -100px;
-    }
-
-    .detailsInput {
-        margin-left: -35px;
-        width: 170px;
     }
 
     #inputBild {
@@ -574,7 +592,13 @@
         margin-left:-10px;
     }
     #agb{
-        margin-left: 30px;
+        margin-left: 120px;
+    }
+    .detailsInput{
+        width: 170px;
+    }
+    .inputDetails{
+        margin-left: 60px;
     }
 }
 
@@ -588,6 +612,12 @@
     .content h2 {
         font-size: 80%;
         margin: 0;
+    }
+    .detailsInput{
+        width: 170px;
+    }
+    .inputDetails{
+        margin-left: 40px;
     }
 }
 
@@ -609,11 +639,6 @@
 
     .TextVon {
         margin-right: -100px;
-    }
-
-    .detailsInput {
-        margin-left: -70px;
-        width: 170px;
     }
 
     .TextPreisProTag {
@@ -662,6 +687,12 @@
     #Zurueck2{
         margin-left:-35px;
     }
+    .detailsInput{
+        width: 160px;
+    }
+    .inputDetails{
+        margin-left: 40px;
+    }
 }
 
 /*-----------390px-------*/
@@ -689,7 +720,22 @@
         margin-left: 30px;
     }
     #agb{
-        margin-left: -50px;
+        margin-left: 50px;
+    }
+    .detailsInput{
+        width: 120px;
+    }
+    .inputDetails{
+        margin-left: 54px;
+    }
+    .angabenAuto{
+        text-align: center;
+        font-size: 30px;
+        margin-left: 20px;
+    }
+    .standortAuto{
+        text-align: center;
+        font-size: 25px;
     }
 }
 
@@ -717,20 +763,14 @@
         margin-left: 50px;
     }
 
-    .detailsInput {
-        margin-left: -70px;
-        width: 130px;
-    }
-
-    #inputPreis {
-        margin-left: -25px;
-        height: 40px;
-        width: 80px;
+    .preis{
+        width: 110px;
+        margin-left: -10px;
     }
 
     #inputBild {
         width: 100px;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 
     .agb_div p, .impressum_div p {
@@ -772,7 +812,15 @@
         padding-top: 30%;
         padding-bottom: 2%;
     }
-
+    .detailsInput{
+        width: 120px;
+    }
+    .inputDetails{
+        margin-left: 35px;
+    }
+    #agb{
+        margin-left: 30px;
+    }
 }
 
 /*-----------min 1200px-------*/
