@@ -202,6 +202,14 @@ body {
 #AutoButton, #FahrradButton {
     background: rgb(255, 159, 63);
 }
+/*-----------Startseite GoogleMaps--------------*/
+#googleMap1{
+    margin-top: 20%;
+    width:100%;
+    height:500px;
+    margin-left: 50%;
+    padding: 0;
+}
 
 /*-----------Impressum Seite und AGB Seite--------------*/
 .agb_content h6, .impressum_content h1 {
@@ -306,7 +314,7 @@ body {
     font-size: 20px;
 }
 
-#Details, #Details2{
+#Detail, #Details2{
     resize: none;
 }
 
@@ -319,6 +327,12 @@ body {
     background: rgb(255, 159, 63);
     text-decoration: none;
     color: inherit;
+
+}
+
+#MeldeAutoAnButton{
+    margin-left: 550px;
+    margin-top: -70px;
 }
 
 #MeldeAutoAn2, #MeldeAutoAnButton2 {
@@ -343,9 +357,9 @@ body {
 }
 
 .buttonUndTextFuerPreis {
-    margin-top: 100px;
+    margin-top: 115px;
     text-align: center;
-    margin-left: -30px;
+    margin-left: -60px;
     font-size: 20px;
 }
 
@@ -396,21 +410,58 @@ body {
 .eigenschaft{
     font-family: Arial;
     font-size: 20px;
-    margin-left: 5%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 6%;
+    margin-top: 5%;
 }
+.eigenschaft > p{
+    display: inline;
+    margin-right: 3%;
+}
+
 #googleMap{
     margin-top: 5%;
     width:100%;
-    height:350px;
-    margin-left: 0;
+    height:450px;
+    margin-left: -10%;
     padding: 0;
 }
-#googleMap1{
-    margin-top: 20%;
-    width:100%;
-    height:500px;
-    margin-left: 50%;
+#btMieten {
+    font-size: 18px;
+    font-family: Arial;
+    margin-left: 5%;
+    margin-top: 3%;
+    background: rgb(255, 159, 63);
+   /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);*/
+}
+#kon{
+    font-size: 18px;
+    font-family: Arial;
     padding: 0;
+    margin-left: 10%;
+    margin-top: 8%;
+    margin-right: 0;
+}
+#AnsichtBetreff{
+    font-family: Arial;
+    font-size: 14px;
+    margin-top: 5%;
+    margin-left: -30%;
+}
+#areaKontakt{
+    font-size: 14px;
+    font-family: Arial;
+    margin-top: 5%;
+    margin-left: 40%;
+    margin-bottom: 10%;
+}
+#btAnliegen{
+    font-size: 14px;
+    font-family: Arial;
+    margin-top: 20%;
+    margin-left: 10%;
+    background: rgb(255, 159, 63);
 }
 
 /*-----------Seite Login--------------*/
@@ -724,8 +775,121 @@ h5 {
     color: inherit;
 }
 
-.AGBFeld{
-    margin-left: 100px;
+#agb{
+    margin-left:100px;
     margin-top: 50px;
 }
 
+
+/* layout.css Style */
+.upload-drop-zone {
+    height: 150px;
+    border-width: 2px;
+    margin-bottom: 20px;
+    width:400px;
+}
+
+/* skin.css Style*/
+.upload-drop-zone {
+    color: #ccc;
+    border-style: dashed;
+    border-color: black;
+    line-height: 200px;
+    text-align: center
+}
+.upload-drop-zone.drop {
+    color: #222;
+    border-color: #222;
+}
+
+
+
+.upload-area{
+    width: 70%;
+    height: 200px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+
+}
+
+.upload-area:hover{
+    cursor: pointer;
+}
+
+.upload-area h1{
+    text-align: center;
+    font-weight: normal;
+    font-family: sans-serif;
+    line-height: 50px;
+    color: darkslategray;
+}
+
+#file{
+    display: none;
+}
+
+/* Thumbnail */
+.thumbnail{
+    width: 80px;
+    height: 80px;
+    padding: 2px;
+    border: 2px solid lightgray;
+    border-radius: 3px;
+    float: left;
+}
+
+.size{
+    font-size:12px;
+}
+
+.input-group preis{
+    margin-top:30px;
+}
+
+#Details{
+    margin-left:-40px;
+    resize: none;
+}
+
+.buttonUndTextOrt, .buttonUndTextPostleitzahl{
+    text-align: center;
+}
+
+.angabenAuto{
+    margin-top:100px;
+    margin-left: 30px;
+    font-family: "sans-serif";
+}
+
+.autoangabe{
+    margin-top:-90px;
+}
+
+.angabeStandort{
+    margin-top:450px;
+}
+
+.speichern{
+    margin-top: 100px;
+}
+.daten2{
+    font-family: "Arial";
+    font-size: 20px;
+    text-align: center;
+}
+
+#buttonFahrradWeiter{
+    color:inherit;
+    text-decoration: none;
+}
+
+.angabeFahrrad{
+    margin-top: -450px;
+}
+
+#detail{
+    resize: none;
+}

@@ -30,7 +30,7 @@ Route::get('/Vermieten', function () {
 Route::get('/AGB', function () {
     return view('AGB');
 });
-Route::get('/Login', function () {
+ Route::get('/Login', function () {
     return view('/auth/login');
 });
 Route::get('/Registrieren', function () {
@@ -41,12 +41,12 @@ Route::get('/Autoeigenschaft', function () {
     return view('EigenschaftAutovermietung');
 });
 
-Route::get('/Fahrradeigenschaft', function () {
-    return view('Fahrradvermietung');
-});
-
 Route::get('/Autoeigenschaft2', function () {
     return view('EigenschaftAutovermietung2');
+});
+
+Route::get('/Fahrradeigenschaft', function () {
+    return view('Fahrradvermietung');
 });
 
 Route::get('/Fahrradeigenschaft2', function () {
@@ -78,6 +78,14 @@ Route::get('/Bild2', function () {
     return view('bild2');
 });
 
+Route::get('/Drag', function () {
+    return view('DragAndDrop');
+});
+
+Route::get('/Drag2', function () {
+    return view('DragAndDropBild');
+});
+
 
 
 Route::get('/Autoeigenschaft', 'AutovermietungController@prodfunct');
@@ -85,6 +93,11 @@ Route::get('/Autoeigenschaft', 'AutovermietungController@prodfunct');
 Route::get('/findModellName','AutovermietungController@findModellName');
 
 Route::get('/findAutotyp','AutovermietungController@findAutotyp');
+
+Route::post('/Autoeigenschaft2',[
+    'uses'=> 'AutovermietungController@putCar'
+]);
+
 
 
 
@@ -94,21 +107,18 @@ Route::get('findMarkeNameFahrrad', 'FahrradvermietungController@findMarkeNameFah
 
 Route::get('findModellNameFahrrad', 'FahrradvermietungController@findModellNameFahrrad');
 
-/*Route::get('/Amarke', function(){
-    $amarke = AMarke::all();
-    return view('posts.index')->with('amarke',$amarke);
-});
+Route::post('/Fahrradeigenschaft2',[
+    'uses'=> 'FahrradvermietungController@putFahrrad'
+]);
 
-Route::get('/ajax-subcat', function() {
 
-    $cat_id = Input::get('cat_id');
-    $amodelle = AModell::where('idAmarke', '=', $cat_id)->get();
 
-    return Response::json($amodelle);
 
-});
 
-*/
+//Route::get('/Fahrradeigenschaft2', 'FahrradvermietungController@safeFahrrad');
+//Route::resource('amarke', 'FahrradSafeController');
+
+
 
 
 /*------Notification---------*/
