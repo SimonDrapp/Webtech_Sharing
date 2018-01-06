@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\AModell;
+use App\autovermietung;
 use App\Baujahr;
 use App\Bilder;
 use App\Kraftstoff;
+use App\Ort;
 use App\Vermieten;
 use Illuminate\Http\Request;
 use App\AMarke;
@@ -23,9 +25,9 @@ class allgemeineSucheController extends Controller
         $aModelle = AModell::all();
         $Kraftstoffe = Kraftstoff::all();
         $Baujahre = Baujahr::all();
-        $Vermieten = Vermieten::all();
+        $aVermietung = autovermietung::all();
         return view('allgemeineSuche',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'Kraftstoffe' => $Kraftstoffe,
-            'Baujahre' => $Baujahre, 'Vermieten' => $Vermieten]);
+            'Baujahre' => $Baujahre, 'aVermietung' => $aVermietung]);
     }
 
     /**
@@ -99,5 +101,22 @@ class allgemeineSucheController extends Controller
         $data= AModell::where('idAmarke', $request->id)->get();
         return response()->json($data);
 
+    }
+
+    public function search(Request $request){
+
+        if($request->ajax()){
+            $output="";
+            $cities=Ort::where('Name','LIKE',$request->search.'%')
+                        ->orWhere('plz','Like',$request->search.'%')->get();
+
+
+            if($cities){
+
+                foreach($cities as $key => $city)
+                $output.= '<li id="test">'.$city->Name.', '.$city->plz.'</li>';
+            }
+            return Response($output);
+        }
     }
 }

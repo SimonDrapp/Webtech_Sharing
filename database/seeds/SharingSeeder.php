@@ -6,12 +6,14 @@ use App\AModell;
 use App\AMarke;
 use App\Baujahr;
 use App\Kraftstoff;
-
+use App\Ort;
 use App\Farbe;
-
+use App\Bilder;
 use App\Art;
 use App\FMarke;
 use App\FModell;
+use App\autovermietung;
+use App\fahrradvermietung;
 
 use Illuminate\Database\Seeder;
 
@@ -152,7 +154,153 @@ class SharingSeeder extends Seeder
         ));
 
 */
+            Ort:: create(array(
+            'Name'=> 'Konstanz Petershausen-West',
+            'plz'=> '78467'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Konstanz Wollmatingen',
+            'plz'=> '78467'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Konstanz Paradies',
+            'plz'=> '78462'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Konstanz Petershausen-Ost',
+            'plz'=> '78464'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Konstanz Dettingen',
+            'plz'=> '78465'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Singen',
+            'plz'=> '78224'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Baden-Baden',
+            'plz'=> '76530'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Varnhalt',
+            'plz'=> '76534'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Stuttgart',
+            'plz'=> '70173'
+        ));
+            Ort:: create(array(
+            'Name'=> 'Sindelfingen',
+            'plz'=> '71034'
+        ));
 
+        autovermietung:: create(array(
+            'marke'=> 'Audi',
+            'modell'=> 'Audi A3',
+            'baujahr'=> '2014',
+            'farbe'=> 'silber',
+            'kraftstoff'=> 'Benzin',
+            'preis'=> '50,00',
+            'bild'=> 'audiA3.jpg',
+            'details'=> 'neuer Audi A3',
+            'postleitzahl'=>'78462',
+            'ort'=>'Konstanz',
+            'strasseNr'=>'Alfred-Wachtel-Straße 8',
+            'startdate'=>'2018-01-06',
+            'enddate'=>'2018-01-18'
+        ));
+
+        autovermietung:: create(array(
+            'marke'=> 'Audi',
+            'modell'=> 'Audi A5',
+            'baujahr'=> '2016',
+            'farbe'=> 'rot',
+            'kraftstoff'=> 'Benzin',
+            'preis'=> '100,00',
+            'bild'=> 'audiA5.jpg',
+            'details'=> 'neuer Audi A5',
+            'postleitzahl'=>'76534',
+            'ort'=>'Konstanz',
+            'strasseNr'=>'Bodanstraße 15',
+            'startdate'=>'2018-01-10',
+            'enddate'=>'2018-01-20'
+        ));
+
+        autovermietung:: create(array(
+        'marke'=> 'BMW',
+        'modell'=> 'BMW 3er',
+        'baujahr'=> '2015',
+        'farbe'=> 'silber',
+        'kraftstoff'=> 'Benzin',
+        'preis'=> '50,00',
+        'bild'=> 'audiA3.jpg',
+        'details'=> 'neuer Audi A3',
+        'postleitzahl'=>'78479',
+        'ort'=>'Reichenau',
+        'strasseNr'=>'Priminstraße 45',
+        'startdate'=>'2018-01-06',
+        'enddate'=>'2018-01-18'
+    ));
+
+        autovermietung:: create(array(
+            'marke'=> 'Mercedes',
+            'modell'=> 'CLS',
+            'baujahr'=> '2017',
+            'farbe'=> 'silber',
+            'kraftstoff'=> 'Benzin',
+            'preis'=> '50,00',
+            'bild'=> 'audiA3.jpg',
+            'details'=> 'neuer Audi A3',
+            'postleitzahl'=>'78479',
+            'ort'=>'Konstanz',
+            'strasseNr'=>'Fürstenbergstraße 87',
+            'startdate'=>'2018-01-06',
+            'enddate'=>'2018-01-18'
+        ));
+
+        fahrradvermietung:: create(array(
+        'art'=> 'Freizeitbike',
+        'marke'=> 'Alpina',
+        'modell'=> 'Mountainbike',
+        'farbe'=> 'schwarz',
+        'preis'=> '10,00',
+        'bild'=> 'maountainbikeAlpina.jpg',
+        'details'=> 'guter Zustand',
+        'postleitzahl'=> '78464',
+        'ort'=> 'Konstanz',
+        'strasseNr'=> 'Universitätsstraße 10',
+        'startdate'=>'2018-01-06',
+        'enddate'=>'2018-01-18'
+    ));
+        fahrradvermietung:: create(array(
+            'art'=> 'Freizeitbike',
+            'marke'=> 'Alpina',
+            'modell'=> 'Mountainbike',
+            'farbe'=> 'schwarz',
+            'preis'=> '10,00',
+            'bild'=> 'maountainbikeAlpina.jpg',
+            'details'=> 'guter Zustand',
+            'postleitzahl'=> '78464',
+            'ort'=> 'Konstanz',
+            'strasseNr'=> 'Sonnenbühlstraße 5',
+            'startdate'=>'2018-01-06',
+            'enddate'=>'2018-01-18'
+        ));
+        fahrradvermietung:: create(array(
+            'art'=> 'Freizeitbike',
+            'marke'=> 'Alpina',
+            'modell'=> 'Mountainbike',
+            'farbe'=> 'schwarz',
+            'preis'=> '10,00',
+            'bild'=> 'maountainbikeAlpina.jpg',
+            'details'=> 'guter Zustand',
+            'postleitzahl'=> '78467',
+            'ort'=> 'Konstanz',
+            'strasseNr'=> 'Hindenburgstraße 5',
+            'startdate'=>'2018-01-06',
+            'enddate'=>'2018-01-18'
+        ));
 
 
 

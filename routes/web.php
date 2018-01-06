@@ -15,9 +15,7 @@ use App\AMarke;
 use App\AModell;
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'welcomeController@index');
 
 Route::get('/Impressum', function () {
     return view('Impressum');
@@ -67,6 +65,7 @@ Route::get('/Ansicht', function () {
 
 Route::resource('allgemeineSuche','allgemeineSucheController');
 Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
+Route::get('/search','allgemeineSucheController@search');
 
 
 

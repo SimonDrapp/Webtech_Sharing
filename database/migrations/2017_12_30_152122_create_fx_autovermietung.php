@@ -22,7 +22,7 @@ class CreateFxAutovermietung extends Migration
             $table->String('kraftstoff');
             $table->String('preis');
             $table->String('bild');
-            $table->String('details');
+            $table->String('details')->nullable();
             $table->String('postleitzahl');
             $table->String('ort');
             $table->String('strasseNr');
