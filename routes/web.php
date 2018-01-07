@@ -1,7 +1,5 @@
 <?php
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +15,7 @@ use App\AMarke;
 use App\AModell;
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'welcomeController@index');
 
 Route::get('/Impressum', function () {
     return view('Impressum');
@@ -63,9 +59,19 @@ Route::get('/Ansicht', function () {
     return view('AnsichtAuto');
 });
 
-Route::get('/allgemeineSuche', function () {
-    return view('allgemeineSuche');
-});
+/*Route::get('/allgemeineSuche', function () {
+
+    $aMarken = DB::table('AMarke')->get();
+
+
+    return view('allgemeineSuche',compact('aMarken'));
+});*/
+
+Route::resource('allgemeineSuche','allgemeineSucheController');
+Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
+Route::get('/search','allgemeineSucheController@search');
+
+
 
 Route::get('/Bild', function () {
     return view('bild');

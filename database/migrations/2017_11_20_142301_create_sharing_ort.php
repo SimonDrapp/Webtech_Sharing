@@ -16,6 +16,7 @@ class CreateSharingOrt extends Migration
         Schema::create('Ort', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Name');
+            $table->string('plz');
             $table->timestamps();
         });
     }
