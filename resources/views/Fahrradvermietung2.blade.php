@@ -30,17 +30,17 @@
 
     <div class="container-fluid">
         <div class="row">
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="/Vermieten" method="post">
                 {{csrf_field()}}
 
                 <div class="col-xs-6 col-md-3 speichern">
                     <p class="daten2">Art</p>
-                    <label for="marke"></label>
+                    <label for="art"></label>
                     <input style="text-align: center" type="text" class="form-control" name="art" value="<?php echo $value2; ?>" disabled>
                 </div>
                 <div class="col-xs-6 col-md-3 speichern">
                     <p class="daten2">Marke</p>
-                    <label for="modell"></label>
+                    <label for="marke"></label>
                     <input style="text-align: center" type="text" class="form-control" name="marke" value="<?php echo $value3; ?>" disabled>
                 </div>
                 <div class="col-xs-6 col-md-3 speichern">
@@ -129,7 +129,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-4">
-                    <form class="AGBFeld">
+            <!--        <form class="AGBFeld">      -->
                         <fieldset id="agb">
                             <input type="radio" name="agb" id="akzeptieren" value="ok">
                             <label for="akzeptieren">unsere <a href="/AGB">AGB</a> akzeptieren</label>
@@ -137,18 +137,36 @@
                             <input type="radio" name="agb" id="ablehnen" value="no" checked>
                             <label for="ablehnen">ablehnen</label>
                         </fieldset>
-                    </form>
+          <!--          </form> -->
                 </div>
                 <div class="col-xs-6 col-md-4">
                     <div class="buttonUndText">
-                        <a href="/Fahrradeigenschaft" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2"><span
+                        <a href="/Fahrradeigenschaft" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2" data-toggle="modal" data-target="#exampleModal"><span
                                         class="glyphicon glyphicon-triangle-left"></span>Zurück</button></a>
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-4">
                     <div class="buttonUndText">
-                        <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton2" disabled>Fahrrad anmelden<span
-                                    class="glyphicon glyphicon-triangle-right"></span></button>
+
+                            <button type="button" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton2" data-toggle="modal" data-target="#myModal" disabled>Fahrrad anmelden<span
+                                        class="glyphicon glyphicon-triangle-right"></span></button>
+
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"></button>
+                                            <h4 class="modal-title">Vielen Dank!</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Nur noch zur Startseite & Ihr Fahrrad steht schon bereit.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="/Vermieten"><button type="submit" class="btn btn-primary" data-darget="/Vermieten">Zurück zur Startseite</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -173,6 +191,8 @@
 
 
     </script>
+
+
 
     @include('includes.footer')
 

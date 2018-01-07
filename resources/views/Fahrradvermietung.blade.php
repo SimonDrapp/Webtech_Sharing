@@ -81,7 +81,7 @@
                 <div class="col-xs-6 col-md-4">
                     <div class="buttonUndText">
                         <p class="TextBild">Bild</p>
-                        <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1">
+                        <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" required>
                         <div class="input-group mx-sm-4">
                             <input type="text" id="inputBild" class="form-control input" name="bild">
                             <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
@@ -94,7 +94,7 @@
                     <div class="buttonUndText">
                         <p class="Text">Details</p>
                         <div class="form-group2 inputDetails">          <!-- HIER ID ÄNDERN FÜR DETAILS UND STYLE ANPASSSEN -->
-                            <textarea class="form-control detailsInput" rows="4" id="Details" name="details" placeholder="Details zum Auto ..."></textarea>
+                            <textarea class="form-control detailsInput" rows="4" id="Details" name="details" placeholder="Details zum Auto ..." required></textarea>
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-xs-12 col-md-4">
                         <div class="buttonUndTextPostleitzahl">
                             <p class="Text">Straße/Nr.</p>
@@ -163,7 +162,6 @@
                         </div>
                     </div>
 
-
                     <div class="col-xs-6 col-md-6">
                         <div class="form-group">
                             <div class="buttonUndText">
@@ -177,11 +175,10 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-xs-12 col-md-6">
                         <div class="buttonUndText">
-                          <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton">Melde mein Fahrrad an<span
-                                            class="glyphicon glyphicon-triangle-right"></span></button>
+                            <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton">Melde mein Fahrrad an<span
+                                        class="glyphicon glyphicon-triangle-right"></span></button>
                         </div>
                     </div>
                 </div>

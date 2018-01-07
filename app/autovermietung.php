@@ -10,5 +10,6 @@ class autovermietung extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'Integer';
     public $incrementing = true;
-    public $fillable = array('preis', 'marke', 'modell', 'farbe','kraftstoff','bild','details','startdate', 'enddate', 'postleitzahl', 'ort', 'strasseNr');
+    public $fillable = array('autopreis', 'automarke', 'automodell', 'autofarbe','autokraftstoff','autobild','autodetails',
+        'autostartdate', 'autoenddate', 'autopostleitzahl', 'autoort', 'autostrasseNr');
 }

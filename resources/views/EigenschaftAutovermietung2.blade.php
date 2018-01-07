@@ -12,13 +12,13 @@
 {{csrf_field()}}
 
 <?php
-$values = $_POST['marke'];
+$values = $_POST['automarke'];
 $values = explode(', ', $values);
 $value2 = $values[1];
 ?>
 
 <?php
-$values2 = $_POST['modell'];
+$values2 = $_POST['automodell'];
 $values2 = explode(', ', $values2);
 $value3 = $values2[1];
 ?>
@@ -26,38 +26,38 @@ $value3 = $values2[1];
 
 <div class="container-fluid">
     <div class="row">
-        <form action="#" method="post" enctype="multipart/form-data">
+        <form action="/" method="post">
             {{csrf_field()}}
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Marke</p>
                 <label for="marke"></label>
-                <input style="text-align: center" type="text" class="form-control" name="modell" value="<?php echo $value2; ?>" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="automodell" value="<?php echo $value2; ?>" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Modell</p>
                 <label for="modell"></label>
-                <input style="text-align: center" type="text" class="form-control" name="modell" value="<?php echo $value3; ?>" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="automodell" value="<?php echo $value3; ?>" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Baujahr</p>
                 <label for="baujahr"></label>
-                <input style="text-align: center" type="text" class="form-control" name="baujahr" value="{{$autovermietungen -> baujahr}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="autobaujahr" value="{{$autovermietungen -> autobaujahr}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Farbe</p>
                 <label for="farbe"></label>
-                <input style="text-align: center" type="text" class="form-control" name="farbe" value="{{$autovermietungen -> farbe}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="autofarbe" value="{{$autovermietungen -> autofarbe}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Kraftstoff</p>
                 <label for="kraftstoff"></label>
-                <input style="text-align: center" type="text" class="form-control" name="kraftstoff" value="{{$autovermietungen -> kraftstoff}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="autokraftstoff" value="{{$autovermietungen -> autokraftstoff}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Preis</p>
                 <label for="preis"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="preis" value="{{$autovermietungen -> preis}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autopreis" value="{{$autovermietungen -> autopreis}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-euro"></span>
                     </span>
@@ -67,7 +67,7 @@ $value3 = $values2[1];
                 <p class="daten2">Bild</p>
                 <label for="bild"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="bild" value="{{$autovermietungen -> bild}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autobild" value="{{$autovermietungen -> autobild}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-picture"></span>
                         </span>
@@ -76,13 +76,13 @@ $value3 = $values2[1];
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Details</p>
                 <label for="details"></label>
-                <textarea type="text" rows="3" class="form-control details" id="detail" name="details" disabled>{{$autovermietungen -> details}}</textarea>
+                <textarea type="text" rows="3" class="form-control details" id="detail" name="autodetails" disabled>{{$autovermietungen -> autodetails}}</textarea>
             </div>
             <div class="col-xs-6 col-md-4 speichern">
                 <p class="daten2">Postleitzahl</p>
                 <label for="postleitzahl"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="postleitzahl" value="{{$autovermietungen -> postleitzahl}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autopostleitzahl" value="{{$autovermietungen -> autopostleitzahl}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-map-marker"></span>
                     </span>
@@ -92,7 +92,7 @@ $value3 = $values2[1];
                 <p class="daten2">Ort</p>
                 <label for="ort"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="ort" value="{{$autovermietungen -> ort}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autoort" value="{{$autovermietungen -> autoort}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-home"></span>
                     </span>
@@ -102,7 +102,7 @@ $value3 = $values2[1];
                 <p class="daten2">Strasse/Nr.</p>
                 <label for="strasseNr"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="strasseNr" value="{{$autovermietungen -> strasseNr}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autostrasseNr" value="{{$autovermietungen -> autostrasseNr}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-road"></span>
                     </span>
@@ -112,7 +112,7 @@ $value3 = $values2[1];
                 <p class="daten2">Von</p>
                 <label for="startdate"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="startdate" value="{{$autovermietungen -> startdate}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autostartdate" value="{{$autovermietungen -> autostartdate}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -122,14 +122,14 @@ $value3 = $values2[1];
                 <p class="daten2">Bis</p>
                 <label for="enddate"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="enddate" value="{{$autovermietungen -> enddate}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autoenddate" value="{{$autovermietungen -> autoenddate}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                         </span>
                 </div>
             </div>
             <div class="col-xs-12 col-md-4">
-                <form class="AGBFeld">
+         <!--       <form class="AGBFeld">      -->
                     <fieldset id="agb">
                         <input type="radio" name="agb" id="akzeptieren" value="ok">
                         <label for="akzeptieren">unsere <a href="/AGB">AGB</a> akzeptieren</label>
@@ -137,7 +137,7 @@ $value3 = $values2[1];
                         <input type="radio" name="agb" id="ablehnen" value="no" checked>
                         <label for="ablehnen">ablehnen</label>
                     </fieldset>
-                </form>
+      <!--          </form>     -->
             </div>
             <div class="col-xs-6 col-md-4">
                 <div class="buttonUndText">
@@ -147,10 +147,30 @@ $value3 = $values2[1];
             </div>
             <div class="col-xs-6 col-md-4">
                 <div class="buttonUndText">
-                    <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton2" disabled>Auto anmelden<span
+                    <button type="button" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton2" data-toggle="modal" data-target="#myModal" disabled>Auto anmelden<span
                                 class="glyphicon glyphicon-triangle-right"></span></button>
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"></button>
+                                    <h4 class="modal-title">Vielen Danke</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Nur noch zur Startseite & Ihr Fahrrad steht schon bereit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="/"><button type="submit" class="btn btn-default" data-target="/">Zurück zur Startseite</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
         </form>
     </div>
 </div>

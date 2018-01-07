@@ -55,6 +55,10 @@ Route::get('/Fahrradeigenschaft2', function () {
     return view('Fahrradvermietung2');
 });
 
+Route::get('/Fahrradeigenschaft3', function () {
+    return view('Fahrradvermietung3');
+});
+
 Route::get('/Ansicht', function () {
     return view('AnsichtAuto');
 });
@@ -91,6 +95,9 @@ Route::post('/Autoeigenschaft2',[
     'uses'=> 'AutovermietungController@putCar'
 ]);
 
+Route::post('/',[
+    'uses'=> 'AutovermietungController@saveAuto'
+]);
 
 
 
@@ -102,6 +109,10 @@ Route::get('findModellNameFahrrad', 'FahrradvermietungController@findModellNameF
 
 Route::post('/Fahrradeigenschaft2',[
     'uses'=> 'FahrradvermietungController@putFahrrad'
+]);
+
+Route::post('/Vermieten',[
+    'uses'=> 'FahrradvermietungController@saveFahrrad'
 ]);
 
 
