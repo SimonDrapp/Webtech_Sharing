@@ -25,8 +25,8 @@ class CreateSharingFahrradvermietung extends Migration
             $table->String('postleitzahl');
             $table->String('ort');
             $table->String('strasseNr');
-            $table->date('startdate');
-            $table->date('enddate');
+            $table->String('startdate');
+            $table->String('enddate');
             $table->timestamps();
         });
     }

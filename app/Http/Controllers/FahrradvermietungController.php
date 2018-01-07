@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Illuminate;
 
 use Session;
 use DB;
@@ -39,6 +39,7 @@ class FahrradvermietungController extends Controller
 
 
     public function putFahrrad(Request $request){
+
         $fahrradvermietungen = new fahrradvermietung;
         $fahrradvermietungen->art = $request->art;
         $fahrradvermietungen->marke = $request->marke;
@@ -67,8 +68,37 @@ class FahrradvermietungController extends Controller
         $request->session()->put('startdate', $request->startdate);
         $request->session()->put('enddate', $request->enddate);
 
+
         return view('Fahrradvermietung2',['fahrradvermietungen'=>$fahrradvermietungen]);
 
     }
+
+    public function saveFahrrad(Request $request){
+
+        $fahrradvermietung = new fahrradvermietung;
+        $fahrradvermietung->art = $request->session()->get('art');
+        $fahrradvermietung->marke = $request->session()->get('marke');
+        $fahrradvermietung->modell = $request->session()->get('modell');
+        $fahrradvermietung->farbe = $request->session()->get('farbe');
+        $fahrradvermietung->preis = $request->session()->get('preis');
+        $fahrradvermietung->bild = $request->session()->get('bild');
+        $fahrradvermietung->details = $request->session()->get('details');
+        $fahrradvermietung->postleitzahl = $request->session()->get('postleitzahl');
+        $fahrradvermietung->ort = $request->session()->get('ort');
+        $fahrradvermietung->strasseNr = $request->session()->get('strasseNr');
+        $fahrradvermietung->startdate = $request->session()->get('startdate');
+        $fahrradvermietung->enddate = $request->session()->get('enddate');
+
+
+            DB::table('fahrradvermietung')->insert(['art'=>$fahrradvermietung->art, 'marke'=>$fahrradvermietung->marke,
+            'modell'=>$fahrradvermietung->modell, 'farbe'=>$fahrradvermietung->farbe, 'preis'=>$fahrradvermietung->preis,
+            'bild'=>$fahrradvermietung->bild, 'details'=>$fahrradvermietung->details, 'postleitzahl'=>$fahrradvermietung->postleitzahl,
+            'ort'=>$fahrradvermietung->ort, 'strasseNr'=>$fahrradvermietung->strasseNr, 'startdate'=>$fahrradvermietung->startdate,
+            'enddate'=>$fahrradvermietung->enddate]);
+
+            return view('Vermieten');
+
+            }
+
 
 }

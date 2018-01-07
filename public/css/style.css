@@ -15,7 +15,7 @@ html, body {
 body {
     overflow-x: hidden;
     overflow-y: scroll;
-    background: rgb(219, 227, 243);
+    background: rgb(224,224,224);
 }
 
 /*------------Footer-------------*/
@@ -50,6 +50,7 @@ body {
     opacity: 0.8;
     background: #3c3c3c;
     margin-bottom: 0;
+    clear: both;
 }
 
 .navbar-brand {
@@ -86,13 +87,18 @@ body {
 }
 
 /*-----------Startseite Suchleiste--------------*/
-.search {
+.parallax {
     position: relative;
-    background: url("../img/header2_new.jpg");
-    height: 667px;
+    background: url("../img/header.jpg");
+    min-height: 100%;
     max-width: 100%;
+
+    /*background-size: 100% 100%;*/
+
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
 }
 
 #searchCity, #datevon, #datebis {
@@ -203,10 +209,10 @@ body {
 }
 /*-----------Startseite GoogleMaps--------------*/
 #googleMap1{
-    margin-top: 20%;
+    margin-top: 15%;
     width:100%;
     height:500px;
-    margin-left: 50%;
+
     padding: 0;
 }
 
@@ -479,14 +485,73 @@ body {
     position: fixed;
 }
 /*---------allgemeine Suche-------------*/
-/*.search2 {
-    position: relative;
-    background: url("../img/car1.jpg");
-    height: 667px;
+#liveSearch{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    position: absolute;
+    width:95%;
+    cursor: pointer;
+}
+#liveSearch li  {
+    border: 1px solid #ddd;
+    /*margin-top: -1px; /* Prevent double borders */
+    background-color: #fff;
+    padding: 8px;
+    font-size: 14px;
+    color: black;
+    display: block;
+}
+#liveSearch li:hover:not(.header) {
+    background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+.searchPadding{
+    padding-right: 0px;
+}
+
+.GpsPadding{
+    padding-left:0px;
+}
+
+#searchCity1 {
+    font-size: 18px;
+    font-family: Tahoma;
     max-width: 100%;
-    background-repeat: no-repeat;
-    background-size: 100% 90%;
-}*/
+    padding-right: 0px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+#buttonGPS2 {
+    font-size: 14px;
+    font-family: Tahoma;
+    max-width:100%;
+    background:rgb(255, 159, 63);
+    border-radius: 0;
+}
+
+#inputGpsBtn{
+    left:1px;
+}
+
+
+
+#datebis1, #datevon1 {
+    font-size: 18px;
+    font-family: Tahoma;
+    max-width: 100%;
+    padding-right: 0px;
+    border-radius: 0;
+}
+
+#buttonSearch1 {
+    font-size: 14px;
+    font-family: Tahoma;
+    max-width: 100%;
+    background-color: rgba(112, 173, 71, 1);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
 .eingabefeld {
    margin-top: 75px;
     margin-left: auto;
@@ -501,13 +566,29 @@ body {
     position: absolute;
     left: 0;
     top: 8px;
-    padding: 3px 40px;
+    padding: 3px 15px;
     color: #aaa;
 
 }
 
 .InputWithIcon input[type=text]{
     padding-left: 40px;
+}
+
+#buttonSortByAll{
+    padding-top: 20px;
+    margin-right: 73px;
+}
+
+#buttonShowMe{
+    left: 107px;
+    bottom: 15px;
+}
+
+#buttonSortBy{
+    right: 0px;
+    left: 0px;
+    bottom: 15px;
 }
 .myBtnContainer {
     float:right;
@@ -519,13 +600,14 @@ body {
     padding: 12px 16px;
     background: rgb(255, 159, 63);
     cursor: pointer;
+    font-size: 12px;
 }
 
 .myBtnContainer .btn:hover, .active {
-    background-color: #ccc;
+    background-color: rgba(112, 173, 71, 1);
 }
 #slidecontainer {
-    width: 20%;
+    width: 90%;
 }
 
 .slider {
@@ -561,6 +643,149 @@ body {
     background: #4CAF50;
     cursor: pointer;
 }
+
+.searchResultsWrapper{
+
+
+    /*margin: 50px 180px 50px 150px;*/
+}
+
+
+.searchResultsWrapper:after{
+    clear:both;
+    content:"";
+    display: block;
+}
+
+.searchFilter{
+    border: 1px solid;
+    border-radius: 5px;
+    width:20%;
+    margin-left: 10%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    float:left;
+    display: block;
+}
+.searchFilter_block{
+    background-color: #fff;
+}
+
+
+h5 {
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+.searchFilter_filter-title{
+    border-bottom: 2px solid;
+    text-align: center;
+    padding-bottom: 8px;
+}
+.searchFilter_filter-content{
+    border-bottom: 2px solid;
+    padding: 10px;
+}
+.searchFilter_filter-content ul {
+    list-style: none;
+}
+
+.searchFilter_filter-content ul li a{
+    color: black;
+}
+.searchFilter_filter-content ul li a:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.searchFilter_filter-content p {
+    padding-top: 10px;
+}
+
+.searchFilter_filter-content .form-control {
+    width: 50%;
+    margin: auto;
+}
+.searchResults{
+    width: 57%;
+    margin-right: 10%;
+    float:right;
+}
+
+.searchResults_block > :last-child .searchResults_result {
+    margin-bottom: 20px;
+}
+
+.searchResults_block:after{
+    clear:both;
+    content:"";
+    display: block;
+}
+.searchResults_block a{
+    color:black;
+}
+.searchResults_result:hover{
+    border-color: rgba(112, 173, 71, 1);
+}
+
+.searchResults_result{
+    border: 1px solid;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+.searchResults_result:after{
+    clear:both;
+    content:"";
+    display: block;
+}
+.searchResults_image{
+    /*border: 2px solid;*/
+    width: 40%;
+    float:left;
+}
+
+.searchResults_image img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.searchResults_info{
+     float: right;
+     width:55%;
+     margin-left: 5%;
+ }
+.searchResults_info h3{
+    font-size:19px;
+
+}
+
+.searchResults_info-inner{
+    float: left;
+    width: 60%;
+ }
+.searchResults_info-inner p{
+    margin-bottom: 0px;
+}
+
+.searchResults_priceContainer{
+    float: right;
+    width:33%;
+    margin-right: 5%;
+    margin-left:1%;
+}
+
+.searchResults_priceContainer h3{
+    margin-bottom:5px;
+}
+
+.searchResults_priceContainer span{
+    padding-left:10%;
+}
+
+
 
 
 /*---------------------------------*/

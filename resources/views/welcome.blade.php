@@ -10,7 +10,8 @@
 @include('includes.header')
 
 <!-- Bild mit Buttons-->
-<div class="container-fluid">
+<div class="parallax">
+<div class="container">
     <div class="row">
         <div class="col-12 search">
 
@@ -57,6 +58,7 @@
 
         </div>
     </div>
+</div>
 </div>
 <!--<script>
     $("#buttonGPS").click(function () {
@@ -130,9 +132,8 @@
 
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-lg-6">
+<div class="container-fluid">
+
             <div id="googleMap1"></div>
             <script>
                 function initialize(coords) {
@@ -148,6 +149,47 @@
                         map: map,
                         title: "Hier bist du :)"
                     });
+
+                    var geocoder = new google.maps.Geocoder();
+
+
+                    @foreach($aAdresses as $a)
+                    geocoder.geocode({
+                        address:'{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
+                    }, function(geocoderResults, status){
+                        if(status === 'OK') {
+
+                           // map.setCenter(geocoderResults[0].geometry.location);
+
+                            let latlng = geocoderResults[0].geometry.location;
+                            //console.log(latlng.lat(), latlng.lng());
+                            let newMarker = new google.maps.Marker({
+                                map: map,
+                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                               icon: '/img/car.png'
+                            });
+                        }
+                    })
+                    @endforeach
+
+                    @foreach($fAdresses as $f)
+                    geocoder.geocode({
+                        address:'{{$f->ort}},{{$f->postleitzahl}},{{$f->strasseNr}}'
+                    }, function(geocoderResults, status){
+                        if(status === 'OK') {
+
+                            // map.setCenter(geocoderResults[0].geometry.location);
+
+                            let latlng = geocoderResults[0].geometry.location;
+                            //console.log(latlng.lat(), latlng.lng());
+                            let newMarker = new google.maps.Marker({
+                                map: map,
+                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                                icon: '/img/bicycle.png'
+                            });
+                        }
+                    })
+                    @endforeach
                 }
 
                 navigator.geolocation.getCurrentPosition(function(position){
@@ -176,8 +218,7 @@
                 });
             </script>
             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
-        </div>
-    </div>
+
 </div>
 
 @include('includes.footer')

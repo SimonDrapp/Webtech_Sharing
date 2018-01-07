@@ -506,7 +506,44 @@
         width: 220px;
         margin-left: 55px;
     }
+    #liveSearch{
+        width:97%;
+    }
+
+    .searchFilter{
+        display: none;
+        border: 2px solid;
+        border-radius: 5px;
+        width:100%;
+        margin-left: 0px;
+    }
+    .searchResults{
+        width: 100%;
+        margin-right: 160px;
+        margin-top: 50px;
+        margin-right: 0px;
+
+    }
+    i.glyphicon.glyphicon-calendar{
+        padding-left: 30px;
+    }
+    .searchBtnPadding{
+        display: none;
+    }
+
+    /*----allgemeineSuche----*/
+
+
+
+    .searchPadding{
+        float: none;
+    }
 }
+/*-----------768px-------*/
+@media screen and (width: 767px) {
+
+}
+
 
 /*-----------720px-------*/
 @media screen and (max-width: 720px) {
@@ -1081,3 +1118,83 @@
     }
 }
 
+
+
+/*----------min 768px-----------*/
+@media screen and (min-width: 768px){
+    /*-----allgemeineSuche-----*/
+    .changePadding{
+        padding-right: 0px;
+        padding-left:0px;
+    }
+    .searchBtnPadding{
+        padding-left: 0px;
+    }
+    .GpsPadding{
+        padding-right: 0px;
+    }
+    .btnFilter{
+        display: none;
+    }
+}
+
+/*-----------768px - 992px-------*/
+@media screen and (min-width: 768px) and (max-width: 992px){
+    #buttonSortByAll{
+        margin-right: 3px;
+    }
+    #buttonShowMe{
+        left: 19px;
+    }
+}
+
+/*-----------992px - 1199px-------*/
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    #buttonSortByAll{
+        margin-right: 40px;
+    }
+    #buttonShowMe{
+        left: 65px;
+    }
+}
+/*-----------320px - 767px-------*/
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+    .searchResults_image{
+        /*border: 2px solid;*/
+        width: 100%;
+    }
+
+    .searchResults_image img {
+        max-height: 200px;
+        width:100%;
+        object-fit: cover;
+    }
+
+    .searchResults_info{
+        /* border: 2px solid;*/
+        width:100%;
+        padding-left: 5%;
+        padding-bottom:5%;
+    }
+
+    .searchResults_info-inner{
+        float: left;
+        width: 60%;
+    }
+    .searchResults_priceContainer{
+        float: right;
+        width:33%;
+        margin-right: 5%;
+        margin-left:2%;
+    }
+
+    .searchResults_priceContainer h3{
+        margin-bottom:5px;
+    }
+
+    .searchResults_priceContainer span{
+        padding-left:11%;
+    }
+
+}
