@@ -59,6 +59,12 @@ Route::get('/Ansicht', function () {
     return view('AnsichtAuto');
 });
 
+Route::get('/allgemeineSuche', function () {
+    return view('allgemeineSuche');
+});
+Route::get('/Bezahlen', function () {
+    return view('Bezahlen');
+});
 /*Route::get('/allgemeineSuche', function () {
 
     $aMarken = DB::table('AMarke')->get();

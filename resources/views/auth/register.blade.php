@@ -70,6 +70,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('telephonenumber') ? ' has-error' : '' }}">
+                            <label for="telephonenumber" class="col-md-4 control-label">Telephonenumber</label>
+
+                            <div class="col-md-6">
+                                <input id="telephonenumber" type="text" class="form-control" name="telephonenumber" value="{{ old('telephonenumber') }}"
+                                       required autofocus>
+
+                                @if ($errors->has('telephonenumber'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telephonenumber') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

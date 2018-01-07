@@ -125,7 +125,7 @@
             <textarea id="areaKontakt" rows="6" cols="50" name="comment" form="usrform" placeholder="Die Fragen.."></textarea>
         </div>
         <div class="col-md-2 col-lg-2">
-            <button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button>
+            <a href="/Bezahlen"><button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button></a>
         </div>
     </div>
 </div>
