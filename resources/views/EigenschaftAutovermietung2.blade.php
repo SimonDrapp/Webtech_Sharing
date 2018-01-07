@@ -156,13 +156,13 @@ $value3 = $values2[1];
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"></button>
-                                    <h4 class="modal-title">Vielen Danke</h4>
+                                    <h4 class="modal-title">Vielen Dank!</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Nur noch zur Startseite & Ihr Fahrrad steht schon bereit.</p>
+                                    <p>Nur noch zur Startseite & Ihr Auto steht schon bereit.</p>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="/"><button type="submit" class="btn btn-default" data-target="/">Zurück zur Startseite</button></a>
+                                    <a href="/"><button type="submit" class="btn btn-primary" data-target="/">Zurück zur Startseite</button></a>
                                 </div>
                             </div>
                         </div>
