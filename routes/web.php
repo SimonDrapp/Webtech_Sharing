@@ -62,6 +62,9 @@ Route::get('/Ansicht', function () {
 Route::get('/allgemeineSuche', function () {
     return view('allgemeineSuche');
 });
+Route::get('/Bezahlen', function () {
+    return view('Bezahlen');
+});
 
 Route::get('/Bild', function () {
     return view('bild');

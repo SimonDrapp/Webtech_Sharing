@@ -100,6 +100,17 @@
         margin-left: 480px;
         margin-top: -70px;
     }
+    .bez> h1{
+        margin-top: 8%;
+        margin-bottom: 3%;
+        font-size: 40px;
+    }
+    .fa{
+        font-size: 40px!important;
+    }
+    .bub{
+        margin-top: 0!important;
+    }
 }
 
 /*-----------1050px-------*/
@@ -297,6 +308,30 @@
         margin-left: 0;
         margin-bottom: 2%;
     }
+    .bez> h1{
+        margin-top: 10%;
+        margin-bottom: 3%;
+        font-size: 30px;
+    }
+    .fa{
+        font-size: 36px!important;
+    }
+    .rechnung{
+        margin-left: 20%;
+        padding: 2%;
+        margin-top: 5%;
+    }
+    .rechnung > p{
+        font-size: 18px;
+        margin-top: 5%;
+    }
+    .rechnung > h1{
+        font-size: 30px;
+    }
+
+    #btZahlen {
+        font-size: 17px;
+    }
 }
 
 /*-----------930px-------*/
@@ -446,6 +481,20 @@
         height: 300px;
         margin-left: 10%;
     }
+    .rechnung{
+        margin-top: 10%;
+    }
+    .rechnung > p{
+        font-size: 16px;
+        margin-top: 5%;
+    }
+    .rechnung > h1{
+        font-size: 25px;
+    }
+
+    #btZahlen {
+        font-size: 17px;
+    }
 
 }
 
@@ -545,6 +594,13 @@
     }
     #agb{
         margin-left: 200px;
+    }
+    .bez> h1{
+        margin-top: 14%;
+        font-size: 30px;
+    }
+    .fa{
+        font-size: 29px!important;
     }
 
 }
@@ -750,6 +806,28 @@
         max-width: 100%;
         margin: auto;
     }
+    .bez> h1{
+        margin-top: 17%;
+        margin-bottom: 3%;
+        font-size: 25px;
+    }
+    .fa{
+        font-size: 29px!important;
+    }
+    .rechnung{
+        margin-top: 15%;
+    }
+    .rechnung > p{
+        font-size: 13px;
+        margin-top: 5%;
+    }
+    .rechnung > h1{
+        font-size: 25px;
+    }
+
+    #btZahlen {
+        font-size: 17px;
+    }
 
 }
 
@@ -894,6 +972,11 @@
         height: 250px;
         margin-left: 1%;
     }
+    .bez> h1{
+        margin-top: 18%;
+        font-size: 25px;
+    }
+
 }
 
 /*-----------320px-------*/
@@ -977,6 +1060,10 @@
     }
     #agb{
         margin-left: 30px;
+    }
+    .bez> h1{
+        margin-top: 22%;
+        font-size: 25px;
     }
 }
 
