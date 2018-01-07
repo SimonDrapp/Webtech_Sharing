@@ -196,67 +196,67 @@ class SharingSeeder extends Seeder
         ));
 
         autovermietung:: create(array(
-            'marke'=> 'Audi',
-            'modell'=> 'Audi A3',
-            'baujahr'=> '2014',
-            'farbe'=> 'silber',
-            'kraftstoff'=> 'Benzin',
-            'preis'=> '50,00',
-            'bild'=> 'audiA3.jpg',
-            'details'=> 'neuer Audi A3',
-            'postleitzahl'=>'78462',
-            'ort'=>'Konstanz',
-            'strasseNr'=>'Alfred-Wachtel-Straße 8',
-            'startdate'=>'2018-01-06',
-            'enddate'=>'2018-01-18'
+            'automarke'=> 'Audi',
+            'automodell'=> 'Audi A3',
+            'autobaujahr'=> '2014',
+            'autofarbe'=> 'silber',
+            'autokraftstoff'=> 'Benzin',
+            'autopreis'=> '50,00',
+            'autobild'=> 'audiA3.jpg',
+            'autodetails'=> 'neuer Audi A3',
+            'autopostleitzahl'=>'78462',
+            'autoort'=>'Konstanz',
+            'autostrasseNr'=>'Alfred-Wachtel-Straße 8',
+            'autostartdate'=>'2018-01-06',
+            'autoenddate'=>'2018-01-18'
         ));
 
         autovermietung:: create(array(
-            'marke'=> 'Audi',
-            'modell'=> 'Audi A5',
-            'baujahr'=> '2016',
-            'farbe'=> 'rot',
-            'kraftstoff'=> 'Benzin',
-            'preis'=> '100,00',
-            'bild'=> 'audiA5.jpg',
-            'details'=> 'neuer Audi A5',
-            'postleitzahl'=>'76534',
-            'ort'=>'Konstanz',
-            'strasseNr'=>'Bodanstraße 15',
-            'startdate'=>'2018-01-10',
-            'enddate'=>'2018-01-20'
+            'automarke'=> 'Audi',
+            'automodell'=> 'Audi A5',
+            'autobaujahr'=> '2016',
+            'autofarbe'=> 'rot',
+            'autokraftstoff'=> 'Benzin',
+            'autopreis'=> '100,00',
+            'autobild'=> 'audiA5.jpg',
+            'autodetails'=> 'neuer Audi A5',
+            'autopostleitzahl'=>'76534',
+            'autoort'=>'Konstanz',
+            'autostrasseNr'=>'Bodanstraße 15',
+            'autostartdate'=>'2018-01-10',
+            'autoenddate'=>'2018-01-20'
         ));
 
         autovermietung:: create(array(
-        'marke'=> 'BMW',
-        'modell'=> 'BMW 3er',
-        'baujahr'=> '2015',
-        'farbe'=> 'silber',
-        'kraftstoff'=> 'Benzin',
-        'preis'=> '50,00',
-        'bild'=> 'audiA3.jpg',
-        'details'=> 'neuer Audi A3',
-        'postleitzahl'=>'78479',
-        'ort'=>'Reichenau',
-        'strasseNr'=>'Priminstraße 45',
-        'startdate'=>'2018-01-06',
-        'enddate'=>'2018-01-18'
+        'automarke'=> 'BMW',
+        'automodell'=> 'BMW 3er',
+        'autobaujahr'=> '2015',
+        'autofarbe'=> 'silber',
+        'autokraftstoff'=> 'Benzin',
+        'autopreis'=> '50,00',
+        'autobild'=> 'audiA3.jpg',
+        'autodetails'=> 'neuer Audi A3',
+        'autopostleitzahl'=>'78479',
+        'autoort'=>'Reichenau',
+        'autostrasseNr'=>'Priminstraße 45',
+        'autostartdate'=>'2018-01-06',
+        'autoenddate'=>'2018-01-18'
     ));
 
         autovermietung:: create(array(
-            'marke'=> 'Mercedes',
-            'modell'=> 'CLS',
-            'baujahr'=> '2017',
-            'farbe'=> 'silber',
-            'kraftstoff'=> 'Benzin',
-            'preis'=> '50,00',
-            'bild'=> 'audiA3.jpg',
-            'details'=> 'neuer Audi A3',
-            'postleitzahl'=>'78479',
-            'ort'=>'Konstanz',
-            'strasseNr'=>'Fürstenbergstraße 87',
-            'startdate'=>'2018-01-06',
-            'enddate'=>'2018-01-18'
+            'automarke'=> 'Mercedes',
+            'automodell'=> 'CLS',
+            'autobaujahr'=> '2017',
+            'autofarbe'=> 'silber',
+            'autokraftstoff'=> 'Benzin',
+            'autopreis'=> '50,00',
+            'autobild'=> 'audiA3.jpg',
+            'autodetails'=> 'neuer Audi A3',
+            'autopostleitzahl'=>'78479',
+            'autoort'=>'Konstanz',
+            'autostrasseNr'=>'Fürstenbergstraße 87',
+            'autostartdate'=>'2018-01-06',
+            'autoenddate'=>'2018-01-18'
         ));
 
         fahrradvermietung:: create(array(
