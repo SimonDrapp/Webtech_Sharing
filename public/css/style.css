@@ -270,26 +270,14 @@ body {
     font-family: "Book Antiqua";
 }
 
-.FahrradbildVermietung {
-    height: 560px;
-    width:100%;
-    margin-left:1%;
-    cursor: pointer;
+.FahrradbildVermietung, .AutobildVermietung, .img-responsive {
+    height: 400px;
+    width: 580px;
+    display: block;
     margin-top: 30px;
+    margin-left: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
-    object-fit: cover;
-}
-
-.AutobildVermietung{
-    height: 560px;
-    width: 100%;
-    margin-right: 2%;
-    cursor: pointer;
-    margin-top: 30px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    object-fit: cover;
 }
 
 #AutoButtonVermietung, #FahrradButtonVermietung {
@@ -992,6 +980,4 @@ h5 {
     margin-bottom: 2%;
     background: rgb(255, 159, 63);
 }
-.angabevermieten{
-    margin-top:21px;
-}
+

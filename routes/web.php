@@ -87,13 +87,6 @@ Route::get('/Bild2', function () {
     return view('bild2');
 });
 
-Route::get('/Drag', function () {
-    return view('DragAndDrop');
-});
-
-Route::get('/Drag2', function () {
-    return view('DragAndDropBild');
-});
 
 
 
