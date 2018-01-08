@@ -155,7 +155,7 @@
 
                     @foreach($aAdresses as $a)
                     geocoder.geocode({
-                        address:'{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
+                        address:'{{$a->autoort}},{{$a->autopostleitzahl}},{{$a->autostrasseNr}}'
                     }, function(geocoderResults, status){
                         if(status === 'OK') {
 
