@@ -141,20 +141,20 @@
                 <a href="#">
                     <div class="searchResults_result">
                         <div class="searchResults_image">
-                            <img src="img/searchPictures/{{$aVer->bild}}" alt="{{$aVer->modell}}">
+                            <img src="img/searchPictures/{{$aVer->autobild}}" alt="{{$aVer->automodell}}">
                         </div>
                         <div class="searchResults_info">
                             <div class="searchResults_info-inner">
                                 <h3 class="searchResults_title">
-                                    {{$aVer->modell}}
+                                    {{$aVer->automodell}}
                                 </h3>
                                 <div>
-                                    <p>{{$aVer->strasseNr}}, {{$aVer->ort}}</p>
+                                    <p>{{$aVer->autostrasseNr}}, {{$aVer->autoort}}</p>
                                 </div>
                             </div>
                             <div class="searchResults_priceContainer">
                                 <h3 class="searchResults_price">
-                                    € {{$aVer->preis}}
+                                    € {{$aVer->autopreis}}
                                 </h3>
                                 <span>pro Tag</span>
                             </div>
