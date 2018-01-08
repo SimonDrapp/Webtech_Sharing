@@ -152,4 +152,6 @@ Route::get('/NachrichtAnzeigen/{id}', 'NotificationController@showContact');
 
 Auth::routes();
 
+/*Route::get('/Ansicht/{id}', 'AnsichtAutoController@show');*/
+
 Route::get('/home', 'HomeController@index')->name('home');

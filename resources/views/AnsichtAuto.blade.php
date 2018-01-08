@@ -79,8 +79,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-lg-6 eigenschaft">
-            <p><b>Marke:</b></p><p>Audi<br><br></p>
-            <p><b>Modell:</b></p><p> hahahaha<br><br></p>
+            <p><b>Marke:</b></p><p><br><br></p>
+            <p><b>Modell:</b></p><p><br><br></p>
             <p><b>Autotyp:</b><br><br></p>
             <p><b>Kraftstoff:</b><br><br></p>
             <p><b>Baujahr:</b><br><br></p>
@@ -129,6 +129,7 @@
         </div>
     </div>
 </div>
+
 
 @include('includes.footer')
 </body>
