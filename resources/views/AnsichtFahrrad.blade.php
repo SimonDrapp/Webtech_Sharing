@@ -20,21 +20,21 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{{asset('img/header2.jpg')}}" alt="Bild vom Auto1">
+                        <img src="{{asset('img/bike1.jpg')}}" alt="Bild vom Fahrrad1">
                         <div class="carousel-caption">
                             <h10>Einfach so!</h10>
                             <p>It's always a fun to make this f*** page</p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="{{asset('img/header1.jpg')}}" alt="Bild vom Auto2">
+                        <img src="{{asset('img/header2.jpg')}}" alt="Bild vom Fahrrad2">
                         <div class="carousel-caption">
                             <h10>Einfach so ein zweites Bild!</h10>
                             <p>It's always a lot shit to make this f*** page</p>
                         </div>
                     </div>
                     <div class="item">
-                        <img src="{{asset('img/car2.jpg')}}" alt="Bild vom Auto3">
+                        <img src="{{asset('img/car2.jpg')}}" alt="Fahrrad vom Auto3">
                         <div class="carousel-caption">
                             <h10>Einfach so nochmaaaal!</h10>
                             <p>It's always a fuck to make this f*** page</p>
@@ -81,13 +81,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-lg-6 eigenschaft">
-            <p><b>Marke:</b></p><p>{{$vermietungen->automarke}}<br><br></p>
-            <p><b>Modell:</b></p><p>{{$vermietungen->automodell}}<br><br></p>
-            <p><b>Autofarbe:</b></p><p>{{$vermietungen->autofarbe}}<br><br></p>
-            <p><b>Kraftstoff:</b></p><p>{{$vermietungen->autokraftstoff}}<br><br></p>
-            <p><b>Baujahr:</b></p><p>{{$vermietungen->autobaujahr}}<br><br></p>
-            <p><b>Details:</b></p><p>{{$vermietungen->autodetails}}<br><br></p>
-            <p><b>Preis pro Tag:</b></p><p>{{$vermietungen->autopreis}} €</p>
+            <p><b>Marke:</b></p><p><br><br></p>
+            <p><b>Modell:</b></p><p><br><br></p>
+            <p><b>Fahrradfarbe:</b></p><p><br><br></p>
+            <p><b>Fahrradart:</b></p><p><br><br></p>
+            <p><b>Details:</b></p><p><br><br></p>
+            <p><b>Preis pro Tag:</b></p><p></p>
         </div>
         <div class="col-md-4 col-lg-6">
             <div id="googleMap"></div>

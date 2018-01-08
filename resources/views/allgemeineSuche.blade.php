@@ -138,7 +138,7 @@
     <div class="searchResults">
         <div class="searchResults_block">
             @foreach($aVermietung as $aVer)
-                <a href="#">
+                <a href="/Ansicht/{{$aVer->id}}">
                     <div class="searchResults_result">
                         <div class="searchResults_image">
                             <img src="img/searchPictures/{{$aVer->autobild}}" alt="{{$aVer->automodell}}">

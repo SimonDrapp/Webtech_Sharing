@@ -49,6 +49,7 @@ class AnsichtAutoController extends Controller
     public function show($id)
     {
         $vermietungen =autovermietung::findOrFail($id);
+
         return view('AnsichtAuto', ['vermietungen' => $vermietungen]);
     }
 
