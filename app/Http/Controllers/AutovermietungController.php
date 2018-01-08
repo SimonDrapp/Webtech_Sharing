@@ -14,6 +14,7 @@ use App\Farbe;
 use DB;
 use App\autovermietung;
 use Session;
+use App\fahrradvermietung;
 
 class AutovermietungController extends Controller
 {
@@ -101,7 +102,9 @@ class AutovermietungController extends Controller
             'autodetails'=>$autovermietung->autodetails, 'autopostleitzahl'=>$autovermietung->autopostleitzahl, 'autoort'=>$autovermietung->autoort,
             'autostrasseNr'=>$autovermietung->autostrasseNr, 'autostartdate'=>$autovermietung->autostartdate, 'autoenddate'=>$autovermietung->autoenddate]);
 
-        return view('welcome');
+        $aAdresses = autovermietung::all();
+        $fAdresses = fahrradvermietung::all();
+        return view('welcome',['aAdresses' => $aAdresses, 'fAdresses' => $fAdresses]);
 
     }
 
