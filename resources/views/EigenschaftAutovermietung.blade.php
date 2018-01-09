@@ -94,7 +94,7 @@
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="TextBild">Bild</p>
-                    <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" >
+                    <input type="file" class="file" accept="image/*" name="bild" id="file1" multiple>
                     <div class="input-group mx-sm-4">
                             <input type="text" id="inputBild" class="form-control input" name="autobild">
                     <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen

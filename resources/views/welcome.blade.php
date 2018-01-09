@@ -121,14 +121,16 @@
             </div>
         </div>
         <div class="button2">
-            <a href="#">
             <button type="button" class="btn btn-basic1 btn-responsive" id="FahrradButton">Zum Fahrrad<span
-                        class="glyphicon glyphicon-triangle-right"></span></button></a>
+                        class="glyphicon glyphicon-triangle-right"></span></button>
         </div>
 
     </section>
 
 </article>
+<div id="sola">
+
+</div>
 
 <div class="container-fluid">
 
@@ -159,12 +161,13 @@
 
                            // map.setCenter(geocoderResults[0].geometry.location);
 
-                            let latlng = geocoderResults[0].geometry.location;
+                            var latlng = geocoderResults[0].geometry.location;
                             //console.log(latlng.lat(), latlng.lng());
-                            let newMarker = new google.maps.Marker({
+                            var newMarker = new google.maps.Marker({
                                 map: map,
                                 position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                               icon: '/img/car.png'
+                               icon: '/img/car.png',
+                                title: "{{$a->autostrasseNr}}, {{$a->autopostleitzahl}} {{$a->autoort}}"
                             });
                         }
                     })
@@ -178,12 +181,13 @@
 
                             // map.setCenter(geocoderResults[0].geometry.location);
 
-                            let latlng = geocoderResults[0].geometry.location;
+                            var latlng = geocoderResults[0].geometry.location;
                             //console.log(latlng.lat(), latlng.lng());
-                            let newMarker = new google.maps.Marker({
+                            var newMarker = new google.maps.Marker({
                                 map: map,
                                 position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                                icon: '/img/bicycle.png'
+                                icon: '/img/bicycle.png',
+                                title: "{{$f->strasseNr}}, {{$f->postleitzahl}} {{$f->ort}}"
                             });
                         }
                     })
@@ -195,6 +199,7 @@
                 }, function(){
                     document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
                 });
+
 
                 /*function myMap() {
                     var myCenter = new google.maps.LatLng(47.6724811, 9.1679752);
