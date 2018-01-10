@@ -520,6 +520,7 @@ body {
 }
 .searchPadding{
     padding-right: 0px;
+    z-index:1;
 }
 
 .GpsPadding{
@@ -564,6 +565,13 @@ body {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+#buttonFilter{
+    font-size: 14px;
+    font-family: Tahoma;
+    max-width: 100%;
+    background-color: rgba(112, 173, 71, 1);
+    border-radius: 5px;
+}
 .eingabefeld {
    margin-top: 75px;
     margin-left: auto;
@@ -593,7 +601,6 @@ body {
 }
 
 #buttonShowMe{
-    left: 107px;
     bottom: 15px;
 }
 
@@ -615,12 +622,46 @@ body {
     font-size: 12px;
 }
 
-.myBtnContainer .btn:hover, .active {
+#buttonSortByAll .active{
+    background-color: rgba(112, 173, 71, 1);
+    z-index: 1;
+}
+
+#buttonSortByAll .btn:hover, .active {
     background-color: rgba(112, 173, 71, 1);
 }
 #slidecontainer {
     width: 90%;
 }
+
+#slider-range{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+
+span.ui-slider-handle.ui-corner-all.ui-state-default{
+    cursor: pointer;
+    border-radius:50%;
+    background-color: rgba(112, 173, 71, 1);
+}
+div.ui-slider-range.ui-corner-all.ui-widget-header{
+    background-color: rgba(112, 173, 71, 1);
+}
+
+#amount{
+    width: 100%;
+    border:0;
+}
+
+
 
 .slider {
     -webkit-appearance: none;
@@ -655,13 +696,6 @@ body {
     background: #4CAF50;
     cursor: pointer;
 }
-
-.searchResultsWrapper{
-
-
-    /*margin: 50px 180px 50px 150px;*/
-}
-
 
 .searchResultsWrapper:after{
     clear:both;
@@ -698,8 +732,21 @@ h5 {
     border-bottom: 2px solid;
     padding: 10px;
 }
+.searchFilter_filter-content .headerLine{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    border-color: black;
+    width: 30%;
+}
 .searchFilter_filter-content ul {
     list-style: none;
+}
+.searchFilter_filter-content ul li {
+    list-style: none;
+}
+
+.searchFilter_filter-content .showMore{
+    display:none;
 }
 
 .searchFilter_filter-content ul li a{
@@ -710,7 +757,6 @@ h5 {
     cursor: pointer;
 }
 
-
 .searchFilter_filter-content p {
     padding-top: 10px;
 }
@@ -718,6 +764,16 @@ h5 {
 .searchFilter_filter-content .form-control {
     width: 50%;
     margin: auto;
+}
+
+#loadMore{
+    width:60%;
+    font-size: 12px;
+    font-family: Tahoma;
+    margin: auto;
+    background-color: rgba(112, 173, 71, 1);
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 .searchResults{
     width: 57%;

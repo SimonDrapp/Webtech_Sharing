@@ -76,6 +76,7 @@ Route::get('/Bezahlen', function () {
 Route::resource('allgemeineSuche','allgemeineSucheController');
 Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
 Route::get('/search','allgemeineSucheController@search');
+Route::get('/searchVehicles','allgemeineSucheController@searchVehicles');
 
 
 
