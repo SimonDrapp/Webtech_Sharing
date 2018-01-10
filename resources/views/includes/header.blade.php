@@ -22,21 +22,41 @@
                     <li class="active"><a href="/">Startseite</a></li>
                     <li><a href="/Registrieren">Registrieren</a></li>
                     <li><a href="/Login">Einloggen</a></li>
-                    <li><a href="/Vermieten">Vermieten</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hilfe<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Über uns</a></li>
-                            <li><a href="#">Wie es funktioniert</a></li></ul></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sprachen<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Deutsch</a></li>
-                            <li><a href="#">Englisch</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Vermieten</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hilfe<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Über uns</a></li>
+                                <li><a href="#">Wie es funktioniert</a></li></ul></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sprachen<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Deutsch</a></li>
+                                <li><a href="#">Englisch</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <h4 class="modal-title">Anmeldung erforderlich</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Um eine Vermietung durchzuführen müssen Sie sich Einloggen/Registrieren.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/Vermieten"><button type="submit" class="btn btn-primary" data-target="/Vermiete">Jetzt Einloggen/Registrieren</button></a>
+                </div>
             </div>
         </div>
-    </nav>
+    </div>
+
+
 </header>
