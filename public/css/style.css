@@ -386,10 +386,19 @@ body {
 
 /*-----------Seite AnsichtAuto--------------*/
 #myCarousel{
+
     margin-left: 0!important;
     margin-right: 0!important;
     padding: 0!important;
 }
+.carousel-inner> .item{
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0;
+    background-color: #737373;
+}
+
+
 .carousel-inner > .item > img{
     position:relative;
     max-width: 100%;
@@ -422,7 +431,7 @@ body {
     margin-left: 0;
     margin-right: 0;
     padding-left: 6%;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 .eigenschaft > p{
     display: inline;
