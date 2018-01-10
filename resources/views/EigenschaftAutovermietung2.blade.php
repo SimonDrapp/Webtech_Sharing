@@ -58,7 +58,7 @@
                 <p class="daten2">Bild</p>
                 <label for="bild"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autobild" value="{{$autovermietungen -> autobild}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="autobild" value="@foreach($autovermietungen as $autover){{$autover -> autobild}} @endforeach" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-picture"></span>
                         </span>

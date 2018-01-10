@@ -100,7 +100,7 @@
                     <p class="TextBild">Bild</p>
                     <input type="file" class="file" accept="image/*" name="bild" id="file1" multiple>
                     <div class="input-group mx-sm-4">
-                            <input type="text" id="inputBild" class="form-control input" name="autobild" multiple>
+                            <input type="text" id="inputBild" class="form-control input" name="autobild[]" multiple>
                     <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
                         <span class="glyphicon glyphicon-picture"></span></button>
                     </div>
