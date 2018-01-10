@@ -7,7 +7,11 @@
     </head>
 
     <body>
+    @if(Auth::check())
+        @include('includes.header2')
+    @else
         @include('includes.header')
+    @endif
         <section class="impressum_content">
             <h1 id="ImpressumUeberschrift"><b>Impressum & Datenschutz</b></h1>
 

@@ -6,47 +6,33 @@
 </head>
 
 <body>
+@if(Auth::check())
+    @include('includes.header2')
+@else
     @include('includes.header')
+@endif
 
     {{csrf_field()}}
 
-    <?php
-    $values = $_POST['art'];
-    $values = explode(', ', $values);
-    $value2 = $values[1];
-    ?>
-
-    <?php
-    $values1 = $_POST['marke'];
-    $values1 = explode(', ', $values1);
-    $value3 = $values1[1];
-    ?>
-
-    <?php
-    $values2 = $_POST['modell'];
-    $values2 = explode(', ', $values2);
-    $value4 = $values2[1];
-    ?>
-
     <div class="container-fluid">
         <div class="row">
-            <form action="/Vermieten" method="post">
+            <form action="/" method="post">
                 {{csrf_field()}}
 
                 <div class="col-xs-6 col-md-3 speichern">
                     <p class="daten2">Art</p>
                     <label for="art"></label>
-                    <input style="text-align: center" type="text" class="form-control" name="art" value="<?php echo $value2; ?>" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="art" value="{{$fahrradvermietungen -> art}}" disabled>
                 </div>
                 <div class="col-xs-6 col-md-3 speichern">
                     <p class="daten2">Marke</p>
                     <label for="marke"></label>
-                    <input style="text-align: center" type="text" class="form-control" name="marke" value="<?php echo $value3; ?>" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="marke" value="{{$fahrradvermietungen -> marke}}" disabled>
                 </div>
                 <div class="col-xs-6 col-md-3 speichern">
                     <p class="daten2">Modell</p>
                     <label for="modell"></label>
-                    <input style="text-align: center" type="text" class="form-control" name="modell" value="<?php echo $value4; ?>" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="modell" value="{{$fahrradvermietungen -> modell}}" disabled>
                 </div>
                 <div class="col-xs-6 col-md-3 speichern">
                     <p class="daten2">Farbe</p>
@@ -141,7 +127,7 @@
                 </div>
                 <div class="col-xs-6 col-md-4">
                     <div class="buttonUndText">
-                        <a href="/Fahrradeigenschaft" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2" data-toggle="modal" data-target="#exampleModal"><span
+                        <a href="{{ route('Fahrradeigenschaft') }}" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2" data-toggle="modal" data-target="#exampleModal"><span
                                         class="glyphicon glyphicon-triangle-left"></span>Zurück</button></a>
                     </div>
                 </div>
@@ -162,7 +148,7 @@
                                             <p>Nur noch zur Startseite & Ihr Fahrrad steht schon bereit.</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="/Vermieten"><button type="submit" class="btn btn-primary" data-darget="/Vermieten">Zurück zur Startseite</button></a>
+                                            <a href="{{ route('Fahrradeigenschaft3') }}"><button type="submit" class="btn btn-primary" data-darget="{{ route('Fahrradeigenschaft') }}">Zurück zur Startseite</button></a>
                                         </div>
                                     </div>
                                 </div>

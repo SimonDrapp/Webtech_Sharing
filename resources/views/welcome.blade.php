@@ -6,8 +6,11 @@
     <title>my-easysharing | Home </title>
 </head>
 <body>
-
-@include('includes.header')
+@if(Auth::check())
+@include('includes.header2')
+@else
+    @include('includes.header')
+    @endif
 
 <!-- Bild mit Buttons-->
 <div class="parallax">

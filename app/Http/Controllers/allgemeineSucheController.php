@@ -6,6 +6,9 @@ use App\AModell;
 use App\autovermietung;
 use App\Baujahr;
 use App\Bilder;
+use App\fahrradvermietung;
+use App\FMarke;
+use App\FModell;
 use App\Kraftstoff;
 use App\Ort;
 use App\Vermieten;
@@ -23,11 +26,15 @@ class allgemeineSucheController extends Controller
     {
         $aMarken = AMarke::all();
         $aModelle = AModell::all();
+        $fMarken = FMarke::all();
+        $fModelle = FModell::all();
         $Kraftstoffe = Kraftstoff::all();
         $Baujahre = Baujahr::all();
         $aVermietung = autovermietung::all();
-        return view('allgemeineSuche',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'Kraftstoffe' => $Kraftstoffe,
-            'Baujahre' => $Baujahre, 'aVermietung' => $aVermietung]);
+        $fVermietung = fahrradvermietung::all();
+        return view('allgemeineSuche',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+            'fModelle' => $fModelle, 'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre, 'aVermietung' => $aVermietung,
+            'fVermietung' => $fVermietung]);
     }
 
     /**
@@ -118,5 +125,53 @@ class allgemeineSucheController extends Controller
             }
             return Response($output);
         }
+    }
+
+    public function searchVehicles(Request $request){
+
+        $output="";
+        $aVermietung = autovermietung::where([
+            ['autoort','LIKE',$request->ort],
+            ['autopostleitzahl','LIKE',$request->plz],
+             ['autostartdate','<=',$request->startdate],
+             ['autoenddate','>=',$request->enddate]
+        ])->get();
+
+        foreach($aVermietung as $key => $aVer)
+            $output.=
+                '<a href="#">
+                    <div class="searchResults_result">
+                        <div class="searchResults_image">
+                        <img src="img/searchPictures/'.$aVer->autobild.'" alt="'.$aVer->automodell.'">
+                        </div>
+                        <div class="searchResults_info">
+                            <div class="searchResults_info-inner">
+                                <h3 class="searchResults_title">'
+                                    .$aVer->automodell.
+                                '</h3>
+                                 <div>
+                                    <p>'.$aVer->autostrasseNr.','.$aVer->autoort.'</p>
+                                </div>
+                            </div>
+                            <div class="searchResults_priceContainer">
+                                <h3 class="searchResults_price">
+                                    €'.$aVer->autopreis.
+                                '</h3>
+                                <span>pro Tag</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>';
+
+
+      /*  $fVermietung = fahrradvermietung::where([
+            ['ort','LIKE',$request->ort.'%'],
+            ['postleitzahl','=',$request->plz],
+            ['startdate','<=',$request->startdate],
+            ['enddate','>=',$request->enddate]
+        ])->get();*/
+
+        return response($output);
+
     }
 }

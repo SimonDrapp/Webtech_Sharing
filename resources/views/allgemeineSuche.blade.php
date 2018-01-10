@@ -36,16 +36,14 @@
                     <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
                 </div>
                 <div class="col-xs-12 btnFilter">
-                    <button type="button" id="buttonSearch1" class="btn btn-basic btn-block" onclick="displayFilter()">
+                    <button type="button" id="buttonFilter" class="btn btn-basic btn-block" onclick="displayFilter()">
                         Filter
                     </button>
                 </div>
 
                 <div class="col-xs-12 col-sm-2 form-group searchBtnPadding">
-                    <a href="/allgemeineSuche">
-                        <button id="buttonSearch1" class=" btn btn-basic">Suchen
-                            <span class="glyphicon glyphicon-search"></span></button>
-                    </a>
+                    <button type="button" id="buttonSearch1" class=" btn btn-basic">Suchen
+                        <span class="glyphicon glyphicon-search"></span></button>
                 </div>
             </div>
         </div>
@@ -54,17 +52,18 @@
 
 <div class="container searchBtnPadding">
     <div class="row" id="buttonSortByAll">
-        <div class="col-sm-9" id="buttonShowMe">
+        <div class="col-lg-10 col-md-9 col-sm-9" id="buttonShowMe">
             <div class="btn-group myBtnContainer">
-                <button class="btn" onclick="filterSelection('all')"> alle anzeigen</button>
-                <button class="btn" onclick="filterSelection('cars')"> Autos</button>
-                <button class="btn" onclick="filterSelection('animals')"> Fahrräder</button>
+                <button class="btn active" onclick="filterSelection('all')">alle anzeigen</button>
+                <button class="btn" onclick="filterSelection('cars')">Autos</button>
+                <button class="btn" onclick="filterSelection('animals')">Fahrräder</button>
             </div>
         </div>
-        <div class="col-sm-3" id="buttonSortBy">
+        <div class="col-lg-2 col-md-3 col-sm-3" id="buttonSortBy">
             <div class="myBtnContainer btn-group">
                 <button class="btn" onclick="filterSelection('all')"> Preis</button>
                 <button class="btn" onclick="filterSelection('cars')"> Entfernung</button>
+
             </div>
         </div>
     </div>
@@ -77,8 +76,10 @@
                 <h5 class="searchFilter_filter-title">Preis pro Tag</h5>
                 <div class="searchFilter_filter-content">
                     <div id="slidecontainer">
-                        <input type="range" min="1" max="200" value="100" class="slider" id="myRangePrice">
-                        <p>Preis: <span id="demoPrice"></span>€</p>
+                        <div id="slider-range"></div>
+                        <p>
+                            <input type="text" id="amount" readonly>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -94,9 +95,18 @@
             <div class="searchFilter_filter">
                 <h5 class="searchFilter_filter-title">Marke</h5>
                 <div class="searchFilter_filter-content">
+                    <span>Auto</span>
+                    <hr class="headerLine" align="left">
                     <ul>
                         @foreach ($aMarken as $aMarke)
                             <li><a class="aContent" id="AutoMarken" value="{{$aMarke->id}}">{{ $aMarke->name }}</a></li>
+                        @endforeach
+                    </ul>
+                    <span>Fahrrad</span>
+                    <hr class="headerLine" align="left">
+                    <ul>
+                        @foreach ($fMarken as $fMarke)
+                            <li><a class="aContent" id="AutoMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -104,24 +114,37 @@
             <div class="searchFilter_filter">
                 <h5 class="searchFilter_filter-title">Modell</h5>
                 <div class="searchFilter_filter-content">
+                    <span>Auto</span>
+                    <hr class="headerLine" align="left">
                     <ul id="aModelle">
                         @foreach ($aModelle as $aModell)
-                            <li><a class="aContent" id="AutoModelle" value="{{$aModell->id}}}}">{{ $aModell->aModellname }}</a></li>
+                            <li class="showMore"><a class="aContent" id="AutoModelle"
+                                                    value="{{$aModell->id}}}}">{{ $aModell->aModellname }}</a></li>
+                        @endforeach
+                    </ul>
+                    <button type="button" id="loadMore" class="btn btn-basic btn-block">Mehr anzeigen</button>
+                    <span>Fahrrad</span>
+                    <hr class="headerLine" align="left">
+                    <ul id="aModelle">
+                        @foreach ($fModelle as $fModell)
+                            <li><a class="aContent" id="AutoModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
             </div>
-            <div class="searchFilter_filter">
+            <div class="searchFilter_filter" style="display: none">
                 <h5 class="searchFilter_filter-title">Kraftstoff</h5>
                 <div class="searchFilter_filter-content">
                     <ul>
                         @foreach ($Kraftstoffe as $Kraftstoff)
-                            <li><a class="aContent" id="AutoKraftsoff" value="{{$Kraftstoff->id}}}}">{{ $Kraftstoff->name }}</a></li>
+                            <li><a class="aContent" id="AutoKraftsoff"
+                                   value="{{$Kraftstoff->id}}}}">{{ $Kraftstoff->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
             </div>
-            <div class="searchFilter_filter">
+            <div class="searchFilter_filter" style="display: none">
                 <h5 class="searchFilter_filter-title">Baujahr</h5>
                 <div class="searchFilter_filter-content">
                     <select class="form-control" role="menu" aria-labelledby="menu1">
@@ -137,31 +160,6 @@
 
     <div class="searchResults">
         <div class="searchResults_block">
-            @foreach($aVermietung as $aVer)
-                <a href="/Ansicht/{{$aVer->id}}">
-                    <div class="searchResults_result">
-                        <div class="searchResults_image">
-                            <img src="img/searchPictures/{{$aVer->autobild}}" alt="{{$aVer->automodell}}">
-                        </div>
-                        <div class="searchResults_info">
-                            <div class="searchResults_info-inner">
-                                <h3 class="searchResults_title">
-                                    {{$aVer->automodell}}
-                                </h3>
-                                <div>
-                                    <p>{{$aVer->autostrasseNr}}, {{$aVer->autoort}}</p>
-                                </div>
-                            </div>
-                            <div class="searchResults_priceContainer">
-                                <h3 class="searchResults_price">
-                                    € {{$aVer->autopreis}}
-                                </h3>
-                                <span>pro Tag</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            @endforeach
         </div>
     </div>
 </div>
@@ -170,7 +168,67 @@
 
 <script>
 
-    //---Filter-Button---
+   $(function () {
+        var dateFormat = "yy-mm-dd",
+            from = $("#datevon1")
+                .datepicker({
+                    dateFormat: "yy-mm-dd",
+                    defaultDate: "0w",
+                    changeMonth: true,
+                    numberOfMonths: 1,
+                    minDate: 0,
+                    monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+                })
+                .on("change", function () {
+                    to.datepicker("option", "minDate", getDate(this));
+                }),
+            to = $("#datebis1").datepicker({
+                //      defaultDate: "0w",
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                numberOfMonths: 1,
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+            })
+                .on("change", function () {
+                    from.datepicker("option", "maxDate", getDate(this));
+                });
+
+        function getDate(element) {
+            var date;
+            try {
+                date = $.datepicker.parseDate(dateFormat, element.value);
+            } catch (error) {
+                date = null;
+            }
+
+            return date;
+        }
+    });
+
+
+    /*---MehrAnzeigenButton---*/
+    $(function () {
+        $(".showMore").slice(0, 4).show();
+        $("#loadMore").on('click', function (e) {
+            e.preventDefault();
+            $(".showMore:hidden").slice(0, 4).slideDown();
+        });
+    });
+
+
+    /*---FilterButton---*/
     var filterCounter = 0;
 
     function displayFilter() {
@@ -183,16 +241,23 @@
         }
     }
 
+    /*---Slider---*/
+
+    $(function () {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 200,
+            values: [0, 125],
+            slide: function (event, ui) {
+                $("#amount").val("Preis: €" + ui.values[0] + " - €" + ui.values[1]);
+            }
+        });
+        $("#amount").val("Preis: €" + $("#slider-range").slider("values", 0) +
+            " - €" + $("#slider-range").slider("values", 1));
+    });
+
     $(document).ready(function () {
-
-
-        var slider_P = document.getElementById("myRangePrice");
-        var output_P = document.getElementById("demoPrice");
-        output_P.innerHTML = slider_P.value;
-
-        slider_P.oninput = function () {
-            output_P.innerHTML = this.value;
-        }
 
         var slider_E = document.getElementById("myRangeDistance");
         var output_E = document.getElementById("demoDistance");
@@ -202,7 +267,7 @@
             output_E.innerHTML = this.value;
         }
 
-        <!-- Ajax-->
+        /*---Ajax---*/
 
         $('#searchCity1').on('keyup', function () {
 
@@ -266,16 +331,51 @@
                 },
 
                 error: function () {
-
                     alert("Ein Fehler ist aufgetreten");
+                }
+
+
+            })
+
+        });
+
+        /*---SuchenButton---*/
+        $(document).on('click', '#buttonSearch1', function () {
+
+            var ortplz = $('#searchCity1').val();
+            var ortArray = ortplz.split(", ");
+            var ort = ortArray[0];
+            var plz = ortArray[1];
+            var startdate = $('#datevon1').val();
+            var enddate = $('#datebis1').val();
+
+            if(ort.indexOf(" ") > -1){
+                ortArray1 = ort.split(" ");
+                var ort = ortArray1[0];
+            }
+
+            $.ajax({
+                type: 'GET',
+                url: '/searchVehicles',
+                data: {'ort': ort, 'plz': plz, 'startdate': startdate, 'enddate': enddate},
+                success: function (data) {
+
+                    console.log(data)
+                   $('.searchResults_block').html(data);
+
+
 
                 }
+
+
 
 
             })
 
 
         });
+
+
     });
 </script>
 </body>

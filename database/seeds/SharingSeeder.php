@@ -209,7 +209,7 @@ class SharingSeeder extends Seeder
             'autopostleitzahl'=>'78462',
             'autoort'=>'Konstanz',
             'autostrasseNr'=>'Alfred-Wachtel-Straße 8',
-            'autostartdate'=>'2018-01-06',
+            'autostartdate'=>'2018-01-09',
             'autoenddate'=>'2018-01-18'
         ));
 
@@ -222,7 +222,7 @@ class SharingSeeder extends Seeder
             'autopreis'=> '100,00',
             'autobild'=> 'audiA5.jpg',
             'autodetails'=> 'neuer Audi A5',
-            'autopostleitzahl'=>'76534',
+            'autopostleitzahl'=>'78462',
             'autoort'=>'Konstanz',
             'autostrasseNr'=>'Bodanstraße 15',
             'autostartdate'=>'2018-01-10',
@@ -241,8 +241,8 @@ class SharingSeeder extends Seeder
         'autopostleitzahl'=>'78479',
         'autoort'=>'Reichenau',
         'autostrasseNr'=>'Priminstraße 45',
-        'autostartdate'=>'2018-01-06',
-        'autoenddate'=>'2018-01-18'
+        'autostartdate'=>'2018-01-11',
+        'autoenddate'=>'2018-01-30'
     ));
 
         autovermietung:: create(array(
@@ -257,8 +257,8 @@ class SharingSeeder extends Seeder
             'autopostleitzahl'=>'78479',
             'autoort'=>'Konstanz',
             'autostrasseNr'=>'Fürstenbergstraße 87',
-            'autostartdate'=>'2018-01-06',
-            'autoenddate'=>'2018-01-18'
+            'autostartdate'=>'2018-01-12',
+            'autoenddate'=>'2018-01-15'
         ));
 
         fahrradvermietung:: create(array(
@@ -272,7 +272,7 @@ class SharingSeeder extends Seeder
         'postleitzahl'=> '78464',
         'ort'=> 'Konstanz',
         'strasseNr'=> 'Universitätsstraße 10',
-        'startdate'=>'2018-01-06',
+        'startdate'=>'2018-01-10',
         'enddate'=>'2018-01-18'
     ));
         fahrradvermietung:: create(array(
@@ -286,8 +286,8 @@ class SharingSeeder extends Seeder
             'postleitzahl'=> '78464',
             'ort'=> 'Konstanz',
             'strasseNr'=> 'Sonnenbühlstraße 5',
-            'startdate'=>'2018-01-06',
-            'enddate'=>'2018-01-18'
+            'startdate'=>'2018-01-13',
+            'enddate'=>'2018-01-25'
         ));
         fahrradvermietung:: create(array(
             'art'=> 'Freizeitbike',
@@ -300,8 +300,8 @@ class SharingSeeder extends Seeder
             'postleitzahl'=> '78467',
             'ort'=> 'Konstanz',
             'strasseNr'=> 'Hindenburgstraße 5',
-            'startdate'=>'2018-01-06',
-            'enddate'=>'2018-01-18'
+            'startdate'=>'2018-01-11',
+            'enddate'=>'2018-01-17'
         ));
 
 
@@ -547,22 +547,22 @@ class SharingSeeder extends Seeder
 
         $role_user = new Role();
         $role_user->name = 'User';
-        $role_user->description = 'A normal User';
+        $role_user->description = 'Ein angemeldeter User';
         $role_user->save();
 
-        $role_author = new Role();
-        $role_author->name = 'Author';
-        $role_author->description = 'An Author';
-        $role_author->save();
+        $role_benutzer = new Role();
+        $role_benutzer->name = 'Benutzer';
+        $role_benutzer->description = 'Ein Benutzer';
+        $role_benutzer->save();
 
         $role_admin = new Role();
         $role_admin->name = 'Admin';
-        $role_admin->description = 'An Admin';
+        $role_admin->description = 'Ein Administrator';
         $role_admin->save();
 
 
         $role_user = Role::where('name', 'User')->first();
-        $role_author = Role::where('name', 'Author')->first();
+        $role_benutzer = Role::where('name', 'Benutzer')->first();
         $role_admin = Role::where('name', 'Admin')->first();
 
         $user = new User();
@@ -575,11 +575,11 @@ class SharingSeeder extends Seeder
 
         $author = new User();
         $author->name = 'Rindrit Bislimi2';
-        $author->email = 'author@hotmail.de';
+        $author->email = 'benutzer@hotmail.de';
         $author->password = bcrypt('author');
         $author->telephonenumber = '01745916905';
         $author->save();
-        $author->roles()->attach($role_author);
+        $author->roles()->attach($role_benutzer);
 
         $admin = new User();
         $admin->name = 'Rindrit Bislimi2';

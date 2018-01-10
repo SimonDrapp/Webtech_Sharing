@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate;
-
+use App\autovermietung;
 use Session;
 use DB;
 use App\Art;
@@ -41,9 +41,15 @@ class FahrradvermietungController extends Controller
     public function putFahrrad(Request $request){
 
         $fahrradvermietungen = new fahrradvermietung;
-        $fahrradvermietungen->art = $request->art;
-        $fahrradvermietungen->marke = $request->marke;
-        $fahrradvermietungen->modell = $request->modell;
+        $art = $request->art . " ";
+        $art2 = substr($art,2, (sizeof($art)-2));
+        $fahrradvermietungen->art = $art2;
+        $marke = $request->marke . " ";
+        $marke2 = substr($marke,2, (sizeof($marke)-2));
+        $fahrradvermietungen->marke = $marke2;
+        $modell = $request->modell . " ";
+        $modell2 = substr($modell,2, (sizeof($modell)-2));
+        $fahrradvermietungen->modell = $modell2;
         $fahrradvermietungen->farbe = $request->farbe;
         $fahrradvermietungen->preis = $request->preis;
         $fahrradvermietungen->bild = $request->bild;
@@ -55,9 +61,9 @@ class FahrradvermietungController extends Controller
         $fahrradvermietungen->enddate = $request->enddate;
 
 
-        $request->session()->put('art', $request->art);
-        $request->session()->put('marke', $request->marke);
-        $request->session()->put('modell', $request->modell);
+        $request->session()->put('art', $art2);
+        $request->session()->put('marke', $marke2);
+        $request->session()->put('modell', $modell2);
         $request->session()->put('farbe', $request->farbe);
         $request->session()->put('preis', $request->preis);
         $request->session()->put('bild', $request->bild);
@@ -76,9 +82,9 @@ class FahrradvermietungController extends Controller
     public function saveFahrrad(Request $request){
 
         $fahrradvermietung = new fahrradvermietung;
-        $fahrradvermietung->art = $request->session()->get('art');
-        $fahrradvermietung->marke = $request->session()->get('marke');
-        $fahrradvermietung->modell = $request->session()->get('modell');
+        $fahrradvermietung->art2 = $request->session()->get('art');
+        $fahrradvermietung->marke2 = $request->session()->get('marke');
+        $fahrradvermietung->modell2 = $request->session()->get('modell');
         $fahrradvermietung->farbe = $request->session()->get('farbe');
         $fahrradvermietung->preis = $request->session()->get('preis');
         $fahrradvermietung->bild = $request->session()->get('bild');
@@ -90,13 +96,15 @@ class FahrradvermietungController extends Controller
         $fahrradvermietung->enddate = $request->session()->get('enddate');
 
 
-            DB::table('fahrradvermietung')->insert(['art'=>$fahrradvermietung->art, 'marke'=>$fahrradvermietung->marke,
-            'modell'=>$fahrradvermietung->modell, 'farbe'=>$fahrradvermietung->farbe, 'preis'=>$fahrradvermietung->preis,
+            DB::table('fahrradvermietung')->insert(['art'=>$fahrradvermietung->art2, 'marke'=>$fahrradvermietung->marke2,
+            'modell'=>$fahrradvermietung->modell2, 'farbe'=>$fahrradvermietung->farbe, 'preis'=>$fahrradvermietung->preis,
             'bild'=>$fahrradvermietung->bild, 'details'=>$fahrradvermietung->details, 'postleitzahl'=>$fahrradvermietung->postleitzahl,
             'ort'=>$fahrradvermietung->ort, 'strasseNr'=>$fahrradvermietung->strasseNr, 'startdate'=>$fahrradvermietung->startdate,
             'enddate'=>$fahrradvermietung->enddate]);
 
-            return view('Vermieten');
+        $aAdresses = autovermietung::all();
+        $fAdresses = fahrradvermietung::all();
+        return view('welcome',['aAdresses' => $aAdresses, 'fAdresses' => $fAdresses]);
 
             }
 

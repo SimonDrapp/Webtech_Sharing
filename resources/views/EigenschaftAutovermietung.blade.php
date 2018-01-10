@@ -7,11 +7,15 @@
 
 
 <body>
-@include('includes.header')
+@if(Auth::check())
+    @include('includes.header2')
+@else
+    @include('includes.header')
+@endif
 
 <div class="container-fluid">
     <div class="row">
-        <form action="/Autoeigenschaft2" method="post" enctype="multipart/form-data">
+        <form action="{{ route('Autoeigenschaft2') }}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
 
             <h2 class="angabenAuto">Angaben zu Ihrem Auto</h2>
@@ -24,7 +28,7 @@
                             <label for="marke" class="sr-only"></label>
                             <option value="0" disabled="true" selected="true">Auswählen</option>
                             @foreach($amarke as $cat)
-                                <option value="{{$cat->id}}, {{$cat->name}}" id="{{$cat->name}}"  >{{$cat->name}}</option>
+                                <option value="{{$cat->id}}, {{$cat->name}} ">{{$cat->name}}</option>
                             @endforeach
                         </select>
                 </div>
@@ -96,7 +100,7 @@
                     <p class="TextBild">Bild</p>
                     <input type="file" class="file" accept="image/*" name="bild" id="file1" multiple>
                     <div class="input-group mx-sm-4">
-                            <input type="text" id="inputBild" class="form-control input" name="autobild">
+                            <input type="text" id="inputBild" class="form-control input" name="autobild" multiple>
                     <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
                         <span class="glyphicon glyphicon-picture"></span></button>
                     </div>
@@ -197,7 +201,7 @@
                  <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton">Melde mein Auto an<span
                                     class="glyphicon glyphicon-triangle-right"></span></button>
                 </div>
-            </div>
+             </div>
             </div>
         </form>
     </div>
@@ -206,53 +210,53 @@
 
 <script>
     $( function() {
-        var dateFormat = "dd/mm/yy",
-            from = $( "#startdate" )
+        var dateFormat = "yy-mm-dd",
+            from = $("#startdate")
                 .datepicker({
-                    dateFormat: "dd/mm/yy",
+                    dateFormat: "yy-mm-dd",
                     defaultDate: "0w",
                     changeMonth: true,
                     numberOfMonths: 3,
-                    minDate:0,
-                    monthNames: ['Januar','Februar','März','April','Mai','Juni',
-                        'Juli','August','September','Oktober','November','Dezember'],
-                    monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
-                        'Jul','Aug','Sep','Okt','Nov','Dez'],
-                    dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
-                    dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-                    dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa']
+                    minDate: 0,
+                    monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
                 })
-                .on( "change", function() {
-                    to.datepicker( "option", "minDate", getDate( this ) );
+                .on("change", function () {
+                    to.datepicker("option", "minDate", getDate(this));
                 }),
-            to = $( "#enddate" ).datepicker({
+            to = $("#enddate").datepicker({
                 //      defaultDate: "0w",
-                dateFormat: "dd/mm/yy",
+                dateFormat: "yy-mm-dd",
                 changeMonth: true,
                 numberOfMonths: 3,
-                monthNames: ['Januar','Februar','März','April','Mai','Juni',
-                    'Juli','August','September','Oktober','November','Dezember'],
-                monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
-                    'Jul','Aug','Sep','Okt','Nov','Dez'],
-                dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
-                dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-                dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa']
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
             })
-                .on( "change", function() {
-                    from.datepicker( "option", "maxDate", getDate( this ) );
+                .on("change", function () {
+                    from.datepicker("option", "maxDate", getDate(this));
                 });
 
-        function getDate( element ) {
+        function getDate(element) {
             var date;
             try {
-                date = $.datepicker.parseDate( dateFormat, element.value );
-            } catch( error ) {
+                date = $.datepicker.parseDate(dateFormat, element.value);
+            } catch (error) {
                 date = null;
             }
 
             return date;
         }
-    } );
+    });
 </script>
 
 
@@ -289,7 +293,7 @@
                     op+='<option name="modell" value="0" selected disabled>Wählen Sie aus</option>';
 
                     for(var i=0; i<data.length; i++){
-                        op+='<option name="modell" value="'+data[i].id+'  , '+data[i].aModellname+'">'+data[i].aModellname+'</option>';
+                        op+='<option name="modell" value="'+data[i].id+', '+data[i].aModellname+' ">'+data[i].aModellname+'</option>';
                     }
 
                     div.find('#Modell').html(" ");

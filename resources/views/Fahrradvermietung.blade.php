@@ -6,12 +6,16 @@
 </head>
 
 <body>
+@if(Auth::check())
+    @include('includes.header2')
+@else
     @include('includes.header')
+@endif
 
 
     <div class="container-fluid">
         <div class="row">
-            <form action="/Fahrradeigenschaft2" method="post" enctype="multipart/form-data">
+            <form action="{{ route('Fahrradeigenschaft2') }}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
 
          <div class="angabeFahrrad">
@@ -263,7 +267,7 @@
 
                         op+='<option value="0" name="marke" selected disabled>Wählen Sie aus</option>';
                         for(var i=0; i<data.length; i++){
-                            op+='<option name="marke" value="'+data[i].id+' , '+data[i].name+'">'+data[i].name+'</option>';
+                            op+='<option name="marke" value="'+data[i].id+','+data[i].name+'">'+data[i].name+'</option>';
                         }
 
                         a.find('#Marke').html(" ");
@@ -304,7 +308,7 @@
 
                         op += '<option name="modell" value="0" selected disabled>Wählen Sie aus</option>';
                         for (var i = 0; i < data.length; i++) {
-                            op += '<option name="modell" value="' + data[i].id +'  , '+data[i].name+'">' + data[i].name + '</option>';
+                            op += '<option name="modell" value="' + data[i].id +','+data[i].name+'">' + data[i].name + '</option>';
                         }
 
                         div.find('#Modell').html(" ");
