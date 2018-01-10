@@ -56,7 +56,7 @@ Route::get('/Fahrradeigenschaft3', function () {
 });
 
 Route::get('/Ansicht', function () {
-    return view('AnsichtAuto');
+    return view('AnsichtFahrrad');
 });
 
 Route::get('/allgemeineSuche', function () {
@@ -88,13 +88,6 @@ Route::get('/Bild2', function () {
     return view('bild2');
 });
 
-Route::get('/Drag', function () {
-    return view('DragAndDrop');
-});
-
-Route::get('/Drag2', function () {
-    return view('DragAndDropBild');
-});
 
 
 
@@ -152,5 +145,7 @@ Route::get('/NachrichtAnzeigen/{id}', 'NotificationController@showContact');
 
 
 Auth::routes();
+
+Route::get('/Ansicht/{id}', 'AnsichtAutoController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -14,6 +14,8 @@ use App\FMarke;
 use App\FModell;
 use App\autovermietung;
 use App\fahrradvermietung;
+use App\User;
+use App\Role;
 
 use Illuminate\Database\Seeder;
 
@@ -542,6 +544,53 @@ class SharingSeeder extends Seeder
 
 
         */
+
+        $role_user = new Role();
+        $role_user->name = 'User';
+        $role_user->description = 'A normal User';
+        $role_user->save();
+
+        $role_author = new Role();
+        $role_author->name = 'Author';
+        $role_author->description = 'An Author';
+        $role_author->save();
+
+        $role_admin = new Role();
+        $role_admin->name = 'Admin';
+        $role_admin->description = 'An Admin';
+        $role_admin->save();
+
+
+        $role_user = Role::where('name', 'User')->first();
+        $role_author = Role::where('name', 'Author')->first();
+        $role_admin = Role::where('name', 'Admin')->first();
+
+        $user = new User();
+        $user->name = 'Rindrit Bislimi';
+        $user->email = 'visitor@hotmail.de';
+        $user->password = bcrypt('visitor');
+        $user->telephonenumber = '01745916905';
+        $user->save();
+        $user->roles()->attach($role_user);
+
+        $author = new User();
+        $author->name = 'Rindrit Bislimi2';
+        $author->email = 'author@hotmail.de';
+        $author->password = bcrypt('author');
+        $author->telephonenumber = '01745916905';
+        $author->save();
+        $author->roles()->attach($role_author);
+
+        $admin = new User();
+        $admin->name = 'Rindrit Bislimi2';
+        $admin->email = 'admin@hotmail.de';
+        $admin->password = bcrypt('admin');
+        $admin->telephonenumber = '01745916905';
+        $admin->save();
+        $admin->roles()->attach($role_admin);
+
+
+
 
     }
 }
