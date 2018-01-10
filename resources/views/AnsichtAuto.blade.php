@@ -8,7 +8,11 @@
     <title>my-easysharing | Ansicht</title>
 </head>
 <body>
-@include('includes.header')
+@if(Auth::check())
+    @include('includes.header2')
+@else
+    @include('includes.header')
+@endif
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
