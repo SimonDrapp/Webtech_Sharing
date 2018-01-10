@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\fahrradvermietung;
+use App\autovermietung;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $aAdresses = autovermietung::all();
+        $fAdresses = fahrradvermietung::all();
+        return view('welcome',['aAdresses' => $aAdresses, 'fAdresses' => $fAdresses]);
     }
 }

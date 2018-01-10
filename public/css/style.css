@@ -306,10 +306,11 @@ body {
     text-align: center;
 }
 
+/*
 .dropdown-menu {
-    overflow-y: scroll;
-}
-
+    overflow-y: scroll;           //FÜR DIE DROPDOWN-LISTEN AUSKOMMENTIERT DAMIT ES NICHT SO HÄSSLICH DARSTELLT
+}                                   //BEI FEHLERN HIER GUCKEN :-) MadeByMe
+*/
 .Text {
     font-size: 20px;
     /*  color:white;  */

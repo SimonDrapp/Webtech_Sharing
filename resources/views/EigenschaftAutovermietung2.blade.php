@@ -7,36 +7,27 @@
 
 
 <body>
-@include('includes.header')
+@if(Auth::check())
+    @include('includes.header2')
+@else
+    @include('includes.header')
+@endif
 
 {{csrf_field()}}
 
-<?php
-$values = $_POST['automarke'];
-$values = explode(', ', $values);
-$value2 = $values[1];
-?>
-
-<?php
-$values2 = $_POST['automodell'];
-$values2 = explode(', ', $values2);
-$value3 = $values2[1];
-?>
-
-
 <div class="container-fluid">
     <div class="row">
-        <form action="/" method="post">
+        <form action="{{ route('Autoeigenschaft3') }}" method="post">
             {{csrf_field()}}
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Marke</p>
                 <label for="marke"></label>
-                <input style="text-align: center" type="text" class="form-control" name="automodell" value="<?php echo $value2; ?>" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="automodell" value="{{$autovermietungen->automarke}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Modell</p>
                 <label for="modell"></label>
-                <input style="text-align: center" type="text" class="form-control" name="automodell" value="<?php echo $value3; ?>" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="automodell" value="{{$autovermietungen->automodell}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Baujahr</p>
@@ -141,7 +132,7 @@ $value3 = $values2[1];
             </div>
             <div class="col-xs-6 col-md-4">
                 <div class="buttonUndText">
-                    <a href="/Autoeigenschaft" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2"><span
+                    <a href="{{ route('Autoeigenschaft') }}" id="Zurueck"> <button type="button" class="btn btn-basic1 btn-responsive" id="Zurueck2"><span
                                     class="glyphicon glyphicon-triangle-left"></span>Zurück</button></a>
                 </div>
             </div>
@@ -169,8 +160,6 @@ $value3 = $values2[1];
                     </div>
                 </div>
             </div>
-
-
         </form>
     </div>
 </div>

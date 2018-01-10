@@ -44,8 +44,12 @@ class AutovermietungController extends Controller
 
     public function putCar(Request $request){
         $autovermietungen = new autovermietung;
-        $autovermietungen->automarke = $request->automarke;
-        $autovermietungen->automodell = $request->automodell;
+        $automarke = $request->automarke . " ";
+        $automarke2 = substr($automarke,2, (sizeof($automarke)-2));
+        $autovermietungen->automarke = $automarke2;
+        $automodell = $request->automodell . " ";
+        $automodell2 = substr($automodell,2, (sizeof($automodell)-2));
+        $autovermietungen->automodell = $automodell2;
         $autovermietungen->autobaujahr = $request->autobaujahr;
         $autovermietungen->autofarbe = $request->autofarbe;
         $autovermietungen->autokraftstoff = $request->autokraftstoff;
@@ -58,8 +62,8 @@ class AutovermietungController extends Controller
         $autovermietungen->autostartdate = $request->autostartdate;
         $autovermietungen->autoenddate = $request->autoenddate;
 
-        $request->session()->put('automarke', $request->automarke);
-        $request->session()->put('automodell', $request->automodell);
+        $request->session()->put('automarke', $automarke2);
+        $request->session()->put('automodell', $automodell2);
         $request->session()->put('autobaujahr', $request->autobaujahr);
         $request->session()->put('autofarbe', $request->autofarbe);
         $request->session()->put('autokraftstoff', $request->autokraftstoff);
@@ -80,8 +84,8 @@ class AutovermietungController extends Controller
     public function saveAuto(Request $request){
 
         $autovermietung = new autovermietung;
-        $autovermietung->automarke = $request->session()->get('automarke');
-        $autovermietung->automodell = $request->session()->get('automodell');
+        $autovermietung->automarke2 = $request->session()->get('automarke');
+        $autovermietung->automodell2 = $request->session()->get('automodell');
         $autovermietung->autobaujahr = $request->session()->get('autobaujahr');
         $autovermietung->autofarbe = $request->session()->get('autofarbe');
         $autovermietung->autokraftstoff = $request->session()->get('autokraftstoff');
@@ -96,8 +100,8 @@ class AutovermietungController extends Controller
 
 
 
-        DB::table('autovermietung')->insert(['automarke'=>$autovermietung->automarke,
-            'automodell'=>$autovermietung->automodell, 'autobaujahr'=>$autovermietung->autobaujahr,'autofarbe'=>$autovermietung->autofarbe,
+        DB::table('autovermietung')->insert(['automarke'=>$autovermietung->automarke2,
+            'automodell'=>$autovermietung->automodell2, 'autobaujahr'=>$autovermietung->autobaujahr,'autofarbe'=>$autovermietung->autofarbe,
             'autokraftstoff'=>$autovermietung->autokraftstoff,'autopreis'=>$autovermietung->autopreis, 'autobild'=>$autovermietung->autobild,
             'autodetails'=>$autovermietung->autodetails, 'autopostleitzahl'=>$autovermietung->autopostleitzahl, 'autoort'=>$autovermietung->autoort,
             'autostrasseNr'=>$autovermietung->autostrasseNr, 'autostartdate'=>$autovermietung->autostartdate, 'autoenddate'=>$autovermietung->autoenddate]);

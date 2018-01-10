@@ -11,7 +11,11 @@
 </head>
 
 <body>
-@include('includes.header')
+@if(Auth::check())
+    @include('includes.header2')
+@else
+    @include('includes.header')
+@endif
 
 <section class="agb_content">
     <h6 class="AGB"><b>Allgemeine Geschäftsbedingungen</b></h6>

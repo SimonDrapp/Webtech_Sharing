@@ -547,22 +547,22 @@ class SharingSeeder extends Seeder
 
         $role_user = new Role();
         $role_user->name = 'User';
-        $role_user->description = 'A normal User';
+        $role_user->description = 'Ein angemeldeter User';
         $role_user->save();
 
-        $role_author = new Role();
-        $role_author->name = 'Author';
-        $role_author->description = 'An Author';
-        $role_author->save();
+        $role_benutzer = new Role();
+        $role_benutzer->name = 'Benutzer';
+        $role_benutzer->description = 'Ein Benutzer';
+        $role_benutzer->save();
 
         $role_admin = new Role();
         $role_admin->name = 'Admin';
-        $role_admin->description = 'An Admin';
+        $role_admin->description = 'Ein Administrator';
         $role_admin->save();
 
 
         $role_user = Role::where('name', 'User')->first();
-        $role_author = Role::where('name', 'Author')->first();
+        $role_benutzer = Role::where('name', 'Benutzer')->first();
         $role_admin = Role::where('name', 'Admin')->first();
 
         $user = new User();
@@ -575,11 +575,11 @@ class SharingSeeder extends Seeder
 
         $author = new User();
         $author->name = 'Rindrit Bislimi2';
-        $author->email = 'author@hotmail.de';
+        $author->email = 'benutzer@hotmail.de';
         $author->password = bcrypt('author');
         $author->telephonenumber = '01745916905';
         $author->save();
-        $author->roles()->attach($role_author);
+        $author->roles()->attach($role_benutzer);
 
         $admin = new User();
         $admin->name = 'Rindrit Bislimi2';

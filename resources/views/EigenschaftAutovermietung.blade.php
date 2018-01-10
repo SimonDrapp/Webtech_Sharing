@@ -7,11 +7,15 @@
 
 
 <body>
-@include('includes.header')
+@if(Auth::check())
+    @include('includes.header2')
+@else
+    @include('includes.header')
+@endif
 
 <div class="container-fluid">
     <div class="row">
-        <form action="/Autoeigenschaft2" method="post" enctype="multipart/form-data">
+        <form action="{{ route('Autoeigenschaft2') }}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
 
             <h2 class="angabenAuto">Angaben zu Ihrem Auto</h2>
@@ -24,7 +28,7 @@
                             <label for="marke" class="sr-only"></label>
                             <option value="0" disabled="true" selected="true">Auswählen</option>
                             @foreach($amarke as $cat)
-                                <option value="{{$cat->id}}, {{$cat->name}}" id="{{$cat->name}}"  >{{$cat->name}}</option>
+                                <option value="{{$cat->id}}, {{$cat->name}} ">{{$cat->name}}</option>
                             @endforeach
                         </select>
                 </div>
@@ -197,7 +201,7 @@
                  <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton">Melde mein Auto an<span
                                     class="glyphicon glyphicon-triangle-right"></span></button>
                 </div>
-            </div>
+             </div>
             </div>
         </form>
     </div>
@@ -289,7 +293,7 @@
                     op+='<option name="modell" value="0" selected disabled>Wählen Sie aus</option>';
 
                     for(var i=0; i<data.length; i++){
-                        op+='<option name="modell" value="'+data[i].id+'  , '+data[i].aModellname+'">'+data[i].aModellname+'</option>';
+                        op+='<option name="modell" value="'+data[i].id+', '+data[i].aModellname+' ">'+data[i].aModellname+'</option>';
                     }
 
                     div.find('#Modell').html(" ");

@@ -14,6 +14,9 @@
 use App\AMarke;
 use App\AModell;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AuthController;
+
+
 
 Route::get('/', 'welcomeController@index');
 
@@ -21,20 +24,21 @@ Route::get('/Impressum', function () {
     return view('Impressum');
 });
 
-Route::get('/Vermieten', function () {
-    return view('Vermieten');
-});
-
 Route::get('/AGB', function () {
     return view('AGB');
 });
- Route::get('/Login', function () {
+/*Route::get('/Login', function () {
     return view('/auth/login');
 });
+*/
+Route::get('/LoginRegister', function () {
+    return view('/auth/loginRegister');
+});
+/*
 Route::get('/Registrieren', function () {
     return view('/auth/register');
 });
-
+*/
 Route::get('/Autoeigenschaft', function () {
     return view('EigenschaftAutovermietung');
 });
@@ -89,37 +93,148 @@ Route::get('/Bild2', function () {
 
 
 
+/*
+Route::get('/Vermieten', function () {
+    return view('Vermieten');
+});
+*/
 
-Route::get('/Autoeigenschaft', 'AutovermietungController@prodfunct');
 
-Route::get('/findModellName','AutovermietungController@findModellName');
 
-Route::get('/findAutotyp','AutovermietungController@findAutotyp');
 
-Route::post('/Autoeigenschaft2',[
-    'uses'=> 'AutovermietungController@putCar'
+Route::group(['middleware'=>'web'],function (){
+
+Route::get('/Login',[
+    'uses'=> 'AuthController@getloginPage',
+    'as'=>'signin'
+]);
+
+Route::post('/Login',[
+    'uses'=> 'AuthController@postlogin',
+    'as'=>'signin'
+]);
+Route::get('/Registrieren', [
+    'uses' => 'AuthController@getSignUpPage',
+    'as' => 'signup'
+]);
+
+Route::post('/Registrieren',[
+    'uses'=>'AuthController@postSignUp',
+    'as'=>'signup'
+]);
+Route::get('/logout', [
+    'uses' => 'AuthController@getLogout',
+    'as' => 'logout'
+]);
+
+Route::get('/Vermieten',[
+   'uses'=> 'VermietenController@check',
+    'as'=> 'Vermieten',
+    'middleware'=>'roles',
+    'roles'=>['Benutzer']
+    ]);
+
+Route::get('/Autogeigenschaft',[
+        'uses'=> 'AutovermietungController@prodfunct',
+        'as'=> 'Autoeigenschaft',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+Route::get('/findModellName',[
+        'uses'=> 'AutovermietungController@findModellName',
+        'as'=> 'AutoeigenschaftModell',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+Route::post('/Autogeigenschaft2',[
+        'uses'=> 'AutovermietungController@putCar',
+        'as'=> 'Autoeigenschaft2',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+Route::post('/welcome',[
+        'uses'=> 'AutovermietungController@saveAuto',
+        'as'=> 'Autoeigenschaft3',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+Route::get('/Fahrradeigenschaft',[
+        'uses'=> 'FahrradvermietungController@findFahrrad',
+        'as'=> 'Fahrradeigenschaft',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+Route::get('/findMarkeNameFahrrad',[
+        'uses'=> 'FahrradvermietungController@findMarkeNameFahrrad',
+        'as'=> 'FahrradeigenschaftMarke',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+Route::get('/findModellNameFahrrad',[
+        'uses'=> 'FahrradvermietungController@findModellNameFahrrad',
+        'as'=> 'FahrradeigenschaftModell',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+Route::post('/Fahrradeigenschaft2',[
+        'uses'=> 'FahrradvermietungController@putFahrrad',
+        'as'=> 'Fahrradeigenschaft2',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
 ]);
 
 Route::post('/',[
+        'uses'=> 'FahrradvermietungController@saveFahrrad',
+        'as'=> 'Fahrradeigenschaft3',
+        'middleware'=>'roles',
+        'roles'=>['Benutzer']
+]);
+
+});
+
+
+
+
+
+
+
+
+
+/*Route::get('/findModellName','AutovermietungController@findModellName');  */
+
+/*Route::get('/findAutotyp','AutovermietungController@findAutotyp');    */
+
+/*Route::post('/Autoeigenschaft2',[
+    'uses'=> 'AutovermietungController@putCar',
+]);
+*/
+/*
+Route::post('/#',[
     'uses'=> 'AutovermietungController@saveAuto'
 ]);
+*/
 
 
-
-Route::get('/Fahrradeigenschaft', 'FahrradvermietungController@findFahrrad');
-
+/*
 Route::get('findMarkeNameFahrrad', 'FahrradvermietungController@findMarkeNameFahrrad');
-
+*/
+/*
 Route::get('findModellNameFahrrad', 'FahrradvermietungController@findModellNameFahrrad');
+*/
 
-Route::post('/Fahrradeigenschaft2',[
-    'uses'=> 'FahrradvermietungController@putFahrrad'
-]);
-
-Route::post('/Vermieten',[
+/*
+Route::post('/',[
     'uses'=> 'FahrradvermietungController@saveFahrrad'
 ]);
 
+*/
 
 
 
