@@ -209,7 +209,7 @@ class SharingSeeder extends Seeder
             'autopostleitzahl'=>'78462',
             'autoort'=>'Konstanz',
             'autostrasseNr'=>'Alfred-Wachtel-Straße 8',
-            'autostartdate'=>'2018-01-06',
+            'autostartdate'=>'2018-01-09',
             'autoenddate'=>'2018-01-18'
         ));
 
@@ -222,7 +222,7 @@ class SharingSeeder extends Seeder
             'autopreis'=> '100,00',
             'autobild'=> 'audiA5.jpg',
             'autodetails'=> 'neuer Audi A5',
-            'autopostleitzahl'=>'76534',
+            'autopostleitzahl'=>'78462',
             'autoort'=>'Konstanz',
             'autostrasseNr'=>'Bodanstraße 15',
             'autostartdate'=>'2018-01-10',
@@ -241,8 +241,8 @@ class SharingSeeder extends Seeder
         'autopostleitzahl'=>'78479',
         'autoort'=>'Reichenau',
         'autostrasseNr'=>'Priminstraße 45',
-        'autostartdate'=>'2018-01-06',
-        'autoenddate'=>'2018-01-18'
+        'autostartdate'=>'2018-01-11',
+        'autoenddate'=>'2018-01-30'
     ));
 
         autovermietung:: create(array(
@@ -257,8 +257,8 @@ class SharingSeeder extends Seeder
             'autopostleitzahl'=>'78479',
             'autoort'=>'Konstanz',
             'autostrasseNr'=>'Fürstenbergstraße 87',
-            'autostartdate'=>'2018-01-06',
-            'autoenddate'=>'2018-01-18'
+            'autostartdate'=>'2018-01-12',
+            'autoenddate'=>'2018-01-15'
         ));
 
         fahrradvermietung:: create(array(
@@ -272,7 +272,7 @@ class SharingSeeder extends Seeder
         'postleitzahl'=> '78464',
         'ort'=> 'Konstanz',
         'strasseNr'=> 'Universitätsstraße 10',
-        'startdate'=>'2018-01-06',
+        'startdate'=>'2018-01-10',
         'enddate'=>'2018-01-18'
     ));
         fahrradvermietung:: create(array(
@@ -286,8 +286,8 @@ class SharingSeeder extends Seeder
             'postleitzahl'=> '78464',
             'ort'=> 'Konstanz',
             'strasseNr'=> 'Sonnenbühlstraße 5',
-            'startdate'=>'2018-01-06',
-            'enddate'=>'2018-01-18'
+            'startdate'=>'2018-01-13',
+            'enddate'=>'2018-01-25'
         ));
         fahrradvermietung:: create(array(
             'art'=> 'Freizeitbike',
@@ -300,8 +300,8 @@ class SharingSeeder extends Seeder
             'postleitzahl'=> '78467',
             'ort'=> 'Konstanz',
             'strasseNr'=> 'Hindenburgstraße 5',
-            'startdate'=>'2018-01-06',
-            'enddate'=>'2018-01-18'
+            'startdate'=>'2018-01-11',
+            'enddate'=>'2018-01-17'
         ));
 
 

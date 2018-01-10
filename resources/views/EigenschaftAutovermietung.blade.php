@@ -100,7 +100,7 @@
                     <p class="TextBild">Bild</p>
                     <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" >
                     <div class="input-group mx-sm-4">
-                            <input type="text" id="inputBild" class="form-control input" name="autobild">
+                            <input type="text" id="inputBild" class="form-control input" name="autobild" multiple>
                     <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
                         <span class="glyphicon glyphicon-picture"></span></button>
                     </div>
@@ -210,53 +210,53 @@
 
 <script>
     $( function() {
-        var dateFormat = "dd/mm/yy",
-            from = $( "#startdate" )
+        var dateFormat = "yy-mm-dd",
+            from = $("#startdate")
                 .datepicker({
-                    dateFormat: "dd/mm/yy",
+                    dateFormat: "yy-mm-dd",
                     defaultDate: "0w",
                     changeMonth: true,
                     numberOfMonths: 3,
-                    minDate:0,
-                    monthNames: ['Januar','Februar','März','April','Mai','Juni',
-                        'Juli','August','September','Oktober','November','Dezember'],
-                    monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
-                        'Jul','Aug','Sep','Okt','Nov','Dez'],
-                    dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
-                    dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-                    dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa']
+                    minDate: 0,
+                    monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
                 })
-                .on( "change", function() {
-                    to.datepicker( "option", "minDate", getDate( this ) );
+                .on("change", function () {
+                    to.datepicker("option", "minDate", getDate(this));
                 }),
-            to = $( "#enddate" ).datepicker({
+            to = $("#enddate").datepicker({
                 //      defaultDate: "0w",
-                dateFormat: "dd/mm/yy",
+                dateFormat: "yy-mm-dd",
                 changeMonth: true,
                 numberOfMonths: 3,
-                monthNames: ['Januar','Februar','März','April','Mai','Juni',
-                    'Juli','August','September','Oktober','November','Dezember'],
-                monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
-                    'Jul','Aug','Sep','Okt','Nov','Dez'],
-                dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
-                dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-                dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa']
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
             })
-                .on( "change", function() {
-                    from.datepicker( "option", "maxDate", getDate( this ) );
+                .on("change", function () {
+                    from.datepicker("option", "maxDate", getDate(this));
                 });
 
-        function getDate( element ) {
+        function getDate(element) {
             var date;
             try {
-                date = $.datepicker.parseDate( dateFormat, element.value );
-            } catch( error ) {
+                date = $.datepicker.parseDate(dateFormat, element.value);
+            } catch (error) {
                 date = null;
             }
 
             return date;
         }
-    } );
+    });
 </script>
 
 

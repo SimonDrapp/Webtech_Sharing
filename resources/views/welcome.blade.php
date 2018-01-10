@@ -124,16 +124,14 @@
             </div>
         </div>
         <div class="button2">
+            <a href="#">
             <button type="button" class="btn btn-basic1 btn-responsive" id="FahrradButton">Zum Fahrrad<span
-                        class="glyphicon glyphicon-triangle-right"></span></button>
+                        class="glyphicon glyphicon-triangle-right"></span></button></a>
         </div>
 
     </section>
 
 </article>
-<div id="sola">
-
-</div>
 
 <div class="container-fluid">
 
@@ -199,12 +197,6 @@
                     initialize(position.coords);
                 }, function(){
                     document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-                });
-
-                navigator.geolocation.getCurrentPosition(function(position){
-                    document.getElementById('sola').innerHTML = 'Latitude: '+position.coords.latitude+' / Longitude: '+position.coords.longitude;
-                }, function(){
-                    document.getElementById('sola').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
                 });
 
                 /*function myMap() {

@@ -60,7 +60,7 @@ Route::get('/Fahrradeigenschaft3', function () {
 });
 
 Route::get('/Ansicht', function () {
-    return view('AnsichtAuto');
+    return view('AnsichtFahrrad');
 });
 
 Route::get('/allgemeineSuche', function () {
@@ -80,6 +80,7 @@ Route::get('/Bezahlen', function () {
 Route::resource('allgemeineSuche','allgemeineSucheController');
 Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
 Route::get('/search','allgemeineSucheController@search');
+Route::get('/searchVehicles','allgemeineSucheController@searchVehicles');
 
 
 
@@ -259,5 +260,7 @@ Route::get('/NachrichtAnzeigen/{id}', 'NotificationController@showContact');
 
 
 Auth::routes();
+
+Route::get('/Ansicht/{id}', 'AnsichtAutoController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
