@@ -158,7 +158,7 @@
 
                     @foreach($aAdresses as $a)
                     geocoder.geocode({
-                        address:'{{$a->autoort}},{{$a->autopostleitzahl}},{{$a->autostrasseNr}}'
+                        address:'{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
                     }, function(geocoderResults, status){
                         if(status === 'OK') {
 
@@ -170,7 +170,7 @@
                                 map: map,
                                 position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
                                icon: '/img/car.png',
-                                title: "{{$a->autostrasseNr}}, {{$a->autopostleitzahl}} {{$a->autoort}}"
+                                title: "{{$a->strasseNr}}, {{$a->postleitzahl}} {{$a->ort}}"
                             });
                         }
                     })

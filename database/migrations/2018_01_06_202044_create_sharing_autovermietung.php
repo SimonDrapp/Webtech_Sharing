@@ -15,19 +15,19 @@ class CreateSharingAutovermietung extends Migration
     {
         Schema::create('autovermietung', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('automarke');
-            $table->String('automodell');
-            $table->String('autobaujahr');
-            $table->String('autofarbe');
-            $table->String('autokraftstoff');
-            $table->String('autopreis');
-            $table->String('autobild');
-            $table->String('autodetails');
-            $table->String('autopostleitzahl');
-            $table->String('autoort');
-            $table->String('autostrasseNr');
-            $table->date('autostartdate');
-            $table->date('autoenddate');
+            $table->string('marke');
+            $table->String('modell');
+            $table->String('baujahr');
+            $table->String('farbe');
+            $table->String('kraftstoff');
+            $table->decimal('preis');
+            $table->String('bild');
+            $table->String('details');
+            $table->String('postleitzahl');
+            $table->String('ort');
+            $table->String('strasseNr');
+            $table->date('startdate');
+            $table->date('enddate');
             $table->timestamps();
         });
     }

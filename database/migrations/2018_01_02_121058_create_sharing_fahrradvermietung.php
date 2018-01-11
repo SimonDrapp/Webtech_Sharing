@@ -19,7 +19,7 @@ class CreateSharingFahrradvermietung extends Migration
             $table->String('marke');
             $table->String('modell');
             $table->String('farbe');
-            $table->String('preis');
+            $table->decimal('preis');
             $table->String('bild');
             $table->String('details');
             $table->String('postleitzahl');
