@@ -8,7 +8,11 @@
 </head>
 
 <body>
-@include('includes.header')
+@if(Auth::check())
+    @include('includes.header2')
+@else
+    @include('includes.header')
+@endif
 
 <div class="container">
     <form id="quickSearchGeneral">

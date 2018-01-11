@@ -561,7 +561,7 @@ class SharingSeeder extends Seeder
         */
 
         $role_user = new Role();
-        $role_user->name = 'User';
+        $role_user->name = 'Gast';
         $role_user->description = 'Ein angemeldeter User';
         $role_user->save();
 
@@ -576,30 +576,30 @@ class SharingSeeder extends Seeder
         $role_admin->save();
 
 
-        $role_user = Role::where('name', 'User')->first();
+        $role_user = Role::where('name', 'Gast')->first();
         $role_benutzer = Role::where('name', 'Benutzer')->first();
         $role_admin = Role::where('name', 'Admin')->first();
 
         $user = new User();
-        $user->name = 'Rindrit Bislimi';
-        $user->email = 'visitor@hotmail.de';
-        $user->password = bcrypt('visitor');
+        $user->name = 'Gast';
+        $user->email = 'gast@hotmail.de';
+        $user->password = bcrypt('Gast');
         $user->telephonenumber = '01745916905';
         $user->save();
         $user->roles()->attach($role_user);
 
         $author = new User();
-        $author->name = 'Rindrit Bislimi2';
+        $author->name = 'Benutzer';
         $author->email = 'benutzer@hotmail.de';
-        $author->password = bcrypt('author');
+        $author->password = bcrypt('Benutzer');
         $author->telephonenumber = '01745916905';
         $author->save();
         $author->roles()->attach($role_benutzer);
 
         $admin = new User();
-        $admin->name = 'Rindrit Bislimi2';
+        $admin->name = 'Rindrit Bislimi';
         $admin->email = 'admin@hotmail.de';
-        $admin->password = bcrypt('admin');
+        $admin->password = bcrypt('Admin');
         $admin->telephonenumber = '01745916905';
         $admin->save();
         $admin->roles()->attach($role_admin);

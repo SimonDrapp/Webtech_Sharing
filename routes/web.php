@@ -103,8 +103,7 @@ Route::get('/Vermieten', function () {
 
 
 
-
-Route::group(['middleware'=>'web'],function (){
+Route::group(['middleware' => 'web'], function () {
 
 Route::get('/Login',[
     'uses'=> 'AuthController@getloginPage',
@@ -113,7 +112,7 @@ Route::get('/Login',[
 
 Route::post('/Login',[
     'uses'=> 'AuthController@postlogin',
-    'as'=>'signin'
+    'as'=>'signin2'
 ]);
 Route::get('/Registrieren', [
     'uses' => 'AuthController@getSignUpPage',
@@ -122,7 +121,7 @@ Route::get('/Registrieren', [
 
 Route::post('/Registrieren',[
     'uses'=>'AuthController@postSignUp',
-    'as'=>'signup'
+    'as'=>'signup2'
 ]);
 Route::get('/logout', [
     'uses' => 'AuthController@getLogout',

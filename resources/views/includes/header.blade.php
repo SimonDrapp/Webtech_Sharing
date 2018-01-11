@@ -20,9 +20,9 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right ">
                     <li class="active"><a href="/">Startseite</a></li>
-                    <li><a href="/Registrieren">Registrieren</a></li>
-                    <li><a href="/Login">Einloggen</a></li>
-                    <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Vermieten</a></li>
+                    <li><a href="{{ route('signup') }}">Registrieren</a></li>
+                    <li><a href="{{ route('signin') }}">Einloggen</a></li>
+                    <li><a href="#myModal2" data-toggle="modal" data-target="#myModal2">Vermieten</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hilfe<b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </nav>
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal2" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
