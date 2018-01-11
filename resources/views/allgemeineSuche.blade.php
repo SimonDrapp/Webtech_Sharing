@@ -11,7 +11,7 @@
 @include('includes.header')
 
 <div class="container">
-    <form>
+    <form id="quickSearchGeneral">
         <div class="row">
             <div class="eingabefeld">
                 <div class="col-xs-11 col-sm-4 form-group searchPadding">
@@ -45,6 +45,7 @@
                     <button type="button" id="buttonSearch1" class=" btn btn-basic">Suchen
                         <span class="glyphicon glyphicon-search"></span></button>
                 </div>
+
             </div>
         </div>
     </form>
@@ -53,16 +54,16 @@
 <div class="container searchBtnPadding">
     <div class="row" id="buttonSortByAll">
         <div class="col-lg-10 col-md-9 col-sm-9" id="buttonShowMe">
-            <div class="btn-group myBtnContainer">
-                <button class="btn active" onclick="filterSelection('all')">alle anzeigen</button>
-                <button class="btn" onclick="filterSelection('cars')">Autos</button>
-                <button class="btn" onclick="filterSelection('animals')">Fahrräder</button>
+            <div id="btnContainer" class="btn-group myBtnContainer">
+                <button id="all" class="btn" >alle anzeigen</button>
+                <button id="cars" class="btn">Autos</button>
+                <button id="bicycles" class="btn">Fahrräder</button>
             </div>
         </div>
         <div class="col-lg-2 col-md-3 col-sm-3" id="buttonSortBy">
             <div class="myBtnContainer btn-group">
-                <button class="btn" onclick="filterSelection('all')"> Preis</button>
-                <button class="btn" onclick="filterSelection('cars')"> Entfernung</button>
+                <button class="btn active" onclick="filterSelection('price')"> Preis</button>
+                <button class="btn" onclick="filterSelection('distance')"> Entfernung</button>
 
             </div>
         </div>
@@ -99,14 +100,14 @@
                     <hr class="headerLine" align="left">
                     <ul>
                         @foreach ($aMarken as $aMarke)
-                            <li><a class="aContent" id="AutoMarken" value="{{$aMarke->id}}">{{ $aMarke->name }}</a></li>
+                            <li><a class="aContent" id="autoMarken" value="{{$aMarke->id}}">{{ $aMarke->name }}</a></li>
                         @endforeach
                     </ul>
                     <span>Fahrrad</span>
                     <hr class="headerLine" align="left">
                     <ul>
                         @foreach ($fMarken as $fMarke)
-                            <li><a class="aContent" id="AutoMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a></li>
+                            <li><a class="aContent id="fahrradMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -259,6 +260,8 @@
 
     $(document).ready(function () {
 
+        $checkFilter = 'all';
+
         var slider_E = document.getElementById("myRangeDistance");
         var output_E = document.getElementById("demoDistance");
         output_E.innerHTML = slider_E.value;
@@ -300,6 +303,33 @@
             }
         });
 
+        /*---FilterButtons---*/
+        previouslyClicked = $('.btn').eq(0);
+        $('.btn').click(function() {
+            previouslyClicked.removeClass("btn active").addClass("btn");
+            $(this).addClass("btn active")
+            previouslyClicked = $(this);
+        });
+
+        $('#all').click(function(){
+            $checkFilter = 'all';
+            //console.log($checkFilter);
+        });
+        $('#cars').click(function(){
+            $checkFilter = 'cars';
+            //console.log($checkFilter);
+        });
+        $('#bicycles').click(function(){
+            $checkFilter = 'bicycles';
+            //console.log($checkFilter);
+        });
+
+
+
+
+
+
+
         $(document).on('click', '#test', function () {
 
             $valueLiveSearch = $(this).text();
@@ -340,7 +370,7 @@
         });
 
         /*---SuchenButton---*/
-        $(document).on('click', '#buttonSearch1', function () {
+        $(document).on('click', '#buttonSearch1, #all, #cars, #bicycles', function () {
 
             var ortplz = $('#searchCity1').val();
             var ortArray = ortplz.split(", ");
@@ -354,29 +384,87 @@
                 var ort = ortArray1[0];
             }
 
+            console.log($checkFilter);
+
+            if(startdate && enddate && ort) {
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/searchVehicles',
+                    data: {'ort': ort, 'plz': plz, 'startdate': startdate, 'enddate': enddate, 'checkFilter': $checkFilter},
+                    success: function (data) {
+                        console.log(data)
+                        $('.searchResults_block').html(data);
+                    }
+                })
+            } else if(!ortplz && !startdate && !enddate){
+                $.ajax({
+                    type: 'GET',
+                    url: '/searchVehicles',
+                    data: {'checkFilter': $checkFilter},
+                    success: function (data) {
+                        console.log(data)
+                        $('.searchResults_block').html(data);
+                    }
+                })
+
+            }else if(!ortplz && startdate && enddate){
+                $.ajax({
+                    type: 'GET',
+                    url: '/searchVehicles',
+                    data: {'startdate': startdate, 'enddate': enddate, 'check': "checkVar", 'checkFilter': $checkFilter},
+                    success: function (data) {
+                        console.log(data)
+                        $('.searchResults_block').html(data);
+                    }
+                })
+            }else if(ortplz){
+                $.ajax({
+                    type: 'GET',
+                    url: '/searchVehicles',
+                    data: {'ort': ort, 'plz': plz, 'checkFilter': $checkFilter},
+                    success: function (data) {
+                        console.log(data)
+                        $('.searchResults_block').html(data);
+                    }
+                })
+
+            }
+            else{
+                $.ajax({
+                    type: 'GET',
+                    url: '/searchVehicles',
+                    data: {'checkFilter': $checkFilter},
+                    success: function (data) {
+                        console.log(data)
+                        $('.searchResults_block').html(data);
+                    }
+                })
+            }
+        });
+
+        $(document).on('click', '#autoMarken', function () {
+
+            var aMarken = $(this).text();
+
+
+
             $.ajax({
                 type: 'GET',
-                url: '/searchVehicles',
-                data: {'ort': ort, 'plz': plz, 'startdate': startdate, 'enddate': enddate},
+                url: '/searchVehiclesFilter',
+                data: {'marken': aMarken},
                 success: function (data) {
-
-                    console.log(data)
-                   $('.searchResults_block').html(data);
-
-
+                    //console.log(data)
 
                 }
-
-
-
-
             })
+
 
 
         });
 
-
     });
+
 </script>
 </body>
 </html>
