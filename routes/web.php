@@ -131,71 +131,72 @@ Route::get('/Vermieten',[
    'uses'=> 'VermietenController@check',
     'as'=> 'Vermieten',
     'middleware'=>'roles',
-    'roles'=>['Benutzer']
+    'roles'=>['Benutzer', 'Admin']
     ]);
 
 Route::get('/Autogeigenschaft',[
         'uses'=> 'AutovermietungController@prodfunct',
         'as'=> 'Autoeigenschaft',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::get('/findModellName',[
         'uses'=> 'AutovermietungController@findModellName',
         'as'=> 'AutoeigenschaftModell',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::post('/Autogeigenschaft2',[
         'uses'=> 'AutovermietungController@putCar',
         'as'=> 'Autoeigenschaft2',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::post('/welcome',[
         'uses'=> 'AutovermietungController@saveAuto',
         'as'=> 'Autoeigenschaft3',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::get('/Fahrradeigenschaft',[
         'uses'=> 'FahrradvermietungController@findFahrrad',
         'as'=> 'Fahrradeigenschaft',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::get('/findMarkeNameFahrrad',[
         'uses'=> 'FahrradvermietungController@findMarkeNameFahrrad',
         'as'=> 'FahrradeigenschaftMarke',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::get('/findModellNameFahrrad',[
         'uses'=> 'FahrradvermietungController@findModellNameFahrrad',
         'as'=> 'FahrradeigenschaftModell',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::post('/Fahrradeigenschaft2',[
         'uses'=> 'FahrradvermietungController@putFahrrad',
         'as'=> 'Fahrradeigenschaft2',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
 
 Route::post('/',[
         'uses'=> 'FahrradvermietungController@saveFahrrad',
         'as'=> 'Fahrradeigenschaft3',
         'middleware'=>'roles',
-        'roles'=>['Benutzer']
+        'roles'=>['Benutzer', 'Admin']
 ]);
+
 
 });
 
