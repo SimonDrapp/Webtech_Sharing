@@ -124,7 +124,7 @@
                     <hr class="headerLine" align="left">
                     <ul id="aModelle">
                         @foreach ($aModelle as $aModell)
-                            <li class="showMore"><a class="aContent" id="AutoModelle"
+                            <li class="showMore" id="autoModelle"><a class="aContent" id="AutoModelle"
                                                     value="{{$aModell->id}}}}">{{ $aModell->aModellname }}</a></li>
                         @endforeach
                     </ul>
@@ -133,7 +133,7 @@
                     <hr class="headerLine" align="left">
                     <ul id="aModelle">
                         @foreach ($fModelle as $fModell)
-                            <li><a class="aContent" id="AutoModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
+                            <li><a class="aContent" id="fahrradModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -329,6 +329,10 @@
             //console.log($checkFilter);
         });
 
+        /*---FilterButtons change the Filter---*/
+        
+
+
 
         $(document).on('click', '#test', function () {
 
@@ -454,22 +458,52 @@
             }
         });
 
-        $(document).on('click', '#autoMarken', function () {
+        /*---Ajax Preis slider--*/
+        $('#slider-range').mouseup(function () {
 
-            var aMarken = $(this).text();
 
+            var minPreis = $("#slider-range").slider("values", 0);
+            var maxPreis = $("#slider-range").slider("values", 1);
 
             $.ajax({
                 type: 'GET',
                 url: '/searchVehiclesFilter',
-                data: {'marken': aMarken},
+                data: {'minPreis': minPreis, 'maxPreis': maxPreis},
                 success: function (data) {
                     //console.log(data)
-
+                    $('.searchResults_block').html(data);
                 }
             })
+        });
 
+        /*---Ajax AutoMarken---*/
+        $(document).on('click', '#autoMarken, #fahrradMarken', function () {
 
+            var marke = $(this).text();
+            $.ajax({
+                type: 'GET',
+                url: '/searchVehiclesFilter',
+                data: {'marke': marke},
+                success: function (data) {
+                    console.log(data)
+                    $('.searchResults_block').html(data);
+                }
+            })
+        });
+
+        /*---Ajax AutoModelle--*/
+        $(document).on('click', '#autoModelle, #fahrradModelle', function () {
+
+            var modell = $(this).text();
+            $.ajax({
+                type: 'GET',
+                url: '/searchVehiclesFilter',
+                data: {'modell': modell},
+                success: function (data) {
+                    //console.log(data)
+                    $('.searchResults_block').html(data);
+                }
+            })
         });
 
     });
