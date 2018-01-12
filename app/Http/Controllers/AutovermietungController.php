@@ -44,37 +44,37 @@ class AutovermietungController extends Controller
 
     public function putCar(Request $request){
         $autovermietungen = new autovermietung;
-        $automarke = $request->automarke . " ";
-        $automarke2 = substr($automarke,2, (sizeof($automarke)-2));
-        $autovermietungen->automarke = $automarke2;
-        $automodell = $request->automodell . " ";
-        $automodell2 = substr($automodell,2, (sizeof($automodell)-2));
-        $autovermietungen->automodell = $automodell2;
-        $autovermietungen->autobaujahr = $request->autobaujahr;
-        $autovermietungen->autofarbe = $request->autofarbe;
-        $autovermietungen->autokraftstoff = $request->autokraftstoff;
-        $autovermietungen->autopreis = $request->autopreis;
-        $autovermietungen->autobild = $request->autobild;
-        $autovermietungen->autodetails = $request->autodetails;
-        $autovermietungen->autopostleitzahl = $request->autopostleitzahl;
-        $autovermietungen->autoort = $request->autoort;
-        $autovermietungen->autostrasseNr = $request->autostrasseNr;
-        $autovermietungen->autostartdate = $request->autostartdate;
-        $autovermietungen->autoenddate = $request->autoenddate;
+        $marke = $request->marke . " ";
+        $marke2 = substr($marke,2, (sizeof($marke)-2));
+        $autovermietungen->marke = $marke2;
+        $modell = $request->modell . " ";
+        $modell2 = substr($modell,2, (sizeof($modell)-2));
+        $autovermietungen->modell = $modell2;
+        $autovermietungen->baujahr = $request->baujahr;
+        $autovermietungen->farbe = $request->farbe;
+        $autovermietungen->kraftstoff = $request->kraftstoff;
+        $autovermietungen->preis = $request->preis;
+        $autovermietungen->bild = $request->bild;
+        $autovermietungen->details = $request->details;
+        $autovermietungen->postleitzahl = $request->postleitzahl;
+        $autovermietungen->ort = $request->ort;
+        $autovermietungen->strasseNr = $request->strasseNr;
+        $autovermietungen->startdate = $request->startdate;
+        $autovermietungen->enddate = $request->enddate;
 
-        $request->session()->put('automarke', $automarke2);
-        $request->session()->put('automodell', $automodell2);
-        $request->session()->put('autobaujahr', $request->autobaujahr);
-        $request->session()->put('autofarbe', $request->autofarbe);
-        $request->session()->put('autokraftstoff', $request->autokraftstoff);
-        $request->session()->put('autopreis', $request->autopreis);
-        $request->session()->put('autobild', $request->autobild);
-        $request->session()->put('autodetails', $request->autodetails);
-        $request->session()->put('autopostleitzahl', $request->autopostleitzahl);
-        $request->session()->put('autoort', $request->autoort);
-        $request->session()->put('autostrasseNr', $request->autostrasseNr);
-        $request->session()->put('autostartdate', $request->autostartdate);
-        $request->session()->put('autoenddate', $request->autoenddate);
+        $request->session()->put('marke', $marke2);
+        $request->session()->put('modell', $modell2);
+        $request->session()->put('baujahr', $request->baujahr);
+        $request->session()->put('farbe', $request->farbe);
+        $request->session()->put('kraftstoff', $request->kraftstoff);
+        $request->session()->put('preis', $request->preis);
+        $request->session()->put('bild', $request->bild);
+        $request->session()->put('details', $request->details);
+        $request->session()->put('postleitzahl', $request->postleitzahl);
+        $request->session()->put('ort', $request->ort);
+        $request->session()->put('strasseNr', $request->strasseNr);
+        $request->session()->put('startdate', $request->startdate);
+        $request->session()->put('enddate', $request->enddate);
 
         return view('EigenschaftAutovermietung2',['autovermietungen'=>$autovermietungen]);
 
@@ -82,29 +82,28 @@ class AutovermietungController extends Controller
 
 
     public function saveAuto(Request $request){
-
         $autovermietung = new autovermietung;
-        $autovermietung->automarke2 = $request->session()->get('automarke');
-        $autovermietung->automodell2 = $request->session()->get('automodell');
-        $autovermietung->autobaujahr = $request->session()->get('autobaujahr');
-        $autovermietung->autofarbe = $request->session()->get('autofarbe');
-        $autovermietung->autokraftstoff = $request->session()->get('autokraftstoff');
-        $autovermietung->autopreis = $request->session()->get('autopreis');
-        $autovermietung->autobild = $request->session()->get('autobild');
-        $autovermietung->autodetails = $request->session()->get('autodetails');
-        $autovermietung->autopostleitzahl = $request->session()->get('autopostleitzahl');
-        $autovermietung->autoort = $request->session()->get('autoort');
-        $autovermietung->autostrasseNr = $request->session()->get('autostrasseNr');
-        $autovermietung->autostartdate = $request->session()->get('autostartdate');
-        $autovermietung->autoenddate = $request->session()->get('autoenddate');
+        $autovermietung->marke2 = $request->session()->get('marke');
+        $autovermietung->modell2 = $request->session()->get('modell');
+        $autovermietung->baujahr = $request->session()->get('baujahr');
+        $autovermietung->farbe = $request->session()->get('farbe');
+        $autovermietung->kraftstoff = $request->session()->get('kraftstoff');
+        $autovermietung->preis = $request->session()->get('preis');
+        $autovermietung->bild = $request->session()->get('bild');
+        $autovermietung->details = $request->session()->get('details');
+        $autovermietung->postleitzahl = $request->session()->get('postleitzahl');
+        $autovermietung->ort = $request->session()->get('ort');
+        $autovermietung->strasseNr = $request->session()->get('strasseNr');
+        $autovermietung->startdate = $request->session()->get('startdate');
+        $autovermietung->enddate = $request->session()->get('enddate');
 
 
 
-        DB::table('autovermietung')->insert(['automarke'=>$autovermietung->automarke2,
-            'automodell'=>$autovermietung->automodell2, 'autobaujahr'=>$autovermietung->autobaujahr,'autofarbe'=>$autovermietung->autofarbe,
-            'autokraftstoff'=>$autovermietung->autokraftstoff,'autopreis'=>$autovermietung->autopreis, 'autobild'=>$autovermietung->autobild,
-            'autodetails'=>$autovermietung->autodetails, 'autopostleitzahl'=>$autovermietung->autopostleitzahl, 'autoort'=>$autovermietung->autoort,
-            'autostrasseNr'=>$autovermietung->autostrasseNr, 'autostartdate'=>$autovermietung->autostartdate, 'autoenddate'=>$autovermietung->autoenddate]);
+        DB::table('autovermietung')->insert(['marke'=>$autovermietung->marke2,
+            'modell'=>$autovermietung->modell2, 'baujahr'=>$autovermietung->baujahr,'farbe'=>$autovermietung->farbe,
+            'kraftstoff'=>$autovermietung->kraftstoff,'preis'=>$autovermietung->preis, 'bild'=>$autovermietung->bild,
+            'details'=>$autovermietung->details, 'postleitzahl'=>$autovermietung->postleitzahl, 'ort'=>$autovermietung->ort,
+            'strasseNr'=>$autovermietung->strasseNr, 'startdate'=>$autovermietung->startdate, 'enddate'=>$autovermietung->enddate]);
 
         $aAdresses = autovermietung::all();
         $fAdresses = fahrradvermietung::all();

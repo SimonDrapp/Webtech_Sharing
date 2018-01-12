@@ -24,7 +24,7 @@
         <div class="col-xs-6 col-md-3">
             <div class="buttonUndText">
                 <p class="Text">Marke</p>
-                        <select class="form-control" id="prod_cat_id" role="menu" aria-labelledby="dropdownMenuButton" name="automarke" required>
+                        <select class="form-control" id="prod_cat_id" role="menu" aria-labelledby="dropdownMenuButton" name="marke" required>
                             <label for="marke" class="sr-only"></label>
                             <option value="0" disabled="true" selected="true">Auswählen</option>
                             @foreach($amarke as $cat)
@@ -36,7 +36,7 @@
         <div class="col-xs-6 col-md-3">
             <div class="buttonUndText">
                 <p class="Text">Modell</p>
-                        <select class="form-control" id="Modell" role="menu" aria-labelledby="menu1" name="automodell" required>
+                        <select class="form-control" id="Modell" role="menu" aria-labelledby="menu1" name="modell" required>
                             <label for="modell" class="sr-only"></label>
                             <option disabled="true" selected="true" class="form-control">Auswählen</option>
                         </select>
@@ -45,7 +45,7 @@
         <div class="col-xs-6 col-md-3">
             <div class="buttonUndText">
                 <p class="Text">Baujahr</p>
-                        <select class="form-control" id="Farbe" role="menu" aria-labelledby="menu1" name="autobaujahr" required>
+                        <select class="form-control" id="Farbe" role="menu" aria-labelledby="menu1" name="baujahr" required>
                             <option value="0" disabled="true" selected="true">Auswählen</option>
                             @foreach($baujahr as $bj)
                                 <option value="{{$bj->jahr}}" name="baujahr">{{$bj->jahr}}</option>
@@ -58,7 +58,7 @@
         <div class="col-xs-6 col-md-3">
             <div class="buttonUndText">
                 <p class="Text">Farbe</p>
-                        <select class="form-control" id="#" role="menu" aria-labelledby="menu1" name="autofarbe" required>
+                        <select class="form-control" id="#" role="menu" aria-labelledby="menu1" name="farbe" required>
                             <option value="0" disabled="true" selected="true" name="farbe">Auswählen</option>
                             @foreach($farbe as $f)
                                 <option value="{{$f->name}}">{{$f->name}}</option>
@@ -71,7 +71,7 @@
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="Text">Kraftstoff</p>
-                    <select class="form-control" id="productname2" role="menu" aria-labelledby="menu1" name="autokraftstoff" required>
+                    <select class="form-control" id="productname2" role="menu" aria-labelledby="menu1" name="kraftstoff" required>
                         <option value="0" disabled="true" selected="true">Auswählen</option>
                         @foreach($kraftstoff as $kr)
                             <option value="{{$kr->name}}" >{{$kr->name}}</option>
@@ -87,7 +87,7 @@
                     <div class="form-group2">
                         <div class="input-group preis">
                             <label for="preis" class="sr-only"></label>
-                            <input type="text" class="form-control" name="autopreis" id="inputPreis" required>
+                            <input type="text" class="form-control" name="preis" id="inputPreis" required>
                             <span class="input-group-addon">€</span>
                         </div>
                     </div>
@@ -98,21 +98,52 @@
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="TextBild">Bild</p>
-                    <input type="file" class="file" accept="image/*" name="bild" id="file1" multiple>
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input id="lili" name="lala" type="file" accept="image/*" style="display: none;" multiple>
+                    </span>
+                        </label>
+                        <input type="text" id="autobilder" name="bild" class="form-control" readonly>
+                    </div>
+
+                  <!--  <input type="file" class="file"  id="file1" multiple>-->
+                   <!-- <div class="input-group mx-sm-4">
+                            <input type="" id="inputBild" class="form-control input" name="autobild[]" multiple>
+                    <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" multiple>
                     <div class="input-group mx-sm-4">
-                            <input type="text" id="inputBild" class="form-control input" name="autobild" multiple>
+                            <input type="text" id="inputBild" class="form-control input" name="bild" multiple>
                     <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
                         <span class="glyphicon glyphicon-picture"></span></button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
+        <script>
+            $(function() {
+                $(document).on('change', ':file', function() {
+                    var files = document.getElementById("lili").files;
+                    var result= files[0].name;
+                    console.log(files.length);
+                    if(files.length > 1) {
+                        for (var i = 1; i < files.length; i++) {
+                            console.log(files[i].name + i);
+                            result += ", " + files[i].name;
+                        }
+                        document.getElementById('autobilder').value = result;
+                    } else {
+                        alert(result);
+                    }
+                });
+            });
+
+        </script>
 
 
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="Text">Details</p>
                     <div class="form-group2 inputDetails">
-                            <textarea class="form-control detailsInput" rows="4" id="Details" name="autodetails" placeholder="Details zum Auto ..."></textarea>
+                            <textarea class="form-control detailsInput" rows="4" id="Details" name="details" placeholder="Details zum Auto ..."></textarea>
                     </div>
                 </div>
             </div>
@@ -126,7 +157,7 @@
                     <div class="form-group3">
                         <div class="input-group">
                             <label for="postleitzahl" class="sr-only"></label>
-                            <input type="text" class="form-control" name="autopostleitzahl" id="postleitzahl" required>
+                            <input type="text" class="form-control" name="postleitzahl" id="postleitzahl" required>
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-map-marker"></span>
                             </span>
@@ -142,7 +173,7 @@
                     <div class="form-group">
                         <div class="input-group">
                             <label for="ort" class="sr-only"></label>
-                            <input type="text" class="form-control" name="autoort" id="inputOrt" required>
+                            <input type="text" class="form-control" name="ort" id="inputOrt" required>
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-home"></span>
                             </span>
@@ -158,7 +189,7 @@
                     <div class="form-group3">
                         <div class="input-group">
                             <label for="strasse" class="sr-only"></label>
-                            <input type="text" class="form-control" name="autostrasseNr" id="strasseNr" required>
+                            <input type="text" class="form-control" name="strasseNr" id="strasseNr" required>
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-road"></span>
                             </span>
@@ -173,7 +204,7 @@
                     <div class="buttonUndText">
                         <p class="TextVon">Von</p>
                         <div class="input-group date" id='datetimepicker6'>
-                            <input type='text' class="form-control" name="autostartdate" id="startdate" required>
+                            <input type='text' class="form-control" name="startdate" id="startdate" required>
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                             </span>
@@ -188,7 +219,7 @@
                     <div class="buttonUndText">
                         <p class="TextVon">Bis</p>
                         <div class='input-group date' id='datetimepicker7'>
-                            <input type="text" class="form-control" name="autoenddate" id="enddate" required>
+                            <input type="text" class="form-control" name="enddate" id="enddate" required>
                             <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                             </span>

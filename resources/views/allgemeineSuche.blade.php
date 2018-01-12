@@ -59,7 +59,7 @@
     <div class="row" id="buttonSortByAll">
         <div class="col-lg-10 col-md-9 col-sm-9" id="buttonShowMe">
             <div id="btnContainer" class="btn-group myBtnContainer">
-                <button id="all" class="btn" >alle anzeigen</button>
+                <button id="all" class="btn">alle anzeigen</button>
                 <button id="cars" class="btn">Autos</button>
                 <button id="bicycles" class="btn">Fahrräder</button>
             </div>
@@ -111,7 +111,8 @@
                     <hr class="headerLine" align="left">
                     <ul>
                         @foreach ($fMarken as $fMarke)
-                            <li><a class="aContent id="fahrradMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a></li>
+                            <li><a class="aContent" id="fahrradMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -173,7 +174,7 @@
 
 <script>
 
-   $(function () {
+    $(function () {
         var dateFormat = "yy-mm-dd",
             from = $("#datevon1")
                 .datepicker({
@@ -309,29 +310,24 @@
 
         /*---FilterButtons---*/
         previouslyClicked = $('.btn').eq(0);
-        $('.btn').click(function() {
+        $('.btn').click(function () {
             previouslyClicked.removeClass("btn active").addClass("btn");
             $(this).addClass("btn active")
             previouslyClicked = $(this);
         });
 
-        $('#all').click(function(){
+        $('#all').click(function () {
             $checkFilter = 'all';
             //console.log($checkFilter);
         });
-        $('#cars').click(function(){
+        $('#cars').click(function () {
             $checkFilter = 'cars';
             //console.log($checkFilter);
         });
-        $('#bicycles').click(function(){
+        $('#bicycles').click(function () {
             $checkFilter = 'bicycles';
             //console.log($checkFilter);
         });
-
-
-
-
-
 
 
         $(document).on('click', '#test', function () {
@@ -383,25 +379,31 @@
             var startdate = $('#datevon1').val();
             var enddate = $('#datebis1').val();
 
-            if(ort.indexOf(" ") > -1){
+            if (ort.indexOf(" ") > -1) {
                 ortArray1 = ort.split(" ");
                 var ort = ortArray1[0];
             }
 
             console.log($checkFilter);
 
-            if(startdate && enddate && ort) {
+            if (startdate && enddate && ort) {
 
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
-                    data: {'ort': ort, 'plz': plz, 'startdate': startdate, 'enddate': enddate, 'checkFilter': $checkFilter},
+                    data: {
+                        'ort': ort,
+                        'plz': plz,
+                        'startdate': startdate,
+                        'enddate': enddate,
+                        'checkFilter': $checkFilter
+                    },
                     success: function (data) {
                         console.log(data)
                         $('.searchResults_block').html(data);
                     }
                 })
-            } else if(!ortplz && !startdate && !enddate){
+            } else if (!ortplz && !startdate && !enddate) {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
@@ -412,17 +414,22 @@
                     }
                 })
 
-            }else if(!ortplz && startdate && enddate){
+            } else if (!ortplz && startdate && enddate) {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
-                    data: {'startdate': startdate, 'enddate': enddate, 'check': "checkVar", 'checkFilter': $checkFilter},
+                    data: {
+                        'startdate': startdate,
+                        'enddate': enddate,
+                        'check': "checkVar",
+                        'checkFilter': $checkFilter
+                    },
                     success: function (data) {
                         console.log(data)
                         $('.searchResults_block').html(data);
                     }
                 })
-            }else if(ortplz){
+            } else if (ortplz) {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
@@ -434,7 +441,7 @@
                 })
 
             }
-            else{
+            else {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',

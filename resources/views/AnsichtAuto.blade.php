@@ -14,23 +14,29 @@
     @include('includes.header')
 @endif
 
+<?php
+$lala = $vermietungen-> bild;
+$result = explode(", ", $lala);
+$result2 = $result[0];
+array_shift($result);
+?>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        @foreach($result as $val)
+        <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
+            @endforeach
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="{{ asset('img/searchPictures/'.$vermietungen->autobild)}}" alt="Bild vom Auto1">
+            <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
         </div>
+        @foreach($result as $value)
         <div class="item">
-            <img src="{{asset('img/header1.jpg')}}" alt="Bild vom Auto2">
+            <img src="{{asset('img/searchPictures/'.$value)}}" alt="<?php echo $value;?>">
         </div>
-        <div class="item">
-            <img src="{{asset('img/car2.jpg')}}" alt="Bild vom Auto3">
-
-        </div>
+            @endforeach
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -69,21 +75,21 @@
     <div class="row">
         <div class="col-md-4 col-lg-6 eigenschaft">
             <p><b>Marke:</b></p>
-            <p>{{$vermietungen->automarke}}<br><br></p>
+            <p>{{$vermietungen->marke}}<br><br></p>
             <p><b>Modell:</b></p>
-            <p>{{$vermietungen->automodell}}<br><br></p>
+            <p>{{$vermietungen->modell}}<br><br></p>
             <p><b>Autofarbe:</b></p>
-            <p>{{$vermietungen->autofarbe}}<br><br></p>
+            <p>{{$vermietungen->farbe}}<br><br></p>
             <p><b>Kraftstoff:</b></p>
-            <p>{{$vermietungen->autokraftstoff}}<br><br></p>
+            <p>{{$vermietungen->kraftstoff}}<br><br></p>
             <p><b>Baujahr:</b></p>
-            <p>{{$vermietungen->autobaujahr}}<br><br></p>
+            <p>{{$vermietungen->baujahr}}<br><br></p>
             <p><b>Details:</b></p>
-            <p>{{$vermietungen->autodetails}}<br><br></p>
+            <p>{{$vermietungen->details}}<br><br></p>
             <p><b>Preis pro Tag:</b></p>
-            <p>{{$vermietungen->autopreis}} €<br><br></p>
+            <p>{{$vermietungen->preis}} €<br><br></p>
             <p><b>Standort:</b><br></p>
-            <p>{{$vermietungen-> autostrasseNr}}, {{$vermietungen-> autopostleitzahl}} {{$vermietungen-> autoort}}</p>
+            <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
         </div>
 
         <div class="col-md-4 col-lg-6">
@@ -105,7 +111,7 @@
 
                     var geocoder = new google.maps.Geocoder();
                     geocoder.geocode({
-                        address: '{{$vermietungen->autoort}},{{$vermietungen->autopostleitzahl}},{{$vermietungen->autostrasseNr}}'
+                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
                     }, function (geocoderResults, status) {
                         if (status === 'OK') {
                             var latlng = geocoderResults[0].geometry.location;
@@ -113,7 +119,7 @@
                                 map: map,
                                 position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
                                 icon: '/img/car.png',
-                                title: "{{$vermietungen->autostrasseNr}}, {{$vermietungen->autopostleitzahl}} {{$vermietungen->autoort}}"
+                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
                             });
                         }
                     })
