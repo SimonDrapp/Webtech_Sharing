@@ -198,6 +198,11 @@ Route::post('/',[
         'roles'=>['Benutzer', 'Admin']
 ]);
 
+Route::post('/Admin',[
+        'uses'=> 'AuthController@rechte',
+        'as'=> 'benutzerRechte'
+]);
+
 
 });
 

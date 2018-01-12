@@ -43,5 +43,8 @@ class AuthController extends Controller
         return redirect('welcome');
     }
 
+    public function rechte(){
+        return view('AdminRechte');
+    }
 
 }
