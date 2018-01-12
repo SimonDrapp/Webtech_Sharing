@@ -82,7 +82,6 @@ class AutovermietungController extends Controller
 
 
     public function saveAuto(Request $request){
-
         $autovermietung = new autovermietung;
         $autovermietung->automarke2 = $request->session()->get('automarke');
         $autovermietung->automodell2 = $request->session()->get('automodell');

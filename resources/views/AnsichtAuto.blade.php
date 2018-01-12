@@ -10,23 +10,29 @@
 <body>
 @include('includes.header')
 
+<?php
+$lala = $vermietungen-> autobild;
+$result = explode(", ", $lala);
+$result2 = $result[0];
+array_shift($result);
+?>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        @foreach($result as $val)
+        <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
+            @endforeach
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="{{ asset('img/searchPictures/'.$vermietungen->autobild)}}" alt="Bild vom Auto1">
+            <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
         </div>
+        @foreach($result as $value)
         <div class="item">
-            <img src="{{asset('img/header1.jpg')}}" alt="Bild vom Auto2">
+            <img src="{{asset('img/searchPictures/'.$value)}}" alt="<?php echo $value;?>">
         </div>
-        <div class="item">
-            <img src="{{asset('img/car2.jpg')}}" alt="Bild vom Auto3">
-
-        </div>
+            @endforeach
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
