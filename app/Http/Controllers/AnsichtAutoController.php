@@ -46,11 +46,18 @@ class AnsichtAutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name, $id)
     {
-        $vermietungen =autovermietung::findOrFail($id);
+        if ($name === "Auto"){
+            $vermietungen =autovermietung::findOrFail($id);
+            return view('AnsichtAuto', ['vermietungen' => $vermietungen]);
+        }
+        else {
+            $vermietungen = fahrradvermietung::findOrFail($id);
+            return view('AnsichtFahrrad', ['vermietungen' => $vermietungen]);
+        }
 
-        return view('AnsichtAuto', ['vermietungen' => $vermietungen]);
+
     }
 
     /**

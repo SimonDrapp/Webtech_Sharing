@@ -96,7 +96,7 @@ class FahrradvermietungController extends Controller
         $fahrradvermietung->enddate = $request->session()->get('enddate');
 
 
-            DB::table('fahrradvermietung')->insert(['art'=>$fahrradvermietung->art2, 'marke'=>$fahrradvermietung->marke2,
+            DB::table('fahrradvermietung')->insert(['name' => "Fahrrad", 'art'=>$fahrradvermietung->art2, 'marke'=>$fahrradvermietung->marke2,
             'modell'=>$fahrradvermietung->modell2, 'farbe'=>$fahrradvermietung->farbe, 'preis'=>$fahrradvermietung->preis,
             'bild'=>$fahrradvermietung->bild, 'details'=>$fahrradvermietung->details, 'postleitzahl'=>$fahrradvermietung->postleitzahl,
             'ort'=>$fahrradvermietung->ort, 'strasseNr'=>$fahrradvermietung->strasseNr, 'startdate'=>$fahrradvermietung->startdate,

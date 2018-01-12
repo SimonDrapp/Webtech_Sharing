@@ -238,9 +238,6 @@ Route::post('/',[
 
 */
 
-
-
-
 //Route::get('/Fahrradeigenschaft2', 'FahrradvermietungController@safeFahrrad');
 //Route::resource('amarke', 'FahrradSafeController');
 
@@ -262,6 +259,10 @@ Route::get('/NachrichtAnzeigen/{id}', 'NotificationController@showContact');
 
 Auth::routes();
 
-Route::get('/Ansicht/{id}', 'AnsichtAutoController@show');
+
+
+Route::get('/Ansicht/{name}/{id}', 'AnsichtAutoController@show');
+//Route::get('/AnsichtFahrrad/{id}', 'AnsichtFahrradController@show');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

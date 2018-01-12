@@ -254,6 +254,7 @@ class allgemeineSucheController extends Controller
 
         $sorted= $collection->sortBy('preis');
         $sorted->values()->all();
+       
 
          session()->put('activeCollection', $collection);
 

@@ -1,6 +1,6 @@
 
 @foreach($sorted as $sort)
-    <a href="#">
+    <a href="/Ansicht/{{$sort -> name}}/{{$sort -> $id}}">
         <div class="searchResults_result">
             <div class="searchResults_image">
                 <img src="img/searchPictures/{{$sort->bild}}" alt="{{$sort->modell}}">

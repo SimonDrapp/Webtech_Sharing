@@ -15,6 +15,7 @@ class CreateSharingAutovermietung extends Migration
     {
         Schema::create('autovermietung', function (Blueprint $table) {
             $table->increments('id');
+            $table->String('name');
             $table->string('marke');
             $table->String('modell');
             $table->String('baujahr');

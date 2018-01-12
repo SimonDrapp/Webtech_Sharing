@@ -15,6 +15,7 @@ class CreateSharingFahrradvermietung extends Migration
     {
         Schema::create('fahrradvermietung', function (Blueprint $table) {
             $table->increments('id');
+            $table->String('name');
             $table->String('art');
             $table->String('marke');
             $table->String('modell');

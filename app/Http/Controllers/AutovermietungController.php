@@ -99,7 +99,7 @@ class AutovermietungController extends Controller
 
 
 
-        DB::table('autovermietung')->insert(['marke'=>$autovermietung->marke2,
+        DB::table('autovermietung')->insert(['name' => "Auto",'marke'=>$autovermietung->marke2,
             'modell'=>$autovermietung->modell2, 'baujahr'=>$autovermietung->baujahr,'farbe'=>$autovermietung->farbe,
             'kraftstoff'=>$autovermietung->kraftstoff,'preis'=>$autovermietung->preis, 'bild'=>$autovermietung->bild,
             'details'=>$autovermietung->details, 'postleitzahl'=>$autovermietung->postleitzahl, 'ort'=>$autovermietung->ort,

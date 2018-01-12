@@ -85,14 +85,40 @@
                 <div class="col-xs-6 col-md-4">
                     <div class="buttonUndText">
                         <p class="TextBild">Bild</p>
-                        <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" required>
+                        <div class="input-group">
+                            <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input id="fahrrad" name="fahrrad" type="file" accept="image/*" style="display: none;" multiple>
+                    </span>
+                            </label>
+                            <input type="text" id="fahrradbilder" name="bild" class="form-control" readonly>
+                        </div>
+                       <!-- <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" required>
                         <div class="input-group mx-sm-4">
                             <input type="text" id="inputBild" class="form-control input" name="bild">
                             <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
-                                <span class="glyphicon glyphicon-picture"></span></button>
+                                <span class="glyphicon glyphicon-picture"></span></button>-->
                         </div>
                     </div>
                 </div>
+                <script>
+                    $(function() {
+                        $(document).on('change', ':file', function() {
+                            var files = document.getElementById("fahrrad").files;
+                            var result= files[0].name;
+                            console.log(files.length);
+                            if(files.length > 1) {
+                                for (var i = 1; i < files.length; i++) {
+                                    console.log(files[i].name + i);
+                                    result += ", " + files[i].name;
+                                }
+
+                            }
+                            document.getElementById('fahrradbilder').value = result;
+                        });
+                    });
+
+                </script>
 
                 <div class="col-xs-12 col-md-4">
                     <div class="buttonUndText">

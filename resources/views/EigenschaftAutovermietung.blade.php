@@ -129,10 +129,10 @@
                             console.log(files[i].name + i);
                             result += ", " + files[i].name;
                         }
-                        document.getElementById('autobilder').value = result;
+
                     } else {
                         alert(result);
-                    }
+                    } document.getElementById('autobilder').value = result;
                 });
             });
 

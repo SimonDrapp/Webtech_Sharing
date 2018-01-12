@@ -198,6 +198,7 @@ class SharingSeeder extends Seeder
         ));
 
         autovermietung:: create(array(
+            'name' => 'Auto',
             'marke'=> 'Audi',
             'modell'=> 'Audi A3',
             'baujahr'=> '2014',
@@ -214,6 +215,7 @@ class SharingSeeder extends Seeder
         ));
 
         autovermietung:: create(array(
+            'name' => 'Auto',
             'marke'=> 'Audi',
             'modell'=> 'Audi A5',
             'baujahr'=> '2016',
@@ -230,6 +232,7 @@ class SharingSeeder extends Seeder
         ));
 
         autovermietung:: create(array(
+        'name' => 'Auto',
         'marke'=> 'BMW',
         'modell'=> 'BMW 3er',
         'baujahr'=> '2015',
@@ -246,6 +249,7 @@ class SharingSeeder extends Seeder
     ));
 
         autovermietung:: create(array(
+            'name' => 'Auto',
             'marke'=> 'Mercedes',
             'modell'=> 'CLS',
             'baujahr'=> '2017',
@@ -262,6 +266,7 @@ class SharingSeeder extends Seeder
         ));
 
         fahrradvermietung:: create(array(
+        'name' => 'Fahrrad',
         'art'=> 'Freizeitbike',
         'marke'=> 'Alpina',
         'modell'=> 'Mountainbike',
@@ -276,6 +281,7 @@ class SharingSeeder extends Seeder
         'enddate'=>'2018-01-18'
     ));
         fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
             'art'=> 'Freizeitbike',
             'marke'=> 'Alpina',
             'modell'=> 'Mountainbike',
@@ -290,6 +296,7 @@ class SharingSeeder extends Seeder
             'enddate'=>'2018-01-25'
         ));
         fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
             'art'=> 'Freizeitbike',
             'marke'=> 'Alpina',
             'modell'=> 'Mountainbike',
@@ -305,6 +312,7 @@ class SharingSeeder extends Seeder
         ));
 
         fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
             'art'=> 'Freizeitbike',
             'marke'=> 'Alpina',
             'modell'=> 'Mountainbike',
