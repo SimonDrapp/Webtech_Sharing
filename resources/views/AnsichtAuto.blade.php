@@ -15,7 +15,7 @@
 @endif
 
 <?php
-$lala = $vermietungen-> autobild;
+$lala = $vermietungen-> bild;
 $result = explode(", ", $lala);
 $result2 = $result[0];
 array_shift($result);
@@ -31,7 +31,6 @@ array_shift($result);
     <div class="carousel-inner">
         <div class="item active">
             <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
-            <img src="{{ asset('img/searchPictures/'.$vermietungen->bild)}}" alt="Bild vom Auto1">
         </div>
         @foreach($result as $value)
         <div class="item">

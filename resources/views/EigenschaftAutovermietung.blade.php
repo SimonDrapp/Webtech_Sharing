@@ -104,7 +104,7 @@
                         Browse&hellip; <input id="lili" name="lala" type="file" accept="image/*" style="display: none;" multiple>
                     </span>
                         </label>
-                        <input type="text" id="autobilder" name="autobild" class="form-control" readonly>
+                        <input type="text" id="autobilder" name="bild" class="form-control" readonly>
                     </div>
 
                   <!--  <input type="file" class="file"  id="file1" multiple>-->

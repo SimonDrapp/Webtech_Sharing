@@ -5,7 +5,7 @@
     <nav class="navbar navbar-fixed-top navbar-inverse">
         <div class="container-fluid">
             <a href="/" class="navbar-brand">
-                <img id="brand-image" src="img/logo_new.png" alt="Logo">
+                <img id="brand-image" src="{{asset('img/logo_new.png')}}" alt="Logo">
                 <h3 id="brand-text">my-easysharing</h3>
             </a>
 
