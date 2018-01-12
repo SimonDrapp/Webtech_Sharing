@@ -59,7 +59,7 @@
     <div class="row" id="buttonSortByAll">
         <div class="col-lg-10 col-md-9 col-sm-9" id="buttonShowMe">
             <div id="btnContainer" class="btn-group myBtnContainer">
-                <button id="all" class="btn" >alle anzeigen</button>
+                <button id="all" class="btn">alle anzeigen</button>
                 <button id="cars" class="btn">Autos</button>
                 <button id="bicycles" class="btn">Fahrräder</button>
             </div>
@@ -111,7 +111,8 @@
                     <hr class="headerLine" align="left">
                     <ul>
                         @foreach ($fMarken as $fMarke)
-                            <li><a class="aContent id="fahrradMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a></li>
+                            <li><a class="aContent" id="fahrradMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </div>
@@ -123,7 +124,7 @@
                     <hr class="headerLine" align="left">
                     <ul id="aModelle">
                         @foreach ($aModelle as $aModell)
-                            <li class="showMore"><a class="aContent" id="AutoModelle"
+                            <li class="showMore" id="autoModelle"><a class="aContent" id="AutoModelle"
                                                     value="{{$aModell->id}}}}">{{ $aModell->aModellname }}</a></li>
                         @endforeach
                     </ul>
@@ -132,7 +133,7 @@
                     <hr class="headerLine" align="left">
                     <ul id="aModelle">
                         @foreach ($fModelle as $fModell)
-                            <li><a class="aContent" id="AutoModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
+                            <li><a class="aContent" id="fahrradModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
                             </li>
                         @endforeach
                     </ul>
@@ -173,7 +174,7 @@
 
 <script>
 
-   $(function () {
+    $(function () {
         var dateFormat = "yy-mm-dd",
             from = $("#datevon1")
                 .datepicker({
@@ -309,28 +310,27 @@
 
         /*---FilterButtons---*/
         previouslyClicked = $('.btn').eq(0);
-        $('.btn').click(function() {
+        $('.btn').click(function () {
             previouslyClicked.removeClass("btn active").addClass("btn");
             $(this).addClass("btn active")
             previouslyClicked = $(this);
         });
 
-        $('#all').click(function(){
+        $('#all').click(function () {
             $checkFilter = 'all';
             //console.log($checkFilter);
         });
-        $('#cars').click(function(){
+        $('#cars').click(function () {
             $checkFilter = 'cars';
             //console.log($checkFilter);
         });
-        $('#bicycles').click(function(){
+        $('#bicycles').click(function () {
             $checkFilter = 'bicycles';
             //console.log($checkFilter);
         });
 
-
-
-
+        /*---FilterButtons change the Filter---*/
+        
 
 
 
@@ -383,25 +383,31 @@
             var startdate = $('#datevon1').val();
             var enddate = $('#datebis1').val();
 
-            if(ort.indexOf(" ") > -1){
+            if (ort.indexOf(" ") > -1) {
                 ortArray1 = ort.split(" ");
                 var ort = ortArray1[0];
             }
 
             console.log($checkFilter);
 
-            if(startdate && enddate && ort) {
+            if (startdate && enddate && ort) {
 
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
-                    data: {'ort': ort, 'plz': plz, 'startdate': startdate, 'enddate': enddate, 'checkFilter': $checkFilter},
+                    data: {
+                        'ort': ort,
+                        'plz': plz,
+                        'startdate': startdate,
+                        'enddate': enddate,
+                        'checkFilter': $checkFilter
+                    },
                     success: function (data) {
                         console.log(data)
                         $('.searchResults_block').html(data);
                     }
                 })
-            } else if(!ortplz && !startdate && !enddate){
+            } else if (!ortplz && !startdate && !enddate) {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
@@ -412,17 +418,22 @@
                     }
                 })
 
-            }else if(!ortplz && startdate && enddate){
+            } else if (!ortplz && startdate && enddate) {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
-                    data: {'startdate': startdate, 'enddate': enddate, 'check': "checkVar", 'checkFilter': $checkFilter},
+                    data: {
+                        'startdate': startdate,
+                        'enddate': enddate,
+                        'check': "checkVar",
+                        'checkFilter': $checkFilter
+                    },
                     success: function (data) {
                         console.log(data)
                         $('.searchResults_block').html(data);
                     }
                 })
-            }else if(ortplz){
+            } else if (ortplz) {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
@@ -434,7 +445,7 @@
                 })
 
             }
-            else{
+            else {
                 $.ajax({
                     type: 'GET',
                     url: '/searchVehicles',
@@ -447,24 +458,52 @@
             }
         });
 
-        $(document).on('click', '#autoMarken', function () {
+        /*---Ajax Preis slider--*/
+        $('#slider-range').mouseup(function () {
 
-            var aMarken = $(this).text();
 
-
+            var minPreis = $("#slider-range").slider("values", 0);
+            var maxPreis = $("#slider-range").slider("values", 1);
 
             $.ajax({
                 type: 'GET',
                 url: '/searchVehiclesFilter',
-                data: {'marken': aMarken},
+                data: {'minPreis': minPreis, 'maxPreis': maxPreis},
                 success: function (data) {
                     //console.log(data)
-
+                    $('.searchResults_block').html(data);
                 }
             })
+        });
 
+        /*---Ajax AutoMarken---*/
+        $(document).on('click', '#autoMarken, #fahrradMarken', function () {
 
+            var marke = $(this).text();
+            $.ajax({
+                type: 'GET',
+                url: '/searchVehiclesFilter',
+                data: {'marke': marke},
+                success: function (data) {
+                    console.log(data)
+                    $('.searchResults_block').html(data);
+                }
+            })
+        });
 
+        /*---Ajax AutoModelle--*/
+        $(document).on('click', '#autoModelle, #fahrradModelle', function () {
+
+            var modell = $(this).text();
+            $.ajax({
+                type: 'GET',
+                url: '/searchVehiclesFilter',
+                data: {'modell': modell},
+                success: function (data) {
+                    //console.log(data)
+                    $('.searchResults_block').html(data);
+                }
+            })
         });
 
     });

@@ -252,23 +252,58 @@ class allgemeineSucheController extends Controller
             }
         }
 
-        $sorted= $collection->sortBy('preis');
-        $sorted->values()->all();
+        $showCollection= $collection->sortBy('preis');
+        $showCollection->values()->all();
 
          session()->put('activeCollection', $collection);
 
         return view('partialViews.liveSearch')->with([
-           'sorted' => $sorted
+           'showCollection' => $showCollection
         ]);
     }
 
     public function searchVehiclesFilter(Request $request){
 
-        $activeCollection =session()->get('activeCollection');
+        $activeCollection = session()->get('activeCollection');
 
-       // print($activeCollection);
+        if($request->marke) {
 
-        return response()->json(['test'=>$activeCollection]);
+            session()->put('request', $request->marke);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $request = session()->get('request');
+                return $activeCollection->marke == $request;
+            });
+        }
+        if($request->modell) {
+
+            session()->put('request', $request->modell);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $request = session()->get('request');
+                return $activeCollection->modell == $request;
+            });
+        }
+        if($request->minPreis && $request->maxPreis) {
+
+            session()->put('minPreis', $request->minPreis);
+            session()->put('maxPreis', $request->maxPreis);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $minPreis = session()->get('minPreis');
+                $maxPreis = session()->get('maxPreis');
+                return $activeCollection->preis >= $minPreis && $activeCollection->preis <= $maxPreis;
+            });
+        }
+
+
+      $showCollection = $filtered->all();
+
+        return view('partialViews.liveSearch')->with([
+            'showCollection' => $showCollection
+        ]);
+
+       //return response()->json(['test'=>$showCollection]);
 
 
 

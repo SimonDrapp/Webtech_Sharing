@@ -98,14 +98,45 @@
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="TextBild">Bild</p>
+                    <div class="input-group">
+                        <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Browse&hellip; <input id="lili" name="lala" type="file" accept="image/*" style="display: none;" multiple>
+                    </span>
+                        </label>
+                        <input type="text" id="autobilder" name="bild" class="form-control" readonly>
+                    </div>
+
+                  <!--  <input type="file" class="file"  id="file1" multiple>-->
+                   <!-- <div class="input-group mx-sm-4">
+                            <input type="" id="inputBild" class="form-control input" name="autobild[]" multiple>
                     <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" multiple>
                     <div class="input-group mx-sm-4">
                             <input type="text" id="inputBild" class="form-control input" name="bild" multiple>
                     <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
                         <span class="glyphicon glyphicon-picture"></span></button>
-                    </div>
+                    </div>-->
                 </div>
             </div>
+        <script>
+            $(function() {
+                $(document).on('change', ':file', function() {
+                    var files = document.getElementById("lili").files;
+                    var result= files[0].name;
+                    console.log(files.length);
+                    if(files.length > 1) {
+                        for (var i = 1; i < files.length; i++) {
+                            console.log(files[i].name + i);
+                            result += ", " + files[i].name;
+                        }
+                        document.getElementById('autobilder').value = result;
+                    } else {
+                        alert(result);
+                    }
+                });
+            });
+
+        </script>
 
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">

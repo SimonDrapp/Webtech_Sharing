@@ -1,22 +1,22 @@
 
-@foreach($sorted as $sort)
+@foreach($showCollection as $show)
     <a href="#">
         <div class="searchResults_result">
             <div class="searchResults_image">
-                <img src="img/searchPictures/{{$sort->bild}}" alt="{{$sort->modell}}">
+                <img src="img/searchPictures/{{$show->bild}}" alt="{{$show->modell}}">
             </div>
             <div class="searchResults_info">
                 <div class="searchResults_info-inner">
                     <h3 class="searchResults_title">
-                        {{$sort->modell}}
+                        {{$show->modell}}
                     </h3>
                     <div>
-                        <p>{{$sort->strasseNr}}, {{$sort->ort}}</p>
+                        <p>{{$show->strasseNr}}, {{$show->ort}}</p>
                     </div>
                 </div>
                 <div class="searchResults_priceContainer">
                     <h3 class="searchResults_price">
-                        € {{$sort->preis}}
+                        € {{$show->preis}}
                     </h3>
                     <span>pro Tag</span>
                 </div>
