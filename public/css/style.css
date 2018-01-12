@@ -746,6 +746,9 @@ h5 {
     border-bottom: 2px solid;
     padding: 10px;
 }
+.lastFilterContent{
+    border-bottom: 1px solid;
+}
 .searchFilter_filter-content .headerLine{
     margin-top: 0px;
     margin-bottom: 5px;

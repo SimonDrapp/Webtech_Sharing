@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AModell;
+use App\Art;
 use App\autovermietung;
 use App\Baujahr;
 use App\Bilder;
@@ -17,90 +18,68 @@ use App\AMarke;
 
 class allgemeineSucheController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $aMarken = AMarke::all();
         $aModelle = AModell::all();
         $fMarken = FMarke::all();
         $fModelle = FModell::all();
-        $Kraftstoffe = Kraftstoff::all();
-        $Baujahre = Baujahr::all();
+
+       /* $aVermietung = autovermietung::all();
+        $fVermietung = fahrradvermietung::all();*/
+
+       //$this->showAllResults();
+
+        return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+            'fModelle' => $fModelle]);
+    }
+
+    /*function showAllResults(){
+
         $aVermietung = autovermietung::all();
         $fVermietung = fahrradvermietung::all();
-        return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
-            'fModelle' => $fModelle, 'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre, 'aVermietung' => $aVermietung,
-            'fVermietung' => $fVermietung]);
-    }
+        $collection = $aVermietung->toBase()->merge($fVermietung);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        session()->put('activeCollection', $collection);
+        $showCollection= $collection->sortBy('preis');
+        $showCollection->values()->all();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+        return $showCollection;
+     }*/
+
+    public function changeFilterAll()
     {
+        $aMarken = AMarke::all();
+        $aModelle = AModell::all();
+        $fMarken = FMarke::all();
+        $fModelle = FModell::all();
+
+        return view('partialViews.FilterAll',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+            'fModelle' => $fModelle]);
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function changeFilterCars()
     {
-        //
+        $aMarken = AMarke::all();
+        $aModelle = AModell::all();
+        $Kraftstoffe = Kraftstoff::all();
+        $Baujahre = Baujahr::all();
+
+        return view('partialViews.FilterCars',['aMarken' => $aMarken, 'aModelle' => $aModelle,
+            'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre]);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function changeFilterBicycles()
     {
-        //
-    }
+        $fArt = Art::all();
+        $fMarken = FMarke::all();
+        $fModelle = FModell::all();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('partialViews.FilterBicycles',['fArt' => $fArt, 'fMarken' => $fMarken, 'fModelle' => $fModelle]);
+
     }
 
     public function findAutoModelle(Request $request)
@@ -295,9 +274,38 @@ class allgemeineSucheController extends Controller
                 return $activeCollection->preis >= $minPreis && $activeCollection->preis <= $maxPreis;
             });
         }
+        if($request->kraftstoff) {
+
+            session()->put('request', $request->kraftstoff);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $request = session()->get('request');
+                return $activeCollection->kraftstoff == $request;
+            });
+        }
+        if($request->baujahr) {
+
+            session()->put('request', $request->baujahr);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $request = session()->get('request');
+                return $activeCollection->baujahr == $request;
+            });
+        }
+        if($request->art) {
+
+            session()->put('request', $request->art);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $request = session()->get('request');
+                return $activeCollection->art == $request;
+            });
+        }
+
+        $showCollection = $filtered->sortBy('preis');
+        $showCollection->values()->all();
 
 
-      $showCollection = $filtered->all();
 
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
