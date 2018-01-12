@@ -198,67 +198,67 @@ class SharingSeeder extends Seeder
         ));
 
         autovermietung:: create(array(
-            'automarke'=> 'Audi',
-            'automodell'=> 'Audi A3',
-            'autobaujahr'=> '2014',
-            'autofarbe'=> 'silber',
-            'autokraftstoff'=> 'Benzin',
-            'autopreis'=> '50,00',
-            'autobild'=> 'audiA3.jpg',
-            'autodetails'=> 'neuer Audi A3',
-            'autopostleitzahl'=>'78462',
-            'autoort'=>'Konstanz',
-            'autostrasseNr'=>'Alfred-Wachtel-Straße 8',
-            'autostartdate'=>'2018-01-09',
-            'autoenddate'=>'2018-01-18'
+            'marke'=> 'Audi',
+            'modell'=> 'Audi A3',
+            'baujahr'=> '2014',
+            'farbe'=> 'silber',
+            'kraftstoff'=> 'Benzin',
+            'preis'=> 50,
+            'bild'=> 'audiA3.jpg',
+            'details'=> 'neuer Audi A3',
+            'postleitzahl'=>'78462',
+            'ort'=>'Konstanz',
+            'strasseNr'=>'Alfred-Wachtel-Straße 8',
+            'startdate'=>'2018-01-09',
+            'enddate'=>'2018-01-18'
         ));
 
         autovermietung:: create(array(
-            'automarke'=> 'Audi',
-            'automodell'=> 'Audi A5',
-            'autobaujahr'=> '2016',
-            'autofarbe'=> 'rot',
-            'autokraftstoff'=> 'Benzin',
-            'autopreis'=> '100,00',
-            'autobild'=> 'audiA5.jpg',
-            'autodetails'=> 'neuer Audi A5',
-            'autopostleitzahl'=>'78462',
-            'autoort'=>'Konstanz',
-            'autostrasseNr'=>'Bodanstraße 15',
-            'autostartdate'=>'2018-01-10',
-            'autoenddate'=>'2018-01-20'
+            'marke'=> 'Audi',
+            'modell'=> 'Audi A5',
+            'baujahr'=> '2016',
+            'farbe'=> 'rot',
+            'kraftstoff'=> 'Benzin',
+            'preis'=> 100,
+            'bild'=> 'audiA5.jpg',
+            'details'=> 'neuer Audi A5',
+            'postleitzahl'=>'78462',
+            'ort'=>'Konstanz',
+            'strasseNr'=>'Bodanstraße 15',
+            'startdate'=>'2018-01-10',
+            'enddate'=>'2018-01-20'
         ));
 
         autovermietung:: create(array(
-        'automarke'=> 'BMW',
-        'automodell'=> 'BMW 3er',
-        'autobaujahr'=> '2015',
-        'autofarbe'=> 'silber',
-        'autokraftstoff'=> 'Benzin',
-        'autopreis'=> '50,00',
-        'autobild'=> 'audiA3.jpg',
-        'autodetails'=> 'neuer Audi A3',
-        'autopostleitzahl'=>'78479',
-        'autoort'=>'Reichenau',
-        'autostrasseNr'=>'Priminstraße 45',
-        'autostartdate'=>'2018-01-11',
-        'autoenddate'=>'2018-01-30'
+        'marke'=> 'BMW',
+        'modell'=> 'BMW 3er',
+        'baujahr'=> '2015',
+        'farbe'=> 'silber',
+        'kraftstoff'=> 'Benzin',
+        'preis'=> 30,
+        'bild'=> 'audiA3.jpg',
+        'details'=> 'neuer Audi A3',
+        'postleitzahl'=>'78479',
+        'ort'=>'Reichenau',
+        'strasseNr'=>'Priminstraße 45',
+        'startdate'=>'2018-01-11',
+        'enddate'=>'2018-01-30'
     ));
 
         autovermietung:: create(array(
-            'automarke'=> 'Mercedes',
-            'automodell'=> 'CLS',
-            'autobaujahr'=> '2017',
-            'autofarbe'=> 'silber',
-            'autokraftstoff'=> 'Benzin',
-            'autopreis'=> '50,00',
-            'autobild'=> 'audiA3.jpg',
-            'autodetails'=> 'neuer Audi A3',
-            'autopostleitzahl'=>'78479',
-            'autoort'=>'Konstanz',
-            'autostrasseNr'=>'Fürstenbergstraße 87',
-            'autostartdate'=>'2018-01-12',
-            'autoenddate'=>'2018-01-15'
+            'marke'=> 'Mercedes',
+            'modell'=> 'CLS',
+            'baujahr'=> '2017',
+            'farbe'=> 'silber',
+            'kraftstoff'=> 'Benzin',
+            'preis'=> 50,
+            'bild'=> 'audiA3.jpg',
+            'details'=> 'neuer Audi A3',
+            'postleitzahl'=>'78467',
+            'ort'=>'Konstanz',
+            'strasseNr'=>'Fürstenbergstraße 87',
+            'startdate'=>'2018-01-12',
+            'enddate'=>'2018-01-15'
         ));
 
         fahrradvermietung:: create(array(
@@ -266,8 +266,8 @@ class SharingSeeder extends Seeder
         'marke'=> 'Alpina',
         'modell'=> 'Mountainbike',
         'farbe'=> 'schwarz',
-        'preis'=> '10,00',
-        'bild'=> 'maountainbikeAlpina.jpg',
+        'preis'=> 5,
+        'bild'=> 'mountainbikeAlpina.jpg',
         'details'=> 'guter Zustand',
         'postleitzahl'=> '78464',
         'ort'=> 'Konstanz',
@@ -280,8 +280,8 @@ class SharingSeeder extends Seeder
             'marke'=> 'Alpina',
             'modell'=> 'Mountainbike',
             'farbe'=> 'schwarz',
-            'preis'=> '10,00',
-            'bild'=> 'maountainbikeAlpina.jpg',
+            'preis'=> 10,
+            'bild'=> 'mountainbikeAlpina.jpg',
             'details'=> 'guter Zustand',
             'postleitzahl'=> '78464',
             'ort'=> 'Konstanz',
@@ -294,14 +294,29 @@ class SharingSeeder extends Seeder
             'marke'=> 'Alpina',
             'modell'=> 'Mountainbike',
             'farbe'=> 'schwarz',
-            'preis'=> '10,00',
-            'bild'=> 'maountainbikeAlpina.jpg',
+            'preis'=> 12,
+            'bild'=> 'mountainbikeAlpina.jpg',
             'details'=> 'guter Zustand',
             'postleitzahl'=> '78467',
             'ort'=> 'Konstanz',
             'strasseNr'=> 'Hindenburgstraße 5',
             'startdate'=>'2018-01-11',
             'enddate'=>'2018-01-17'
+        ));
+
+        fahrradvermietung:: create(array(
+            'art'=> 'Freizeitbike',
+            'marke'=> 'Alpina',
+            'modell'=> 'Mountainbike',
+            'farbe'=> 'schwarz',
+            'preis'=> 15,
+            'bild'=> 'mountainbikeAlpina.jpg',
+            'details'=> 'guter Zustand',
+            'postleitzahl'=> '78462',
+            'ort'=> 'Konstanz',
+            'strasseNr'=> 'Schreibergasse 2',
+            'startdate'=>'2018-01-10',
+            'enddate'=>'2018-01-18'
         ));
 
 
@@ -546,7 +561,7 @@ class SharingSeeder extends Seeder
         */
 
         $role_user = new Role();
-        $role_user->name = 'User';
+        $role_user->name = 'Gast';
         $role_user->description = 'Ein angemeldeter User';
         $role_user->save();
 
@@ -561,30 +576,30 @@ class SharingSeeder extends Seeder
         $role_admin->save();
 
 
-        $role_user = Role::where('name', 'User')->first();
+        $role_user = Role::where('name', 'Gast')->first();
         $role_benutzer = Role::where('name', 'Benutzer')->first();
         $role_admin = Role::where('name', 'Admin')->first();
 
         $user = new User();
-        $user->name = 'Rindrit Bislimi';
-        $user->email = 'visitor@hotmail.de';
-        $user->password = bcrypt('visitor');
+        $user->name = 'Gast';
+        $user->email = 'gast@hotmail.de';
+        $user->password = bcrypt('Gast');
         $user->telephonenumber = '01745916905';
         $user->save();
         $user->roles()->attach($role_user);
 
         $author = new User();
-        $author->name = 'Rindrit Bislimi2';
+        $author->name = 'Benutzer';
         $author->email = 'benutzer@hotmail.de';
-        $author->password = bcrypt('author');
+        $author->password = bcrypt('Benutzer');
         $author->telephonenumber = '01745916905';
         $author->save();
         $author->roles()->attach($role_benutzer);
 
         $admin = new User();
-        $admin->name = 'Rindrit Bislimi2';
+        $admin->name = 'Rindrit Bislimi';
         $admin->email = 'admin@hotmail.de';
-        $admin->password = bcrypt('admin');
+        $admin->password = bcrypt('Admin');
         $admin->telephonenumber = '01745916905';
         $admin->save();
         $admin->roles()->attach($role_admin);

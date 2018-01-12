@@ -22,33 +22,33 @@
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Marke</p>
                 <label for="marke"></label>
-                <input style="text-align: center" type="text" class="form-control" name="automodell" value="{{$autovermietungen->automarke}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="modell" value="{{$autovermietungen->marke}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Modell</p>
                 <label for="modell"></label>
-                <input style="text-align: center" type="text" class="form-control" name="automodell" value="{{$autovermietungen->automodell}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="modell" value="{{$autovermietungen->modell}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Baujahr</p>
                 <label for="baujahr"></label>
-                <input style="text-align: center" type="text" class="form-control" name="autobaujahr" value="{{$autovermietungen -> autobaujahr}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="baujahr" value="{{$autovermietungen -> baujahr}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Farbe</p>
                 <label for="farbe"></label>
-                <input style="text-align: center" type="text" class="form-control" name="autofarbe" value="{{$autovermietungen -> autofarbe}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="farbe" value="{{$autovermietungen -> farbe}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Kraftstoff</p>
                 <label for="kraftstoff"></label>
-                <input style="text-align: center" type="text" class="form-control" name="autokraftstoff" value="{{$autovermietungen -> autokraftstoff}}" disabled>
+                <input style="text-align: center" type="text" class="form-control" name="kraftstoff" value="{{$autovermietungen -> kraftstoff}}" disabled>
             </div>
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Preis</p>
                 <label for="preis"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autopreis" value="{{$autovermietungen -> autopreis}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="preis" value="{{$autovermietungen -> preis}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-euro"></span>
                     </span>
@@ -58,7 +58,7 @@
                 <p class="daten2">Bild</p>
                 <label for="bild"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autobild" value="{{$autovermietungen -> autobild}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="bild" value="{{$autovermietungen -> bild}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-picture"></span>
                         </span>
@@ -67,13 +67,13 @@
             <div class="col-xs-6 col-md-3 speichern">
                 <p class="daten2">Details</p>
                 <label for="details"></label>
-                <textarea type="text" rows="3" class="form-control details" id="detail" name="autodetails" disabled>{{$autovermietungen -> autodetails}}</textarea>
+                <textarea type="text" rows="3" class="form-control details" id="detail" name="details" disabled>{{$autovermietungen -> details}}</textarea>
             </div>
             <div class="col-xs-6 col-md-4 speichern">
                 <p class="daten2">Postleitzahl</p>
                 <label for="postleitzahl"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autopostleitzahl" value="{{$autovermietungen -> autopostleitzahl}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="postleitzahl" value="{{$autovermietungen -> postleitzahl}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-map-marker"></span>
                     </span>
@@ -83,7 +83,7 @@
                 <p class="daten2">Ort</p>
                 <label for="ort"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autoort" value="{{$autovermietungen -> autoort}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="ort" value="{{$autovermietungen ->ort}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-home"></span>
                     </span>
@@ -93,7 +93,7 @@
                 <p class="daten2">Strasse/Nr.</p>
                 <label for="strasseNr"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autostrasseNr" value="{{$autovermietungen -> autostrasseNr}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="strasseNr" value="{{$autovermietungen -> strasseNr}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-road"></span>
                     </span>
@@ -103,7 +103,7 @@
                 <p class="daten2">Von</p>
                 <label for="startdate"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autostartdate" value="{{$autovermietungen -> autostartdate}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="startdate" value="{{$autovermietungen -> startdate}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -113,7 +113,7 @@
                 <p class="daten2">Bis</p>
                 <label for="enddate"></label>
                 <div class="input-group">
-                    <input style="text-align: center" type="text" class="form-control" name="autoenddate" value="{{$autovermietungen -> autoenddate}}" disabled>
+                    <input style="text-align: center" type="text" class="form-control" name="enddate" value="{{$autovermietungen -> enddate}}" disabled>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                         </span>

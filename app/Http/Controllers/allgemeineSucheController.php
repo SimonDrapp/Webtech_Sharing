@@ -32,7 +32,7 @@ class allgemeineSucheController extends Controller
         $Baujahre = Baujahr::all();
         $aVermietung = autovermietung::all();
         $fVermietung = fahrradvermietung::all();
-        return view('allgemeineSuche',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+        return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
             'fModelle' => $fModelle, 'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre, 'aVermietung' => $aVermietung,
             'fVermietung' => $fVermietung]);
     }
@@ -50,7 +50,7 @@ class allgemeineSucheController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -61,7 +61,7 @@ class allgemeineSucheController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -72,7 +72,7 @@ class allgemeineSucheController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -83,8 +83,8 @@ class allgemeineSucheController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -95,7 +95,7 @@ class allgemeineSucheController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -103,75 +103,176 @@ class allgemeineSucheController extends Controller
         //
     }
 
-    public function findAutoModelle(Request $request){
+    public function findAutoModelle(Request $request)
+    {
 
-        $data= AModell::where('idAmarke', $request->id)->get();
+        $data = AModell::where('idAmarke', $request->id)->get();
         return response()->json($data);
 
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
 
-        if($request->ajax()){
-            $output="";
-            $cities=Ort::where('Name','LIKE',$request->search.'%')
-                        ->orWhere('plz','Like',$request->search.'%')->get();
+        if ($request->ajax()) {
+            $output = "";
+            $cities = Ort::where('Name', 'LIKE', $request->search . '%')
+                ->orWhere('plz', 'Like', $request->search . '%')->get();
 
 
-            if($cities){
+            if ($cities) {
 
-                foreach($cities as $key => $city)
-                $output.= '<li id="test">'.$city->Name.', '.$city->plz.'</li>';
+                foreach ($cities as $key => $city)
+                    $output .= '<li id="test">' . $city->Name . ', ' . $city->plz . '</li>';
             }
             return Response($output);
         }
     }
 
-    public function searchVehicles(Request $request){
-
-        $output="";
-        $aVermietung = autovermietung::where([
-            ['autoort','LIKE',$request->ort],
-            ['autopostleitzahl','LIKE',$request->plz],
-             ['autostartdate','<=',$request->startdate],
-             ['autoenddate','>=',$request->enddate]
-        ])->get();
-
-        foreach($aVermietung as $key => $aVer)
-            $output.=
-                '<a href="#">
-                    <div class="searchResults_result">
-                        <div class="searchResults_image">
-                        <img src="img/searchPictures/'.$aVer->autobild.'" alt="'.$aVer->automodell.'">
-                        </div>
-                        <div class="searchResults_info">
-                            <div class="searchResults_info-inner">
-                                <h3 class="searchResults_title">'
-                                    .$aVer->automodell.
-                                '</h3>
-                                 <div>
-                                    <p>'.$aVer->autostrasseNr.','.$aVer->autoort.'</p>
-                                </div>
-                            </div>
-                            <div class="searchResults_priceContainer">
-                                <h3 class="searchResults_price">
-                                    €'.$aVer->autopreis.
-                                '</h3>
-                                <span>pro Tag</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>';
 
 
-      /*  $fVermietung = fahrradvermietung::where([
-            ['ort','LIKE',$request->ort.'%'],
-            ['postleitzahl','=',$request->plz],
-            ['startdate','<=',$request->startdate],
-            ['enddate','>=',$request->enddate]
-        ])->get();*/
+    public function searchVehicles(Request $request)
+    {
+        $countVar = count($_GET);
+        $checkFilter = $request->checkFilter;
 
-        return response($output);
+
+        if($checkFilter == 'all') {
+            switch ($countVar) {
+                case 1:
+                    $aVermietung = autovermietung::all();
+                    $fVermietung = fahrradvermietung::all();
+
+                    $collection = $aVermietung->toBase()->merge($fVermietung);
+
+                    break;
+                case 3:
+                    $aVermietung = autovermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz]
+                    ])->get();
+
+                    $fVermietung = fahrradvermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz]
+                    ])->get();
+
+                    $collection = $aVermietung->toBase()->merge($fVermietung);
+                    break;
+                case 4:
+                    $aVermietung = autovermietung::where([
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+
+                    $fVermietung = fahrradvermietung::where([
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+
+                    $collection = $aVermietung->toBase()->merge($fVermietung);
+                    break;
+                case 5:
+                    $aVermietung = autovermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz],
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+
+                    $fVermietung = fahrradvermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz],
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+
+                    $collection = $aVermietung->toBase()->merge($fVermietung);
+                    break;
+            }
+        }else if($checkFilter == 'cars'){
+            switch ($countVar) {
+                case 1:
+                    $aVermietung = autovermietung::all();
+                    $collection = $aVermietung;
+                    break;
+                case 3:
+                    $aVermietung = autovermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz]
+                    ])->get();
+                    $collection = $aVermietung;
+                    break;
+                case 4:
+                    $aVermietung = autovermietung::where([
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+                    $collection = $aVermietung;
+                    break;
+                case 5:
+                    $aVermietung = autovermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz],
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+                    $collection = $aVermietung;
+                    break;
+            }
+        }else if($checkFilter == 'bicycles'){
+            switch ($countVar) {
+                case 1:
+                    $fVermietung = fahrradvermietung::all();
+                    $collection = $fVermietung;
+                    break;
+                case 3:
+                    $fVermietung = fahrradvermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz]
+                    ])->get();
+                    $collection = $fVermietung;
+                    break;
+                case 4:
+                    $fVermietung = fahrradvermietung::where([
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+                    $collection = $fVermietung;
+                    break;
+                case 5:
+                    $fVermietung = fahrradvermietung::where([
+                        ['ort', 'LIKE', $request->ort],
+                        ['postleitzahl', 'LIKE', $request->plz],
+                        ['startdate', '<=', $request->startdate],
+                        ['enddate', '>=', $request->enddate]
+                    ])->get();
+                    $collection = $fVermietung;
+                    break;
+            }
+        }
+
+        $sorted= $collection->sortBy('preis');
+        $sorted->values()->all();
+
+         session()->put('activeCollection', $collection);
+
+        return view('partialViews.liveSearch')->with([
+           'sorted' => $sorted
+        ]);
+    }
+
+    public function searchVehiclesFilter(Request $request){
+
+        $activeCollection =session()->get('activeCollection');
+
+       // print($activeCollection);
+
+        return response()->json(['test'=>$activeCollection]);
+
+
+
 
     }
+
 }

@@ -70,5 +70,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'telephonenumber' => $data['telephonenumber'],
         ]);
+    /*    $user->roles()->attach(Role::where('name','Benutzer')->first());
+        Auth::login($user);
+        return redirect()->route('home');
+*/
     }
 }

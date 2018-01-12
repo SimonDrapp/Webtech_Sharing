@@ -8,7 +8,11 @@
     <title>my-easysharing | Ansicht</title>
 </head>
 <body>
-@include('includes.header')
+@if(Auth::check())
+    @include('includes.header2')
+@else
+    @include('includes.header')
+@endif
 
 <?php
 $lala = $vermietungen-> autobild;
@@ -27,6 +31,7 @@ array_shift($result);
     <div class="carousel-inner">
         <div class="item active">
             <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
+            <img src="{{ asset('img/searchPictures/'.$vermietungen->bild)}}" alt="Bild vom Auto1">
         </div>
         @foreach($result as $value)
         <div class="item">
@@ -71,21 +76,21 @@ array_shift($result);
     <div class="row">
         <div class="col-md-4 col-lg-6 eigenschaft">
             <p><b>Marke:</b></p>
-            <p>{{$vermietungen->automarke}}<br><br></p>
+            <p>{{$vermietungen->marke}}<br><br></p>
             <p><b>Modell:</b></p>
-            <p>{{$vermietungen->automodell}}<br><br></p>
+            <p>{{$vermietungen->modell}}<br><br></p>
             <p><b>Autofarbe:</b></p>
-            <p>{{$vermietungen->autofarbe}}<br><br></p>
+            <p>{{$vermietungen->farbe}}<br><br></p>
             <p><b>Kraftstoff:</b></p>
-            <p>{{$vermietungen->autokraftstoff}}<br><br></p>
+            <p>{{$vermietungen->kraftstoff}}<br><br></p>
             <p><b>Baujahr:</b></p>
-            <p>{{$vermietungen->autobaujahr}}<br><br></p>
+            <p>{{$vermietungen->baujahr}}<br><br></p>
             <p><b>Details:</b></p>
-            <p>{{$vermietungen->autodetails}}<br><br></p>
+            <p>{{$vermietungen->details}}<br><br></p>
             <p><b>Preis pro Tag:</b></p>
-            <p>{{$vermietungen->autopreis}} €<br><br></p>
+            <p>{{$vermietungen->preis}} €<br><br></p>
             <p><b>Standort:</b><br></p>
-            <p>{{$vermietungen-> autostrasseNr}}, {{$vermietungen-> autopostleitzahl}} {{$vermietungen-> autoort}}</p>
+            <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
         </div>
 
         <div class="col-md-4 col-lg-6">
@@ -107,7 +112,7 @@ array_shift($result);
 
                     var geocoder = new google.maps.Geocoder();
                     geocoder.geocode({
-                        address: '{{$vermietungen->autoort}},{{$vermietungen->autopostleitzahl}},{{$vermietungen->autostrasseNr}}'
+                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
                     }, function (geocoderResults, status) {
                         if (status === 'OK') {
                             var latlng = geocoderResults[0].geometry.location;
@@ -115,7 +120,7 @@ array_shift($result);
                                 map: map,
                                 position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
                                 icon: '/img/car.png',
-                                title: "{{$vermietungen->autostrasseNr}}, {{$vermietungen->autopostleitzahl}} {{$vermietungen->autoort}}"
+                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
                             });
                         }
                     })
