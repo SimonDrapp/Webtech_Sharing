@@ -264,11 +264,28 @@ class allgemeineSucheController extends Controller
 
     public function searchVehiclesFilter(Request $request){
 
-        $activeCollection =session()->get('activeCollection');
+        $activeCollection = session()->get('activeCollection');
 
-       // print($activeCollection);
+        if($request->marke) {
 
-        return response()->json(['test'=>$activeCollection]);
+            session()->put('request', $request->marke);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $r = session()->get('request');
+                return $activeCollection->marke == $r;
+            });
+        }
+
+
+      $sorted = $filtered->all();
+
+        return view('partialViews.liveSearch')->with([
+            'sorted' => $sorted
+        ]);
+
+
+
+       // return response()->json(['test'=>$filtered]);
 
 
 

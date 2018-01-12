@@ -450,16 +450,13 @@
         $(document).on('click', '#autoMarken', function () {
 
             var aMarken = $(this).text();
-
-
-
             $.ajax({
                 type: 'GET',
                 url: '/searchVehiclesFilter',
-                data: {'marken': aMarken},
+                data: {'marke': aMarken},
                 success: function (data) {
-                    //console.log(data)
-
+                    console.log(data)
+                    $('.searchResults_block').html(data);
                 }
             })
 
