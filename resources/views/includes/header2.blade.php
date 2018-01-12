@@ -23,6 +23,7 @@
                 <ul class="nav navbar-nav navbar-right ">
                     <li class="active"><a href="/">Startseite</a></li>
                     <li><a href="{{ route('Vermieten') }}">Vermieten</a></li>
+                    <li><a href="{{route('admin')}}">Benutzer</a></li>
                     <li class="dropdown">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

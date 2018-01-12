@@ -201,6 +201,21 @@ Route::post('/',[
         'roles'=>['Benutzer', 'Admin']
 ]);
 
+Route::get('/adminAnsicht',[
+        'uses'=> 'AuthController@getRechte',
+        'as'=> 'admin',
+        'middleware'=>'roles',
+        'roles'=>['Admin']
+]);
+
+
+Route::post('/admin',[
+        'uses'=> 'AuthController@rechte',
+        'as'=> 'benutzerRechte',
+        'middleware'=>'roles',
+        'roles'=>['Admin']
+]);
+
 
 });
 
