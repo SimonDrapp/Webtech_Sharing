@@ -252,13 +252,13 @@ class allgemeineSucheController extends Controller
             }
         }
 
-        $sorted= $collection->sortBy('preis');
-        $sorted->values()->all();
+        $showCollection= $collection->sortBy('preis');
+        $showCollection->values()->all();
 
          session()->put('activeCollection', $collection);
 
         return view('partialViews.liveSearch')->with([
-           'sorted' => $sorted
+           'showCollection' => $showCollection
         ]);
     }
 
@@ -271,21 +271,39 @@ class allgemeineSucheController extends Controller
             session()->put('request', $request->marke);
 
             $filtered = $activeCollection->filter(function ($activeCollection) {
-                $r = session()->get('request');
-                return $activeCollection->marke == $r;
+                $request = session()->get('request');
+                return $activeCollection->marke == $request;
+            });
+        }
+        if($request->modell) {
+
+            session()->put('request', $request->modell);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $request = session()->get('request');
+                return $activeCollection->modell == $request;
+            });
+        }
+        if($request->minPreis && $request->maxPreis) {
+
+            session()->put('minPreis', $request->minPreis);
+            session()->put('maxPreis', $request->maxPreis);
+
+            $filtered = $activeCollection->filter(function ($activeCollection) {
+                $minPreis = session()->get('minPreis');
+                $maxPreis = session()->get('maxPreis');
+                return $activeCollection->preis >= $minPreis && $activeCollection->preis <= $maxPreis;
             });
         }
 
 
-      $sorted = $filtered->all();
+      $showCollection = $filtered->all();
 
         return view('partialViews.liveSearch')->with([
-            'sorted' => $sorted
+            'showCollection' => $showCollection
         ]);
 
-
-
-       // return response()->json(['test'=>$filtered]);
+       //return response()->json(['test'=>$showCollection]);
 
 
 
