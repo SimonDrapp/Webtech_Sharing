@@ -43,5 +43,22 @@ class AuthController extends Controller
         return redirect('welcome');
     }
 
+    public function getRechte(){
+        $users = User::all();
+        return view('AdminRechte',['users'=>$users]);
+}
+
+    public function rechte(Request $request){
+        $user = User::where('email', $request['email'])->first();         // email, beacause unique
+        $user->roles()->detach();
+
+        if($request['role_benutzer']){
+            $user->roles()->attach(Role::where('name','Benutzer')->first());
+        }
+        if($request['role_admin']){
+            $user->roles()->attach(Role::where('name','Admin')->first());
+        }
+        return redirect()->back();
+    }
 
 }

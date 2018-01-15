@@ -3,7 +3,7 @@
 <head>
     @include('includes.head')
     <title>my-easysharing | allgemeine Suche </title>
-
+    <!--<script src="/public/js/allgemeineSuche.js"></script>-->
 
 </head>
 
@@ -97,68 +97,52 @@
                     </div>
                 </div>
             </div>
-            <div class="searchFilter_filter">
-                <h5 class="searchFilter_filter-title">Marke</h5>
-                <div class="searchFilter_filter-content">
-                    <span>Auto</span>
-                    <hr class="headerLine" align="left">
-                    <ul>
-                        @foreach ($aMarken as $aMarke)
-                            <li><a class="aContent" id="autoMarken" value="{{$aMarke->id}}">{{ $aMarke->name }}</a></li>
-                        @endforeach
-                    </ul>
-                    <span>Fahrrad</span>
-                    <hr class="headerLine" align="left">
-                    <ul>
-                        @foreach ($fMarken as $fMarke)
-                            <li><a class="aContent" id="fahrradMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
+            <div class="inputFilter">
+                <div class="searchFilter_filter">
+                    <h5 class="searchFilter_filter-title">Marke</h5>
+                    <div class="searchFilter_filter-content">
+                        <span>Auto</span>
+                        <hr class="headerLine" align="left">
+                        <ul>
+                            @foreach ($aMarken as $aMarke)
+                                <li><a class="aContent" id="autoMarken" value="{{$aMarke->id}}">{{ $aMarke->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <span>Fahrrad</span>
+                        <hr class="headerLine" align="left">
+                        <ul>
+                            @foreach ($fMarken as $fMarke)
+                                <li><a class="aContent" id="fahrradMarken"
+                                       value="{{$fMarke->id}}">{{ $fMarke->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="searchFilter_filter">
-                <h5 class="searchFilter_filter-title">Modell</h5>
-                <div class="searchFilter_filter-content">
-                    <span>Auto</span>
-                    <hr class="headerLine" align="left">
-                    <ul id="aModelle">
-                        @foreach ($aModelle as $aModell)
-                            <li class="showMore" id="autoModelle"><a class="aContent" id="AutoModelle"
-                                                    value="{{$aModell->id}}}}">{{ $aModell->aModellname }}</a></li>
-                        @endforeach
-                    </ul>
-                    <button type="button" id="loadMore" class="btn btn-basic btn-block">Mehr anzeigen</button>
-                    <span>Fahrrad</span>
-                    <hr class="headerLine" align="left">
-                    <ul id="aModelle">
-                        @foreach ($fModelle as $fModell)
-                            <li><a class="aContent" id="fahrradModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            <div class="searchFilter_filter" style="display: none">
-                <h5 class="searchFilter_filter-title">Kraftstoff</h5>
-                <div class="searchFilter_filter-content">
-                    <ul>
-                        @foreach ($Kraftstoffe as $Kraftstoff)
-                            <li><a class="aContent" id="AutoKraftsoff"
-                                   value="{{$Kraftstoff->id}}}}">{{ $Kraftstoff->name }}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            <div class="searchFilter_filter" style="display: none">
-                <h5 class="searchFilter_filter-title">Baujahr</h5>
-                <div class="searchFilter_filter-content">
-                    <select class="form-control" role="menu" aria-labelledby="menu1">
-                        <option selected>Auswählen</option>
-                        @foreach ($Baujahre as $Baujahr)
-                            <option>{{ $Baujahr->jahr }}</option>
-                        @endforeach
-                    </select>
+                <div class="searchFilter_filter">
+                    <h5 class="searchFilter_filter-title">Modell</h5>
+                    <div class="searchFilter_filter-content lastFilterContent">
+                        <span>Auto</span>
+                        <hr class="headerLine" align="left">
+                        <ul id="aModelle">
+                            @foreach ($aModelle as $aModell)
+                                <li class="showMore" id="autoModelle"><a class="aContent" id="AutoModelle"
+                                                                         value="{{$aModell->id}}}}">{{ $aModell->aModellname }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <button type="button" id="loadMore" class="btn btn-basic btn-block">Mehr anzeigen</button>
+                        <span>Fahrrad</span>
+                        <hr class="headerLine" align="left">
+                        <ul id="fModelle">
+                            @foreach ($fModelle as $fModell)
+                                <li><a class="aContent" id="fahrradModelle"
+                                       value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -223,7 +207,6 @@
         }
     });
 
-
     /*---MehrAnzeigenButton---*/
     $(function () {
         $(".showMore").slice(0, 4).show();
@@ -252,7 +235,7 @@
     $(function () {
         $("#slider-range").slider({
             range: true,
-            min: 0,
+            min: 1,
             max: 200,
             values: [0, 125],
             slide: function (event, ui) {
@@ -316,23 +299,67 @@
             previouslyClicked = $(this);
         });
 
+        /*---FilterButtons change the Filter---*/
+
+
         $('#all').click(function () {
             $checkFilter = 'all';
-            //console.log($checkFilter);
+
+            $.get("/changeFilterAll", function (data) {
+                $('.inputFilter').empty();
+                $('.inputFilter').html(data);
+
+                /*---MehrAnzeigenButton---*/
+                $(function () {
+                    $(".showMore").slice(0, 4).show();
+                    $("#loadMore").on('click', function (e) {
+                        e.preventDefault();
+                        $(".showMore:hidden").slice(0, 4).slideDown();
+                    });
+                });
+
+            });
         });
+
         $('#cars').click(function () {
             $checkFilter = 'cars';
-            //console.log($checkFilter);
+
+            $.get("/changeFilterCars", function (data) {
+                $('.inputFilter').empty();
+                $('.inputFilter').html(data);
+
+                /*---MehrAnzeigenButton---*/
+                $(function () {
+                    $(".showMore").slice(0, 4).show();
+                    $("#loadMore").on('click', function (e) {
+                        e.preventDefault();
+                        $(".showMore:hidden").slice(0, 4).slideDown();
+                    });
+                });
+                /*---Ajax Baujahr--*/
+                $('select').change(function(){
+                    var baujahr = $("select option:selected").text();
+                //alert(baujahr);
+                    $.ajax({
+                        type: 'GET',
+                        url: '/searchVehiclesFilter',
+                        data: {'baujahr': baujahr},
+                        success: function (data) {
+                            $('.searchResults_block').html(data);
+                        }
+                    })
+                });
+            });
         });
+
         $('#bicycles').click(function () {
             $checkFilter = 'bicycles';
-            //console.log($checkFilter);
+
+            $.get("/changeFilterBicycles", function (data) {
+                $('.inputFilter').empty();
+                $('.inputFilter').html(data);
+            });
         });
-
-        /*---FilterButtons change the Filter---*/
-        
-
-
 
         $(document).on('click', '#test', function () {
 
@@ -345,7 +372,7 @@
         });
 
 
-        $(document).on('click', '#AutoMarken', function () {
+        $(document).on('click', '#autoMarken', function () {
 
             var aMarken_id = $(this).attr('value');
             //console.log(aMarken_id);
@@ -362,15 +389,8 @@
                         //console.log(aModell);
                         $aModelle.append('<li><a id="AutoModelle" value=' + aModell.id + '>' + aModell.aModellname + '</a></li>')
                     });
-                },
-
-                error: function () {
-                    alert("Ein Fehler ist aufgetreten");
                 }
-
-
             })
-
         });
 
         /*---SuchenButton---*/
@@ -506,7 +526,36 @@
             })
         });
 
+        /*---Ajax Kraftstoff--*/
+        $(document).on('click', '#autoKraftstoff', function () {
+
+            var kraftstoff = $(this).text();
+            $.ajax({
+                type: 'GET',
+                url: '/searchVehiclesFilter',
+                data: {'kraftstoff': kraftstoff},
+                success: function (data) {
+                    //console.log(data)
+                    $('.searchResults_block').html(data);
+                }
+            })
+        });
+        /*---Ajax FahrradArt--*/
+        $(document).on('click', '#fahrradArt', function () {
+
+            var art = $(this).text();
+            $.ajax({
+                type: 'GET',
+                url: '/searchVehiclesFilter',
+                data: {'art': art},
+                success: function (data) {
+                    //console.log(data)
+                    $('.searchResults_block').html(data);
+                }
+            })
+        });
     });
+
 
 </script>
 </body>

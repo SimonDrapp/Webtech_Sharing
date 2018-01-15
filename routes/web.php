@@ -82,6 +82,9 @@ Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
 Route::get('/search','allgemeineSucheController@search');
 Route::get('/searchVehicles','allgemeineSucheController@searchVehicles');
 Route::get('/searchVehiclesFilter','allgemeineSucheController@searchVehiclesFilter');
+Route::get('/changeFilterAll','allgemeineSucheController@changeFilterAll');
+Route::get('/changeFilterCars','allgemeineSucheController@changeFilterCars');
+Route::get('/changeFilterBicycles','allgemeineSucheController@changeFilterBicycles');
 
 
 
@@ -196,6 +199,21 @@ Route::post('/',[
         'as'=> 'Fahrradeigenschaft3',
         'middleware'=>'roles',
         'roles'=>['Benutzer', 'Admin']
+]);
+
+Route::get('/adminAnsicht',[
+        'uses'=> 'AuthController@getRechte',
+        'as'=> 'admin',
+        'middleware'=>'roles',
+        'roles'=>['Admin']
+]);
+
+
+Route::post('/admin',[
+        'uses'=> 'AuthController@rechte',
+        'as'=> 'benutzerRechte',
+        'middleware'=>'roles',
+        'roles'=>['Admin']
 ]);
 
 

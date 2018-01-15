@@ -138,7 +138,6 @@
 
         </script>
 
-
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="Text">Details</p>

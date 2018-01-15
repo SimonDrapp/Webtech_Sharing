@@ -200,7 +200,7 @@ class SharingSeeder extends Seeder
         autovermietung:: create(array(
             'name' => 'Auto',
             'marke'=> 'Audi',
-            'modell'=> 'Audi A3',
+            'modell'=> 'A3',
             'baujahr'=> '2014',
             'farbe'=> 'silber',
             'kraftstoff'=> 'Benzin',
@@ -217,7 +217,7 @@ class SharingSeeder extends Seeder
         autovermietung:: create(array(
             'name' => 'Auto',
             'marke'=> 'Audi',
-            'modell'=> 'Audi A5',
+            'modell'=> 'A5',
             'baujahr'=> '2016',
             'farbe'=> 'rot',
             'kraftstoff'=> 'Benzin',
@@ -234,7 +234,7 @@ class SharingSeeder extends Seeder
         autovermietung:: create(array(
         'name' => 'Auto',
         'marke'=> 'BMW',
-        'modell'=> 'BMW 3er',
+        'modell'=> '3er',
         'baujahr'=> '2015',
         'farbe'=> 'silber',
         'kraftstoff'=> 'Benzin',
@@ -411,15 +411,22 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('AModell angelegt!!');
 
+        AModell::create(array(
+            'aModellname' => 'A5',
+            'idaMarke' => $firstAMarke1->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
         $firstmodelBMW1 = AModell::create(array(
-            'aModellname' => 'BMW 3er',
+            'aModellname' => '3er',
             'idaMarke' => $firstAMarke2->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
         $firstmodelBMW2 = AModell::create(array(
-            'aModellname' => 'BMW 1er',
+            'aModellname' => '1er',
             'idaMarke' => $firstAMarke2->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
