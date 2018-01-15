@@ -25,16 +25,15 @@ class allgemeineSucheController extends Controller
         $fMarken = FMarke::all();
         $fModelle = FModell::all();
 
-       /* $aVermietung = autovermietung::all();
-        $fVermietung = fahrradvermietung::all();*/
+       $this->showAllResults();
 
-       //$this->showAllResults();
+        $showCollection = session()->get('showCollection');
 
         return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
-            'fModelle' => $fModelle]);
+            'fModelle' => $fModelle, 'showCollection' =>$showCollection]);
     }
 
-    /*function showAllResults(){
+    function showAllResults(){
 
         $aVermietung = autovermietung::all();
         $fVermietung = fahrradvermietung::all();
@@ -44,9 +43,8 @@ class allgemeineSucheController extends Controller
         $showCollection= $collection->sortBy('preis');
         $showCollection->values()->all();
 
-
-        return $showCollection;
-     }*/
+        session()->put('showCollection',$showCollection);
+     }
 
     public function changeFilterAll()
     {

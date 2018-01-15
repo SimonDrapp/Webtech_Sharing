@@ -19,7 +19,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right ">
-                    <li class="active"><a href="/">Startseite</a></li>
+                    <li class="aktiv"><a href="/">Startseite</a></li>
                     <li><a href="{{ route('signup') }}">Registrieren</a></li>
                     <li><a href="{{ route('signin') }}">Einloggen</a></li>
                     <li><a href="#myModal2" data-toggle="modal" data-target="#myModal2">Vermieten</a></li>
