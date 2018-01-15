@@ -1,8 +1,6 @@
 
 @foreach($showCollection as $show)
-    <a href="#">
-@foreach($sorted as $sort)
-    <a href="/Ansicht/{{$sort -> name}}/{{$sort -> $id}}">
+    <a href="/Ansicht/{{$show->name}}/{{$show->id}}">
         <div class="searchResults_result">
             <div class="searchResults_image">
                 <img src="img/searchPictures/{{$show->bild}}" alt="{{$show->marke}}, {{$show->modell}}">

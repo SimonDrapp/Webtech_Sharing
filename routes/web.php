@@ -278,9 +278,8 @@ Route::get('/NachrichtAnzeigen/{id}', 'NotificationController@showContact');
 Auth::routes();
 
 
+Route::get('/Ansicht/{name}/{id}', ['as' => 'ansichten', 'uses' => 'AnsichtAutoController@show']);
 
-Route::get('/Ansicht/{name}/{id}', 'AnsichtAutoController@show');
-//Route::get('/AnsichtFahrrad/{id}', 'AnsichtFahrradController@show');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

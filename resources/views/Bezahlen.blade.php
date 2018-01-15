@@ -10,6 +10,11 @@
 @else
     @include('includes.header')
 @endif
+<?php
+$price = Session::get('price');
+$start = Session::get('start');
+echo $start;
+?>
 
 <div class="container">
     <div class="row">
@@ -17,45 +22,45 @@
             <h1><b>Zahlungsmethoden</b></h1>
         </div>
         <div class="row zahlen">
-                <form>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
+            <form>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
                     <span class="fa fa-cc-paypal"></span>
-                        <div>
-                    <input type="radio" name="bezahlen" value="paypal" checked>
-                            </div>
+                    <div>
+                        <input type="radio" name="bezahlen" value="paypal" checked>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
                     <span class="fa fa-cc-visa"></span>
-                        <div>
-                    <input type="radio" name="bezahlen" value="visa">
-                        </div>
+                    <div>
+                        <input type="radio" name="bezahlen" value="visa">
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
-                        <span class="fa fa-cc-amex"></span>
-                        <div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
+                    <span class="fa fa-cc-amex"></span>
+                    <div>
                         <input type="radio" name="bezahlen" value="americanexpress"></div>
-                    </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-                        <p>Lastschrift</p>
-                        <span class="fa fa-credit-card"></span>
-                        <div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
+                    <p>Lastschrift</p>
+                    <span class="fa fa-credit-card"></span>
+                    <div>
                         <input type="radio" name="bezahlen" value="lastschrift">
-                        </div>
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-                        <p>Rechnung</p>
-                        <span class="fa fa-file-text-o"></span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
+                    <p>Rechnung</p>
+                    <span class="fa fa-file-text-o"></span>
                     <div>
                         <input type="radio" name="bezahlen" value="rechnung">
                     </div>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
+                    <p>Barbezahlung</p>
+                    <span class="fa fa-euro"></span>
+                    <div>
+                        <input type="radio" name="bezahlen" value="bar">
                     </div>
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-                        <p>Barbezahlung</p>
-                        <span class="fa fa-euro"></span>
-                        <div>
-                            <input type="radio" name="bezahlen" value="bar">
-                        </div>
-                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -66,7 +71,7 @@
         <div class="col-xs-9 col-sm-9 col-md-8 col-lg-9">
             <div class="rechnung">
                 <h1>Rechnungsbetrag</h1>
-                <p>Preis pro Tag: </p>
+                <p>Preis pro Tag: <?php echo $price?> €</p>
                 <p>Anzahl der Tage: </p>
                 <hr>
                 <p>Preis: </p>
@@ -77,9 +82,25 @@
 </div>
 <div class="container">
     <div class="col-lg-12">
-        <button id="btZahlen" class=" btn btn-basic" type="button">Mieten!</button>
+        <button id="btZahlen" class=" btn btn-basic" data-toggle="modal" data-target="#myModal4" type="button">Mieten!
+        </button>
+        <div class="modal fade" id="myModal4" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                        <h4 class="modal-title">Erreicht! :D</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Hier endet unser Projekt :)</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
 
 @include('includes.footer')

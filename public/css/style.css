@@ -407,24 +407,16 @@ body {
     margin: auto;
     margin-top: 3.8%;
 }
-#datevon2, #datebis2{
-    position: relative;
-    max-width: 100%;
-    width: 80%;
-    margin: auto;
-}
-#buttonBis2, #buttonVon2{
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-}
+
 .lol{
+    width: 40%;
     display: inline-flex;
     flex: 0 0 15%;
     align-items: center;
     margin: auto;
     justify-content: center;
     margin-top: 2% !important;
+    margin-left: 10%;
 }
 .eigenschaft{
     font-family: Arial;

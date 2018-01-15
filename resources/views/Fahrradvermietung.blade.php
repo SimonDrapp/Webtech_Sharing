@@ -93,11 +93,6 @@
                             </label>
                             <input type="text" id="fahrradbilder" name="bild" class="form-control" readonly>
                         </div>
-                       <!-- <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" required>
-                        <div class="input-group mx-sm-4">
-                            <input type="text" id="inputBild" class="form-control input" name="bild">
-                            <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
-                                <span class="glyphicon glyphicon-picture"></span></button>-->
                         </div>
                     </div>
                 </div>

@@ -106,16 +106,6 @@
                         </label>
                         <input type="text" id="autobilder" name="bild" class="form-control" readonly>
                     </div>
-
-                  <!--  <input type="file" class="file"  id="file1" multiple>-->
-                   <!-- <div class="input-group mx-sm-4">
-                            <input type="" id="inputBild" class="form-control input" name="autobild[]" multiple>
-                    <input type="file" name="img[]" class="file" accept="image/*" name="bild" id="file1" multiple>
-                    <div class="input-group mx-sm-4">
-                            <input type="text" id="inputBild" class="form-control input" name="bild" multiple>
-                    <button id="buttonBild" class="browse btn btn-basic input" type="button">Öffnen
-                        <span class="glyphicon glyphicon-picture"></span></button>
-                    </div>-->
                 </div>
             </div>
         <script>
@@ -129,10 +119,8 @@
                             console.log(files[i].name + i);
                             result += ", " + files[i].name;
                         }
-
-                    } else {
-                        alert(result);
-                    } document.getElementById('autobilder').value = result;
+                    }
+                    document.getElementById('autobilder').value = result;
                 });
             });
 

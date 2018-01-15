@@ -15,7 +15,7 @@
 @endif
 
 <?php
-$lala = $vermietungen-> bild;
+$lala = $vermietungen->bild;
 $result = explode(", ", $lala);
 $result2 = $result[0];
 array_shift($result);
@@ -25,18 +25,18 @@ array_shift($result);
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         @foreach($result as $val)
-        <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
-            @endforeach
+            <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
+        @endforeach
     </ol>
     <div class="carousel-inner">
         <div class="item active">
             <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
         </div>
         @foreach($result as $value)
-        <div class="item">
-            <img src="{{asset('img/searchPictures/'.$value)}}" alt="<?php echo $value;?>">
-        </div>
-            @endforeach
+            <div class="item">
+                <img src="{{asset('img/searchPictures/'.$value)}}" alt="<?php echo $value;?>">
+            </div>
+        @endforeach
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -50,26 +50,78 @@ array_shift($result);
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-12 lol">
-            <div class="form-group">
-                <input class="form-control" id="datevon2" type="text" name="date"
-                       placeholder="DD/MM/YYYY">
+        <div class="col-lg-6 lol" method="post">
+            <div class='input-group date' id='datetimepicker8'>
+                <input type="text" class="form-control" name="startdate" id="startdate" required>
+                <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
             </div>
-            <div class="form-group">
-                <button id="buttonVon2" type="button" class="btn btn-basic">
-                    <span class="glyphicon glyphicon-calendar"></span></button>
-            </div>
-            <div class="form-group">
-                <input class="form-control" id="datebis2" type="text" name="date"
-                       placeholder="DD/MM/YYYY">
-            </div>
-            <div class="form-group">
-                <button id="buttonBis2" type="button" class="btn btn-basic">
-                    <span class="glyphicon glyphicon-calendar"></span></button>
+        </div>
+        <div class="col-lg-6 lol">
+                <div class='input-group date' id='datetimepicker9'>
+                    <input type="text" class="form-control" name="enddate" id="enddate" required>
+                    <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+<script>
+    $(function () {
+        var dateFormat = "yy-mm-dd",
+            from = $("#startdate")
+                .datepicker({
+                    dateFormat: "yy-mm-dd",
+                    defaultDate: "0w",
+                    changeMonth: true,
+                    numberOfMonths: 3,
+                    minDate: "{{$vermietungen->startdate}}",
+                    maxDate: "{{$vermietungen->enddate}}",
+                    monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+                })
+                .on("change", function () {
+                    to.datepicker("option", "{{$vermietungen->startdate}}", getDate(this));
+                }),
+            to = $("#enddate").datepicker({
+                //      defaultDate: "0w",
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                numberOfMonths: 3,
+                minDate: "{{$vermietungen->startdate}}",
+                maxDate: "{{$vermietungen->enddate}}",
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+            })
+                .on("change", function () {
+                    from.datepicker("option", "maxDate", getDate(this));
+                });
+
+        function getDate(element) {
+            var date;
+            try {
+                date = $.datepicker.parseDate(dateFormat, element.value);
+            } catch (error) {
+                date = null;
+            }
+
+            return date;
+        }
+    });
+</script>
 
 <div class="container">
     <div class="row">
@@ -87,7 +139,7 @@ array_shift($result);
             <p><b>Details:</b></p>
             <p>{{$vermietungen->details}}<br><br></p>
             <p><b>Preis pro Tag:</b></p>
-            <p>{{$vermietungen->preis}} €<br><br></p>
+            <p name="price">{{$vermietungen->preis}} €<br><br></p>
             <p><b>Standort:</b><br></p>
             <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
         </div>
@@ -157,11 +209,34 @@ array_shift($result);
             <textarea id="areaKontakt" rows="6" cols="50" name="comment" form="usrform"
                       placeholder="Die Fragen.."></textarea>
         </div>
-        <div class="col-md-2 col-lg-2">
+        <div class="col-md-2 col-lg-2 lil">
             <button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button>
         </div>
     </div>
 </div>
+
+
+<?php
+Session::put('price' , $vermietungen->preis);
+
+?>
+
+<script>
+   $(function() {
+        $(document).on('change', function () {
+            var start = document.getElementById('startdate').value;
+           console.log(start);
+        });
+    });
+   $(function() {
+       $(document).on('change', function () {
+           var end = document.getElementById('enddate').value;
+           console.log(end);
+       });
+   });
+
+</script>
+
 
 @include('includes.footer')
 </body>

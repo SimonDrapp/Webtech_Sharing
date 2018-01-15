@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\autovermietung;
+use App\fahrradvermietung;
 
 
 class AnsichtAutoController extends Controller
@@ -15,8 +16,7 @@ class AnsichtAutoController extends Controller
      */
     public function index()
     {
-       /* $vermieten = autovermietung::all();
-        return view('AnsichtAuto', compact['vermieten']);*/
+     //
     }
 
     /**
@@ -48,16 +48,18 @@ class AnsichtAutoController extends Controller
      */
     public function show($name, $id)
     {
+
+
         if ($name === "Auto"){
             $vermietungen =autovermietung::findOrFail($id);
             return view('AnsichtAuto', ['vermietungen' => $vermietungen]);
         }
-        else {
+        else if (($name === "Fahrrad")) {
             $vermietungen = fahrradvermietung::findOrFail($id);
             return view('AnsichtFahrrad', ['vermietungen' => $vermietungen]);
+        } else{
+           return response( "Something is wrong");
         }
-
-
     }
 
     /**

@@ -231,9 +231,6 @@ class allgemeineSucheController extends Controller
             }
         }
 
-        $sorted= $collection->sortBy('preis');
-        $sorted->values()->all();
-
         $showCollection= $collection->sortBy('preis');
         $showCollection->values()->all();
 

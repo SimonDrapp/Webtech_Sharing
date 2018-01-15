@@ -53,7 +53,8 @@
         margin-left: 30%;
     }
     .lol{
-        margin-left: 30%!important;
+        width: 30%;
+        margin-left: 10%!important;
     }
     .regist{
         padding-top: 15%;
@@ -140,9 +141,7 @@
     .agb_content h6, .impressum_content h1 {
         font-size: 35px;
     }
-    .lol{
-        margin-left: 25%!important;
-    }
+
     #MeldeAutoAnButton{
         margin-left: 420px;
         margin-top: -70px;
@@ -364,9 +363,7 @@
     .col-4 {
         margin-left: 27%;
     }
-    .lol{
-        margin-left: 20%!important;
-    }
+
 
 
 }
@@ -459,9 +456,7 @@
         font-size: 15px;
         min-height: 50%;
     }
-    .lol{
-        margin-left: 18%!important;
-    }
+
     #googleMap1{
         margin-top: -2%;
         width:100%;
@@ -612,9 +607,7 @@
     .content {
         padding-top: 80px;
     }
-    .lol{
-        margin-left: 10%!important;
-    }
+
     .login{
         padding-top: 15%!important;
         padding-bottom: 6%!important;
@@ -695,7 +688,8 @@
         font-size: 12px;
     }
     .lol{
-        margin-left: 5%!important;
+        width: 50%;
+        margin-left: 20%!important;
     }
     #agb{
         margin-left: 160px;
@@ -781,19 +775,12 @@
         height: auto;
     }
     .lol{
-        margin-left: 0!important;
+        width: 70%;
+        margin-left: 10%!important;
+
         margin-top: 5%!important;
 
     }
-    #datevon2, #datebis2{
-        width: 69%!important;
-        margin-right: 0!important;
-        margin-left: 20%!important;
-    }
-    #buttonBis2, #buttonVon2{
-        margin-left: 0px !important;
-    }
-
     .login{
         padding-top: 19%!important;
         padding-bottom: 6%!important;
@@ -832,15 +819,7 @@
         height: 320px;
         margin-left: 0;
     }
-    #datevon2, #datebis2{
-        width: 80%;
-        margin: auto;
-    }
-    #buttonBis2, #buttonVon2{
-        position: relative;
-        max-width: 100%;
-        margin: auto;
-    }
+
     .bez> h1{
         margin-top: 17%;
         margin-bottom: 3%;
