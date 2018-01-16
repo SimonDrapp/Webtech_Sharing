@@ -8,7 +8,14 @@
     <title>my-easysharing | Ansicht</title>
 </head>
 <body>
-@include('includes.header')
+
+@if(Auth::user() && Auth::user()->isBenutzer())
+    @include('includes.header2')
+@elseif(Auth::user() && Auth::user()->isAdministrator())
+    @include('includes.header3')
+@else
+    @include('includes.header')
+@endif
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
