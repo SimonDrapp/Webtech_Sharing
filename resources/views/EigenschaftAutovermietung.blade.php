@@ -18,7 +18,7 @@
         <form action="{{ route('Autoeigenschaft2') }}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
 
-            <h2 class="angabenAuto">Angaben zu Ihrem Auto</h2>
+      <!--      <h2 class="angabenAuto">Angaben zu Ihrem Auto</h2>  -->
 
     <div class="autoangabe">
         <div class="col-xs-6 col-md-3">
@@ -101,7 +101,7 @@
                     <div class="input-group">
                         <label class="input-group-btn">
                     <span class="btn btn-primary">
-                        Browse&hellip; <input id="lili" name="lala" type="file" accept="image/*" style="display: none;" multiple>
+                        Öffnen <input id="lili" name="lala" type="file" accept="image/*" style="display: none;" multiple>
                     </span>
                         </label>
                         <input type="text" id="autobilder" name="bild" class="form-control" readonly>
@@ -183,7 +183,7 @@
 
 
             <div class="col-xs-12 col-md-4">
-                <div class="buttonUndTextPostleitzahl">
+                <div class="buttonUndTextstrasse">
                     <p class="Text">Straße/Nr.</p>
                     <div class="form-group3">
                         <div class="input-group">
