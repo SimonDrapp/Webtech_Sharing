@@ -11,7 +11,7 @@
 </div>
 <div class="searchFilter_filter">
     <h5 class="searchFilter_filter-title">Marke</h5>
-    <div class="searchFilter_filter-content lastFilterContent">
+    <div class="searchFilter_filter-content">
         <ul>
             @foreach ($fMarken as $fMarke)
                 <li><a class="aContent" id="fahrradMarken" value="{{$fMarke->id}}">{{ $fMarke->name }}</a></li>
@@ -21,7 +21,7 @@
 </div>
 <div class="searchFilter_filter">
     <h5 class="searchFilter_filter-title">Modell</h5>
-    <div class="searchFilter_filter-content">
+    <div class="searchFilter_filter-content lastFilterContent">
         <ul id="fModelle">
             @foreach ($fModelle as $fModell)
                 <li id="fahrradModelle"><a class="aContent" id="fahrradModelle"

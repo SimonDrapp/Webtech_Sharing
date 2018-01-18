@@ -14,14 +14,14 @@
     @include('includes.header3')
 @else
     @include('includes.header')
-@endif
-
+    @endif
 
 <!-- Bild mit Buttons-->
 <div class="parallax">
 <div class="container">
-    <div class="row">
-        <div class="col-12 search">
+    <form action="{{ route('allgemeineSuche') }}" method="post">
+        {{csrf_field()}}
+        <div class="row">
 
             <div class="content">
                 <h1>Egal ob im Berufsalltag, in der Freizeit oder im Urlaub</h1>
@@ -29,43 +29,42 @@
                 <h1>Bei uns findest du immer was!</h1>
             </div>
 
-            <div class="row">
-                <div class="col-4">
-                    <div class="form-group">
-                        <input id="searchCity" type="text" class="form-control"
-                               placeholder="Postleitzahl oder Ort">
-                    </div>
-                    <div class="form-group">
-                        <button id="buttonGPS" type="button" class="form-group btn btn-basic">
-                            <span class="glyphicon glyphicon-map-marker"></span></button>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control visible-lg" id="datevon" type="text" name="datevon"
-                               placeholder="DD/MM/YYYY">
-                    </div>
-                    <div class="form-group">
-                        <button id="buttonVon" type="button" class="btn btn-basic visible-lg" name="datevon">
-                            <span class="glyphicon glyphicon-calendar"></span></button>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control visible-lg" id="datebis" type="text" name="datebis"
-                               placeholder="DD/MM/YYYY">
-                    </div>
-                    <div class="form-group">
-                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg buttonS" name="datebis">
-                            <span class="glyphicon glyphicon-calendar"></span></button>
-                    </div>
-                    <div class="form-group">
-                        <a href="/allgemeineSuche">
-                            <button id="buttonSearch" class=" btn btn-basic" type="button">Suchen
-                                <span class="glyphicon glyphicon-search"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
+            <div class="eingabefeld">
+                <div class="col-xs-10 col-sm-4 form-group searchPadding">
+                    <div class="input-group">
+                        <input id="searchCity1" name="search" type="text" class="form-control"
+                               placeholder="Postleitzahl oder Ort" autocomplete="off">
+                        <span id="inputGpsBtn" class="input-group-btn">
+                            <button id="buttonGPS2" type="button" class=" btn btn-basic ">
+                            <span class="glyphicon glyphicon-map-marker"></span></button>
+                        </span>
+                    </div>
+                    <ul id="liveSearch"></ul>
+                </div>
+                <div class="col-sm-3 form-group InputWithIcon changePaddingWelcome">
+                    <input class="form-control" id="datevon1" type="text" name="von"
+                           placeholder="Abholung">
+                    <i id class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-3 form-group InputWithIcon changePaddingWelcome">
+                    <input class="form-control" id="datebis1" type="text" name="bis"
+                           placeholder="Rückgabe">
+                    <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
+                </div>
+
+                <div class="col-xs-2 col-sm-2 form-group searchBtnPaddingWelcome">
+                    <button type="submit" id="buttonSearch1" class=" btn btn-basic">Suchen
+                        <span class="glyphicon glyphicon-search"></span></button>
+                </div>
+
+            </div>
         </div>
-    </div>
+    </form>
+</div>
+</div>
+
+</div>
 </div>
 </div>
 <!--<script>
@@ -228,6 +227,6 @@
 
 @include('includes.footer')
 
-
+<script src="js/welcome.js"></script>
 </body>
 </html>

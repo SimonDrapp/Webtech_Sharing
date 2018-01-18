@@ -79,8 +79,6 @@ class AutovermietungController extends Controller
         return view('EigenschaftAutovermietung2',['autovermietungen'=>$autovermietungen]);
 
     }
-
-
     public function saveAuto(Request $request){
         $autovermietung = new autovermietung;
         $autovermietung->marke2 = $request->session()->get('marke');

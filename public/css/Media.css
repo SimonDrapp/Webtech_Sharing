@@ -504,7 +504,11 @@
 
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 768px){
+    .changePaddingWelcome{
+        display: none;
+    }
+
     #buttonBild{
         margin-top: 6px;
     }
@@ -512,6 +516,7 @@
         width: 220px;
         margin-left: 55px;
     }
+    /*----allgemeineSuche----*/
     #liveSearch{
         width:97%;
     }
@@ -526,28 +531,25 @@
     .searchResults{
         width: 100%;
         margin-right: 160px;
-        margin-top: 50px;
         margin-right: 0px;
 
     }
     i.glyphicon.glyphicon-calendar{
-        padding-left: 30px;
-    }
-    .searchBtnPadding{
+            padding-left: 30px;
+        }
+    .sortBtn{
         display: none;
     }
 
-    /*----allgemeineSuche----*/
-
-
-
-    .searchPadding{
-        float: none;
+    .searchBtnPadding{
+        display: none;
     }
-}
-/*-----------768px-------*/
-@media screen and (width: 767px) {
-
+    #searchBtnMobil, #sortBtnMobile{
+        display:block;
+    }
+    .searchFilter{
+        margin-bottom: 20px;
+    }
 }
 
 
@@ -1132,13 +1134,52 @@
         padding-right: 0px;
         padding-left:0px;
     }
+    .changePaddingWelcome{
+        padding-right: 0px;
+        padding-left:0px;
+        display: block;
+    }
     .searchBtnPadding{
         padding-left: 0px;
+        display: block;
     }
     .GpsPadding{
         padding-right: 0px;
     }
     .btnFilter{
+        display: none;
+    }
+    .sortBtn{
+        display: block;
+        padding-left: 0px;
+    }
+    #liveSearch{
+        width:95%;
+    }
+    .searchFilter{
+        border: 1px solid;
+        border-radius: 5px;
+        width:20%;
+        margin-left: 10%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        float:left;
+        display: block;
+    }
+    .searchResults{
+        width: 57%;
+        margin-right: 10%;
+        margin-top: 0px;
+        float:right;
+    }
+    .searchPadding{
+        padding-right: 0px;
+        z-index:1;
+    }
+    i.glyphicon.glyphicon-calendar{
+        padding-left: 15px;
+    }
+    #searchBtnMobil, #sortBtnMobile{
         display: none;
     }
 }
@@ -1151,6 +1192,12 @@
     #buttonShowMe{
         left: 19px;
     }
+    #loadMore{
+        font-size: 10px;
+    }
+    #loadMoreResult{
+        font-size: 12px;
+    }
 }
 
 /*-----------992px - 1199px-------*/
@@ -1162,8 +1209,8 @@
         left: 65px;
     }
 }
-/*-----------320px - 767px-------*/
-@media screen and (min-width: 320px) and (max-width: 767px) {
+/*-----------320px - 479px-------*/
+@media screen and (min-width: 320px) and (max-width: 479px) {
 
     .searchResults_image{
         /*border: 2px solid;*/
@@ -1201,5 +1248,9 @@
     .searchResults_priceContainer span{
         padding-left:11%;
     }
-
 }
+
+
+
+
+

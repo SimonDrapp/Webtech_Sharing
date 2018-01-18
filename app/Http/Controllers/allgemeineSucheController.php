@@ -15,38 +15,143 @@ use App\Ort;
 use App\Vermieten;
 use Illuminate\Http\Request;
 use App\AMarke;
+use phpDocumentor\Reflection\Types\Null_;
 
 class allgemeineSucheController extends Controller
 {
-    public function index()
-    {
+    public function index(){
+
+        $ortPlz = Null;
+        $startdate = Null;
+        $enddate = Null;
+
         $aMarken = AMarke::all();
         $aModelle = AModell::all();
         $fMarken = FMarke::all();
         $fModelle = FModell::all();
 
-       /* $aVermietung = autovermietung::all();
-        $fVermietung = fahrradvermietung::all();*/
+        $this->showResultsWithoutInput();
 
-       //$this->showAllResults();
+        $showCollection = session()->get('showCollection');
+
+        //aktive Collection in "Ablage" für Filterfunktionen
+        session()->put('activeCollection', $showCollection);
 
         return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
-            'fModelle' => $fModelle]);
+            'fModelle' => $fModelle,
+            'ortPlz' => $ortPlz, 'startdate' => $startdate, 'enddate' => $enddate,
+            'showCollection' => $showCollection]);
     }
 
-    /*function showAllResults(){
-
+    public function showResultsWithoutInput(){
         $aVermietung = autovermietung::all();
         $fVermietung = fahrradvermietung::all();
-        $collection = $aVermietung->toBase()->merge($fVermietung);
 
-        session()->put('activeCollection', $collection);
-        $showCollection= $collection->sortBy('preis');
+        $collection = $aVermietung->toBase()->merge($fVermietung);
+        $showCollection = $collection->sortBy('preis');
         $showCollection->values()->all();
 
+        session()->put('showCollection', $showCollection);
+    }
 
-        return $showCollection;
-     }*/
+    public function searchInput(Request $request)
+    {
+            $allInput = $request->all();
+
+            $ortPlz = $request->search;
+            $startdate = $request->von;
+            $enddate = $request->bis;
+
+            $aMarken = AMarke::all();
+            $aModelle = AModell::all();
+            $fMarken = FMarke::all();
+            $fModelle = FModell::all();
+
+            $this->showAllResults($allInput);
+
+            $showCollection = session()->get('showCollection');
+
+            //aktive Collection in "Ablage" für Filterfunktionen
+             session()->put('activeCollection', $showCollection);
+
+            return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+                'fModelle' => $fModelle,
+                'ortPlz' => $ortPlz, 'startdate' => $startdate, 'enddate' => $enddate,
+                'showCollection' => $showCollection]);
+
+    }
+
+    function showAllResults($allInput)
+    {
+        $ortPlz = $allInput["search"];
+        $startdate = $allInput["von"];
+        $enddate = $allInput["bis"];
+
+        if ($ortPlz) {
+            $ortArray = explode(", ", $ortPlz);
+            $ort = $ortArray[0];
+            $plz = $ortArray[1];
+
+            if ($ort.strpos($ort, " ")) {
+                $ortArray1 = explode(" ", $ort);
+                $ort = $ortArray1[0];
+            }
+        }
+
+        if($ortPlz && $startdate && $enddate){
+            $aVermietung = autovermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz],
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $fVermietung = fahrradvermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz],
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+
+        }elseif(!$ortPlz && $startdate && $enddate){
+            $aVermietung = autovermietung::where([
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $fVermietung = fahrradvermietung::where([
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+
+        }elseif($ortPlz && !$startdate && !$enddate){
+            $aVermietung = autovermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz]
+            ])->get();
+
+            $fVermietung = fahrradvermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz]
+            ])->get();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+        }else{
+            $aVermietung = autovermietung::all();
+            $fVermietung = fahrradvermietung::all();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+        }
+
+        $showCollection = $collection->sortBy('preis');
+        $showCollection->values()->all();
+
+        session()->put('showCollection', $showCollection);
+    }
 
     public function changeFilterAll()
     {
@@ -55,7 +160,7 @@ class allgemeineSucheController extends Controller
         $fMarken = FMarke::all();
         $fModelle = FModell::all();
 
-        return view('partialViews.FilterAll',['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+        return view('partialViews.FilterAll', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
             'fModelle' => $fModelle]);
 
     }
@@ -67,7 +172,7 @@ class allgemeineSucheController extends Controller
         $Kraftstoffe = Kraftstoff::all();
         $Baujahre = Baujahr::all();
 
-        return view('partialViews.FilterCars',['aMarken' => $aMarken, 'aModelle' => $aModelle,
+        return view('partialViews.FilterCars', ['aMarken' => $aMarken, 'aModelle' => $aModelle,
             'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre]);
 
     }
@@ -78,7 +183,7 @@ class allgemeineSucheController extends Controller
         $fMarken = FMarke::all();
         $fModelle = FModell::all();
 
-        return view('partialViews.FilterBicycles',['fArt' => $fArt, 'fMarken' => $fMarken, 'fModelle' => $fModelle]);
+        return view('partialViews.FilterBicycles', ['fArt' => $fArt, 'fMarken' => $fMarken, 'fModelle' => $fModelle]);
 
     }
 
@@ -102,150 +207,180 @@ class allgemeineSucheController extends Controller
             if ($cities) {
 
                 foreach ($cities as $key => $city)
-                    $output .= '<li id="test">' . $city->Name . ', ' . $city->plz . '</li>';
+                    $output .= '<li id="cities">' . $city->Name . ', ' . $city->plz . '</li>';
             }
             return Response($output);
         }
     }
 
 
-
     public function searchVehicles(Request $request)
     {
-        $countVar = count($_GET);
         $checkFilter = $request->checkFilter;
 
+        $Input = $request->all();
 
-        if($checkFilter == 'all') {
-            switch ($countVar) {
-                case 1:
-                    $aVermietung = autovermietung::all();
-                    $fVermietung = fahrradvermietung::all();
+        if ($checkFilter == 'all') {
 
-                    $collection = $aVermietung->toBase()->merge($fVermietung);
+            $this->searchVehiclesAll($Input);
 
-                    break;
-                case 3:
-                    $aVermietung = autovermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz]
-                    ])->get();
+        } else if ($checkFilter == 'cars') {
 
-                    $fVermietung = fahrradvermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz]
-                    ])->get();
+            $this->searchVehiclesCars($Input);
 
-                    $collection = $aVermietung->toBase()->merge($fVermietung);
-                    break;
-                case 4:
-                    $aVermietung = autovermietung::where([
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
+        } else if ($checkFilter == 'bicycles') {
 
-                    $fVermietung = fahrradvermietung::where([
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
-
-                    $collection = $aVermietung->toBase()->merge($fVermietung);
-                    break;
-                case 5:
-                    $aVermietung = autovermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz],
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
-
-                    $fVermietung = fahrradvermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz],
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
-
-                    $collection = $aVermietung->toBase()->merge($fVermietung);
-                    break;
-            }
-        }else if($checkFilter == 'cars'){
-            switch ($countVar) {
-                case 1:
-                    $aVermietung = autovermietung::all();
-                    $collection = $aVermietung;
-                    break;
-                case 3:
-                    $aVermietung = autovermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz]
-                    ])->get();
-                    $collection = $aVermietung;
-                    break;
-                case 4:
-                    $aVermietung = autovermietung::where([
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
-                    $collection = $aVermietung;
-                    break;
-                case 5:
-                    $aVermietung = autovermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz],
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
-                    $collection = $aVermietung;
-                    break;
-            }
-        }else if($checkFilter == 'bicycles'){
-            switch ($countVar) {
-                case 1:
-                    $fVermietung = fahrradvermietung::all();
-                    $collection = $fVermietung;
-                    break;
-                case 3:
-                    $fVermietung = fahrradvermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz]
-                    ])->get();
-                    $collection = $fVermietung;
-                    break;
-                case 4:
-                    $fVermietung = fahrradvermietung::where([
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
-                    $collection = $fVermietung;
-                    break;
-                case 5:
-                    $fVermietung = fahrradvermietung::where([
-                        ['ort', 'LIKE', $request->ort],
-                        ['postleitzahl', 'LIKE', $request->plz],
-                        ['startdate', '<=', $request->startdate],
-                        ['enddate', '>=', $request->enddate]
-                    ])->get();
-                    $collection = $fVermietung;
-                    break;
-            }
+            $this->searchVehiclesBicycles($Input);
         }
 
-        $showCollection= $collection->sortBy('preis');
+        $collection = session()->get('collection');
+        $showCollection = $collection->sortBy('preis');
         $showCollection->values()->all();
 
-         session()->put('activeCollection', $collection);
+        session()->put('activeCollection', $collection);
 
         return view('partialViews.liveSearch')->with([
-           'showCollection' => $showCollection
+            'showCollection' => $showCollection
         ]);
     }
 
-    public function searchVehiclesFilter(Request $request){
+    public function searchVehiclesAll($Input){
+
+        $ort = $Input["ort"];
+        $plz = $Input["plz"];
+        $startdate = $Input["startdate"];
+        $enddate = $Input["enddate"];
+
+        if($ort && $startdate && $enddate){
+            $aVermietung = autovermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz],
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $fVermietung = fahrradvermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz],
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+
+        }elseif(!$ort && $startdate && $enddate){
+            $aVermietung = autovermietung::where([
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $fVermietung = fahrradvermietung::where([
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+
+        }elseif($ort && !$startdate && !$enddate){
+            $aVermietung = autovermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz]
+            ])->get();
+
+            $fVermietung = fahrradvermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz]
+            ])->get();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+        }else{
+            $aVermietung = autovermietung::all();
+            $fVermietung = fahrradvermietung::all();
+
+            $collection = $aVermietung->toBase()->merge($fVermietung);
+        }
+
+        session()->put('collection', $collection);
+    }
+    public function searchVehiclesCars($Input){
+
+        $ort = $Input["ort"];
+        $plz = $Input["plz"];
+        $startdate = $Input["startdate"];
+        $enddate = $Input["enddate"];;
+
+        if($ort && $startdate && $enddate){
+            $aVermietung = autovermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz],
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
+            ])->get();
+            $collection = $aVermietung;
+
+        }elseif(!$ort && $startdate && $enddate){
+            $aVermietung = autovermietung::where([
+                ['startdate', '<=', $request->startdate],
+                ['enddate', '>=', $request->enddate]
+            ])->get();
+            $collection = $aVermietung;
+
+        }elseif($ort && !$startdate && !$enddate){
+            $fVermietung = fahrradvermietung::where([
+                ['ort', 'LIKE', $request->ort],
+                ['postleitzahl', 'LIKE', $request->plz]
+            ])->get();
+            $collection = $fVermietung;
+
+        }else{
+            $aVermietung = autovermietung::all();
+            $collection = $aVermietung;
+        }
+        session()->put('collection', $collection);
+    }
+    public function searchVehiclesBicycles($Input){
+
+        $ort = $Input["ort"];
+        $plz = $Input["plz"];
+        $startdate = $Input["startdate"];
+        $enddate = $Input["enddate"];
+
+        if($ort && $startdate && $enddate){
+            $fVermietung = fahrradvermietung::where([
+                ['ort', 'LIKE', $request->ort],
+                ['postleitzahl', 'LIKE', $request->plz],
+                ['startdate', '<=', $request->startdate],
+                ['enddate', '>=', $request->enddate]
+            ])->get();
+            $collection = $fVermietung;
+
+        }elseif(!$ort && $startdate && $enddate){
+            $fVermietung = fahrradvermietung::where([
+                ['startdate', '<=', $request->startdate],
+                ['enddate', '>=', $request->enddate]
+            ])->get();
+            $collection = $fVermietung;
+
+        }elseif($ort && !$startdate && !$enddate){
+            $fVermietung = fahrradvermietung::where([
+                ['ort', 'LIKE', $request->ort],
+                ['postleitzahl', 'LIKE', $request->plz]
+            ])->get();
+            $collection = $fVermietung;
+
+        }else{
+            $fVermietung = fahrradvermietung::all();
+            $collection = $fVermietung;
+        }
+        session()->put('collection', $collection);
+    }
+
+    public function searchVehiclesFilter(Request $request)
+    {
 
         $activeCollection = session()->get('activeCollection');
 
-        if($request->marke) {
+        if ($request->marke) {
 
             session()->put('request', $request->marke);
 
@@ -254,7 +389,7 @@ class allgemeineSucheController extends Controller
                 return $activeCollection->marke == $request;
             });
         }
-        if($request->modell) {
+        if ($request->modell) {
 
             session()->put('request', $request->modell);
 
@@ -263,7 +398,7 @@ class allgemeineSucheController extends Controller
                 return $activeCollection->modell == $request;
             });
         }
-        if($request->minPreis && $request->maxPreis) {
+        if ($request->minPreis && $request->maxPreis) {
 
             session()->put('minPreis', $request->minPreis);
             session()->put('maxPreis', $request->maxPreis);
@@ -274,7 +409,7 @@ class allgemeineSucheController extends Controller
                 return $activeCollection->preis >= $minPreis && $activeCollection->preis <= $maxPreis;
             });
         }
-        if($request->kraftstoff) {
+        if ($request->kraftstoff) {
 
             session()->put('request', $request->kraftstoff);
 
@@ -283,7 +418,7 @@ class allgemeineSucheController extends Controller
                 return $activeCollection->kraftstoff == $request;
             });
         }
-        if($request->baujahr) {
+        if ($request->baujahr) {
 
             session()->put('request', $request->baujahr);
 
@@ -292,7 +427,7 @@ class allgemeineSucheController extends Controller
                 return $activeCollection->baujahr == $request;
             });
         }
-        if($request->art) {
+        if ($request->art) {
 
             session()->put('request', $request->art);
 
@@ -306,14 +441,11 @@ class allgemeineSucheController extends Controller
         $showCollection->values()->all();
 
 
-
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
         ]);
 
-       //return response()->json(['test'=>$showCollection]);
-
-
+        //return response()->json(['test'=>$showCollection]);
 
 
     }
