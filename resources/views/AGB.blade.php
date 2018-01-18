@@ -11,8 +11,10 @@
 </head>
 
 <body>
-@if(Auth::check())
+@if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
+@elseif(Auth::user() && Auth::user()->isAdministrator())
+    @include('includes.header3')
 @else
     @include('includes.header')
 @endif

@@ -6,8 +6,11 @@
 </head>
 
 <body>
-@if(Auth::check())
+
+@if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
+@elseif(Auth::user() && Auth::user()->isAdministrator())
+    @include('includes.header3')
 @else
     @include('includes.header')
 @endif
@@ -18,7 +21,7 @@
             <form action="{{ route('Fahrradeigenschaft2') }}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
 
-         <div class="angabeFahrrad">
+
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
                     <p class="Text">Fahrradart</p>
@@ -82,6 +85,7 @@
                     </div>
                 </div>
 
+<!--
                 <div class="col-xs-6 col-md-4">
                     <div class="buttonUndText">
                         <p class="TextBild">Bild</p>
@@ -96,6 +100,22 @@
                         </div>
                     </div>
                 </div>
+-->
+
+             <div class="col-xs-6 col-md-4">
+                 <div class="buttonUndText">
+                     <p class="TextBild">Bild</p>
+                     <div class="input-group">
+                         <label class="input-group-btn">
+                    <span class="btn btn-primary">
+                        Öffnen <input id="lili" name="lala" type="file" accept="image/*" style="display: none;" multiple>
+                    </span>
+                         </label>
+                         <input type="text" id="autobilder" name="bild" class="form-control" readonly>
+                     </div>
+                 </div>
+             </div>
+
                 <script>
                     $(function() {
                         $(document).on('change', ':file', function() {
@@ -118,13 +138,13 @@
                 <div class="col-xs-12 col-md-4">
                     <div class="buttonUndText">
                         <p class="Text">Details</p>
-                        <div class="form-group2 inputDetails">          <!-- HIER ID ÄNDERN FÜR DETAILS UND STYLE ANPASSSEN -->
-                            <textarea class="form-control detailsInput" rows="4" id="Details" name="details" placeholder="Details zum Auto ..." required></textarea>
+                        <div class="form-group2 inputDetails2">          <!-- HIER ID ÄNDERN FÜR DETAILS UND STYLE ANPASSSEN -->
+                            <textarea class="form-control detailsInput" rows="4" id="Details2" name="details" placeholder="Details zum Fahrrad ..." required></textarea>
                         </div>
                     </div>
                 </div>
 
-                <div class="angabeStandort">
+
 
                     <div class="col-xs-6 col-md-4">
                         <div class="buttonUndTextPostleitzahl">
@@ -158,10 +178,10 @@
                     </div>
 
                     <div class="col-xs-12 col-md-4">
-                        <div class="buttonUndTextPostleitzahl">
+                        <div class="buttonUndTextstrasse">
                             <p class="Text">Straße/Nr.</p>
                             <div class="form-group3">
-                                <div class="input-group">
+                                <div class="input-group strasse">
                                     <label for="strasse" class="sr-only"></label>
                                     <input type="text" class="form-control" name="strasseNr" id="strasseNr" required>
                                     <span class="input-group-addon">
@@ -200,14 +220,14 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xs-12 col-md-6">
                         <div class="buttonUndText">
                             <button type="submit" class="btn btn-basic1 btn-responsive" id="MeldeAutoAnButton">Melde mein Fahrrad an<span
                                         class="glyphicon glyphicon-triangle-right"></span></button>
                         </div>
                     </div>
-                </div>
-                </div>
+
             </form>
         </div>
     </div>

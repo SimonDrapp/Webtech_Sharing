@@ -8,6 +8,14 @@
     <title>my-easysharing | Ansicht</title>
 </head>
 <body>
+
+@if(Auth::user() && Auth::user()->isBenutzer())
+    @include('includes.header2')
+@elseif(Auth::user() && Auth::user()->isAdministrator())
+    @include('includes.header3')
+@else
+    @include('includes.header')
+@endif
 @if(Auth::check())
     @include('includes.header2')
 @else

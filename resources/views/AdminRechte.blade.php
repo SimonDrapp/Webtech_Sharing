@@ -6,7 +6,7 @@
     <title>my-easysharing | Home </title>
 </head>
 <body>
-    @include('includes.header2')
+    @include('includes.header3')
 
     <div class="change" style="margin-top:70px">
     <div class="container">

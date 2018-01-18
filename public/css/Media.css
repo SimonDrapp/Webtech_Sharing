@@ -331,6 +331,19 @@
     #btZahlen {
         font-size: 17px;
     }
+    .change1{
+        margin-top:50px;
+    }
+    .autoangabe{
+        margin-bottom: -820px;
+    }
+    #Details2{
+        margin-left:-25px;
+    }
+    .buttonUndTextstrasse{
+        margin-top:50px;
+        margin-bottom: -40px;
+    }
 }
 
 /*-----------930px-------*/
@@ -802,6 +815,7 @@
     .inputDetails{
         margin-left: 60px;
     }
+
     #googleMap1{
         margin-top: -5%;
         width:100%;
@@ -842,6 +856,9 @@
     #btZahlen {
         font-size: 17px;
     }
+    #Details2{
+        width:300px;
+    }
 }
 
 /*-----------450px-------*/
@@ -861,6 +878,7 @@
     .inputDetails{
         margin-left: 40px;
     }
+
 }
 
 /*-----------400px-------*/
@@ -935,6 +953,9 @@
     .inputDetails{
         margin-left: 40px;
     }
+    #Details2{
+        width: 250px;
+    }
 }
 
 /*-----------390px-------*/
@@ -988,6 +1009,10 @@
     .bez> h1{
         margin-top: 18%;
         font-size: 25px;
+    }
+    #Details2{
+        width: 220px;
+
     }
 
 }
@@ -1069,7 +1094,7 @@
         width: 120px;
     }
     .inputDetails{
-        margin-left: 35px;
+        margin-left: 30px;
     }
     #agb{
         margin-left: 30px;
@@ -1077,6 +1102,10 @@
     .bez> h1{
         margin-top: 22%;
         font-size: 25px;
+    }
+    #Details2{
+        width: 200px;
+        margin-left:-50px;
     }
 }
 
