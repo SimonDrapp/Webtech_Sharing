@@ -1,7 +1,6 @@
 
 @foreach($showCollection as $show)
-    <a href="#" class="showMoreResults">
-    <a href="/Ansicht/{{$show->name}}/{{$show->id}}">
+    <a href="/Ansicht/{{$show->name}}/{{$show->id}}" class="showMoreResults">
         <div class="searchResults_result">
             <div class="searchResults_image">
                 <img src="img/searchPictures/{{$show->bild}}" alt="{{$show->marke}}, {{$show->modell}}">
@@ -24,7 +23,8 @@
             </div>
         </div>
     </a>
+    <button type="button" id="loadMoreResults" class="btn btn-basic btn-block">Nächste Anzeigen
+        <span class="glyphicon glyphicon-chevron-down"></span></button>
 @endforeach
-<button type="button" id="loadMoreResults" class="btn btn-basic btn-block">Nächste Anzeigen
-    <span class="glyphicon glyphicon-chevron-down"></span></button>
+
 

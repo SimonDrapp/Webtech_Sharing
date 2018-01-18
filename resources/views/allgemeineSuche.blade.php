@@ -167,7 +167,7 @@
     <div class="searchResults">
         <div class="searchResults_block">
             @foreach($showCollection as $show)
-                <a href="#" class="showMoreResults">
+                <a href="/Ansicht/{{$show->name}}/{{$show->id}}" class="showMoreResults">
                     <div class="searchResults_result">
                         <div class="searchResults_image">
                             <img src="img/searchPictures/{{$show->bild}}" alt="{{$show->marke}}, {{$show->modell}}">
