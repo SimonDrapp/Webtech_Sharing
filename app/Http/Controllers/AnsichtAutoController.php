@@ -37,7 +37,10 @@ class AnsichtAutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+     /*   $start = $request->startdate;
+        $ende =  $request->input('enddate');
+
+        return view('Bezahlen',['start' => $start]);*/
     }
 
     /**
@@ -48,7 +51,6 @@ class AnsichtAutoController extends Controller
      */
     public function show($name, $id)
     {
-
 
         if ($name === "Auto"){
             $vermietungen =autovermietung::findOrFail($id);

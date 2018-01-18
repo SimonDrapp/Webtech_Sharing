@@ -22,6 +22,7 @@ $lala = $vermietungen->bild;
 $result = explode(", ", $lala);
 $result2 = $result[0];
 array_shift($result);
+
 ?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -53,7 +54,8 @@ array_shift($result);
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-6 lol" method="post">
+        <form ><!--action="" method="post" enctype="multipart/form-data-->
+        <div class="col-lg-6 lol">
             <div class='input-group date' id='datetimepicker8'>
                 <input type="text" class="form-control" name="startdate" id="startdate" required>
                 <span class="input-group-addon">
@@ -69,6 +71,7 @@ array_shift($result);
                     </span>
                 </div>
             </div>
+        </form>
         </div>
     </div>
 
@@ -194,7 +197,7 @@ array_shift($result);
 
 <div class="container btRent">
     <a href="/Bezahlen">
-        <button id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
+        <button id="btMieten" class=" btn btn-basic" type="submit">Mieten</button>
     </a>
 </div>
 
@@ -225,18 +228,48 @@ Session::put('price' , $vermietungen->preis);
 ?>
 
 <script>
-   $(function() {
+    $(function() {
         $(document).on('change', function () {
             var start = document.getElementById('startdate').value;
            console.log(start);
-        });
+           alert(start);
+            $.post("/Bezahlen", {start: start});
+            /*var token = $('meta[name="csrf-token"]').attr('content');*/
+           /* $.ajax({
+                type:'POST',
+                url:" URL::to('AnsichtAutoController@store') ",
+                data: {
+                    "_method": 'POST',
+                    "_token": token,
+                    "startdate": start,
+                },
+                success:function(data){
+                    console.log('success');
+                    console.log(data);
+                },
+                error:function(){
+
+                },
+        });*/
     });
    $(function() {
        $(document).on('change', function () {
            var end = document.getElementById('enddate').value;
            console.log(end);
+
        });
    });
+
+     $(document).ready(function(){
+         $("#btMieten").click(function(){
+             $.post('/Bezahlen',
+                 {
+                     startdate: '2018/01/28'}, function(returnedData){
+                 console.log(returnedData);
+                 });
+                 });
+         });
+
 
 </script>
 

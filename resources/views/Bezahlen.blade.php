@@ -14,8 +14,9 @@
 @endif
 <?php
 $price = Session::get('price');
-$start = Session::get('start');
-echo $start;
+
+
+
 ?>
 
 <div class="container">

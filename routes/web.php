@@ -69,6 +69,7 @@ Route::get('/allgemeineSuche', function () {
 Route::get('/Bezahlen', function () {
     return view('Bezahlen');
 });
+
 /*Route::get('/allgemeineSuche', function () {
 
     $aMarken = DB::table('AMarke')->get();

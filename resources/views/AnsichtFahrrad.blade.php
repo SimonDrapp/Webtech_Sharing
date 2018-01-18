@@ -16,11 +16,6 @@
 @else
     @include('includes.header')
 @endif
-@if(Auth::check())
-    @include('includes.header2')
-@else
-    @include('includes.header')
-@endif
 
 <?php
 $lala = $vermietungen->bild;
