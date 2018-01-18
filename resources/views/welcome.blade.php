@@ -6,11 +6,15 @@
     <title>my-easysharing | Home </title>
 </head>
 <body>
-@if(Auth::check())
+
+
+@if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
+@elseif(Auth::user() && Auth::user()->isAdministrator())
+    @include('includes.header3')
 @else
     @include('includes.header')
-@endif
+    @endif
 
 <!-- Bild mit Buttons-->
 <div class="parallax">
@@ -137,88 +141,87 @@
 
 <div class="container-fluid">
 
-    <div id="googleMap1"></div>
-    <script>
-        function initialize(coords) {
-            var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
-            var myOptions = {
-                zoom: 13,
-                center: latlng
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap1"), myOptions);
+            <div id="googleMap1"></div>
+            <script>
+                function initialize(coords) {
+                    var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+                    var myOptions = {
+                        zoom: 13,
+                        center: latlng
+                    };
+                    var map = new google.maps.Map(document.getElementById("googleMap1"), myOptions);
 
-            var marker = new google.maps.Marker({
-                position: latlng,
-                map: map,
-                title: "Hier bist du :)"
-            });
-
-            var geocoder = new google.maps.Geocoder();
-
-
-            @foreach($aAdresses as $a)
-            geocoder.geocode({
-                address: '{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
-            }, function (geocoderResults, status) {
-                if (status === 'OK') {
-
-                    // map.setCenter(geocoderResults[0].geometry.location);
-
-                    var latlng = geocoderResults[0].geometry.location;
-                    //console.log(latlng.lat(), latlng.lng());
-                    var newMarker = new google.maps.Marker({
+                    var marker = new google.maps.Marker({
+                        position: latlng,
                         map: map,
-                        position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                        icon: '/img/car.png',
-                        title: "{{$a->strasseNr}}, {{$a->postleitzahl}} {{$a->ort}}"
+                        title: "Hier bist du :)"
                     });
+
+                    var geocoder = new google.maps.Geocoder();
+
+
+                    @foreach($aAdresses as $a)
+                    geocoder.geocode({
+                        address:'{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
+                    }, function(geocoderResults, status){
+                        if(status === 'OK') {
+
+                           // map.setCenter(geocoderResults[0].geometry.location);
+
+                            var latlng = geocoderResults[0].geometry.location;
+                            //console.log(latlng.lat(), latlng.lng());
+                            var newMarker = new google.maps.Marker({
+                                map: map,
+                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                               icon: '/img/car.png',
+                                title: "{{$a->strasseNr}}, {{$a->postleitzahl}} {{$a->ort}}"
+                            });
+                        }
+                    })
+                    @endforeach
+
+                    @foreach($fAdresses as $f)
+                    geocoder.geocode({
+                        address:'{{$f->ort}},{{$f->postleitzahl}},{{$f->strasseNr}}'
+                    }, function(geocoderResults, status){
+                        if(status === 'OK') {
+
+                            // map.setCenter(geocoderResults[0].geometry.location);
+
+                            var latlng = geocoderResults[0].geometry.location;
+                            //console.log(latlng.lat(), latlng.lng());
+                            var newMarker = new google.maps.Marker({
+                                map: map,
+                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                                icon: '/img/bicycle.png',
+                                title: "{{$f->strasseNr}}, {{$f->postleitzahl}} {{$f->ort}}"
+                            });
+                        }
+                    })
+                    @endforeach
                 }
-            })
-            @endforeach
 
-            @foreach($fAdresses as $f)
-            geocoder.geocode({
-                address: '{{$f->ort}},{{$f->postleitzahl}},{{$f->strasseNr}}'
-            }, function (geocoderResults, status) {
-                if (status === 'OK') {
-
-                    // map.setCenter(geocoderResults[0].geometry.location);
-
-                    var latlng = geocoderResults[0].geometry.location;
-                    //console.log(latlng.lat(), latlng.lng());
-                    var newMarker = new google.maps.Marker({
-                        map: map,
-                        position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                        icon: '/img/bicycle.png',
-                        title: "{{$f->strasseNr}}, {{$f->postleitzahl}} {{$f->ort}}"
-                    });
-                }
-            })
-            @endforeach
-        }
-
-        navigator.geolocation.getCurrentPosition(function (position) {
-            initialize(position.coords);
-        }, function () {
-            document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-        });
+                navigator.geolocation.getCurrentPosition(function(position){
+                    initialize(position.coords);
+                }, function(){
+                    document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
+                });
 
 
-        /*function myMap() {
-            var myCenter = new google.maps.LatLng(47.6724811, 9.1679752);
-            var mapCanvas = document.getElementById("googleMap1");
-            var mapOptions = {center: myCenter, zoom: 13};
-            var map = new google.maps.Map(mapCanvas, mapOptions);
-        }*/
-        $("#buttonGPS2").click(function () {
-            $('html, body').animate({
-                scrollTop: $("#googleMap1").offset().top
-            }, 2000);
+                /*function myMap() {
+                    var myCenter = new google.maps.LatLng(47.6724811, 9.1679752);
+                    var mapCanvas = document.getElementById("googleMap1");
+                    var mapOptions = {center: myCenter, zoom: 13};
+                    var map = new google.maps.Map(mapCanvas, mapOptions);
+                }*/
+                $("#buttonGPS").click(function () {
+                    $('html, body').animate({
+                        scrollTop: $("#googleMap1").offset().top
+                    }, 2000);
 
-        });
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+                });
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
 
 </div>
 

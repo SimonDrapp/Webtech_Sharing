@@ -331,6 +331,10 @@ body {
     resize: none;
 }
 
+#Details2{
+    margin-bottom:30px;
+}
+
 .form-group2 {
     resize: none;
     margin-left: 80px;
@@ -566,7 +570,14 @@ body {
     left:1px;
 }
 
+.change2{
+    margin-top:60px;
+}
 
+
+.angabeStandort2{
+    margin-top: 20px;
+}
 
 #datebis1, #datevon1 {
     font-size: 18px;
@@ -1041,7 +1052,11 @@ h5 {
     resize: none;
 }
 
-.buttonUndTextOrt, .buttonUndTextPostleitzahl{
+.inputDetails{
+    margin-bottom: 30px;
+}
+
+.buttonUndTextOrt, .buttonUndTextPostleitzahl, .buttonUndTextstrasse{
     text-align: center;
 }
 
@@ -1052,7 +1067,7 @@ h5 {
 }
 
 .autoangabe{
-    margin-top:-90px;
+    margin-bottom:-450px;
 }
 
 .angabeStandort{
