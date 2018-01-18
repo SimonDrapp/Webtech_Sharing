@@ -6,13 +6,14 @@
     @include('includes.head')
     <title>my-easysharing | Login </title>
       <!--<link rel="stylesheet" type="text/css" href="css/app.css">-->
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 
 </head>
 
 <body>
 @include('includes.header')
 
-<div class="container login">
+<div  class="container login">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 ">
             <div class="panel panel-default">

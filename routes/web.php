@@ -77,7 +77,10 @@ Route::get('/Bezahlen', function () {
     return view('allgemeineSuche',compact('aMarken'));
 });*/
 
-Route::resource('allgemeineSuche','allgemeineSucheController');
+Route::post('/allgemeineSuche',[
+    'uses'=> 'allgemeineSucheController@searchInput',
+    'as'=> 'allgemeineSuche']);
+Route::get('/allgemeineSuche', 'allgemeineSucheController@index');
 Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
 Route::get('/search','allgemeineSucheController@search');
 Route::get('/searchVehicles','allgemeineSucheController@searchVehicles');
@@ -215,10 +218,7 @@ Route::post('/admin',[
         'middleware'=>'roles',
         'roles'=>['Admin']
 ]);
-
-
 });
-
 
 
 

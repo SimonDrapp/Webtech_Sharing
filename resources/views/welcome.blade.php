@@ -7,16 +7,17 @@
 </head>
 <body>
 @if(Auth::check())
-@include('includes.header2')
+    @include('includes.header2')
 @else
     @include('includes.header')
-    @endif
+@endif
 
 <!-- Bild mit Buttons-->
 <div class="parallax">
 <div class="container">
-    <div class="row">
-        <div class="col-12 search">
+    <form action="{{ route('allgemeineSuche') }}" method="post">
+        {{csrf_field()}}
+        <div class="row">
 
             <div class="content">
                 <h1>Egal ob im Berufsalltag, in der Freizeit oder im Urlaub</h1>
@@ -24,43 +25,42 @@
                 <h1>Bei uns findest du immer was!</h1>
             </div>
 
-            <div class="row">
-                <div class="col-4">
-                    <div class="form-group">
-                        <input id="searchCity" type="text" class="form-control"
-                               placeholder="Postleitzahl oder Ort">
-                    </div>
-                    <div class="form-group">
-                        <button id="buttonGPS" type="button" class="form-group btn btn-basic">
-                            <span class="glyphicon glyphicon-map-marker"></span></button>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control visible-lg" id="datevon" type="text" name="datevon"
-                               placeholder="DD/MM/YYYY">
-                    </div>
-                    <div class="form-group">
-                        <button id="buttonVon" type="button" class="btn btn-basic visible-lg" name="datevon">
-                            <span class="glyphicon glyphicon-calendar"></span></button>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control visible-lg" id="datebis" type="text" name="datebis"
-                               placeholder="DD/MM/YYYY">
-                    </div>
-                    <div class="form-group">
-                        <button id="buttonBis" type="button" class="btn btn-basic visible-lg buttonS" name="datebis">
-                            <span class="glyphicon glyphicon-calendar"></span></button>
-                    </div>
-                    <div class="form-group">
-                        <a href="/allgemeineSuche">
-                            <button id="buttonSearch" class=" btn btn-basic" type="button">Suchen
-                                <span class="glyphicon glyphicon-search"></span></button>
-                        </a>
-                    </div>
-                </div>
-            </div>
 
+            <div class="eingabefeld">
+                <div class="col-xs-10 col-sm-4 form-group searchPadding">
+                    <div class="input-group">
+                        <input id="searchCity1" name="search" type="text" class="form-control"
+                               placeholder="Postleitzahl oder Ort" autocomplete="off">
+                        <span id="inputGpsBtn" class="input-group-btn">
+                            <button id="buttonGPS2" type="button" class=" btn btn-basic ">
+                            <span class="glyphicon glyphicon-map-marker"></span></button>
+                        </span>
+                    </div>
+                    <ul id="liveSearch"></ul>
+                </div>
+                <div class="col-sm-3 form-group InputWithIcon changePaddingWelcome">
+                    <input class="form-control" id="datevon1" type="text" name="von"
+                           placeholder="Abholung">
+                    <i id class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
+                </div>
+                <div class="col-sm-3 form-group InputWithIcon changePaddingWelcome">
+                    <input class="form-control" id="datebis1" type="text" name="bis"
+                           placeholder="Rückgabe">
+                    <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
+                </div>
+
+                <div class="col-xs-2 col-sm-2 form-group searchBtnPaddingWelcome">
+                    <button type="submit" id="buttonSearch1" class=" btn btn-basic">Suchen
+                        <span class="glyphicon glyphicon-search"></span></button>
+                </div>
+
+            </div>
         </div>
-    </div>
+    </form>
+</div>
+</div>
+
+</div>
 </div>
 </div>
 <!--<script>
@@ -137,92 +137,93 @@
 
 <div class="container-fluid">
 
-            <div id="googleMap1"></div>
-            <script>
-                function initialize(coords) {
-                    var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
-                    var myOptions = {
-                        zoom: 13,
-                        center: latlng
-                    };
-                    var map = new google.maps.Map(document.getElementById("googleMap1"), myOptions);
+    <div id="googleMap1"></div>
+    <script>
+        function initialize(coords) {
+            var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+            var myOptions = {
+                zoom: 13,
+                center: latlng
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap1"), myOptions);
 
-                    var marker = new google.maps.Marker({
-                        position: latlng,
+            var marker = new google.maps.Marker({
+                position: latlng,
+                map: map,
+                title: "Hier bist du :)"
+            });
+
+            var geocoder = new google.maps.Geocoder();
+
+
+            @foreach($aAdresses as $a)
+            geocoder.geocode({
+                address: '{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
+            }, function (geocoderResults, status) {
+                if (status === 'OK') {
+
+                    // map.setCenter(geocoderResults[0].geometry.location);
+
+                    var latlng = geocoderResults[0].geometry.location;
+                    //console.log(latlng.lat(), latlng.lng());
+                    var newMarker = new google.maps.Marker({
                         map: map,
-                        title: "Hier bist du :)"
+                        position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                        icon: '/img/car.png',
+                        title: "{{$a->strasseNr}}, {{$a->postleitzahl}} {{$a->ort}}"
                     });
-
-                    var geocoder = new google.maps.Geocoder();
-
-
-                    @foreach($aAdresses as $a)
-                    geocoder.geocode({
-                        address:'{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
-                    }, function(geocoderResults, status){
-                        if(status === 'OK') {
-
-                           // map.setCenter(geocoderResults[0].geometry.location);
-
-                            var latlng = geocoderResults[0].geometry.location;
-                            //console.log(latlng.lat(), latlng.lng());
-                            var newMarker = new google.maps.Marker({
-                                map: map,
-                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                               icon: '/img/car.png',
-                                title: "{{$a->strasseNr}}, {{$a->postleitzahl}} {{$a->ort}}"
-                            });
-                        }
-                    })
-                    @endforeach
-
-                    @foreach($fAdresses as $f)
-                    geocoder.geocode({
-                        address:'{{$f->ort}},{{$f->postleitzahl}},{{$f->strasseNr}}'
-                    }, function(geocoderResults, status){
-                        if(status === 'OK') {
-
-                            // map.setCenter(geocoderResults[0].geometry.location);
-
-                            var latlng = geocoderResults[0].geometry.location;
-                            //console.log(latlng.lat(), latlng.lng());
-                            var newMarker = new google.maps.Marker({
-                                map: map,
-                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                                icon: '/img/bicycle.png',
-                                title: "{{$f->strasseNr}}, {{$f->postleitzahl}} {{$f->ort}}"
-                            });
-                        }
-                    })
-                    @endforeach
                 }
+            })
+            @endforeach
 
-                navigator.geolocation.getCurrentPosition(function(position){
-                    initialize(position.coords);
-                }, function(){
-                    document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-                });
+            @foreach($fAdresses as $f)
+            geocoder.geocode({
+                address: '{{$f->ort}},{{$f->postleitzahl}},{{$f->strasseNr}}'
+            }, function (geocoderResults, status) {
+                if (status === 'OK') {
+
+                    // map.setCenter(geocoderResults[0].geometry.location);
+
+                    var latlng = geocoderResults[0].geometry.location;
+                    //console.log(latlng.lat(), latlng.lng());
+                    var newMarker = new google.maps.Marker({
+                        map: map,
+                        position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                        icon: '/img/bicycle.png',
+                        title: "{{$f->strasseNr}}, {{$f->postleitzahl}} {{$f->ort}}"
+                    });
+                }
+            })
+            @endforeach
+        }
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+            initialize(position.coords);
+        }, function () {
+            document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
+        });
 
 
-                /*function myMap() {
-                    var myCenter = new google.maps.LatLng(47.6724811, 9.1679752);
-                    var mapCanvas = document.getElementById("googleMap1");
-                    var mapOptions = {center: myCenter, zoom: 13};
-                    var map = new google.maps.Map(mapCanvas, mapOptions);
-                }*/
-                $("#buttonGPS").click(function () {
-                    $('html, body').animate({
-                        scrollTop: $("#googleMap1").offset().top
-                    }, 2000);
+        /*function myMap() {
+            var myCenter = new google.maps.LatLng(47.6724811, 9.1679752);
+            var mapCanvas = document.getElementById("googleMap1");
+            var mapOptions = {center: myCenter, zoom: 13};
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+        }*/
+        $("#buttonGPS2").click(function () {
+            $('html, body').animate({
+                scrollTop: $("#googleMap1").offset().top
+            }, 2000);
 
-                });
-            </script>
-            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+        });
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
 
 </div>
 
 @include('includes.footer')
 
-
+<script src="js/welcome.js"></script>
 </body>
 </html>

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\AMarke;
+use App\AModell;
 use App\fahrradvermietung;
+use App\FMarke;
+use App\FModell;
 use Illuminate\Http\Request;
 use App\autovermietung;
 

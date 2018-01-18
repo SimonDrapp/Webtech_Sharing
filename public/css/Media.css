@@ -497,6 +497,10 @@
 }
 
 @media screen and (max-width: 768px){
+    .changePaddingWelcome{
+        display: none;
+    }
+
     #buttonBild{
         margin-top: 6px;
     }
@@ -1121,6 +1125,11 @@
     .changePadding{
         padding-right: 0px;
         padding-left:0px;
+    }
+    .changePaddingWelcome{
+        padding-right: 0px;
+        padding-left:0px;
+        display: block;
     }
     .searchBtnPadding{
         padding-left: 0px;

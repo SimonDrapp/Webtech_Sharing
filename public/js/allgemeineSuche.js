@@ -83,6 +83,7 @@ $(function () {
 
 /*---FilterButton---*/
 var filterCounter = 0;
+
 function displayFilter() {
     if (filterCounter % 2 == 0) {
         document.getElementById("searchFilter").style.display = "block";
@@ -133,7 +134,6 @@ $(document).ready(function () {
                         $('#liveSearch').css({border: "1px solid #A5ACB2"});
                     }
                 }
-
 
             })
         }
@@ -233,7 +233,7 @@ $(document).ready(function () {
         });
     });
 
-    $(document).on('click', '#test', function () {
+    $(document).on('click', '#cities', function () {
 
         $valueLiveSearch = $(this).text();
         //console.log($valueLiveSearch);
@@ -259,7 +259,15 @@ $(document).ready(function () {
                 $("#aModelle").empty();
                 $.each(data, function (i, aModell) {
                     //console.log(aModell);
-                    $aModelle.append('<li><a id="AutoModelle" value=' + aModell.id + '>' + aModell.aModellname + '</a></li>')
+                    $aModelle.append('<li class="showMore" id="autoModelle"><a id="AutoModelle" value=' + aModell.id + '>' + aModell.aModellname + '</a></li>')
+                });
+                /*---MehrAnzeigenButton---*/
+                $(function () {
+                    $(".showMore").slice(0, 4).show();
+                    $("#loadMore").on('click', function (e) {
+                        e.preventDefault();
+                        $(".showMore:hidden").slice(0, 4).slideDown();
+                    });
                 });
             }
         })
@@ -268,131 +276,50 @@ $(document).ready(function () {
     /*---SuchenButton---*/
     $(document).on('click', '#buttonSearch1, .all, .cars, .bicycles, #buttonSearchMobil', function () {
 
+        var ort = null;
+        var plz = null;
+
+
         var ortplz = $('#searchCity1').val();
-        var ortArray = ortplz.split(", ");
-        var ort = ortArray[0];
-        var plz = ortArray[1];
+        if(ortplz) {
+            var ortArray = ortplz.split(", ");
+            var ort = ortArray[0];
+            if (ort.indexOf(" ") > -1) {
+                ortArray1 = ort.split(" ");
+                var ort = ortArray1[0];
+            }
+            var plz = ortArray[1];
+        }
         var startdate = $('#datevon1').val();
         var enddate = $('#datebis1').val();
 
-        if (ort.indexOf(" ") > -1) {
-            ortArray1 = ort.split(" ");
-            var ort = ortArray1[0];
-        }
+
 
         //console.log($checkFilter);
 
-        if (startdate && enddate && ort) {
-
-            $.ajax({
-                type: 'GET',
-                url: '/searchVehicles',
-                data: {
-                    'ort': ort,
-                    'plz': plz,
-                    'startdate': startdate,
-                    'enddate': enddate,
-                    'checkFilter': $checkFilter
-                },
-                success: function (data) {
-                    console.log("0");
-                    $('.searchResults_block').empty();
-                    $('.searchResults_block').html(data);
-                    /*---NächsteAnzeigenButton---*/
-                    $(function () {
-                        $(".showMoreResults").slice(0, 4).show();
-                        $("#loadMoreResults").on('click', function (e) {
-                            e.preventDefault();
-                            $(".showMoreResults:hidden").slice(0, 4).slideDown();
-                        });
+        $.ajax({
+            type: 'GET',
+            url: '/searchVehicles',
+            data: {
+                'ort': ort,
+                'plz': plz,
+                'startdate': startdate,
+                'enddate': enddate,
+                'checkFilter': $checkFilter
+            },
+            success: function (data) {
+                $('.searchResults_block').empty();
+                $('.searchResults_block').html(data);
+                /*---NächsteAnzeigenButton---*/
+                $(function () {
+                    $(".showMoreResults").slice(0, 4).show();
+                    $("#loadMoreResults").on('click', function (e) {
+                        e.preventDefault();
+                        $(".showMoreResults:hidden").slice(0, 4).slideDown();
                     });
-                }
-            })
-        } else if (!ortplz && !startdate && !enddate) {
-            $.ajax({
-                type: 'GET',
-                url: '/searchVehicles',
-                data: {'checkFilter': $checkFilter},
-                success: function (data) {
-                    //console.log("1");
-                    $('.searchResults_block').empty();
-                    $('.searchResults_block').html(data);
-                    /*---NächsteAnzeigenButton---*/
-                    $(function () {
-                        $(".showMoreResults").slice(0, 4).show();
-                        $("#loadMoreResults").on('click', function (e) {
-                            e.preventDefault();
-                            $(".showMoreResults:hidden").slice(0, 4).slideDown();
-                        });
-                    });
-                }
-            })
-
-        } else if (!ortplz && startdate && enddate) {
-            $.ajax({
-                type: 'GET',
-                url: '/searchVehicles',
-                data: {
-                    'startdate': startdate,
-                    'enddate': enddate,
-                    'check': "checkVar",
-                    'checkFilter': $checkFilter
-                },
-                success: function (data) {
-                    //console.log("2");
-                    $('.searchResults_block').empty();
-                    $('.searchResults_block').html(data);
-                    /*---NächsteAnzeigenButton---*/
-                    $(function () {
-                        $(".showMoreResults").slice(0, 4).show();
-                        $("#loadMoreResults").on('click', function (e) {
-                            e.preventDefault();
-                            $(".showMoreResults:hidden").slice(0, 4).slideDown();
-                        });
-                    });
-                }
-            })
-        } else if (ortplz) {
-            $.ajax({
-                type: 'GET',
-                url: '/searchVehicles',
-                data: {'ort': ort, 'plz': plz, 'checkFilter': $checkFilter},
-                success: function (data) {
-                    //console.log("3");
-                    $('.searchResults_block').empty();
-                    $('.searchResults_block').html(data);
-                    /*---NächsteAnzeigenButton---*/
-                    $(function () {
-                        $(".showMoreResults").slice(0, 4).show();
-                        $("#loadMoreResults").on('click', function (e) {
-                            e.preventDefault();
-                            $(".showMoreResults:hidden").slice(0, 4).slideDown();
-                        });
-                    });
-                }
-            })
-
-        }
-        else {
-            $.ajax({
-                type: 'GET',
-                url: '/searchVehicles',
-                data: {'checkFilter': $checkFilter},
-                success: function (data) {
-                    //console.log("4");
-                    $('.searchResults_block').empty();
-                    $('.searchResults_block').html(data);
-                    /*---NächsteAnzeigenButton---*/
-                    $(function () {
-                        $(".showMoreResults").slice(0, 4).show();
-                        $("#loadMoreResults").on('click', function (e) {
-                            e.preventDefault();
-                            $(".showMoreResults:hidden").slice(0, 4).slideDown();
-                        });
-                    });
-                }
-            })
-        }
+                });
+            }
+        })
     });
 
     /*---Ajax Preis slider--*/

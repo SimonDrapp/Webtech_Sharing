@@ -21,7 +21,8 @@
                 <div class="col-xs-11 col-sm-4 form-group searchPadding">
                     <div class="input-group">
                         <input id="searchCity1" name="search" type="text" class="form-control"
-                               placeholder="Postleitzahl oder Ort" autocomplete="off">
+                               placeholder="Postleitzahl oder Ort" autocomplete="off"
+                        value=@if($ortPlz)"{{$ortPlz}}"@endif>
                         <span id="inputGpsBtn" class="input-group-btn">
                             <button id="buttonGPS2" type="button" class=" btn btn-basic ">
                             <span class="glyphicon glyphicon-map-marker"></span></button>
@@ -31,12 +32,12 @@
                 </div>
                 <div class="col-xs-12 col-sm-3 form-group InputWithIcon changePadding">
                     <input class="form-control" id="datevon1" type="text" name="date"
-                           placeholder="Abholung">
+                           placeholder="Abholung" value=@if($enddate)"{{$startdate}}"@endif>
                     <i id class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
                 </div>
                 <div class="col-xs-12 col-sm-3 form-group InputWithIcon changePadding">
                     <input class="form-control" id="datebis1" type="text" name="date"
-                           placeholder="Rückgabe">
+                           placeholder="Rückgabe" value=@if($startdate)"{{$enddate}}"@endif>
                     <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
                 </div>
                 <div class="col-xs-12 btnFilter">

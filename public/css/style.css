@@ -539,7 +539,9 @@ body {
     padding-right: 0px;
     z-index:1;
 }
-
+.searchBtnPaddingWelcome{
+    padding-left: 0px;
+}
 .GpsPadding{
     padding-left:0px;
 }
