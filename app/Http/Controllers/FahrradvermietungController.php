@@ -41,14 +41,14 @@ class FahrradvermietungController extends Controller
     public function putFahrrad(Request $request){
 
         $fahrradvermietungen = new fahrradvermietung;
-        $art = $request->art . " ";
-        $art2 = substr($art,2, (sizeof($art)-2));
+        $art = $request->art;
+        $art2 = substr($art,3, (strlen($art)-2));
         $fahrradvermietungen->art = $art2;
-        $marke = $request->marke . " ";
-        $marke2 = substr($marke,2, (sizeof($marke)-2));
+        $marke = $request->marke;
+        $marke2 = substr($marke,3, (strlen($marke)-2));
         $fahrradvermietungen->marke = $marke2;
-        $modell = $request->modell . " ";
-        $modell2 = substr($modell,2, (sizeof($modell)-2));
+        $modell = $request->modell;
+        $modell2 = substr($modell,3, (strlen($modell)-2));
         $fahrradvermietungen->modell = $modell2;
         $fahrradvermietungen->farbe = $request->farbe;
         $fahrradvermietungen->preis = $request->preis;
