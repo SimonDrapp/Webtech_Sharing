@@ -13,12 +13,12 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
                 <th>Email</th>
-                <th>Mobile</th>
-                <th>Subject</th>
-                <th>Message</th>
+                <th>Mobiltelefonnummer</th>
+                <th>Thema</th>
+                <th>Nachricht</th>
             </tr>
             </thead>
             <tbody>
