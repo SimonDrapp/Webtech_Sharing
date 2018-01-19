@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AMarke extends Model
 {
-    protected $table = 'AMarke';
+    protected $table = 'amarke';
     protected $primaryKey = 'id';
     protected $keyType = 'Integer';
     public $incrementing = true;

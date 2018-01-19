@@ -13,11 +13,11 @@ class CreateSharingFmodell extends Migration
      */
     public function up()
     {
-        Schema::create('FModell', function (Blueprint $table) {
+        Schema::create('fmodell', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
             $table->integer('idMarke')->unsigned();
-            $table->foreign('idMarke')->references('id')->on('FMarke');
+            $table->foreign('idMarke')->references('id')->on('fmarke');
             $table->timestamps();
         });
     }

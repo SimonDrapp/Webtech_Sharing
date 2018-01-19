@@ -15,8 +15,7 @@ class CreateSharingNotifications extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string("firstname", 100)->default("");
+            $table->string("firstname", 100);
             $table->string("lastname", 100);
             $table->string("email", 100);
             $table->string("mobile", 50)->nullable();

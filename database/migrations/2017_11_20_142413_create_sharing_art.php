@@ -13,7 +13,7 @@ class CreateSharingArt extends Migration
      */
     public function up()
     {
-        Schema::create('Art', function (Blueprint $table) {
+        Schema::create('art', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
             $table->timestamps();

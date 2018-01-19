@@ -219,6 +219,20 @@ Route::post('/admin',[
         'middleware'=>'roles',
         'roles'=>['Admin']
 ]);
+
+
+Route::post('/',[
+        'uses'=> 'NotificationController@postNachricht',
+        'as'=> 'postNachricht'
+]);
+
+Route::get('/Nachrichtenansicht',[
+        'uses'=> 'NotificationController@getNachricht',
+        'as'=> 'nachricht',
+        'middleware'=>'roles',
+        'roles'=>['Admin']
+]);
+
 });
 
 

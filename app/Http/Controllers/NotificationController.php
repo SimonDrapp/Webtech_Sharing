@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Notification;
+use DB;
+use App\autovermietung;
+use App\fahrradvermietung;
+use Session;
 
 class NotificationController extends Controller
 {
@@ -37,6 +41,48 @@ class NotificationController extends Controller
         $contact = Notification::where('id',$id)->first();
         return view('notification.showContact', ['contact' => $contact]);
     }
+
+    public function postNachricht(Request $request){
+        $nachrichten = new Notification;
+        $nachrichten->firstname = $request->firstname;
+        $nachrichten->lastname = $request->lastname;
+        $nachrichten->email = $request->email;
+        $nachrichten->mobile = $request->mobile;
+        $nachrichten->subject = $request->subject;
+        $nachrichten->message = $request->message;
+
+        $request->session()->put('firstname', $request->firstname);
+        $request->session()->put('lastname', $request->lastname);
+        $request->session()->put('email', $request->email);
+        $request->session()->put('mobile', $request->mobile);
+        $request->session()->put('subject', $request->subject);
+        $request->session()->put('message', $request->message);
+
+        $nachrichten = new Notification;
+        $nachrichten->firstname = $request->session()->get('firstname');
+        $nachrichten->lastname = $request->session()->get('lastname');
+        $nachrichten->email = $request->session()->get('email');
+        $nachrichten->mobile = $request->session()->get('mobile');
+        $nachrichten->subject = $request->session()->get('subject');
+        $nachrichten->message = $request->session()->get('message');
+
+        DB::table('notifications')->insert(['firstname'=>$nachrichten->firstname,'lastname'=>$nachrichten->lastname,
+            'email'=>$nachrichten->email, 'mobile'=>$nachrichten->mobile, 'subject'=>$nachrichten->subject,
+            'message'=>$nachrichten->message,]);
+
+        $aAdresses = autovermietung::all();
+        $fAdresses = fahrradvermietung::all();
+        return view('welcome',['aAdresses' => $aAdresses, 'fAdresses' => $fAdresses]);
+
+
+    }
+
+    public function getNachricht(){
+        $nachricht = Notification::all();
+        return view('nachrichten',['nachricht'=>$nachricht]);
+    }
+
+
 
 
         /*$errMsg = $this->validateContact($contact);

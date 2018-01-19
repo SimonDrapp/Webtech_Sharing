@@ -25,10 +25,10 @@ class allgemeineSucheController extends Controller
         $startdate = Null;
         $enddate = Null;
 
-        $aMarken = AMarke::all();
-        $aModelle = AModell::all();
-        $fMarken = FMarke::all();
-        $fModelle = FModell::all();
+        $aMarken = amarke::all();
+        $aModelle = amodell::all();
+        $fMarken = fmarke::all();
+        $fModelle = fmodell::all();
 
         $this->showResultsWithoutInput();
 
@@ -62,10 +62,10 @@ class allgemeineSucheController extends Controller
             $startdate = $request->von;
             $enddate = $request->bis;
 
-            $aMarken = AMarke::all();
-            $aModelle = AModell::all();
-            $fMarken = FMarke::all();
-            $fModelle = FModell::all();
+            $aMarken = amarke::all();
+            $aModelle = amodell::all();
+            $fMarken = fmarke::all();
+            $fModelle = fmodell::all();
 
             $this->showAllResults($allInput);
 
@@ -155,10 +155,10 @@ class allgemeineSucheController extends Controller
 
     public function changeFilterAll()
     {
-        $aMarken = AMarke::all();
-        $aModelle = AModell::all();
-        $fMarken = FMarke::all();
-        $fModelle = FModell::all();
+        $aMarken = amarke::all();
+        $aModelle = amodell::all();
+        $fMarken = fmarke::all();
+        $fModelle = fmodell::all();
 
         return view('partialViews.FilterAll', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
             'fModelle' => $fModelle]);
@@ -167,10 +167,10 @@ class allgemeineSucheController extends Controller
 
     public function changeFilterCars()
     {
-        $aMarken = AMarke::all();
-        $aModelle = AModell::all();
-        $Kraftstoffe = Kraftstoff::all();
-        $Baujahre = Baujahr::all();
+        $aMarken = amarke::all();
+        $aModelle = amodell::all();
+        $Kraftstoffe = kraftstoff::all();
+        $Baujahre = baujahr::all();
 
         return view('partialViews.FilterCars', ['aMarken' => $aMarken, 'aModelle' => $aModelle,
             'Kraftstoffe' => $Kraftstoffe, 'Baujahre' => $Baujahre]);
@@ -179,9 +179,9 @@ class allgemeineSucheController extends Controller
 
     public function changeFilterBicycles()
     {
-        $fArt = Art::all();
-        $fMarken = FMarke::all();
-        $fModelle = FModell::all();
+        $fArt = art::all();
+        $fMarken = fmarke::all();
+        $fModelle = fmodell::all();
 
         return view('partialViews.FilterBicycles', ['fArt' => $fArt, 'fMarken' => $fMarken, 'fModelle' => $fModelle]);
 
@@ -190,7 +190,7 @@ class allgemeineSucheController extends Controller
     public function findAutoModelle(Request $request)
     {
 
-        $data = AModell::where('idAmarke', $request->id)->get();
+        $data = amodell::where('idAmarke', $request->id)->get();
         return response()->json($data);
 
     }
@@ -200,7 +200,7 @@ class allgemeineSucheController extends Controller
 
         if ($request->ajax()) {
             $output = "";
-            $cities = Ort::where('Name', 'LIKE', $request->search . '%')
+            $cities = ort::where('Name', 'LIKE', $request->search . '%')
                 ->orWhere('plz', 'Like', $request->search . '%')->get();
 
 

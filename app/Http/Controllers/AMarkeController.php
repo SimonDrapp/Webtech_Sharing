@@ -17,7 +17,7 @@ class AMarkeController extends Controller
      */
     public function index()
     {
-        $amarke =AMarke::all();
+        $amarke =amarke::all();
         /*  $amodell = DB::SELECT('Select AModell.aModellname FROM AModell, AMarke WHERE AModell.idAmarke = AMarke.id');  */
         return view('posts.index', ['amarke' => $amarke]);
     }

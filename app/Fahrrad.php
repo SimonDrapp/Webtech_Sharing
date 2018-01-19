@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fahrrad extends Model
 {
-    protected $table = 'Fahrrad';
+    protected $table = 'fahrrad';
     protected $primaryKey = 'id';
     protected $keyType = 'Integer';
     public $incrementing = true;

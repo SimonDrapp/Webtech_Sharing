@@ -13,7 +13,7 @@ class CreateSharingAmarke extends Migration
      */
     public function up()
     {
-        Schema::create('AMarke', function (Blueprint $table) {
+        Schema::create('amarke', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
             $table->timestamps();

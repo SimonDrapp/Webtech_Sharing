@@ -19,13 +19,12 @@ use App\fahrradvermietung;
 class AutovermietungController extends Controller
 {
     public function prodfunct(){
-        $amarke = AMarke::all();
-        $amodell = AModell::all();
-        $vermieten = Vermieten::all();
-        $baujahr = Baujahr::all();
-        $farbe = Farbe::all();
-        $kraftstoff = Kraftstoff::all();
-        return view('EigenschaftAutovermietung', compact('amarke', 'kraftstoff', 'baujahr','farbe', 'vermieten','amodell'));
+        $amarke = amarke::all();
+        $amodell = amodell::all();
+        $baujahr = baujahr::all();
+        $farbe = farbe::all();
+        $kraftstoff = kraftstoff::all();
+        return view('EigenschaftAutovermietung', compact('amarke', 'kraftstoff', 'baujahr','farbe', 'amodell'));
     }
 
     public function findModellName(Request $request){
@@ -42,10 +41,11 @@ class AutovermietungController extends Controller
         return response()->json($autotyp);     //hier wird die information dann an ajax success gesendet
     }
 
+
     public function putCar(Request $request){
         $autovermietungen = new autovermietung;
-        $marke = $request->marke . " ";
-        $marke2 = substr($marke,2, (sizeof($marke)-2));
+        $marke = $request->explode(", ", marke);
+        $marke2 = $marke[1];
         $autovermietungen->marke = $marke2;
         $modell = $request->modell . " ";
         $modell2 = substr($modell,2, (sizeof($modell)-2));

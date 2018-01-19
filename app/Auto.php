@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Auto extends Model
 {
-    protected $table = 'Auto';
+    protected $table = 'auto';
     protected $primaryKey = 'id';
     protected $keyType = 'Integer';
     public $incrementing = true;

@@ -14,8 +14,8 @@ class amarken extends Controller
 {
     function showall(){
 
-        $amarken = AMarke::all();
-        $amodelle = AModell::all();
+        $amarken = amarke::all();
+        $amodelle = amodell::all();
 
         return view('EigenschaftAutovermietung',['amarken' => $amarken], ['amodelle' => $amodelle]);
 
