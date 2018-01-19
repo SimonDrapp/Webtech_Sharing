@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Vermieten;
 use Illuminate\Http\Request;
-use App\amarke;
-use App\amodell;
-use App\kraftstoff;
+use App\AMarke;
+use App\AModell;
+use App\Kraftstoff;
 use App\Auto;
-use App\baujahr;
+use App\Baujahr;
 use App\Art;
-use App\farbe;
+use App\Farbe;
 use DB;
 use App\autovermietung;
 use Session;

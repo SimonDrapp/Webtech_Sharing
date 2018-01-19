@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\amarke;
-use App\amodell;
+use App\AMarke;
+use App\AModell;
 use DB;
 
 

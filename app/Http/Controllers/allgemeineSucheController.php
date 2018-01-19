@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\amodell;
-use App\art;
+use App\AModell;
+use App\Art;
 use App\autovermietung;
-use App\baujahr;
+use App\Baujahr;
+use App\Bilder;
 use App\fahrradvermietung;
-use App\fmarke;
-use App\fmodell;
-use App\kraftstoff;
-use App\ort;
+use App\FMarke;
+use App\FModell;
+use App\Kraftstoff;
+use App\Ort;
+use App\Vermieten;
 use Illuminate\Http\Request;
-use App\amarke;
+use App\AMarke;
 use phpDocumentor\Reflection\Types\Null_;
 
 class allgemeineSucheController extends Controller

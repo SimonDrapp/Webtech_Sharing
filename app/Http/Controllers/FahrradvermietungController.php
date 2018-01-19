@@ -10,10 +10,10 @@ use Illuminate;
 use App\autovermietung;
 use Session;
 use DB;
-use App\art;
-use App\fmarke;
-use App\fmodell;
-use App\farbe;
+use App\Art;
+use App\FMarke;
+use App\FModell;
+use App\Farbe;
 use App\fahrradvermietung;
 use App\Fahrrad;
 

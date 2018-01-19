@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\amarke;
+use App\AMarke;
 use Illuminate\Support\Facades\DB;
-use App\amodell;
+use App\AModell;
 use Illuminate\Http\Request;
 use Illuminate\HTML;
 use App\Notification;
