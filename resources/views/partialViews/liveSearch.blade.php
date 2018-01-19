@@ -23,8 +23,8 @@
             </div>
         </div>
     </a>
-    <button type="button" id="loadMoreResults" class="btn btn-basic btn-block">Nächste Anzeigen
-        <span class="glyphicon glyphicon-chevron-down"></span></button>
 @endforeach
+<button type="button" id="loadMoreResults" class="btn btn-basic btn-block">Nächste Anzeigen
+    <span class="glyphicon glyphicon-chevron-down"></span></button>
 
 

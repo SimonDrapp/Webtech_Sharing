@@ -26,6 +26,7 @@ body {
 
 }
 
+
 /*-----------Startseite Schrift über Bild--------------*/
 .content {
     text-align: center;
@@ -159,16 +160,19 @@ body {
 
 .Autoseite {
     overflow-x: hidden;
+    margin-top: 40px;
 }
 
 .Fahrradseite {
     overflow-x: hidden;
+    margin-top: 70px;
 }
 
 .col-md-7 {
     margin-top: 80px;
     font-size: 17px;
     font-family: 'Roboto Slab', serif;
+    //left:40px;
 }
 
 .AutoÜberschrift {
@@ -216,11 +220,16 @@ body {
 }
 /*-----------Startseite GoogleMaps--------------*/
 #googleMap1{
-    margin-top: 15%;
+    margin-top: 1%;
     width:100%;
     height:500px;
 
     padding: 0;
+}
+
+map{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 /*-----------Impressum Seite und AGB Seite--------------*/
@@ -455,7 +464,7 @@ body {
     margin-left: 5%;
     margin-top: 3%;
     background: rgb(255, 159, 63);
-   /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);*/
+    /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);*/
 }
 #btMieten:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
@@ -608,7 +617,7 @@ body {
 
 
 .eingabefeld {
-   margin-top: 75px;
+    margin-top: 75px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -895,10 +904,10 @@ h5 {
 }
 
 .searchResults_info{
-     float: right;
-     width:55%;
-     margin-left: 5%;
- }
+    float: right;
+    width:55%;
+    margin-left: 5%;
+}
 .searchResults_info h3{
     font-size:19px;
 
@@ -907,7 +916,7 @@ h5 {
 .searchResults_info-inner{
     float: left;
     width: 60%;
- }
+}
 .searchResults_info-inner p{
     margin-bottom: 0px;
 }
