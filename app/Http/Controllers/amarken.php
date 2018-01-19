@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\AMarke;
+use App\amarke;
 use Illuminate\Support\Facades\DB;
-use App\AModell;
+use App\amodell;
 use Illuminate\Http\Request;
 use Illuminate\HTML;
 use App\Notification;
@@ -14,8 +14,8 @@ class amarken extends Controller
 {
     function showall(){
 
-        $amarken = AMarke::all();
-        $amodelle = AModell::all();
+        $amarken = amarke::all();
+        $amodelle = amodell::all();
 
         return view('EigenschaftAutovermietung',['amarken' => $amarken], ['amodelle' => $amodelle]);
 

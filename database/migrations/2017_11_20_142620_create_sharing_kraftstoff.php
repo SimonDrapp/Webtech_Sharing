@@ -13,7 +13,7 @@ class CreateSharingKraftstoff extends Migration
      */
     public function up()
     {
-        Schema::create('Kraftstoff', function (Blueprint $table) {
+        Schema::create('kraftstoff', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
             $table->timestamps();

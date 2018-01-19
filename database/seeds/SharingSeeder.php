@@ -1,17 +1,15 @@
 <?php
 
-use App\Auto;
-use App\Vermieten;
-use App\AModell;
-use App\AMarke;
-use App\Baujahr;
-use App\Kraftstoff;
-use App\Ort;
-use App\Farbe;
-use App\Bilder;
-use App\Art;
-use App\FMarke;
-use App\FModell;
+
+use App\amodell;
+use App\amarke;
+use App\baujahr;
+use App\kraftstoff;
+use App\ort;
+use App\farbe;
+use App\art;
+use App\fmarke;
+use App\fmodell;
 use App\autovermietung;
 use App\fahrradvermietung;
 use App\User;
@@ -28,18 +26,12 @@ class SharingSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Ort')->delete();
-        DB::table('Auto')->delete();
-        DB::table('AModell')->delete();
-        DB::table('AMarke')->delete();
-        DB::table('Kraftstoff')->delete();
-        DB::table('Baujahr')->delete();
-        DB::table('Farbe')->delete();
-        DB::table('Vermieten')->delete();
-
-
-
-
+        DB::table('ort')->delete();
+        DB::table('amodell')->delete();
+        DB::table('amarke')->delete();
+        DB::table('kraftstoff')->delete();
+        DB::table('baujahr')->delete();
+        DB::table('farbe')->delete();
 
 
         // INSERTS FÜR ORTE
@@ -151,181 +143,182 @@ class SharingSeeder extends Seeder
 
         */
 
- /*       $farbe1 = farbe:: create(array(
-            'name'=> 'rot'
-        ));
+        /*       $farbe1 = farbe:: create(array(
+                   'name'=> 'rot'
+               ));
 
-*/
-            Ort:: create(array(
-            'Name'=> 'Konstanz Petershausen-West',
-            'plz'=> '78467'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Konstanz Wollmatingen',
-            'plz'=> '78467'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Konstanz Paradies',
-            'plz'=> '78462'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Konstanz Petershausen-Ost',
-            'plz'=> '78464'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Konstanz Dettingen',
-            'plz'=> '78465'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Singen',
-            'plz'=> '78224'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Baden-Baden',
-            'plz'=> '76530'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Varnhalt',
-            'plz'=> '76534'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Stuttgart',
-            'plz'=> '70173'
-        ));
-            Ort:: create(array(
-            'Name'=> 'Sindelfingen',
-            'plz'=> '71034'
+       */
+          ort:: create(array(
+          'Name'=> 'Konstanz Petershausen-West',
+          'plz'=> '78467'
+      ));
+          ort:: create(array(
+          'Name'=> 'Konstanz Wollmatingen',
+          'plz'=> '78467'
+      ));
+          ort:: create(array(
+          'Name'=> 'Konstanz Paradies',
+          'plz'=> '78462'
+      ));
+          ort:: create(array(
+          'Name'=> 'Konstanz Petershausen-Ost',
+          'plz'=> '78464'
+      ));
+          ort:: create(array(
+          'Name'=> 'Konstanz Dettingen',
+          'plz'=> '78465'
+      ));
+          ort:: create(array(
+          'Name'=> 'Singen',
+          'plz'=> '78224'
+      ));
+          ort:: create(array(
+          'Name'=> 'Baden-Baden',
+          'plz'=> '76530'
+      ));
+        ort:: create(array(
+          'Name'=> 'Varnhalt',
+          'plz'=> '76534'
+      ));
+          ort:: create(array(
+          'Name'=> 'Stuttgart',
+          'plz'=> '70173'
+      ));
+          ort:: create(array(
+          'Name'=> 'Sindelfingen',
+          'plz'=> '71034'
+      ));
+
+        autovermietung:: create(array(
+            'name' => 'Auto',
+            'marke' => 'Audi',
+            'modell' => 'A3',
+            'baujahr' => '2014',
+            'farbe' => 'silber',
+            'kraftstoff' => 'Benzin',
+            'preis' => 50,
+            'bild' => 'audiA3.jpg',
+            'details' => 'neuer Audi A3',
+            'postleitzahl' => '78462',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Alfred-Wachtel-Straße 8',
+            'startdate' => '2018-01-09',
+            'enddate' => '2018-01-18'
         ));
 
         autovermietung:: create(array(
             'name' => 'Auto',
-            'marke'=> 'Audi',
-            'modell'=> 'A3',
-            'baujahr'=> '2014',
-            'farbe'=> 'silber',
-            'kraftstoff'=> 'Benzin',
-            'preis'=> 50,
-            'bild'=> 'audiA3.jpg',
-            'details'=> 'neuer Audi A3',
-            'postleitzahl'=>'78462',
-            'ort'=>'Konstanz',
-            'strasseNr'=>'Alfred-Wachtel-Straße 8',
-            'startdate'=>'2018-01-09',
-            'enddate'=>'2018-01-18'
+            'marke' => 'Audi',
+            'modell' => 'A5',
+            'baujahr' => '2016',
+            'farbe' => 'rot',
+            'kraftstoff' => 'Benzin',
+            'preis' => 100,
+            'bild' => 'audiA5.jpg',
+            'details' => 'neuer Audi A5',
+            'postleitzahl' => '78462',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Bodanstraße 15',
+            'startdate' => '2018-01-10',
+            'enddate' => '2018-01-20'
         ));
 
         autovermietung:: create(array(
             'name' => 'Auto',
-            'marke'=> 'Audi',
-            'modell'=> 'A5',
-            'baujahr'=> '2016',
-            'farbe'=> 'rot',
-            'kraftstoff'=> 'Benzin',
-            'preis'=> 100,
-            'bild'=> 'audiA5.jpg',
-            'details'=> 'neuer Audi A5',
-            'postleitzahl'=>'78462',
-            'ort'=>'Konstanz',
-            'strasseNr'=>'Bodanstraße 15',
-            'startdate'=>'2018-01-10',
-            'enddate'=>'2018-01-20'
+            'marke' => 'BMW',
+            'modell' => '3er',
+            'baujahr' => '2015',
+            'farbe' => 'silber',
+            'kraftstoff' => 'Benzin',
+            'preis' => 30,
+            'bild' => 'audiA3.jpg',
+            'details' => 'neuer Audi A3',
+            'postleitzahl' => '78479',
+            'ort' => 'Reichenau',
+            'strasseNr' => 'Priminstraße 45',
+            'startdate' => '2018-01-11',
+            'enddate' => '2018-01-30'
         ));
-
-        autovermietung:: create(array(
-        'name' => 'Auto',
-        'marke'=> 'BMW',
-        'modell'=> '3er',
-        'baujahr'=> '2015',
-        'farbe'=> 'silber',
-        'kraftstoff'=> 'Benzin',
-        'preis'=> 30,
-        'bild'=> 'audiA3.jpg',
-        'details'=> 'neuer Audi A3',
-        'postleitzahl'=>'78479',
-        'ort'=>'Reichenau',
-        'strasseNr'=>'Priminstraße 45',
-        'startdate'=>'2018-01-11',
-        'enddate'=>'2018-01-30'
-    ));
 
         autovermietung:: create(array(
             'name' => 'Auto',
-            'marke'=> 'Mercedes',
-            'modell'=> 'CLS',
-            'baujahr'=> '2017',
-            'farbe'=> 'silber',
-            'kraftstoff'=> 'Benzin',
-            'preis'=> 50,
-            'bild'=> 'audiA3.jpg',
-            'details'=> 'neuer Audi A3',
-            'postleitzahl'=>'78467',
-            'ort'=>'Konstanz',
-            'strasseNr'=>'Fürstenbergstraße 87',
-            'startdate'=>'2018-01-12',
-            'enddate'=>'2018-01-15'
-        ));
-
-        fahrradvermietung:: create(array(
-        'name' => 'Fahrrad',
-        'art'=> 'Freizeitbike',
-        'marke'=> 'Alpina',
-        'modell'=> 'Mountainbike',
-        'farbe'=> 'schwarz',
-        'preis'=> 5,
-        'bild'=> 'mountainbikeAlpina.jpg',
-        'details'=> 'guter Zustand',
-        'postleitzahl'=> '78464',
-        'ort'=> 'Konstanz',
-        'strasseNr'=> 'Universitätsstraße 10',
-        'startdate'=>'2018-01-10',
-        'enddate'=>'2018-01-18'
-    ));
-        fahrradvermietung:: create(array(
-            'name' => 'Fahrrad',
-            'art'=> 'Freizeitbike',
-            'marke'=> 'Alpina',
-            'modell'=> 'Mountainbike',
-            'farbe'=> 'schwarz',
-            'preis'=> 10,
-            'bild'=> 'mountainbikeAlpina.jpg',
-            'details'=> 'guter Zustand',
-            'postleitzahl'=> '78464',
-            'ort'=> 'Konstanz',
-            'strasseNr'=> 'Sonnenbühlstraße 5',
-            'startdate'=>'2018-01-13',
-            'enddate'=>'2018-01-25'
-        ));
-        fahrradvermietung:: create(array(
-            'name' => 'Fahrrad',
-            'art'=> 'Freizeitbike',
-            'marke'=> 'Alpina',
-            'modell'=> 'Mountainbike',
-            'farbe'=> 'schwarz',
-            'preis'=> 12,
-            'bild'=> 'mountainbikeAlpina.jpg',
-            'details'=> 'guter Zustand',
-            'postleitzahl'=> '78467',
-            'ort'=> 'Konstanz',
-            'strasseNr'=> 'Hindenburgstraße 5',
-            'startdate'=>'2018-01-11',
-            'enddate'=>'2018-01-17'
+            'marke' => 'Mercedes',
+            'modell' => 'CLS',
+            'baujahr' => '2017',
+            'farbe' => 'silber',
+            'kraftstoff' => 'Benzin',
+            'preis' => 50,
+            'bild' => 'audiA3.jpg',
+            'details' => 'neuer Audi A3',
+            'postleitzahl' => '78467',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Fürstenbergstraße 87',
+            'startdate' => '2018-01-12',
+            'enddate' => '2018-01-15'
         ));
 
         fahrradvermietung:: create(array(
             'name' => 'Fahrrad',
-            'art'=> 'Freizeitbike',
-            'marke'=> 'Alpina',
-            'modell'=> 'Mountainbike',
-            'farbe'=> 'schwarz',
-            'preis'=> 15,
-            'bild'=> 'mountainbikeAlpina.jpg',
-            'details'=> 'guter Zustand',
-            'postleitzahl'=> '78462',
-            'ort'=> 'Konstanz',
-            'strasseNr'=> 'Schreibergasse 2',
-            'startdate'=>'2018-01-10',
-            'enddate'=>'2018-01-18'
+            'art' => 'Freizeitbike',
+            'marke' => 'Alpina',
+            'modell' => 'Mountainbike',
+            'farbe' => 'schwarz',
+            'preis' => 5,
+            'bild' => 'mountainbikeAlpina.jpg',
+            'details' => 'guter Zustand',
+            'postleitzahl' => '78464',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Universitätsstraße 10',
+            'startdate' => '2018-01-10',
+            'enddate' => '2018-01-18'
         ));
+        fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
+            'art' => 'Freizeitbike',
+            'marke' => 'Alpina',
+            'modell' => 'Mountainbike',
+            'farbe' => 'schwarz',
+            'preis' => 10,
+            'bild' => 'mountainbikeAlpina.jpg',
+            'details' => 'guter Zustand',
+            'postleitzahl' => '78464',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Sonnenbühlstraße 5',
+            'startdate' => '2018-01-13',
+            'enddate' => '2018-01-25'
+        ));
+        fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
+            'art' => 'Freizeitbike',
+            'marke' => 'Alpina',
+            'modell' => 'Mountainbike',
+            'farbe' => 'schwarz',
+            'preis' => 12,
+            'bild' => 'mountainbikeAlpina.jpg',
+            'details' => 'guter Zustand',
+            'postleitzahl' => '78467',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Hindenburgstraße 5',
+            'startdate' => '2018-01-11',
+            'enddate' => '2018-01-17'
+        ));
+
+        fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
+            'art' => 'Freizeitbike',
+            'marke' => 'Alpina',
+            'modell' => 'Mountainbike',
+            'farbe' => 'schwarz',
+            'preis' => 15,
+            'bild' => 'mountainbikeAlpina.jpg',
+            'details' => 'guter Zustand',
+            'postleitzahl' => '78462',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Schreibergasse 2',
+            'startdate' => '2018-01-10',
+            'enddate' => '2018-01-18'
+        ));
+
 
 
 
@@ -339,7 +332,7 @@ class SharingSeeder extends Seeder
 
 
 
-        $farbe1 = Farbe:: create(array(
+        $farbe1 = farbe:: create(array(
             'name'=> 'rot'
         ));
 
@@ -350,32 +343,32 @@ class SharingSeeder extends Seeder
 
 
 
-        $firstbaujahr1 = Baujahr:: create(array(
+        $firstbaujahr1 = baujahr:: create(array(
             'jahr' => 2017
         ));
 
-        $firstbaujahr2 = Baujahr:: create(array(
+        $firstbaujahr2 = baujahr:: create(array(
             'jahr' => 2016
         ));
 
-        $firstbaujahr3 = Baujahr:: create(array(
+        $firstbaujahr3 = baujahr:: create(array(
             'jahr' => 2015
         ));
 
-        $firstbaujahr4 = Baujahr:: create(array(
+        $firstbaujahr4 = baujahr:: create(array(
             'jahr' => 2014
         ));
 
 
 
 
-        $firstAMarke1 = AMarke:: create(array(
+        $firstAMarke1 = amarke:: create(array(
             'name' => 'Audi'
         ));
-        $firstAMarke2 = AMarke:: create(array(
+        $firstAMarke2 = amarke:: create(array(
             'name' => 'BMW'
         ));
-        $firstAMarke3 = AMarke:: create(array(
+        $firstAMarke3 = amarke:: create(array(
             'name' => 'Mercedes'
         ));
 
@@ -383,28 +376,28 @@ class SharingSeeder extends Seeder
 
 
 
-        $firstmodelA1 = AModell::create(array(
+        $firstmodelA1 = amodell::create(array(
             'aModellname' => 'A1',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelA2 = AModell::create(array(
+        $firstmodelA2 = amodell::create(array(
             'aModellname' => 'A2',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff2->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelA3 = AModell::create(array(
+        $firstmodelA3 = amodell::create(array(
             'aModellname' => 'A3',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff2->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelA4 = AModell::create(array(
+        $firstmodelA4 = amodell::create(array(
             'aModellname' => 'A4',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff1->id
@@ -418,28 +411,28 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelBMW1 = AModell::create(array(
+        $firstmodelBMW1 = amodell::create(array(
             'aModellname' => '3er',
             'idaMarke' => $firstAMarke2->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelBMW2 = AModell::create(array(
+        $firstmodelBMW2 = amodell::create(array(
             'aModellname' => '1er',
             'idaMarke' => $firstAMarke2->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelM1 = AModell::create(array(
+        $firstmodelM1 = amodell::create(array(
             'aModellname' => 'CLS',
             'idaMarke' => $firstAMarke3->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelM2 = AModell::create(array(
+        $firstmodelM2 = amodell::create(array(
             'aModellname' => 'S63',
             'idaMarke' => $firstAMarke3->id,
             'idKraftstoff' => $kraftstoff1->id
@@ -495,7 +488,7 @@ class SharingSeeder extends Seeder
 */
 
 
-
+/*
 
         $fart1 = Art:: create(array(
             'name'=> 'Kinderräder'

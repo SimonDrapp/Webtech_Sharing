@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Vermieten;
 use Illuminate\Http\Request;
-use App\AMarke;
-use App\AModell;
-use App\Kraftstoff;
+use App\amarke;
+use App\amodell;
+use App\kraftstoff;
 use App\Auto;
-use App\Baujahr;
+use App\baujahr;
 use App\Art;
-use App\Farbe;
+use App\farbe;
 use DB;
 use App\autovermietung;
 use Session;
@@ -19,13 +19,12 @@ use App\fahrradvermietung;
 class AutovermietungController extends Controller
 {
     public function prodfunct(){
-        $amarke = AMarke::all();
-        $amodell = AModell::all();
-        $vermieten = Vermieten::all();
-        $baujahr = Baujahr::all();
-        $farbe = Farbe::all();
-        $kraftstoff = Kraftstoff::all();
-        return view('EigenschaftAutovermietung', compact('amarke', 'kraftstoff', 'baujahr','farbe', 'vermieten','amodell'));
+        $amarke = amarke::all();
+        $amodell = amodell::all();
+        $baujahr = baujahr::all();
+        $farbe = farbe::all();
+        $kraftstoff = kraftstoff::all();
+        return view('EigenschaftAutovermietung', compact('amarke', 'kraftstoff', 'baujahr','farbe', 'amodell'));
     }
 
     public function findModellName(Request $request){

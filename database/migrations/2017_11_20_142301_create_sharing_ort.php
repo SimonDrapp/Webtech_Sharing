@@ -13,7 +13,7 @@ class CreateSharingOrt extends Migration
      */
     public function up()
     {
-        Schema::create('Ort', function (Blueprint $table) {
+        Schema::create('ort', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Name');
             $table->string('plz');

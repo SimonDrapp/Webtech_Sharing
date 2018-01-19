@@ -10,10 +10,10 @@ use Illuminate;
 use App\autovermietung;
 use Session;
 use DB;
-use App\Art;
-use App\FMarke;
-use App\FModell;
-use App\Farbe;
+use App\art;
+use App\fmarke;
+use App\fmodell;
+use App\farbe;
 use App\fahrradvermietung;
 use App\Fahrrad;
 
@@ -21,19 +21,19 @@ class FahrradvermietungController extends Controller
 {
    public function findFahrrad(){
 
-       $fahrradArt= Art::all();
-       $fahrradModell = FModell::all();
-       $fahrradFarbe= Farbe::all();
+       $fahrradArt= art::all();
+       $fahrradModell = fmodell::all();
+       $fahrradFarbe= farbe::all();
        return view('Fahrradvermietung', compact('fahrradArt', 'fahrradFarbe', 'fahrradModell'));
     }
 
     public function findMarkeNameFahrrad(Request $request){
-        $data= FMarke::select('name', 'id')->where('idArt', $request->id)->take(100)->get();
+        $data= fmarke::select('name', 'id')->where('idArt', $request->id)->take(100)->get();
         return response()->json($data);
     }
 
     public function findModellNameFahrrad(Request $request){
-        $data= FModell::select('name', 'id')->where('idMarke', $request->id)->take(100)->get();
+        $data= fmodell::select('name', 'id')->where('idMarke', $request->id)->take(100)->get();
         return response()->json($data);
     }
 

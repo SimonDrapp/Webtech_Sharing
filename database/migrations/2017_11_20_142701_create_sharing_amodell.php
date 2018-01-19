@@ -13,13 +13,13 @@ class CreateSharingAmodell extends Migration
      */
     public function up()
     {
-        Schema::create('AModell', function (Blueprint $table) {
+        Schema::create('amodell', function (Blueprint $table) {
             $table->increments('id');
             $table->String('aModellname');
             $table->Integer('idAmarke')->unsigned();
             $table->Integer('idKraftstoff')->unsigned();
-            $table->foreign('idAmarke')->references('id')->on('AMarke');
-            $table->foreign('idKraftstoff')->references('id')->on('Kraftstoff');
+            $table->foreign('idAmarke')->references('id')->on('amarke');
+            $table->foreign('idKraftstoff')->references('id')->on('kraftstoff');
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mieten extends Model
 {
-    protected $table = 'Mieten';
+    protected $table = 'mieten';
     protected $primaryKey = 'id';
     protected $keyType = 'Integer';
     public $incrementing = true;

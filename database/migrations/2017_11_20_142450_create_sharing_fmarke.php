@@ -13,11 +13,11 @@ class CreateSharingFmarke extends Migration
      */
     public function up()
     {
-        Schema::create('FMarke', function (Blueprint $table) {
+        Schema::create('fmarke', function (Blueprint $table) {
             $table->increments('id');
             $table->String('name');
             $table->integer('idArt')->unsigned();
-            $table->foreign('idArt')->references('id')->on('Art');
+            $table->foreign('idArt')->references('id')->on('art');
             $table->timestamps();
         });
     }
