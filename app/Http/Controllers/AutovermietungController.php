@@ -42,13 +42,15 @@ class AutovermietungController extends Controller
     }
 
 
+
+
     public function putCar(Request $request){
         $autovermietungen = new autovermietung;
-        $marke = $request->explode(", ", marke);
-        $marke2 = $marke[1];
+        $marke = $request->marke . " ";
+        $marke2 = substr($marke,2, (explode($marke)-2));
         $autovermietungen->marke = $marke2;
         $modell = $request->modell . " ";
-        $modell2 = substr($modell,2, (sizeof($modell)-2));
+        $modell2 = substr($modell,2, (explode($modell)-2));
         $autovermietungen->modell = $modell2;
         $autovermietungen->baujahr = $request->baujahr;
         $autovermietungen->farbe = $request->farbe;
