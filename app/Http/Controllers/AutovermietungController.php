@@ -41,10 +41,11 @@ class AutovermietungController extends Controller
         return response()->json($autotyp);     //hier wird die information dann an ajax success gesendet
     }
 
+
     public function putCar(Request $request){
         $autovermietungen = new autovermietung;
-        $marke = $request->marke . " ";
-        $marke2 = substr($marke,2, (sizeof($marke)-2));
+        $marke = $request->explode(", ", marke);
+        $marke2 = $marke[1];
         $autovermietungen->marke = $marke2;
         $modell = $request->modell . " ";
         $modell2 = substr($modell,2, (sizeof($modell)-2));
