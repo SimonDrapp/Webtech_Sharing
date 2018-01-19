@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" action="/BenachrichtigungSpeichern">
+                <form method="post" action="{{ route('postNachricht') }}">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Your name" required>
@@ -36,9 +36,9 @@
                     <div class="form-group">
                         <input type="submit" id="btnSubmit" name="submit" class="btn btn-primary" value="Submit Form">
                         </input>
-                        <a href="/NachrichtenAnzeigen">
+                  <!--      <a href="/NachrichtenAnzeigen">
                             <span class="glyphicon glyphicon-envelope"></span>
-                        </a>
+                        </a> -->
                         <!--<span id="status"></span>-->
                     </div>
                 </form>
