@@ -10,7 +10,8 @@
 
 <div class="change" style="margin-top:70px">
     <div class="container">
-        <table class="table">
+        <div class="row" id="tableadmin">
+        <table class="table table-hover" id="adminrechte">
             <thead>
             <tr>
                 <th>Vorname</th>
@@ -35,6 +36,7 @@
             @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 

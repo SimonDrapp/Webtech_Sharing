@@ -25,6 +25,7 @@
                     <li><a href="{{ route('Vermieten') }}">Vermieten</a></li>
                     <li><a href="{{route('admin')}}">Benutzer</a></li>
                     <li><a href="{{ route('nachricht') }}">Nachrichten</a></li>
+                    <li><a href="#">Über uns</a></li>
                     <li class="dropdown">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -44,13 +45,6 @@
                                 </form>
                             </li>
                         </ul>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sprachen<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Deutsch</a></li>
-                            <li><a href="#">Englisch</a></li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>

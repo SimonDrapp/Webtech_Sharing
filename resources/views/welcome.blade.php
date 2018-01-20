@@ -222,7 +222,34 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
 
+<a id="popuplink" href="#inline" style="display:none;"></a>
+<div id="inline" style="display:none;text-align:center;">
+    <p>Mit der Verwendung dieser Webseite und Nutzung unserer Dienste erklärst du dich damit einverstanden, dass wir Cookies verwenden. <a href="/cookie">Mehr erfahren.</a></p>
+    <p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Einverstanden</a></p>
+</div>
 
+
+<script>
+    jQuery(document).ready(function () {
+        function openFancybox() {
+            setTimeout(function () {
+                jQuery('#popuplink').trigger('click');
+            }, 500);
+        };
+        var visited = jQuery.cookie('visited');
+        if (visited == 'yes') {
+            // second page load, cookie active
+        } else {
+            openFancybox(); // first page load, launch fancybox
+        }
+        jQuery.cookie('visited', 'yes', {
+            expires: 365 // Anzahl der Tage die, die Cookies gültig sind
+        });
+        jQuery("#popuplink").fancybox({modal:true, maxWidth: 400, overlay : {closeClick : true}});
+    });
+
+
+</script>
 
 
 @include('includes.footer')
