@@ -1166,7 +1166,7 @@
         margin-top: 20px;
         margin-bottom: 50px;
         float:left;
-        display: block;
+        display: block !important;
     }
     .searchResults{
         width: 57%;
