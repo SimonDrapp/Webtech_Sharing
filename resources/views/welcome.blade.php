@@ -219,6 +219,7 @@
          map.setCenter(center);
      });*/
 </script>
+<script src="js/welcome.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
 
@@ -227,6 +228,6 @@
 
 @include('includes.footer')
 
-<script src="js/welcome.js"></script>
+
 </body>
 </html>
