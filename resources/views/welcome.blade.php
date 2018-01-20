@@ -25,8 +25,7 @@
 
                 <div class="content">
                     <h1>Egal ob im Berufsalltag, in der Freizeit oder im Urlaub</h1>
-                    <h2>-</h2>
-                    <h1>Bei uns findest du immer was!</h1>
+                    <h2>Bei uns findest du immer was!</h2>
                 </div>
 
 
