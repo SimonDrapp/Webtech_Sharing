@@ -606,6 +606,7 @@ map{
     border-radius: 5px;
     height: 40px;
     margin-top: 15px;
+    cursor: pointer;
 }
 #buttonFilter{
     font-size: 14px;
