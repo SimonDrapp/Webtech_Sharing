@@ -1,3 +1,9 @@
+$('#slider-range').draggable();
+
+
+
+
+
 /*---Slider---*/
 $(function () {
     $("#slider-range").slider({
