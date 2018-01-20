@@ -1,4 +1,4 @@
-$('#slider-range').draggable();
+
 
 
 
