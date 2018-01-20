@@ -490,30 +490,30 @@ class SharingSeeder extends Seeder
 
 
 
-        $fart1 = Art:: create(array(
+        $fart1 = art:: create(array(
             'name'=> 'Kinderräder'
         ));
-        $fart2 = Art:: create(array(
+        $fart2 = art:: create(array(
             'name'=> 'Sporträder'
         ));
-        $fart3 = Art:: create(array(
+        $fart3 = art:: create(array(
             'name'=> 'Freizeitbike'
         ));
 
 
 
 
-        $fmarke1 = FMarke:: create(array(
+        $fmarke1 = fmarke:: create(array(
             'name'=> 'Bavaria',
             'idArt' => $fart1->id,
         ));
 
-        $fmarke2 = FMarke:: create(array(
+        $fmarke2 = fmarke:: create(array(
             'name'=> 'Bernds',
             'idArt' => $fart3->id,
         ));
 
-        $fmarke3 = FMarke:: create(array(
+        $fmarke3 = fmarke:: create(array(
             'name'=> 'Alpina',
             'idArt' => $fart2->id,
         ));
@@ -521,19 +521,19 @@ class SharingSeeder extends Seeder
 
 
 
-        $firstmodelF1 = FModell::create(array(
+        $firstmodelF1 = fmodell::create(array(
             'name' => 'Junior Bike',
             'idMarke' => $fmarke1->id
         ));
         $this->command->info('FModell angelegt!!');
 
-        $firstmodelF2 = FModell::create(array(
+        $firstmodelF2 = fmodell::create(array(
             'name' => 'Mountainbike',
             'idMarke' => $fmarke3->id
         ));
         $this->command->info('FModell angelegt!!');
 
-        $firstmodelF3 = FModell::create(array(
+        $firstmodelF3 = fmodell::create(array(
             'name' => 'Rennrad',
             'idMarke' => $fmarke2->id
         ));
