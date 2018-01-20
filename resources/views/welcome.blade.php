@@ -134,6 +134,7 @@
 <div id="googleMap1"></div>
 <script>
     function initialize(coords) {
+        console.log('Google Maps API version: ' + google.maps.version);
         var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
         var myOptions = {
             zoom: 13,
@@ -196,7 +197,7 @@
     navigator.geolocation.getCurrentPosition(function (position) {
         initialize(position.coords);
     }, function () {
-        document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
+        document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
     });
 
 
