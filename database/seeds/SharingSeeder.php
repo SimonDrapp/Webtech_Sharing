@@ -488,7 +488,7 @@ class SharingSeeder extends Seeder
 */
 
 
-/*
+
 
         $fart1 = Art:: create(array(
             'name'=> 'Kinderräder'
