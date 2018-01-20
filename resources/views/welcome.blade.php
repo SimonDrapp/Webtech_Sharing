@@ -134,7 +134,6 @@
 <div id="googleMap1"></div>
 <script>
     function initialize(coords) {
-        console.log('Google Maps API version: ' + google.maps.version);
         var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
         var myOptions = {
             zoom: 13,
