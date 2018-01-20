@@ -124,6 +124,7 @@ body {
 }
 #searchBtnMobil{
     display: none;
+    cursor: pointer;
 }
 
 .form-group>a{
@@ -821,6 +822,7 @@ h5 {
 
 .searchFilter_filter-content ul li a{
     color: black;
+    cursor: pointer;
 }
 .searchFilter_filter-content ul li a:hover{
     text-decoration: underline;

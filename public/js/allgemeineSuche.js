@@ -280,7 +280,7 @@ $(document).ready(function () {
     });
 
     /*---SuchenButton---*/
-    $('#buttonSearch1, .all, .cars, .bicycles, #buttonSearchMobil').live('click', function () {
+    $(document).on('click', '#buttonSearch1, .all, .cars, .bicycles, #buttonSearchMobil', function () {
 
         var ort = null;
         var plz = null;
