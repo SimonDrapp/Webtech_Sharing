@@ -22,8 +22,7 @@ class welcomeController extends Controller
         $date = date("Y-m-d");
         $userIP = $_SERVER['REMOTE_ADDR'];
 
-        $result = uniqueVisitor::where('date','=',$date)->get();
-
+        $result = uniqueVisitor::whereDate('date','=',$date)->get();
 
 
         if(!isset($_COOKIE['visitor'])){
@@ -40,10 +39,10 @@ class welcomeController extends Controller
 
         }else{
 
-            //$row= $result->first();
+            $row = $result->first();
 
             if(!isset($_COOKIE['visitor'])){
-                $newIP = $result->ip;
+                $newIP = $row->ip;
 
                 if(!preg_match('/'.$userIP.'/',$newIP)){
 

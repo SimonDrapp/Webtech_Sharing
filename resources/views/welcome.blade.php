@@ -219,16 +219,12 @@
      });*/
 </script>
 <script src="js/welcome.js"></script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
 
 <a id="popuplink" href="#inline" style="display:none;"></a>
 <div id="inline" style="display:none;text-align:center;">
-    <div class="header">
-    <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <p>Mit der Verwendung dieser Webseite und Nutzung unserer Dienste erklärst du dich damit einverstanden, dass wir Cookies verwenden. <a href="/Cookie">Mehr erfahren.</a></p>
+        <p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Einverstanden</a></p>
     </div>
-    <p>Mit der Verwendung dieser Webseite und Nutzung unserer Dienste erklärst du dich damit einverstanden, dass wir Cookies verwenden. <a href="/Cookie">Mehr erfahren.</a></p>
-    <p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Einverstanden</a></p>
 </div>
 
 
