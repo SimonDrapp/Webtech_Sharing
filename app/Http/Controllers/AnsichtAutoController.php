@@ -97,4 +97,15 @@ class AnsichtAutoController extends Controller
     {
         //
     }
+
+    public function putDate(Request $request){
+        $vermietungen = new autovermietung;
+        $vermietungen->startdate = $request->startdate;
+        $vermietungen->enddate = $request->enddate;
+
+        $request->session()->put('startdate', $request->startdate);
+        $request->session()->put('enddate', $request->enddate);
+
+        return view('Bezahlen',['vermietungen'=>$vermietungen]);
+    }
 }

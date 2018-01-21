@@ -239,6 +239,11 @@ Route::get('/Nachrichtenansicht',[
         'roles'=>['Admin']
 ]);
 
+Route::post('/Bezahlen',[
+        'uses'=> 'AnsichtAutoController@putDate',
+        'as'=> 'Bezahlen'
+]);
+
 });
 
 
