@@ -267,6 +267,7 @@ Session::put('price' , $vermietungen->preis);
                      startdate: '2018/01/28'}, function(returnedData){
                  console.log(returnedData);
                  });
+         });
                  });
          });
 
