@@ -51,6 +51,8 @@ array_shift($result);
     </a>
 </div>
 
+<form action="{{ route('Bezahlen') }}" method="post">
+    {{csrf_field()}}
 
 <div class="container">
     <div class="row">
@@ -192,9 +194,11 @@ array_shift($result);
 
 <div class="container btRent">
     <a href="/Bezahlen">
-        <button id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
+        <button type="submit" id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
     </a>
 </div>
+
+</form>
 
 <div class="container">
     <div class="row">
