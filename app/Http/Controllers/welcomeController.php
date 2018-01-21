@@ -50,7 +50,7 @@ class welcomeController extends Controller
                     $newIP = $userIP;
                 }
                 DB::table('unique_visitors')->where('date','=',$date)
-                                            ->increment('views',['ip'=>$newIP]);
+                                            ->increment('views',1,['ip'=>$newIP]);
                                             //->update(['ip'=>$newIP])
 
             }

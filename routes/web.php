@@ -96,6 +96,11 @@ Route::get('/changeFilterAll','allgemeineSucheController@changeFilterAll');
 Route::get('/changeFilterCars','allgemeineSucheController@changeFilterCars');
 Route::get('/changeFilterBicycles','allgemeineSucheController@changeFilterBicycles');
 
+Route::get('/ÜberUns',[
+    'uses'=> 'überUnsController@index',
+    'as'=>'überUns'
+]);
+
 
 
 Route::get('/Bild', function () {
