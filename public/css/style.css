@@ -233,16 +233,16 @@ map{
 }
 
 /*-----------Impressum Seite und AGB Seite--------------*/
-.agb_content h6, .impressum_content h1 {
+.agb_content h6, .impressum_content h1, .cookie_content h1 {
     margin-top: 70px;
     font-size: 40px;
 }
 
-.agb_content, .impressum_content {
+.agb_content, .impressum_content, .cookie_content {
     text-align: center;
 }
 
-.agb_div h7, .impressum_content h3 {
+.agb_div h7, .impressum_content h3, .cookie_content h3 {
     font-size: 30px;
     text-transform: uppercase;
     text-align: center !important;
@@ -260,7 +260,7 @@ map{
     margin-bottom: -2%;
 }
 
-.ImpressumTeilüberschrift1 {
+.ImpressumTeilüberschrift1, .CookieTeilüberschrift {
     padding-top: 0;
     padding-bottom: 0;
     margin-top: 0%;
@@ -269,7 +269,7 @@ map{
 
 }
 
-.agb_div p, .impressum_div p {
+.agb_div p, .impressum_div p, .cookie_div p {
     font-size: 20px;
     text-align: left;
     margin-left: 20%;

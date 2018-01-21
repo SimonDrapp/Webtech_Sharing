@@ -28,7 +28,7 @@ Route::get('/AGB', function () {
     return view('AGB');
 });
 
-Route::get('/cookie', function () {
+Route::get('/Cookie', function () {
     return view('Cookie');
 });
 
