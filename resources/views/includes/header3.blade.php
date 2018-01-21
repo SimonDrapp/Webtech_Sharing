@@ -1,4 +1,5 @@
 
+@include('includes.head')
 <header>
 
 

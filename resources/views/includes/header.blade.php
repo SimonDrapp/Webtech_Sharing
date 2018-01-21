@@ -23,18 +23,7 @@
                     <li><a href="{{ route('signup') }}">Registrieren</a></li>
                     <li><a href="{{ route('signin') }}">Einloggen</a></li>
                     <li><a href="#myModal2" data-toggle="modal" data-target="#myModal2">Vermieten</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hilfe<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Über uns</a></li>
-                                <li><a href="#">Wie es funktioniert</a></li></ul></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sprachen<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Deutsch</a></li>
-                                <li><a href="#">Englisch</a></li>
-                            </ul>
-                        </li>
+                    <li><a href="#">Über uns</a></li>
                     </ul>
                 </div>
             </div>
