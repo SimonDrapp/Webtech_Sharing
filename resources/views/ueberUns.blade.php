@@ -21,7 +21,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <div class="milestone-counter">
                 <i class="fa fa-user fa-3x"></i>
-                <span class="stat-count highlight" data-count="122">0</span>
+                <span class="stat-count highlight" data-count="{{$visitor->views}}">0</span>
                 <div class="milestone-details">Besucher Webseite</div>
             </div>
         </div>

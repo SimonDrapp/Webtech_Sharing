@@ -23,8 +23,20 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
-
 }
+
+/*-------Header-----------*/
+
+
+/*.navbar-inverse .navbar-nav > li > a:hover{
+    background-color: rgba(112, 173, 71, 1);
+}
+.navbar-inverse .navbar-nav > li > a .aktiv{
+    background-color: rgba(112, 173, 71, 1);
+}*/
+
+
+
 
 /*-----------Startseite Schrift über Bild--------------*/
 .content {
