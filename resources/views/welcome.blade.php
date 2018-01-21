@@ -25,8 +25,7 @@
 
                 <div class="content">
                     <h1>Egal ob im Berufsalltag, in der Freizeit oder im Urlaub</h1>
-                    <h2>-</h2>
-                    <h1>Bei uns findest du immer was!</h1>
+                    <h2>Bei uns findest du immer was!</h2>
                 </div>
 
 
@@ -196,7 +195,7 @@
     navigator.geolocation.getCurrentPosition(function (position) {
         initialize(position.coords);
     }, function () {
-        document.getElementById('googleMaps1').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
+        document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
     });
 
 
@@ -219,6 +218,7 @@
          map.setCenter(center);
      });*/
 </script>
+<script src="js/welcome.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
 
@@ -254,6 +254,6 @@
 
 @include('includes.footer')
 
-<script src="js/welcome.js"></script>
+
 </body>
 </html>

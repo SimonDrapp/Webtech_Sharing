@@ -32,19 +32,18 @@ body {
     text-align: center;
     color: white;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.7);
-    padding-top: 150px;
+    padding-top: 20%;
     font-family: 'Roboto', sans-serif;
 }
 
 .content h1 {
     margin: 0;
-    font-size: 350%;
+    font-weight: bold;
 
 }
 
 .content h2 {
-    margin: 0;
-    font-size: 350%;
+
 }
 
 /*-----------Header/Footer--------------*/
@@ -124,6 +123,7 @@ body {
 }
 #searchBtnMobil{
     display: none;
+    cursor: pointer;
 }
 
 .form-group>a{
@@ -605,6 +605,7 @@ map{
     border-radius: 5px;
     height: 40px;
     margin-top: 15px;
+    cursor: pointer;
 }
 #buttonFilter{
     font-size: 14px;
@@ -821,6 +822,7 @@ h5 {
 
 .searchFilter_filter-content ul li a{
     color: black;
+    cursor: pointer;
 }
 .searchFilter_filter-content ul li a:hover{
     text-decoration: underline;

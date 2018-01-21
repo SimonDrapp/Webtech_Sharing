@@ -1,3 +1,9 @@
+
+
+
+
+
+
 /*---Slider---*/
 $(function () {
     $("#slider-range").slider({
@@ -321,6 +327,55 @@ $(document).ready(function () {
             }
         })
     });
+    /*---SuchenButtonMobil IOS-Problem---*/
+    $('#buttonSearchMobil').click(function () {
+
+        var ort = null;
+        var plz = null;
+
+
+        var ortplz = $('#searchCity1').val();
+        if(ortplz) {
+            var ortArray = ortplz.split(", ");
+            var ort = ortArray[0];
+            if (ort.indexOf(" ") > -1) {
+                ortArray1 = ort.split(" ");
+                var ort = ortArray1[0];
+            }
+            var plz = ortArray[1];
+        }
+        var startdate = $('#datevon1').val();
+        var enddate = $('#datebis1').val();
+
+
+
+        //console.log($checkFilter);
+
+        $.ajax({
+            type: 'GET',
+            url: '/searchVehicles',
+            data: {
+                'ort': ort,
+                'plz': plz,
+                'startdate': startdate,
+                'enddate': enddate,
+                'checkFilter': $checkFilter
+            },
+            success: function (data) {
+                $('.searchResults_block').empty();
+                $('.searchResults_block').html(data);
+                /*---NächsteAnzeigenButton---*/
+                $(function () {
+                    $(".showMoreResults").slice(0, 4).show();
+                    $("#loadMoreResults").on('click', function (e) {
+                        e.preventDefault();
+                        $(".showMoreResults:hidden").slice(0, 4).slideDown();
+                    });
+                });
+            }
+        })
+    });
+
 
     /*---Ajax Preis slider--*/
     $('#slider-range').mouseup(function () {
