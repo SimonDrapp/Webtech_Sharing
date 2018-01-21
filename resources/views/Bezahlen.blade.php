@@ -83,6 +83,11 @@ $price = Session::get('price');
         </div>
     </div>
 </div>
+
+<input name="startdate" value="{{$vermietungen->startdate}}" disabled="">
+<input name="enddate" value="{{$vermietungen->enddate}}" disabled="">
+
+
 <div class="container">
     <div class="col-lg-12">
         <button id="btZahlen" class=" btn btn-basic" data-toggle="modal" data-target="#myModal4" type="button">Mieten!
