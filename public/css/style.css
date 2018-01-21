@@ -26,7 +26,6 @@ body {
 
 }
 
-
 /*-----------Startseite Schrift über Bild--------------*/
 .content {
     text-align: center;
@@ -1195,4 +1194,39 @@ h5 {
     top: 10px;
     line-height: 1;
     border: none !important;
+}
+
+/*---ÜberUns---*/
+.counter {
+    display: table-cell;
+    margin:1.5%;
+    font-size:50px;
+    background-color: #FF6F6F;
+    width:200px;
+    border-radius: 50%;
+    height:200px;
+    vertical-align: middle;
+}
+
+
+.stat {
+    margin:150px auto;
+    text-align:center;
+}
+.highlight {
+    color:#111;
+    padding:20px 0;
+    font-weight:bold;
+    display:block;
+    overflow:hidden;
+    margin-bottom:0;
+    font-size:48px;
+}
+.stat i {
+    color:#f7c221;
+}
+.milestone-details {
+    font-weight: bold;
+    font-size: 18px;
+    color: #999;
 }
