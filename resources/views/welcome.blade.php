@@ -252,6 +252,9 @@
 
 </script>
 
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+
 
 @include('includes.footer')
 

@@ -46,11 +46,13 @@ class welcomeController extends Controller
 
                 if(!preg_match('/'.$userIP.'/',$newIP)){
 
-                    $newIP .= $userIP;
+                    //$newIP .= $userIP;
+                    $newIP = $userIP;
                 }
                 DB::table('unique_visitors')->where('date','=',$date)
-                                            ->update(['ip'=>$newIP])
-                                            ->increment('views');
+                                            ->increment('views',['ip'=>$newIP]);
+                                            //->update(['ip'=>$newIP])
+
             }
         }
 
