@@ -238,11 +238,11 @@ map{
     font-size: 40px;
 }
 
-.agb_content, .impressum_content {
+.agb_content, .impressum_content{
     text-align: center;
 }
 
-.agb_div h7, .impressum_content h3 {
+.agb_div h7, .impressum_content h3{
     font-size: 30px;
     text-transform: uppercase;
     text-align: center !important;
@@ -260,7 +260,7 @@ map{
     margin-bottom: -2%;
 }
 
-.ImpressumTeilüberschrift1 {
+.ImpressumTeilüberschrift1{
     padding-top: 0;
     padding-bottom: 0;
     margin-top: 0%;
@@ -269,7 +269,7 @@ map{
 
 }
 
-.agb_div p, .impressum_div p {
+.agb_div p, .impressum_div p{
     font-size: 20px;
     text-align: left;
     margin-left: 20%;
@@ -1141,3 +1141,58 @@ h5 {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+#adminrechte {
+   border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;"
+}
+
+#tableadmin{
+    background-color: #f2f2f2
+}
+
+#overbox3 {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(64, 64, 64, 0.5);
+    z-index: 999999;
+    display: none;
+}
+
+#infobox3 {
+    margin: auto;
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    height: 300px;
+    width: 400px;
+    background-color: white;
+    border: 1px solid red;
+}
+
+
+.hide--first > *:first-child {
+    display: none;
+}
+.hide--second > *:last-child {
+    display: none;
+}
+
+.message {
+    position: relative
+}
+
+.close {
+    color: #f00;
+    position: absolute;
+    text-transform: lowercase;
+    right: 20px;
+    font-size: 1.5em;
+    top: 10px;
+    line-height: 1;
+    border: none !important;
+}

@@ -647,6 +647,9 @@
     .fa{
         font-size: 29px!important;
     }
+    #tableadmin{
+        overflow-x:auto;
+    }
 
 }
 

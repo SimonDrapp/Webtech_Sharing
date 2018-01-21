@@ -28,6 +28,11 @@ Route::get('/Impressum', function () {
 Route::get('/AGB', function () {
     return view('AGB');
 });
+
+Route::get('/Cookie', function () {
+    return view('Cookie');
+});
+
 /*Route::get('/Login', function () {
     return view('/auth/login');
 });
