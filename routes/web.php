@@ -20,6 +20,7 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/', 'welcomeController@index');
 
+
 Route::get('/Impressum', function () {
     return view('Impressum');
 });
