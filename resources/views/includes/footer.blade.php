@@ -1,5 +1,5 @@
 <footer>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-bottom">
         <div class="container-fluid2">
             <ul class="nav navbar-nav">
                 <li><a href="#myModal" id="modal">Kontakt</a></li>

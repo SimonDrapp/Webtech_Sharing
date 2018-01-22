@@ -1196,3 +1196,25 @@ h5 {
     line-height: 1;
     border: none !important;
 }
+
+
+.bg-1 {
+    /*background-color: #1abc9c; /* Green */
+    color: #ffffff;
+    text-align: center;
+}
+.bg-1>h1{
+    margin-top: 5%;
+    color: white;
+    background-color: #737373;
+    opacity: 0.8;
+}
+#logo{
+    width: 35%;
+    height: 60%;
+}
+.bg-2 {
+    text-align: center;
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
