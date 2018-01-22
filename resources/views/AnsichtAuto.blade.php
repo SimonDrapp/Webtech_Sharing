@@ -154,6 +154,17 @@ array_shift($result);
             <div id="googleMap"></div>
             <script>
                 function myMap() {
+                    var myCenter = new google.maps.LatLng(47.6680578, 9.16940969999996);
+                    var mapCanvas = document.getElementById("googleMap1");
+                    var mapOptions = {center: myCenter, zoom: 17};
+                    var map = new google.maps.Map(mapCanvas, mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: myCenter,
+                        map: map,
+                        title: "Hier befinden wir uns :)"
+                    });
+                }
+               /* function myMap() {
                    var latlng = new google.maps.LatLng(47.6680578, 9.16940969999996);
                     var myOptions = {
                         zoom: 15,
@@ -182,12 +193,12 @@ array_shift($result);
                         }
                     })
                 }
-
-                navigator.geolocation.getCurrentPosition(function (position) {
+*/
+               /* navigator.geolocation.getCurrentPosition(function (position) {
                     myMap(position.coords);
                 }, function () {
                     document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-                });
+                });*/
             </script>
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFl0FbQNwF5KRI8lLPNvLs9neNAHwwzt8"></script>
