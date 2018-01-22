@@ -153,8 +153,8 @@ array_shift($result);
         <div class="col-md-4 col-lg-6">
             <div id="googleMap"></div>
             <script>
-                function myMap(coords) {
-                   var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+                function myMap() {
+                   var latlng = new google.maps.LatLng(47.6680578, 9.16940969999996);
                     var myOptions = {
                         zoom: 15,
                         center: latlng
@@ -183,7 +183,7 @@ array_shift($result);
                     })
                 }
 
-                navigator.geolocation.getCurrentPosition(myMap);
+               /* navigator.geolocation.getCurrentPosition(myMap);*/
             </script>
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
