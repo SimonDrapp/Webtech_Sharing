@@ -18,9 +18,7 @@ $start = new DateTime($dates->startdate);
 $end = new DateTime($dates->enddate);
 $result = date_diff($start, $end, true);
 $results = $result->format('%d ');
-$second = (intval($price)) * (intval($results));
-
-
+$second = (floatval($price)) * (floatval($results));
 ?>
 
 <div class="container">
