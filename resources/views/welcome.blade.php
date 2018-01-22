@@ -138,7 +138,7 @@
             zoom: 13,
             center: latlng
         };
-        var map = new google.maps.Map(document.getElementById("googleMap1"), myOptions);
+        var map = new google.maps.Map(document.getElementById('googleMap1'), myOptions);
 
         var marker = new google.maps.Marker({
             position: latlng,

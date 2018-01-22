@@ -150,7 +150,27 @@ array_shift($result);
         <div class="col-md-4 col-lg-6">
             <div id="googleMap"></div>
             <script>
-                function myMap(coords) {
+                function myMap() {
+                    var geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({
+                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+                    }, function (geocoderResults, status) {
+                        if (status === 'OK') {
+                            var latlng = geocoderResults[0].geometry.location;
+                            var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
+                            var mapOptions = {center: pos, zoom: 15};
+                            var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+                            var newMarker = new google.maps.Marker({
+                                map: map,
+                                position: pos,
+                                icon: '/img/car.png',
+                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                            });
+                        }
+                    })
+
+                }
+               /* function myMap(coords) {
                     var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
                     var myOptions = {
                         zoom: 15,
@@ -166,7 +186,7 @@ array_shift($result);
 
                     var geocoder = new google.maps.Geocoder();
                     geocoder.geocode({
-                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+                        address:
                     }, function (geocoderResults, status) {
                         if (status === 'OK') {
                             var latlng = geocoderResults[0].geometry.location;
@@ -174,7 +194,7 @@ array_shift($result);
                                 map: map,
                                 position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
                                 icon: '/img/bicycle.png',
-                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                                title: ""
                             });
                         }
                     })
@@ -184,7 +204,7 @@ array_shift($result);
                     myMap(position.coords);
                 }, function () {
                     document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-                });
+                });*/
             </script>
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap()&v=3.9"></script>
