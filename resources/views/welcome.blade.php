@@ -93,7 +93,7 @@
         </div>
 
         <div class="button1">
-            <a href="/Ansicht">
+            <a href="/changeFilterCars">
                 <button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
                             class="glyphicon glyphicon-triangle-right"></span></button>
             </a>
@@ -127,8 +127,6 @@
     </section>
 
 </article>
-
-
 
 <div id="googleMap1"></div>
 <script>
