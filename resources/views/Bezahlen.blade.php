@@ -16,9 +16,9 @@
 $price = Session::get('price');
 $start = new DateTime($dates->startdate);
 $end = new DateTime($dates->enddate);
-
 $result = date_diff($start, $end, true);
 $results = $result->format('%d ');
+$second = (intval($price)) * (intval($results));
 
 
 ?>
@@ -81,7 +81,7 @@ $results = $result->format('%d ');
                 <p>Preis pro Tag: <?php echo $price?> €</p>
                 <p>Anzahl der Tage: <? echo $results?> Tage</p>
                 <hr>
-                <p>Preis: <?echo $price*$results ?> €</p>
+                <p>Preis: <?echo $second ?> €</p>
             </div>
         </div>
     </div>
