@@ -14,7 +14,11 @@
 @endif
 <?php
 $price = Session::get('price');
+$start = $dates->startdate;
+$end = $dates->enddate;
 
+$result = date_diff($start, $end, true );
+echo $result;
 
 
 ?>
@@ -83,9 +87,6 @@ $price = Session::get('price');
         </div>
     </div>
 </div>
-
-<input name="startdate" value="{{$vermietungen->startdate}}" disabled="">
-<input name="enddate" value="{{$vermietungen->enddate}}" disabled="">
 
 
 <div class="container">
