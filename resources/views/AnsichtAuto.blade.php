@@ -153,7 +153,7 @@ array_shift($result);
         <div class="col-md-4 col-lg-6">
             <div id="googleMap"></div>
             <script>
-                function myMap() {
+               window.myMap = function () {
                     var myCenter = new google.maps.LatLng(47.6680578, 9.16940969999996);
                     var mapCanvas = document.getElementById("googleMap1");
                     var mapOptions = {center: myCenter, zoom: 17};
@@ -178,21 +178,6 @@ array_shift($result);
                         title: "Hier bist du :)"
                     });
 
-                    var geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({
-                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
-                    }, function (geocoderResults, status) {
-                        if (status === 'OK') {
-                            var latlng = geocoderResults[0].geometry.location;
-                            var newMarker = new google.maps.Marker({
-                                map: map,
-                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                                icon: '/img/car.png',
-                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
-                            });
-                        }
-                    })
-                }
 */
                /* navigator.geolocation.getCurrentPosition(function (position) {
                     myMap(position.coords);
@@ -201,7 +186,7 @@ array_shift($result);
                 });*/
             </script>
             <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFl0FbQNwF5KRI8lLPNvLs9neNAHwwzt8"></script>
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFl0FbQNwF5KRI8lLPNvLs9neNAHwwzt8&callback=myMap"></script>
         </div>
     </div>
 </div>
