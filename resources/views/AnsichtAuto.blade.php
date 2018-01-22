@@ -155,7 +155,7 @@ array_shift($result);
             <script>
                window.myMap = function () {
                     var myCenter = new google.maps.LatLng(47.6680578, 9.16940969999996);
-                    var mapCanvas = document.getElementById("googleMap1");
+                    var mapCanvas = document.getElementById('googleMap');
                     var mapOptions = {center: myCenter, zoom: 17};
                     var map = new google.maps.Map(mapCanvas, mapOptions);
                     var marker = new google.maps.Marker({
