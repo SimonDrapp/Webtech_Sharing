@@ -16,6 +16,7 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     background: rgb(224,224,224);
+    min-height: 100%;
 }
 
 /*------------Footer-------------*/
