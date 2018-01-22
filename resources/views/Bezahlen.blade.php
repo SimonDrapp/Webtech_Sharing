@@ -18,7 +18,7 @@ $start = new DateTime($dates->startdate);
 $end = new DateTime($dates->enddate);
 
 $result = date_diff($start, $end, true);
-echo $result->format('%d days');
+$results = $result->format('%d ');
 
 
 ?>
@@ -79,7 +79,7 @@ echo $result->format('%d days');
             <div class="rechnung">
                 <h1>Rechnungsbetrag</h1>
                 <p>Preis pro Tag: <?php echo $price?> €</p>
-                <p>Anzahl der Tage: </p>
+                <p>Anzahl der Tage:<? echo $results?> </p>
                 <hr>
                 <p>Preis: </p>
             </div>

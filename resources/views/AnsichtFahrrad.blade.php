@@ -217,8 +217,10 @@ array_shift($result);
         <button type="submit" id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
     </a>
 </div>
-
 </form>
+<?php
+Session::put('price' , $vermietungen->preis);
+?>
 
 <!--<div class="container">
     <div class="row">
