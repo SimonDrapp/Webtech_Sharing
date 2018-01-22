@@ -190,7 +190,7 @@ array_shift($result);
                 });
             </script>
             <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFl0FbQNwF5KRI8lLPNvLs9neNAHwwzt8"></script>
         </div>
     </div>
 </div>
@@ -232,7 +232,6 @@ Session::put('price' , $vermietungen->preis);
         $(document).on('change', function () {
             var start = document.getElementById('startdate').value;
            console.log(start);
-           alert(start);
             $.post("/Bezahlen", {start: start});
             /*var token = $('meta[name="csrf-token"]').attr('content');*/
            /* $.ajax({
@@ -256,7 +255,6 @@ Session::put('price' , $vermietungen->preis);
        $(document).on('change', function () {
            var end = document.getElementById('enddate').value;
            console.log(end);
-
        });
    });
 

@@ -83,7 +83,6 @@ echo $result;
                 <hr>
                 <p>Preis: </p>
             </div>
-
         </div>
     </div>
 </div>
