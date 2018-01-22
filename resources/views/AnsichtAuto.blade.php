@@ -153,24 +153,13 @@ array_shift($result);
         <div class="col-md-4 col-lg-6">
             <div id="googleMap"></div>
             <script>
-               window.myMap = function () {
-                    var myCenter = new google.maps.LatLng(47.6680578, 9.16940969999996);
-                    var mapCanvas = document.getElementById('googleMap');
-                    var mapOptions = {center: myCenter, zoom: 17};
-                    var map = new google.maps.Map(mapCanvas, mapOptions);
-                    var marker = new google.maps.Marker({
-                        position: myCenter,
-                        map: map,
-                        title: "Hier befinden wir uns :)"
-                    });
-                }
-               /* function myMap() {
-                   var latlng = new google.maps.LatLng(47.6680578, 9.16940969999996);
+                window.myMap = function (coords) {
+                   var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
                     var myOptions = {
                         zoom: 15,
                         center: latlng
                     };
-                    var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+                    var map = new google.maps.Map(document.getElementById('googleMap'), myOptions);
 
                     var marker = new google.maps.Marker({
                         position: latlng,
@@ -178,15 +167,30 @@ array_shift($result);
                         title: "Hier bist du :)"
                     });
 
-*/
-               /* navigator.geolocation.getCurrentPosition(function (position) {
+                    var geocoder = new google.maps.Geocoder();
+                    geocoder.geocode({
+                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+                    }, function (geocoderResults, status) {
+                        if (status === 'OK') {
+                            var latlng = geocoderResults[0].geometry.location;
+                            var newMarker = new google.maps.Marker({
+                                map: map,
+                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                                icon: '/img/car.png',
+                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                            });
+                        }
+                    })
+                }
+
+                navigator.geolocation.getCurrentPosition(function (position) {
                     myMap(position.coords);
                 }, function () {
                     document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-                });*/
+                });
             </script>
             <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFl0FbQNwF5KRI8lLPNvLs9neNAHwwzt8&callback=myMap"></script>
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
         </div>
     </div>
 </div>
@@ -228,6 +232,7 @@ Session::put('price' , $vermietungen->preis);
         $(document).on('change', function () {
             var start = document.getElementById('startdate').value;
            console.log(start);
+           alert(start);
             $.post("/Bezahlen", {start: start});
             /*var token = $('meta[name="csrf-token"]').attr('content');*/
            /* $.ajax({
@@ -251,6 +256,7 @@ Session::put('price' , $vermietungen->preis);
        $(document).on('change', function () {
            var end = document.getElementById('enddate').value;
            console.log(end);
+
        });
    });
 
