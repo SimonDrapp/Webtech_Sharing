@@ -85,7 +85,7 @@
                     tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
-                <a href="/Ansicht/1">
+                <a href="#">
                     <img class="AutoBild img-rounded" src="img/car1.jpg" data-src="holder.js/500x500/auto"
                          alt="Auto"></a>
             </div>
@@ -93,7 +93,7 @@
         </div>
 
         <div class="button1">
-            <a href="/changeFilterCars">
+            <a href="#">
                 <button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
                             class="glyphicon glyphicon-triangle-right"></span></button>
             </a>

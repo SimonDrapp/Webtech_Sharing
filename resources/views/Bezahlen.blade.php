@@ -14,8 +14,8 @@
 @endif
 <?php
 $price = Session::get('price');
-$start = $dates->startdate;
-$end = $dates->enddate;
+$start = new DateTime($dates->startdate);
+$end = new DateTime($dates->enddate);
 
 $result = date_diff($start, $end, true );
 echo $result;
