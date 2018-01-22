@@ -79,9 +79,9 @@ $results = $result->format('%d ');
             <div class="rechnung">
                 <h1>Rechnungsbetrag</h1>
                 <p>Preis pro Tag: <?php echo $price?> €</p>
-                <p>Anzahl der Tage:<? echo $results?> </p>
+                <p>Anzahl der Tage: <? echo $results?> Tage</p>
                 <hr>
-                <p>Preis: </p>
+                <p>Preis: <?echo $price*$results ?> €</p>
             </div>
         </div>
     </div>
