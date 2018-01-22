@@ -132,6 +132,11 @@
 
 <div id="googleMap1"></div>
 <script>
+    navigator.geolocation.getCurrentPosition(function (position) {
+        initialize(position.coords);
+    }, function () {
+        document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
+    });
     function initialize(coords) {
         var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
         var myOptions = {
@@ -158,6 +163,7 @@
                 // map.setCenter(geocoderResults[0].geometry.location);
 
                 var latlng = geocoderResults[0].geometry.location;
+
                 //console.log(latlng.lat(), latlng.lng());
                 var newMarker = new google.maps.Marker({
                     map: map,
@@ -192,11 +198,7 @@
         @endforeach
     }
 
-    navigator.geolocation.getCurrentPosition(function (position) {
-        initialize(position.coords);
-    }, function () {
-        document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
-    });
+
 
 
     /*function myMap() {
@@ -220,7 +222,7 @@
 </script>
 <script src="js/welcome.js"></script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=initialize&v=3.9"></script>
 
 <a id="popuplink" href="#inline" style="display:none;"></a>
 <div id="inline" style="display:none;text-align:center;">

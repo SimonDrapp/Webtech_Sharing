@@ -220,7 +220,7 @@ array_shift($result);
 
 </form>
 
-<div class="container">
+<!--<div class="container">
     <div class="row">
         <div class="col-md-3 col-lg-4">
             <p id="kon">Anbieter kontaktieren:</p>
@@ -238,7 +238,7 @@ array_shift($result);
             <button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button>
         </div>
     </div>
-</div>
+</div>-->
 
 
 @include('includes.footer')

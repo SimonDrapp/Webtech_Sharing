@@ -186,7 +186,7 @@ array_shift($result);
         <button id="btMieten" class=" btn btn-basic" type="submit">Mieten</button>
     </a>
 </div>
-
+<!--
 <div class="container">
     <div class="row">
         <div class="col-md-3 col-lg-4">
@@ -205,7 +205,7 @@ array_shift($result);
             <button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button>
         </div>
     </div>
-</div>
+</div>-->
 
 
 <?php
