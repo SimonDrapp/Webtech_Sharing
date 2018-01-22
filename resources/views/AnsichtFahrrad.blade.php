@@ -163,7 +163,7 @@ array_shift($result);
                             var newMarker = new google.maps.Marker({
                                 map: map,
                                 position: pos,
-                                icon: '/img/car.png',
+                                icon: '/img/bicycle.png',
                                 title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
                             });
                         }
