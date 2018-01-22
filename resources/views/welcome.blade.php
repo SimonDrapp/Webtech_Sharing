@@ -132,27 +132,19 @@
 
 <div id="googleMap1"></div>
 <script>
-    navigator.geolocation.getCurrentPosition(function (position) {
+/*    navigator.geolocation.getCurrentPosition(function (position) {
         initialize(position.coords);
     }, function () {
         document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
-    });
-    function initialize(coords) {
-        var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+    });*/
+    function initialize() {
+        var latlng = new google.maps.LatLng(47.6680578, 9.16940969999996);
         var myOptions = {
             zoom: 13,
             center: latlng
         };
         var map = new google.maps.Map(document.getElementById('googleMap1'), myOptions);
-
-        var marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title: "Hier bist du :)"
-        });
-
         var geocoder = new google.maps.Geocoder();
-
 
         @foreach($aAdresses as $a)
         geocoder.geocode({
