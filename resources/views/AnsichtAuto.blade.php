@@ -210,56 +210,7 @@ array_shift($result);
 
 <?php
 Session::put('price' , $vermietungen->preis);
-
 ?>
-
-<script>
-    $(function() {
-        $(document).on('change', function () {
-            var start = document.getElementById('startdate').value;
-           console.log(start);
-           alert(start);
-            $.post("/Bezahlen", {start: start});
-            /*var token = $('meta[name="csrf-token"]').attr('content');*/
-           /* $.ajax({
-                type:'POST',
-                url:" URL::to('AnsichtAutoController@store') ",
-                data: {
-                    "_method": 'POST',
-                    "_token": token,
-                    "startdate": start,
-                },
-                success:function(data){
-                    console.log('success');
-                    console.log(data);
-                },
-                error:function(){
-
-                },
-        });*/
-    });
-   $(function() {
-       $(document).on('change', function () {
-           var end = document.getElementById('enddate').value;
-           console.log(end);
-
-       });
-   });
-
-     $(document).ready(function(){
-         $("#btMieten").click(function(){
-             $.post('/Bezahlen',
-                 {
-                     startdate: '2018/01/28'}, function(returnedData){
-                 console.log(returnedData);
-                 });
-         });
-                 });
-         });
-
-
-</script>
-
 
 @include('includes.footer')
 </body>
