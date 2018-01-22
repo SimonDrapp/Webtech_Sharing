@@ -17,7 +17,7 @@ $price = Session::get('price');
 $start = new DateTime($dates->startdate);
 $end = new DateTime($dates->enddate);
 
-$result = date_diff($start, $end, tru );
+$result = date_diff($start, $end, true);
 echo $result->format('%d days');
 
 
