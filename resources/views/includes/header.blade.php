@@ -23,7 +23,7 @@
                     <li><a href="{{ route('signup') }}">Registrieren</a></li>
                     <li><a href="{{ route('signin') }}">Einloggen</a></li>
                     <li><a href="#myModal2" data-toggle="modal" data-target="#myModal2">Vermieten</a></li>
-                    <li><a href="{{ route('überUns') }}">Über uns</a></li>
+                    <li><a href="{{ route('ueberUns') }}">Über uns</a></li>
                     </ul>
                 </div>
             </div>

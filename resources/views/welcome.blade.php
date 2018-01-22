@@ -248,8 +248,6 @@
         });
         jQuery("#popuplink").fancybox({modal:true, maxWidth: 400, overlay : {closeClick : true}});
     });
-
-
 </script>
 
 
