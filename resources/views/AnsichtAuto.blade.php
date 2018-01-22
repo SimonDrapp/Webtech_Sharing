@@ -153,19 +153,9 @@ array_shift($result);
         <div class="col-md-4 col-lg-6">
             <div id="googleMap"></div>
             <script>
-                function myMap() {
-                   var latlng = new google.maps.LatLng(47.6680578, 9.16940969999996);
-                    var myOptions = {
-                        zoom: 15,
-                        center: latlng
-                    };
-                    var map = new google.maps.Map(document.getElementById('googleMap'), myOptions);
 
-                    var marker = new google.maps.Marker({
-                        position: latlng,
-                        map: map,
-                        title: "Hier bist du :)"
-                    });
+                function myMap() {
+
 
                     var geocoder = new google.maps.Geocoder();
                     geocoder.geocode({
@@ -173,20 +163,25 @@ array_shift($result);
                     }, function (geocoderResults, status) {
                         if (status === 'OK') {
                             var latlng = geocoderResults[0].geometry.location;
+                            var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
+                            var mapOptions = {center: pos, zoom: 15};
+                            var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
                             var newMarker = new google.maps.Marker({
                                 map: map,
-                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                                position: pos,
                                 icon: '/img/car.png',
                                 title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
                             });
                         }
                     })
+
                 }
 
-               /* navigator.geolocation.getCurrentPosition(myMap);*/
+
             </script>
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+            <script async defer src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE"></script>
         </div>
     </div>
 </div>
