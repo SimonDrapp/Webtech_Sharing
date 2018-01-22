@@ -153,30 +153,66 @@ array_shift($result);
         <div class="col-md-4 col-lg-6">
             <div id="googleMap"></div>
             <script>
+                if (Modernizr.geolocation) {
+                    function myMap(coords) {
+                        var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+                        var myOptions = {
+                            zoom: 15,
+                            center: latlng
+                        };
+                        var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
 
-                function myMap() {
+                        var marker = new google.maps.Marker({
+                            position: latlng,
+                            map: map,
+                            title: "Hier bist du :)"
+                        });
 
+                        var geocoder = new google.maps.Geocoder();
+                        geocoder.geocode({
+                            address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+                        }, function (geocoderResults, status) {
+                            if (status === 'OK') {
+                                var latlng = geocoderResults[0].geometry.location;
+                                var newMarker = new google.maps.Marker({
+                                    map: map,
+                                    position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                                    icon: '/img/car.png',
+                                    title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                                });
+                            }
+                        })
+                    }
 
-                    var geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({
-                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
-                    }, function (geocoderResults, status) {
-                        if (status === 'OK') {
-                            var latlng = geocoderResults[0].geometry.location;
-                            var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
-                            var mapOptions = {center: pos, zoom: 15};
-                            var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
-                            var newMarker = new google.maps.Marker({
-                                map: map,
-                                position: pos,
-                                icon: '/img/car.png',
-                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
-                            });
-                        }
-                    })
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        myMap(position.coords);
+                    }, function () {
+                        document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
+                    });
+                }
+                else {
+                    function myMap() {
+                        var geocoder = new google.maps.Geocoder();
+                        geocoder.geocode({
+                            address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+                        }, function (geocoderResults, status) {
+                            if (status === 'OK') {
+                                var latlng = geocoderResults[0].geometry.location;
+                                var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
+                                var mapOptions = {center: pos, zoom: 15};
+                                var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+                                var newMarker = new google.maps.Marker({
+                                    map: map,
+                                    position: pos,
+                                    icon: '/img/car.png',
+                                    title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                                });
+                            }
+                        })
+
+                    }
 
                 }
-
 
             </script>
             <script async defer
