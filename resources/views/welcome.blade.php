@@ -85,7 +85,7 @@
                     tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
-                <a href="/Ansicht/1">
+                <a href="#">
                     <img class="AutoBild img-rounded" src="img/car1.jpg" data-src="holder.js/500x500/auto"
                          alt="Auto"></a>
             </div>
@@ -93,7 +93,7 @@
         </div>
 
         <div class="button1">
-            <a href="/Ansicht">
+            <a href="#">
                 <button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
                             class="glyphicon glyphicon-triangle-right"></span></button>
             </a>
@@ -128,26 +128,21 @@
 
 </article>
 
-
-
 <div id="googleMap1"></div>
 <script>
-    function initialize(coords) {
-        var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+/*    navigator.geolocation.getCurrentPosition(function (position) {
+        initialize(position.coords);
+    }, function () {
+        document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
+    });*/
+    function initialize() {
+        var latlng = new google.maps.LatLng(47.6680578, 9.16940969999996);
         var myOptions = {
             zoom: 13,
             center: latlng
         };
-        var map = new google.maps.Map(document.getElementById("googleMap1"), myOptions);
-
-        var marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title: "Hier bist du :)"
-        });
-
+        var map = new google.maps.Map(document.getElementById('googleMap1'), myOptions);
         var geocoder = new google.maps.Geocoder();
-
 
         @foreach($aAdresses as $a)
         geocoder.geocode({
@@ -158,6 +153,7 @@
                 // map.setCenter(geocoderResults[0].geometry.location);
 
                 var latlng = geocoderResults[0].geometry.location;
+
                 //console.log(latlng.lat(), latlng.lng());
                 var newMarker = new google.maps.Marker({
                     map: map,
@@ -192,11 +188,7 @@
         @endforeach
     }
 
-    navigator.geolocation.getCurrentPosition(function (position) {
-        initialize(position.coords);
-    }, function () {
-        document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
-    });
+
 
 
     /*function myMap() {
@@ -220,7 +212,7 @@
 </script>
 <script src="js/welcome.js"></script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=initialize&v=3.9"></script>
 
 <a id="popuplink" href="#inline" style="display:none;"></a>
 <div id="inline" style="display:none;text-align:center;">

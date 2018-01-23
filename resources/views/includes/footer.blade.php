@@ -1,5 +1,5 @@
-<footer>
-    <nav class="navbar navbar-inverse">
+<footer class="footer">
+    <nav class="navbar navbar-inverse navbar-bottom">
         <div class="container-fluid2">
             <ul class="nav navbar-nav">
                 <li><a href="#myModal" id="modal">Kontakt</a></li>
@@ -10,6 +10,18 @@
         </div>
     </nav>
 </footer>
+<script>
+    $(document).ready(function() {
+
+        var docHeight = $(window).height();
+        var footerHeight = $('.footer').height();
+        var footerTop = $('.footer').position().top + footerHeight;
+
+        if (footerTop < docHeight) {
+            $('.footer').css('margin-top', (docHeight - footerTop) + 'px');
+        }
+    });
+</script>
 <!-- contact form -->
 @include('includes.Kontakt')
 
