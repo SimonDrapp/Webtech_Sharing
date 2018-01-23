@@ -17,6 +17,13 @@
         overflow-x: hidden;
         overflow-y: scroll;
     }
+    #AutoButtonVermietung, #FahrradButtonVermietung {
+        margin-top: 25px;
+        display: block;
+        background: rgb(255, 159, 63);
+        margin-bottom: 65px;
+        margin-left: 250px;
+    }
 }
 
 /*-----------1200px-------*/
