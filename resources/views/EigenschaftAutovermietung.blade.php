@@ -16,7 +16,7 @@
     @include('includes.header')
 @endif
 
-<div class="container-fluid">
+<div class="container-fluid" id="eigen">
     <div class="row">
         <form action="{{ route('Autoeigenschaft2') }}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
