@@ -63,13 +63,6 @@
     </div>
 </div>
 
-<!--<script>
-    $("#buttonGPS").click(function () {
-        $('html, body').animate({
-            scrollTop: $("#googleMap1").offset().top
-        }, 2000);
-    });
-</script>-->
 
 <article id="main">
     <section>
@@ -129,12 +122,20 @@
 </article>
 
 <div id="googleMap1"></div>
+
+<a id="popuplink" href="#inline" style="display:none;"></a>
+<div id="inline" style="display:none;text-align:center;">
+        <p>Mit der Verwendung dieser Webseite und Nutzung unserer Dienste erklärst du dich damit einverstanden, dass wir Cookies verwenden. <a href="/Cookie">Mehr erfahren.</a></p>
+        <p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Einverstanden</a></p>
+    </div>
+</div>
+@include('includes.footer')
 <script>
-/*    navigator.geolocation.getCurrentPosition(function (position) {
-        initialize(position.coords);
-    }, function () {
-        document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
-    });*/
+    /*    navigator.geolocation.getCurrentPosition(function (position) {
+            initialize(position.coords);
+        }, function () {
+            document.getElementById('googleMaps1').innerHTML = "Deine Position konnte leider nicht ermittelt werden";
+        });*/
     function initialize() {
         var latlng = new google.maps.LatLng(47.6680578, 9.16940969999996);
         var myOptions = {
@@ -214,13 +215,6 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=initialize&v=3.9"></script>
 
-<a id="popuplink" href="#inline" style="display:none;"></a>
-<div id="inline" style="display:none;text-align:center;">
-        <p>Mit der Verwendung dieser Webseite und Nutzung unserer Dienste erklärst du dich damit einverstanden, dass wir Cookies verwenden. <a href="/Cookie">Mehr erfahren.</a></p>
-        <p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Einverstanden</a></p>
-    </div>
-</div>
-
 
 <script>
     jQuery(document).ready(function () {
@@ -241,10 +235,5 @@
         jQuery("#popuplink").fancybox({modal:true, maxWidth: 400, overlay : {closeClick : true}});
     });
 </script>
-
-
-@include('includes.footer')
-
-
 </body>
 </html>

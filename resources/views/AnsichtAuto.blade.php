@@ -77,6 +77,47 @@ array_shift($result);
         </div>
     </div>
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-6 eigenschaft">
+            <p><b>Marke:</b></p>
+            <p>{{$vermietungen->marke}}<br><br></p>
+            <p><b>Modell:</b></p>
+            <p>{{$vermietungen->modell}}<br><br></p>
+            <p><b>Autofarbe:</b></p>
+            <p>{{$vermietungen->farbe}}<br><br></p>
+            <p><b>Kraftstoff:</b></p>
+            <p>{{$vermietungen->kraftstoff}}<br><br></p>
+            <p><b>Baujahr:</b></p>
+            <p>{{$vermietungen->baujahr}}<br><br></p>
+            <p><b>Details:</b></p>
+            <p>{{$vermietungen->details}}<br><br></p>
+            <p><b>Preis pro Tag:</b></p>
+            <p name="price">{{$vermietungen->preis}} €<br><br></p>
+            <p><b>Standort:</b><br></p>
+            <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
+        </div>
+
+        <div class="col-md-4 col-lg-6">
+            <div id="googleMap"></div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container btRent">
+    <a href="/Bezahlen">
+        <button id="btMieten" class=" btn btn-basic" type="submit">Mieten</button>
+    </a>
+</div>
+</form>
+<?php
+Session::put('price' , $vermietungen->preis);
+?>
+
+@include('includes.footer')
+
 <script>
     $(function () {
         var dateFormat = "yy-mm-dd",
@@ -130,65 +171,31 @@ array_shift($result);
         }
     });
 </script>
+<script>
+    function myMap() {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+        }, function (geocoderResults, status) {
+            if (status === 'OK') {
+                var latlng = geocoderResults[0].geometry.location;
+                var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
+                var mapOptions = {center: pos, zoom: 15};
+                var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+                var newMarker = new google.maps.Marker({
+                    map: map,
+                    position: pos,
+                    icon: '/img/car.png',
+                    title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                });
+            }
+        })
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-lg-6 eigenschaft">
-            <p><b>Marke:</b></p>
-            <p>{{$vermietungen->marke}}<br><br></p>
-            <p><b>Modell:</b></p>
-            <p>{{$vermietungen->modell}}<br><br></p>
-            <p><b>Autofarbe:</b></p>
-            <p>{{$vermietungen->farbe}}<br><br></p>
-            <p><b>Kraftstoff:</b></p>
-            <p>{{$vermietungen->kraftstoff}}<br><br></p>
-            <p><b>Baujahr:</b></p>
-            <p>{{$vermietungen->baujahr}}<br><br></p>
-            <p><b>Details:</b></p>
-            <p>{{$vermietungen->details}}<br><br></p>
-            <p><b>Preis pro Tag:</b></p>
-            <p name="price">{{$vermietungen->preis}} €<br><br></p>
-            <p><b>Standort:</b><br></p>
-            <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
-        </div>
-
-        <div class="col-md-4 col-lg-6">
-            <div id="googleMap"></div>
-            <script>
-                function myMap() {
-                    var geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({
-                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
-                    }, function (geocoderResults, status) {
-                        if (status === 'OK') {
-                            var latlng = geocoderResults[0].geometry.location;
-                            var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
-                            var mapOptions = {center: pos, zoom: 15};
-                            var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
-                            var newMarker = new google.maps.Marker({
-                                map: map,
-                                position: pos,
-                                icon: '/img/car.png',
-                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
-                            });
-                        }
-                    })
-
-                }
-            </script>
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
-            <script async defer src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE"></script>
-        </div>
-    </div>
-</div>
-
-<div class="container btRent">
-    <a href="/Bezahlen">
-        <button id="btMieten" class=" btn btn-basic" type="submit">Mieten</button>
-    </a>
-</div>
-</form>
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+<script async defer src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE"></script>
 <!--
 <div class="container">
     <div class="row">
@@ -210,11 +217,5 @@ array_shift($result);
     </div>
 </div>-->
 
-
-<?php
-Session::put('price' , $vermietungen->preis);
-?>
-
-@include('includes.footer')
 </body>
 </html>

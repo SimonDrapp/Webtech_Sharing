@@ -75,6 +75,61 @@ array_shift($result);
     </div>
 </div>
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-lg-6 eigenschaft">
+            <p><b>Marke:</b></p>
+            <p>{{$vermietungen -> marke}}<br><br></p>
+            <p><b>Modell:</b></p>
+            <p>{{$vermietungen -> modell}}<br><br></p>
+            <p><b>Fahrradart:</b></p>
+            <p>{{$vermietungen -> art}}<br><br></p>
+            <p><b>Fahrradfarbe:</b></p>
+            <p>{{$vermietungen -> farbe}}<br><br></p>
+            <p><b>Details:</b></p>
+            <p>{{$vermietungen -> details}}<br><br></p>
+            <p><b>Preis pro Tag:</b></p>
+            <p name="price">{{$vermietungen -> preis}} €<br><br></p>
+            <p><b>Standort:</b><br></p>
+            <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
+        </div>
+        <div class="col-md-4 col-lg-6">
+            <div id="googleMap"></div>
+                    </div>
+    </div>
+</div>
+
+<div class="container btRent">
+    <a href="/Bezahlen">
+        <button type="submit" id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
+    </a>
+</div>
+</form>
+<?php
+Session::put('price' , $vermietungen->preis);
+?>
+
+@include('includes.footer')
+<!--<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-lg-4">
+            <p id="kon">Anbieter kontaktieren:</p>
+        </div>
+        <div class="col-md-2 col-lg-6">
+            <input id="AnsichtBetreff" type="text" placeholder="Betreff">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-6">
+            <textarea id="areaKontakt" rows="6" cols="50" name="comment" form="usrform"
+                      placeholder="Die Fragen.."></textarea>
+        </div>
+        <div class="col-md-2 col-lg-2">
+            <button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button>
+        </div>
+    </div>
+</div>-->
 <script>
     $(function () {
         var dateFormat = "yy-mm-dd",
@@ -128,121 +183,65 @@ array_shift($result);
         }
     });
 </script>
+<script>
+    function myMap() {
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+        }, function (geocoderResults, status) {
+            if (status === 'OK') {
+                var latlng = geocoderResults[0].geometry.location;
+                var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
+                var mapOptions = {center: pos, zoom: 15};
+                var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+                var newMarker = new google.maps.Marker({
+                    map: map,
+                    position: pos,
+                    icon: '/img/bicycle.png',
+                    title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                });
+            }
+        })
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-lg-6 eigenschaft">
-            <p><b>Marke:</b></p>
-            <p>{{$vermietungen -> marke}}<br><br></p>
-            <p><b>Modell:</b></p>
-            <p>{{$vermietungen -> modell}}<br><br></p>
-            <p><b>Fahrradart:</b></p>
-            <p>{{$vermietungen -> art}}<br><br></p>
-            <p><b>Fahrradfarbe:</b></p>
-            <p>{{$vermietungen -> farbe}}<br><br></p>
-            <p><b>Details:</b></p>
-            <p>{{$vermietungen -> details}}<br><br></p>
-            <p><b>Preis pro Tag:</b></p>
-            <p name="price">{{$vermietungen -> preis}} €<br><br></p>
-            <p><b>Standort:</b><br></p>
-            <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
-        </div>
-        <div class="col-md-4 col-lg-6">
-            <div id="googleMap"></div>
-            <script>
-                function myMap() {
-                    var geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({
-                        address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
-                    }, function (geocoderResults, status) {
-                        if (status === 'OK') {
-                            var latlng = geocoderResults[0].geometry.location;
-                            var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
-                            var mapOptions = {center: pos, zoom: 15};
-                            var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
-                            var newMarker = new google.maps.Marker({
-                                map: map,
-                                position: pos,
-                                icon: '/img/bicycle.png',
-                                title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
-                            });
-                        }
-                    })
+    }
+    /* function myMap(coords) {
+         var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+         var myOptions = {
+             zoom: 15,
+             center: latlng
+         };
+         var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
 
-                }
-               /* function myMap(coords) {
-                    var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
-                    var myOptions = {
-                        zoom: 15,
-                        center: latlng
-                    };
-                    var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+         var marker = new google.maps.Marker({
+             position: latlng,
+             map: map,
+             title: "Hier bist du :)"
+         });
 
-                    var marker = new google.maps.Marker({
-                        position: latlng,
-                        map: map,
-                        title: "Hier bist du :)"
-                    });
+         var geocoder = new google.maps.Geocoder();
+         geocoder.geocode({
+             address:
+         }, function (geocoderResults, status) {
+             if (status === 'OK') {
+                 var latlng = geocoderResults[0].geometry.location;
+                 var newMarker = new google.maps.Marker({
+                     map: map,
+                     position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                     icon: '/img/bicycle.png',
+                     title: ""
+                 });
+             }
+         })
+     }
 
-                    var geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({
-                        address:
-                    }, function (geocoderResults, status) {
-                        if (status === 'OK') {
-                            var latlng = geocoderResults[0].geometry.location;
-                            var newMarker = new google.maps.Marker({
-                                map: map,
-                                position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                                icon: '/img/bicycle.png',
-                                title: ""
-                            });
-                        }
-                    })
-                }
+     navigator.geolocation.getCurrentPosition(function (position) {
+         myMap(position.coords);
+     }, function () {
+         document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
+     });*/
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
 
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    myMap(position.coords);
-                }, function () {
-                    document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-                });*/
-            </script>
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
-        </div>
-    </div>
-</div>
-
-<div class="container btRent">
-    <a href="/Bezahlen">
-        <button type="submit" id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
-    </a>
-</div>
-</form>
-<?php
-Session::put('price' , $vermietungen->preis);
-?>
-
-<!--<div class="container">
-    <div class="row">
-        <div class="col-md-3 col-lg-4">
-            <p id="kon">Anbieter kontaktieren:</p>
-        </div>
-        <div class="col-md-2 col-lg-6">
-            <input id="AnsichtBetreff" type="text" placeholder="Betreff">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-lg-6">
-            <textarea id="areaKontakt" rows="6" cols="50" name="comment" form="usrform"
-                      placeholder="Die Fragen.."></textarea>
-        </div>
-        <div class="col-md-2 col-lg-2">
-            <button id="btAnliegen" class=" btn btn-basic" type="button">Abschicken</button>
-        </div>
-    </div>
-</div>-->
-
-
-@include('includes.footer')
 </body>
 </html>
