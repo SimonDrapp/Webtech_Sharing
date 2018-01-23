@@ -265,6 +265,7 @@
                 dateFormat: "dd/mm/yy",
                 changeMonth: true,
                 numberOfMonths: 2,
+                minDate:0,
                 monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
                     'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
                 monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
