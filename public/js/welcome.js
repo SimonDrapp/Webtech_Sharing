@@ -23,6 +23,7 @@ $(function () {
             dateFormat: "yy-mm-dd",
             changeMonth: true,
             numberOfMonths: 1,
+            minDate:0,
             monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
                 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
             monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
