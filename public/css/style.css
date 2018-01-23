@@ -35,6 +35,11 @@ body {
     background-color: rgba(112, 173, 71, 1);
 }*/
 
+.navbar-inverse .navbar-nav > li > a:focus{
+    background-color: red;
+
+}
+
 
 
 
@@ -48,13 +53,16 @@ body {
 }
 
 .content h1 {
-    margin: 0;
-    font-weight: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 55px;
 
 }
 
 .content h2 {
-
+    font-weight: 400;
 }
 
 /*-----------Header/Footer--------------*/
@@ -99,9 +107,10 @@ body {
 }
 
 /*-----------Startseite Suchleiste--------------*/
+
 .parallax {
     position: relative;
-    background: url("../img/header.jpg");
+    background: url("../img/headerNew.jpg");
     min-height: 100%;
     max-width: 100%;
 
@@ -551,6 +560,10 @@ map{
     background-color: #eee; /* Add a hover effect to all links, except for headers */
 }
 .searchPadding{
+     padding-right: 0px;
+     z-index:1;
+ }
+.searchPaddingWelcome{
     padding-right: 0px;
     z-index:1;
 }
@@ -628,7 +641,7 @@ map{
 
 
 .eingabefeld {
-    margin-top: 75px;
+    margin-top: 40px;
     margin-left: auto;
     margin-right: auto;
 }

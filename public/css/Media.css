@@ -175,11 +175,11 @@
     .content h2 {
         font-size: 250%;
         margin: 0;
-    }*/
+    }
 
     .content {
         padding-top: 100px;
-    }
+    }*/
 
     .col-4 {
 
@@ -243,9 +243,9 @@
         margin-right: -100px;
     }
 
-    .content {
+    /*.content {
         padding-top: 220px !important;
-    }
+    }*/
     .login{
         padding-top: 12%;
     }
@@ -550,9 +550,8 @@
     .searchFilter{
         margin-bottom: 20px;
     }
+
 }
-
-
 /*-----------720px-------*/
 @media screen and (max-width: 720px) {
     .AutobildVermietung, .FahrradbildVermietung {
@@ -619,9 +618,9 @@
         margin: 0;
     }*/
 
-    .content {
+   /* .content {
         padding-top: 80px;
-    }
+    }*/
 
     .login{
         padding-top: 15%!important;
@@ -782,9 +781,9 @@
         font-size: 10px;
     }
 
-    .content {
+   /* .content {
         padding-top: 30% !important;
-    }
+    }*/
 
     .search {
         width: 100%;
@@ -1205,6 +1204,15 @@
         left: 65px;
     }
 }
+
+@media screen and (min-width: 479px) and (max-width: 767px) {
+     .searchPaddingWelcome{
+         padding-left: 20%;
+     }
+}
+
+
+
 /*-----------320px - 479px-------*/
 @media screen and (min-width: 320px) and (max-width: 479px) {
 
@@ -1244,7 +1252,92 @@
     .searchResults_priceContainer span{
         padding-left:11%;
     }
+    .searchPaddingWelcome{
+        padding-left: 10%;
+    }
+    #searchCity1{
+        font-size: 13px;
+    }
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 576px) {
+    .content{
+        padding-top: 40%;
+    }
+    .content h1 {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 20px;
+
+    }
+
+    .content h2 {
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+}
+@media screen and (min-width: 576px) and (max-width: 768px) {
+    .content{
+        padding-top: 35%;
+    }
+    .content h1 {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 25px;
+
+    }
+
+    .content h2 {
+        font-weight: 400;
+        font-size: 18px;
+    }
+
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .content{
+        padding-top: 30%;
+    }
+    .content h1 {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 30px;
+
+    }
+
+    .content h2 {
+        font-weight: 400;
+        font-size: 20px;
+    }
+
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .content{
+        padding-top: 25%;
+    }
+    .content h1 {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 40px;
+
+    }
+
+    .content h2 {
+        font-weight: 400;
+        font-size: 26px;
+    }
+}
+
+
 /* Portrait and Landscape */
 @media only screen
 and (min-device-width: 320px)
