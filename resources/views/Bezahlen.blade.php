@@ -57,7 +57,7 @@ $second = (floatval($price)) * (floatval($results));
                         <input type="radio" name="bezahlen" value="lastschrift">
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
                 <!--    <span class="fa fa-file-text-o"></span> -->
                     <img alt="" class="sub-navigation__icon" src="//images.contentful.com/k4kk06v59kf0/1AvrcjfyCAIQkA8i8kAOy0/27202cb55c26bd24c050fa8789b4b230/icon-32x32-visa.svg"/>
                     <div>
