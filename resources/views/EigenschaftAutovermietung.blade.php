@@ -228,7 +228,7 @@
     </div>
 </div>
 
-
+<!--
 <script>
     $( function() {
         var dateFormat = "yy-mm-dd",
@@ -281,7 +281,7 @@
     });
 </script>
 
-
+-->
 @include('includes.footer')
 
 
