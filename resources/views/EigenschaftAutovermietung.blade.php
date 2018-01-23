@@ -111,7 +111,23 @@
                     </div>
                 </div>
             </div>
+        <script>
+            $(function() {
+                $(document).on('change', ':file', function() {
+                    var files = document.getElementById("lili").files;
+                    var result= files[0].name;
+                    console.log(files.length);
+                    if(files.length > 1) {
+                        for (var i = 1; i < files.length; i++) {
+                            console.log(files[i].name + i);
+                            result += ", " + files[i].name;
+                        }
+                    }
+                    document.getElementById('autobilder').value = result;
+                });
+            });
 
+        </script>
 
             <div class="col-xs-6 col-md-3">
                 <div class="buttonUndText">
@@ -211,24 +227,8 @@
         </form>
     </div>
 </div>
-@include('includes.footer')
-<script>
-    $(function() {
-        $(document).on('change', ':file', function() {
-            var files = document.getElementById("lili").files;
-            var result= files[0].name;
-            console.log(files.length);
-            if(files.length > 1) {
-                for (var i = 1; i < files.length; i++) {
-                    console.log(files[i].name + i);
-                    result += ", " + files[i].name;
-                }
-            }
-            document.getElementById('autobilder').value = result;
-        });
-    });
 
-</script>
+
 <script>
     $( function() {
         var dateFormat = "yy-mm-dd",
@@ -281,6 +281,10 @@
     });
 </script>
 
+
+@include('includes.footer')
+
+
 <script type="text/javascript">
 
     $(document).ready(function (){       //zählt wie oft das erste select (erste dropdownliste); addiert jedes mal um eins hoch
@@ -328,5 +332,6 @@
 </script>
 
 </body>
+
 
 </html>

@@ -161,7 +161,7 @@
             </form>
         </div>
     </div>
-@include('includes.footer')
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('ablehnen').checked = true;
@@ -177,7 +177,13 @@
             }
 
         });
+
+
     </script>
+
+
+
+    @include('includes.footer')
 
 </body>
 
