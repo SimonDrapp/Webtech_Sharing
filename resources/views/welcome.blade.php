@@ -30,7 +30,7 @@
 
 
                 <div class="eingabefeld">
-                    <div class="col-xs-10 col-sm-4 form-group searchPadding">
+                    <div class="col-xs-8 col-sm-4 form-group searchPaddingWelcome">
                         <div class="input-group">
                             <input id="searchCity1" name="search" type="text" class="form-control"
                                    placeholder="Postleitzahl oder Ort" autocomplete="off">
@@ -52,7 +52,7 @@
                         <i class="glyphicon glyphicon-calendar" aria-hidden="true"></i>
                     </div>
 
-                    <div class="col-xs-2 col-sm-2 form-group searchBtnPaddingWelcome">
+                    <div class="col-xs-4 col-sm-2 form-group searchBtnPaddingWelcome">
                         <button type="submit" id="buttonSearch1" class=" btn btn-basic">Suchen
                             <span class="glyphicon glyphicon-search"></span></button>
                     </div>
