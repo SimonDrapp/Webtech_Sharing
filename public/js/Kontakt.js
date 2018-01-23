@@ -19,18 +19,18 @@ $(document).ready(function(){
 /*-------------Begrenzung der Zeichen--------------*/
 $(document).ready(function(){
 
-    $('#characterLeft').text('140 characters left');
+    $('#characterLeft').text('140 Zeichen übrig');
     $('#message').keydown(function () {
         var max = 140;
         var len = $(this).val().length;
         if (len >= max) {
-            $('#characterLeft').text('You have reached the limit');
+            $('#characterLeft').text('Maximale Anzahl an Zeichen erreicht.');
             $('#characterLeft').addClass('red');
             $('#btnSubmit').addClass('disabled');
         }
         else {
             var ch = max - len;
-            $('#characterLeft').text(ch + ' characters left');
+            $('#characterLeft').text(ch + ' Zeichen übrig');
             $('#btnSubmit').removeClass('disabled');
             $('#characterLeft').removeClass('red');
         }
