@@ -9,11 +9,11 @@
 
 @media screen and (min-width: 1200px){
     .AutobildVermietung, .FahrradbildVermietung{
-        height: 400px;
-        width: 580px;
+        height: 500px;
+        width: 680px;
         display: block;
-        margin-top: 100px;
-        margin-left: 70px;
+        margin-top: 150px;
+        margin-left: 150px;
         overflow-x: hidden;
         overflow-y: scroll;
     }
