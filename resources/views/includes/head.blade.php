@@ -68,3 +68,4 @@
 <!--<script src="https://code.jquery.com/jquery-latest.min.js"></script>    -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.js"></script>
+

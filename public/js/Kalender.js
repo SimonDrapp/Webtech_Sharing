@@ -1,34 +1,50 @@
-/*
-$(document).ready(function (){
-    var date_von=$('input[name="inputVon"]');
-    var date_bis=$('input[name="inputBis"]');
-    var date_bis2=$('button[name="inputBis"]');
-    var date_von2=$('button[name="inputVon"]');
-    var date_von_startseite=$('input[name="datevon"]');
-    var date_bis_startseite=$('input[name="datebis"]');
-    var date_von2_startseite=$('button[name="datevon"]');
-    var date_bis2_startseite=$('button[name="datebis"]');
-    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-    var options={
-        format: 'dd/mm/yyyy',
-        container: container,
-        orientation: "bottom-left",
-        todayHighlight: true,
-        autoclose: true,
-        mindate: 0,
-        changeMonth:true
 
-    };
+$( function() {
+    var dateFormat = "yy-mm-dd",
+        from = $("#startdate")
+            .datepicker({
+                dateFormat: "yy-mm-dd",
+                defaultDate: "0w",
+                changeMonth: true,
+                numberOfMonths: 2,
+                minDate: 0,
+                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+            })
+            .on("change", function () {
+                to.datepicker("option", "minDate", getDate(this));
+            }),
+        to = $("#enddate").datepicker({
+            //      defaultDate: "0w",
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            numberOfMonths: 2,
+            minDate:0,
+            monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+            monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+            dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+            dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+            dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+        })
+            .on("change", function () {
+                from.datepicker("option", "maxDate", getDate(this));
+            });
 
-    date_von.datepicker(options);
-    date_bis.datepicker(options);
-    date_bis2.datepicker(options);
-    date_von2.datepicker(options);
-    date_von_startseite.datepicker(options);
-    date_bis_startseite.datepicker(options);
-    date_von2_startseite.datepicker(options);
-    date_bis2_startseite.datepicker(options);
+    function getDate(element) {
+        var date;
+        try {
+            date = $.datepicker.parseDate(dateFormat, element.value);
+        } catch (error) {
+            date = null;
+        }
+
+        return date;
+    }
 });
-
-
-*/

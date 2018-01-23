@@ -12,6 +12,6 @@ class ueberUnsController extends Controller
         $visitor = uniqueVisitor::all()->first();
 
 
-        return view('ueberUns',['visitor' => $visitor]);
+        return view('aboutUs',['visitor' => $visitor]);
     }
 }

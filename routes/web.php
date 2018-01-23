@@ -61,10 +61,6 @@ Route::get('/Fahrradeigenschaft2', function () {
     return view('Fahrradvermietung2');
 });
 
-Route::get('/Fahrradeigenschaft3', function () {
-    return view('Fahrradvermietung3');
-});
-
 Route::get('/Ansicht', function () {
     return view('AnsichtFahrrad');
 });
@@ -209,7 +205,7 @@ Route::post('/Fahrradeigenschaft2',[
         'roles'=>['Benutzer', 'Admin']
 ]);
 
-Route::post('/',[
+Route::post('/welcome2',[
         'uses'=> 'FahrradvermietungController@saveFahrrad',
         'as'=> 'Fahrradeigenschaft3',
         'middleware'=>'roles',

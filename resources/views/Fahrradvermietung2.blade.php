@@ -19,7 +19,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <form action="/" method="post">
+            <form action="{{route('Fahrradeigenschaft3')}}" method="post">
                 {{csrf_field()}}
 
                 <div class="col-xs-6 col-md-3 speichern">
@@ -151,7 +151,7 @@
                                             <p>Nur noch zur Startseite & Ihr Fahrrad steht schon bereit.</p>
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="{{ route('Fahrradeigenschaft3') }}"><button type="submit" class="btn btn-primary" data-darget="{{ route('Fahrradeigenschaft') }}">Zurück zur Startseite</button></a>
+                                            <a href="/welcome2"><button type="submit" class="btn btn-primary" data-darget="/welcome2">Zurück zur Startseite</button></a>
                                         </div>
                                     </div>
                                 </div>

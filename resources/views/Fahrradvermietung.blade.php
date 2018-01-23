@@ -238,7 +238,7 @@
         </form>
     </div>
 </div>
-
+<!--
 <script>
     $(function () {
         var dateFormat = "dd/mm/yy",
@@ -290,6 +290,7 @@
         }
     });
 </script>
+-->
 
 @include('includes.footer')
 
