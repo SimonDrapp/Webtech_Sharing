@@ -5,12 +5,9 @@
 
     @include('includes.head')
     <title>my-easysharing | Login </title>
-      <!--<link rel="stylesheet" type="text/css" href="css/app.css">-->
-    <link rel="stylesheet" type="text/css" href="css/login.css">
-
 </head>
 
-<body>
+<body id="bodyLogin">
 @include('includes.header')
 
 <div  class="container login">

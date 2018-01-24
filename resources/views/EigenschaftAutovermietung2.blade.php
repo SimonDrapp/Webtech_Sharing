@@ -6,7 +6,7 @@
 </head>
 
 
-<body>
+<body id="backgroundPic">
 
 @if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')

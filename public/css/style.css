@@ -341,10 +341,12 @@ map{
     margin-top: 100px;
     text-align: center;
 }
-#eigen{
-    background: url("../img/tree.jpg");
+#backgroundPic{
     background-repeat: no-repeat;
-
+    background-position: center;
+    background-image: url("../img/rentPic.jpg");
+    background-size: cover, cover;
+    background-attachment: fixed;
 }
 
 /*
@@ -530,6 +532,13 @@ map{
 
 
 /*-----------Seite Login--------------*/
+#bodyLogin{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/street.jpeg");
+    background-size: cover, cover;
+    background-attachment: fixed;
+}
 .login{
     padding-top: 12%;
 }
@@ -1236,14 +1245,13 @@ h5 {
     height:200px;
     vertical-align: middle;
 }
-
-
 .stat {
     margin:150px auto;
     text-align:center;
 }
+
 .highlight {
-    color:#111;
+    color:#ffffff;
     padding:20px 0;
     font-weight:bold;
     display:block;
@@ -1254,30 +1262,69 @@ h5 {
 .stat i {
     color:#f7c221;
 }
+
 .milestone-details {
     font-weight: bold;
     font-size: 18px;
     color: #999;
 }
 
-
-.bg-1 {
-    /*background-color: #1abc9c; /* Green */
-    color: #ffffff;
-    text-align: center;
-}
-.bg-1>h1{
-    margin-top: 5%;
+.firstInput>h1{
     color: white;
-    background-color: #737373;
-    opacity: 0.8;
+}
+.firstInput{
+    margin-top: -20%;
 }
 #logo{
     width: 35%;
     height: 60%;
 }
-.bg-2 {
+.whatInput, .secondInput {
     text-align: center;
     background-color: #474e5d; /* Dark Blue */
     color: #ffffff;
+    padding-bottom: 2%;
 }
+.counterInput{
+    background-color: #474e5d;
+    padding-bottom: 8%;
+}
+
+
+.bg-1, .bg-3, .bg-2 {
+    position: relative;
+    opacity: 0.8;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg-1 {
+    background-image: url("../img/street.jpeg");
+    min-height: 100%;
+}
+.bg-2{
+    background-image: url("../img/car2.jpg");
+    min-height: 400px;
+}
+
+
+.bg-3{
+    background-image: url("../img/header1.jpg");
+    min-height: 400px;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+
+
+
+
+
