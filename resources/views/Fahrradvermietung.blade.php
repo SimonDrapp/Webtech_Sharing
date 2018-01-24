@@ -5,7 +5,7 @@
     <title>my-easysharing | Vermieten</title>
 </head>
 
-<body>
+<body id="vermietenheader1" class="backgroundPic">
 
 @if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
@@ -238,7 +238,7 @@
         </form>
     </div>
 </div>
-<!--
+
 <script>
     $(function () {
         var dateFormat = "dd/mm/yy",
@@ -290,7 +290,7 @@
         }
     });
 </script>
--->
+
 
 @include('includes.footer')
 

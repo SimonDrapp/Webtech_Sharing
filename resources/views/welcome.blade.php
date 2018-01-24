@@ -5,7 +5,7 @@
     @include('includes.head')
     <title>my-easysharing | Home </title>
 </head>
-<body>
+<body id="home1">
 
 
 @if(Auth::user() && Auth::user()->isBenutzer())
@@ -221,7 +221,7 @@
         <p>Mit der Verwendung dieser Webseite und Nutzung unserer Dienste erklärst du dich damit einverstanden, dass wir Cookies verwenden. <a href="/Cookie">Mehr erfahren.</a></p>
         <p><a href="javascript:;" onclick="jQuery.fancybox.close();" style="background-color:#333;padding:5px 10px;color:#fff;border-radius:5px;text-decoration:none;">Einverstanden</a></p>
     </div>
-</div>
+
 
 
 <script>

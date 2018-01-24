@@ -52,11 +52,9 @@ array_shift($result);
     </a>
 </div>
 
-<form action="{{ route('Bezahlen') }}" method="post">
-    {{csrf_field()}}
-
 <div class="container">
     <div class="row">
+        <form ><!--action="" method="post" enctype="multipart/form-data-->
         <div class="col-lg-6 lol">
             <div class='input-group date' id='datetimepicker8'>
                 <input type="text" class="form-control" name="startdate" id="startdate" required>
@@ -73,7 +71,7 @@ array_shift($result);
                     </span>
                 </div>
             </div>
-
+        </form>
         </div>
     </div>
 
@@ -188,7 +186,6 @@ array_shift($result);
         <button id="btMieten" class=" btn btn-basic" type="submit">Mieten</button>
     </a>
 </div>
-</form>
 <!--
 <div class="container">
     <div class="row">
@@ -213,7 +210,10 @@ array_shift($result);
 
 <?php
 Session::put('price' , $vermietungen->preis);
+
 ?>
+
+
 
 @include('includes.footer')
 </body>

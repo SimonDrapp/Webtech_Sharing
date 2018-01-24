@@ -5,7 +5,7 @@
     @include('includes.head')
     <title>my-easysharing | Home </title>
 </head>
-<body>
+<body id="benutzer1">
     @include('includes.header3')
 
     <div class="change" style="margin-top:70px">

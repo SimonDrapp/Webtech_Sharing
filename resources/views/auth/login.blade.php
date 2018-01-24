@@ -4,13 +4,13 @@
 <head>
 
     @include('includes.head')
-    <title>my-easysharing | Login </title>
+    <title>my-easysharing | Einloggen </title>
       <!--<link rel="stylesheet" type="text/css" href="css/app.css">-->
     <link rel="stylesheet" type="text/css" href="css/login.css">
 
 </head>
 
-<body>
+<body id="einloggen1">
 @include('includes.header')
 
 <div  class="container login">
@@ -57,7 +57,7 @@
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        Remember Me
+                                        Merken
                                     </label>
                                 </div>
                             </div>

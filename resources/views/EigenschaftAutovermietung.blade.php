@@ -6,7 +6,7 @@
 </head>
 
 
-<body>
+<body id="vermietenheader1" class="backgroundPic">
 
 @if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
@@ -228,7 +228,7 @@
     </div>
 </div>
 
-<!--
+
 <script>
     $( function() {
         var dateFormat = "yy-mm-dd",
@@ -281,7 +281,7 @@
     });
 </script>
 
--->
+
 @include('includes.footer')
 
 

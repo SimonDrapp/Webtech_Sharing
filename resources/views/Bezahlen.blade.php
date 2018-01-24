@@ -29,39 +29,45 @@ $second = (floatval($price)) * (floatval($results));
         <div class="row zahlen">
             <form>
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
-                    <span class="fa fa-cc-paypal"></span>
+              <!--      <span class="fa fa-cc-paypal"></span>       -->
+                    <img src="//images.contentful.com/k4kk06v59kf0/34XWKE7TluEGMeiIoSEeMU/68b425ad5a3e59c06e0d61fa9f307faa/icon-32x32-paypal.svg">
+
                     <div>
                         <input type="radio" name="bezahlen" value="paypal" checked>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
-                    <span class="fa fa-cc-visa"></span>
+              <!--      <span class="fa fa-cc-visa"></span>     -->
+                    <img alt="MasterCard" class="sub-navigation__icon" src="//images.contentful.com/k4kk06v59kf0/1N19A6eZ7K8k6yWOuasO62/65c53dd1dc4a722106dc338fdbc686f0/icon-32x32-mastercard.svg"/>
                     <div>
                         <input type="radio" name="bezahlen" value="visa">
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
-                    <span class="fa fa-cc-amex"></span>
+             <!--       <span class="fa fa-cc-amex"></span>     -->
+                    <img  alt="AmericanExpress" class="sub-navigation__icon" src="//images.contentful.com/k4kk06v59kf0/6ZbT7F9lnOcuC06Y2Q4am8/a183cc2336501b6137908cabc43d5445/icon-32x32-americanexpress.svg"/>
                     <div>
                         <input type="radio" name="bezahlen" value="americanexpress"></div>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-                    <p>Lastschrift</p>
-                    <span class="fa fa-credit-card"></span>
+                    <p>Sofortüberweisung</p> <!-- SOFORTÜBERWEISUNG -->
+          <!--          <span class="fa fa-credit-card"></span>     -->
+                    <img alt="Sofortueberweisung" class="sub-navigation__icon" src="//images.contentful.com/k4kk06v59kf0/6MVFckBmuWKuseYAYA8aG0/cb0c7f1daf33c4af4f639bc10200c56a/icon-32x32-sofort.svg"/>
                     <div>
                         <input type="radio" name="bezahlen" value="lastschrift">
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
-                    <p>Rechnung</p>
-                    <span class="fa fa-file-text-o"></span>
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2 bub">
+                <!--    <span class="fa fa-file-text-o"></span> -->
+                    <img alt="" class="sub-navigation__icon" src="//images.contentful.com/k4kk06v59kf0/1AvrcjfyCAIQkA8i8kAOy0/27202cb55c26bd24c050fa8789b4b230/icon-32x32-visa.svg"/>
                     <div>
                         <input type="radio" name="bezahlen" value="rechnung">
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
                     <p>Barbezahlung</p>
-                    <span class="fa fa-euro"></span>
+               <!--     <span class="fa fa-euro"></span>    -->
+                    <img alt="Barbezahlung" class="sub-navigation__icon" src="//images.contentful.com/k4kk06v59kf0/2lLJWc1cheEwgiKwYY0uos/0f8cfee646757afc2c579e9d08d87cbd/icon-32x32-sepa.svg"/>
                     <div>
                         <input type="radio" name="bezahlen" value="bar">
                     </div>
