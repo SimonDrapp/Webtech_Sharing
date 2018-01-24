@@ -4,7 +4,7 @@
     @include('includes.head')
     <title>my-easysharing | Registrieren</title>
 </head>
-<body id="bodyLogin">
+<body id="registrieren1">
 @include('includes.header')
 
 <div class="container regist">

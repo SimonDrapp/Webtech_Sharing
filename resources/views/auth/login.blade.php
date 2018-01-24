@@ -7,7 +7,7 @@
     <title>my-easysharing | Login </title>
 </head>
 
-<body id="bodyLogin">
+<body id="einloggen1">
 @include('includes.header')
 
 <div  class="container login">

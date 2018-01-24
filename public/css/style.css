@@ -35,11 +35,6 @@ body {
     background-color: rgba(112, 173, 71, 1);
 }*/
 
-.navbar-inverse .navbar-nav > li > a:focus{
-    background-color: red;
-
-}
-
 
 
 
@@ -102,8 +97,13 @@ body {
 }
 
 .navbar-inverse .navbar-nav > .aktiv > a, .navbar-inverse .navbar-nav > .aktiv > a:focus, .navbar-inverse .navbar-nav > .aktiv > a:hover {
-    color: #fff;
+
+}
+#home1 .home2 >a, #registrieren1 #registrieren2 >a, #einloggen1 #einloggen2 >a, #ueberuns1 #ueberuns2 >a,
+#vermietenheader1 .vermietenheader2 >a, #benutzer1 #benutzer2 >a, #nachrichten1 #nachrichten2 >a {
     background-color: rgba(112, 173, 71, 1);
+    color: #fff;
+
 }
 
 /*-----------Startseite Suchleiste--------------*/
@@ -341,7 +341,7 @@ map{
     margin-top: 100px;
     text-align: center;
 }
-#backgroundPic{
+.backgroundPic{
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("../img/rentPic.jpg");
@@ -532,7 +532,7 @@ map{
 
 
 /*-----------Seite Login--------------*/
-#bodyLogin{
+#einloggen1, #registrieren1{
     background-repeat: no-repeat;
     background-position: center;
     background-image: url("../img/street.jpeg");
