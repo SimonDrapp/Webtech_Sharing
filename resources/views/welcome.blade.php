@@ -5,7 +5,7 @@
     @include('includes.head')
     <title>my-easysharing | Home </title>
 </head>
-<body>
+<body id="home1">
 
 
 @if(Auth::user() && Auth::user()->isBenutzer())

@@ -9,7 +9,7 @@
 
 </head>
 
-<body>
+<body id="registrieren1">
 @include('includes.header')
 <div class="container login">
     <div class="row">
