@@ -22,11 +22,11 @@ class welcomeController extends Controller
     public function countVisitor()
     {
         DB::table('vermietungenCounter')->insert([
-            'views' => "0"
+            'views' => 0
         ]);
 
         DB::table('mietungenCounter')->insert([
-            'views' => "0"
+            'views' => 0
         ]);
 
 
