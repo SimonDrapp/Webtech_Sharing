@@ -6,7 +6,7 @@
 </head>
 
 
-<body id="vermietenheader1">
+<body id="vermietenheader1" class="backgroundPic">
 
 @if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
