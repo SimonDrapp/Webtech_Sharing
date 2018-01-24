@@ -212,9 +212,6 @@ array_shift($result);
 Session::put('price' , $vermietungen->preis);
 
 ?>
-
-
-
 @include('includes.footer')
 </body>
 </html>

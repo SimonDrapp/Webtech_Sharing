@@ -181,6 +181,16 @@
     }
 
 }
+@media screen and (max-width: 1024px) {
+    .firstInput{
+        margin-top: -30%;
+
+    }
+    #logo{
+        margin:0;
+    }
+}
+
 
 /*-----------1000px-------*/
 @media screen and (max-width: 1000px) {
@@ -572,6 +582,10 @@
     }
     .searchFilter{
         margin-bottom: 20px;
+    }
+    .firstInput{
+       /* margin-top: -20%;*/
+
     }
 
 }
