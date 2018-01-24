@@ -54,63 +54,177 @@ array_shift($result);
 <form action="{{ route('Bezahlen') }}" method="post">
     {{csrf_field()}}
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-lg-12 lol">
-            <div class='input-group date' id='datetimepicker8'>
-                <input type="text" class="form-control" name="startdate" id="startdate" required>
-                <span class="input-group-addon">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-12 lol">
+                <div class='input-group date' id='datetimepicker8'>
+                    <input type="text" class="form-control" name="startdate" id="startdate" required>
+                    <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                     </span>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4 col-lg-12 lol">
-            <div class='input-group date' id='datetimepicker9'>
-                <input type="text" class="form-control" name="enddate" id="enddate" required>
-                <span class="input-group-addon">
+            <div class="col-md-4 col-lg-12 lol">
+                <div class='input-group date' id='datetimepicker9'>
+                    <input type="text" class="form-control" name="enddate" id="enddate" required>
+                    <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                     </span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+    <script type="text/javascript">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-lg-6 eigenschaft">
-            <p><b>Marke:</b></p>
-            <p>{{$vermietungen -> marke}}<br><br></p>
-            <p><b>Modell:</b></p>
-            <p>{{$vermietungen -> modell}}<br><br></p>
-            <p><b>Fahrradart:</b></p>
-            <p>{{$vermietungen -> art}}<br><br></p>
-            <p><b>Fahrradfarbe:</b></p>
-            <p>{{$vermietungen -> farbe}}<br><br></p>
-            <p><b>Details:</b></p>
-            <p>{{$vermietungen -> details}}<br><br></p>
-            <p><b>Preis pro Tag:</b></p>
-            <p name="price">{{$vermietungen -> preis}} €<br><br></p>
-            <p><b>Standort:</b><br></p>
-            <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
+        $(function () {
+            var dateFormat = "yy-mm-dd",
+                from = $("#startdate")
+                    .datepicker({
+                        dateFormat: "yy-mm-dd",
+                        defaultDate: "0w",
+                        changeMonth: true,
+                        numberOfMonths: 1,
+                        minDate: "{{$vermietungen->startdate}}",
+                        maxDate: "{{$vermietungen->enddate}}",
+                        monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                            'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                        monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                            'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                        dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                        dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                        dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+                    })
+                    .on("change", function () {
+                        to.datepicker("option", "{{$vermietungen->startdate}}", getDate(this));
+                    }),
+                to = $("#enddate").datepicker({
+                    //      defaultDate: "0w",
+                    dateFormat: "yy-mm-dd",
+                    changeMonth: true,
+                    numberOfMonths: 1,
+                    minDate: "{{$vermietungen->startdate}}",
+                    maxDate: "{{$vermietungen->enddate}}",
+                    monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
+                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+                    dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+                })
+                    .on("change", function () {
+                        from.datepicker("option", "maxDate", getDate(this));
+                    });
+
+            function getDate(element) {
+                var date;
+                try {
+                    date = $.datepicker.parseDate(dateFormat, element.value);
+                } catch (error) {
+                    date = null;
+                }
+
+                return date;
+            }
+        });
+
+    </script>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-6 eigenschaft">
+                <p><b>Marke:</b></p>
+                <p>{{$vermietungen -> marke}}<br><br></p>
+                <p><b>Modell:</b></p>
+                <p>{{$vermietungen -> modell}}<br><br></p>
+                <p><b>Fahrradart:</b></p>
+                <p>{{$vermietungen -> art}}<br><br></p>
+                <p><b>Fahrradfarbe:</b></p>
+                <p>{{$vermietungen -> farbe}}<br><br></p>
+                <p><b>Details:</b></p>
+                <p>{{$vermietungen -> details}}<br><br></p>
+                <p><b>Preis pro Tag:</b></p>
+                <p name="price">{{$vermietungen -> preis}} €<br><br></p>
+                <p><b>Standort:</b><br></p>
+                <p>{{$vermietungen-> strasseNr}}, {{$vermietungen-> postleitzahl}} {{$vermietungen-> ort}}</p>
+            </div>
+            <div class="col-md-4 col-lg-6">
+                <div id="googleMap"></div>
+                <script>
+                    function myMap() {
+                        var geocoder = new google.maps.Geocoder();
+                        geocoder.geocode({
+                            address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
+                        }, function (geocoderResults, status) {
+                            if (status === 'OK') {
+                                var latlng = geocoderResults[0].geometry.location;
+                                var pos = new google.maps.LatLng(latlng.lat(), latlng.lng());
+                                var mapOptions = {center: pos, zoom: 15};
+                                var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+                                var newMarker = new google.maps.Marker({
+                                    map: map,
+                                    position: pos,
+                                    icon: '/img/bicycle.png',
+                                    title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
+                                });
+                            }
+                        })
+
+                    }
+
+                    /* function myMap(coords) {
+                         var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
+                         var myOptions = {
+                             zoom: 15,
+                             center: latlng
+                         };
+                         var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+
+                         var marker = new google.maps.Marker({
+                             position: latlng,
+                             map: map,
+                             title: "Hier bist du :)"
+                         });
+
+                         var geocoder = new google.maps.Geocoder();
+                         geocoder.geocode({
+                             address:
+                         }, function (geocoderResults, status) {
+                             if (status === 'OK') {
+                                 var latlng = geocoderResults[0].geometry.location;
+                                 var newMarker = new google.maps.Marker({
+                                     map: map,
+                                     position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
+                                     icon: '/img/bicycle.png',
+                                     title: ""
+                                 });
+                             }
+                         })
+                     }
+
+                     navigator.geolocation.getCurrentPosition(function (position) {
+                         myMap(position.coords);
+                     }, function () {
+                         document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
+                     });*/
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
+            </div>
         </div>
-        <div class="col-md-4 col-lg-6">
-            <div id="googleMap"></div>
-                    </div>
     </div>
-</div>
 
-<div class="container btRent">
-    <a href="/Bezahlen">
-        <button type="submit" id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
-    </a>
-</div>
+    <div class="container btRent">
+        <a href="/Bezahlen">
+            <button type="submit" id="btMieten" class=" btn btn-basic" type="button">Mieten</button>
+        </a>
+    </div>
 </form>
 <?php
-Session::put('price' , $vermietungen->preis);
+Session::put('price', $vermietungen->preis);
 ?>
 
-@include('includes.footer')
 <!--<div class="container">
     <div class="row">
         <div class="col-md-3 col-lg-4">
@@ -130,118 +244,8 @@ Session::put('price' , $vermietungen->preis);
         </div>
     </div>
 </div>-->
-<script>
-    $(function () {
-        var dateFormat = "yy-mm-dd",
-            from = $("#startdate")
-                .datepicker({
-                    dateFormat: "yy-mm-dd",
-                    defaultDate: "0w",
-                    changeMonth: true,
-                    numberOfMonths: 1,
-                    minDate: "{{$vermietungen->startdate}}",
-                    maxDate: "{{$vermietungen->enddate}}",
-                    monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-                        'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-                    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
-                        'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-                    dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-                    dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-                    dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
-                })
-                .on("change", function () {
-                    to.datepicker("option", "{{$vermietungen->startdate}}", getDate(this));
-                }),
-            to = $("#enddate").datepicker({
-                //      defaultDate: "0w",
-                dateFormat: "yy-mm-dd",
-                changeMonth: true,
-                numberOfMonths: 1,
-                minDate: "{{$vermietungen->startdate}}",
-                maxDate: "{{$vermietungen->enddate}}",
-                monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-                    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-                monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
-                dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-                dayNamesShort: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
-                dayNamesMin: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
-            })
-                .on("change", function () {
-                    from.datepicker("option", "maxDate", getDate(this));
-                });
 
-        function getDate(element) {
-            var date;
-            try {
-                date = $.datepicker.parseDate(dateFormat, element.value);
-            } catch (error) {
-                date = null;
-            }
 
-            return date;
-        }
-    });
-</script>
-<script>
-    function myMap() {
-        var geocoder = new google.maps.Geocoder();
-        geocoder.geocode({
-            address: '{{$vermietungen->ort}},{{$vermietungen->postleitzahl}},{{$vermietungen->strasseNr}}'
-        }, function (geocoderResults, status) {
-            if (status === 'OK') {
-                var latlng = geocoderResults[0].geometry.location;
-                var pos =  new google.maps.LatLng(latlng.lat(), latlng.lng());
-                var mapOptions = {center: pos, zoom: 15};
-                var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
-                var newMarker = new google.maps.Marker({
-                    map: map,
-                    position: pos,
-                    icon: '/img/bicycle.png',
-                    title: "{{$vermietungen->strasseNr}}, {{$vermietungen->postleitzahl}} {{$vermietungen->ort}}"
-                });
-            }
-        })
-
-    }
-    /* function myMap(coords) {
-         var latlng = new google.maps.LatLng(coords.latitude, coords.longitude);
-         var myOptions = {
-             zoom: 15,
-             center: latlng
-         };
-         var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
-
-         var marker = new google.maps.Marker({
-             position: latlng,
-             map: map,
-             title: "Hier bist du :)"
-         });
-
-         var geocoder = new google.maps.Geocoder();
-         geocoder.geocode({
-             address:
-         }, function (geocoderResults, status) {
-             if (status === 'OK') {
-                 var latlng = geocoderResults[0].geometry.location;
-                 var newMarker = new google.maps.Marker({
-                     map: map,
-                     position: new google.maps.LatLng(latlng.lat(), latlng.lng()),
-                     icon: '/img/bicycle.png',
-                     title: ""
-                 });
-             }
-         })
-     }
-
-     navigator.geolocation.getCurrentPosition(function (position) {
-         myMap(position.coords);
-     }, function () {
-         document.getElementById('googleMap').innerHTML = 'Deine Position konnte leider nicht ermittelt werden';
-     });*/
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwMqjnRKeOyaE7nTvPYtFpqaURd02ZpxE&callback=myMap&v=3.9"></script>
-
+@include('includes.footer')
 </body>
 </html>
