@@ -14,14 +14,12 @@
 @endif
 <?php
 $price = Session::get('price');
-$hu = Session::get('enddate');
-echo $hu;
-echo $dates->enddate;
-$start = new DateTime($dates->startdate);
-$end = new DateTime($dates->enddate);
+$hs = Session::get('startdate');
+$he = Session::get('enddate');
+$start = new DateTime($hs);
+$end = new DateTime($he);
 $result = date_diff($start, $end, true);
 $results = $result->format('%d ');
-echo $results;
 $second = (floatval($price)) * (floatval($results));
 ?>
 

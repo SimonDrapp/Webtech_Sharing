@@ -146,6 +146,7 @@
         var map = new google.maps.Map(document.getElementById('googleMap1'), myOptions);
         var geocoder = new google.maps.Geocoder();
 
+
         @foreach($aAdresses as $a)
         geocoder.geocode({
             address: '{{$a->ort}},{{$a->postleitzahl}},{{$a->strasseNr}}'
