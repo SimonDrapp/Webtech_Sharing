@@ -34,120 +34,6 @@ class SharingSeeder extends Seeder
         DB::table('farbe')->delete();
 
 
-        // INSERTS FÜR ORTE
-        /*        DB::insert("INSERT INTO Ort VALUES (1, 'Deutschland', NOW(), NOW())");
-
-                //INSERT FÜR AMarke
-                DB::insert("INSERT INTO AMarke VALUES (1, 'Alfa Romeo', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (2, 'Aston Martin', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (3, 'Audi', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (4, 'Bentley', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (5, 'BMW', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (6, 'Bugatti', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (7, 'Chevrolet', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (8, 'Corvette', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (9, 'Dacia', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (10, 'Dodge', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (11, 'Ferrari', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (12, 'Fiat', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (13, 'Ford', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (14, 'Honda', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (15, 'Hummer', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (16, 'Hyundai', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (17, 'Infiniti', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (18, 'Jaguar', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (19, 'Jeep', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (20, 'Kia', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (22, 'Lamborghini', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (23, 'Land Rower', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (24, 'Lotus', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (25, 'Maserati', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (26, 'Maybach', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (27, 'Mazda', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (28, 'McLaren', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (29, 'Mercedes-Benz', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (30, 'MINI', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (31, 'Mitsubishi', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (32, 'Nissan', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (33, 'Opel', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (34, 'Peugeot', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (35, 'Porsche', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (36, 'Renault', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (37, 'Rolls-Royce', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (38, 'Rover', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (39, 'Seat', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (40, 'Skoda', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (41, 'Smart', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (42, 'Subaru', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (43, 'Suzuki', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (44, 'Tesla', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (45, 'Volkswagen', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (46, 'Volvo', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (47, 'Citroen', NOW(), NOW())");
-                DB::insert("INSERT INTO AMarke VALUES (48, 'Toyota', NOW(), NOW())");
-
-                //INERT FÜR KRAFTSTOFF
-                DB::insert("INSERT INTO Kraftstoff VALUES (1,'Benzin', NOW(), NOW())");
-                DB::insert("INSERT INTO Kraftstoff VALUES (2,'Diesel', NOW(), NOW())");
-                DB::insert("INSERT INTO Kraftstoff VALUES (3,'Elektro', NOW(), NOW())");
-                DB::insert("INSERT INTO Kraftstoff VALUES (4,'Hybrid(Benzin/Elektro)', NOW(), NOW())");
-                DB::insert("INSERT INTO Kraftstoff VALUES (5,'Hybrid(Diesel/Elektro)', NOW(), NOW())");
-                DB::insert("INSERT INTO Kraftstoff VALUES (6,'Autogas (LPG)', NOW(), NOW())");
-                DB::insert("INSERT INTO Kraftstoff VALUES (7,'Erdgas (CNG)', NOW(), NOW())");
-
-                //INSERT FÜR BAUJAHR
-                DB::insert("INSERT INTO Baujahr VALUES (1990, NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr ), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-                DB::insert("INSERT INTO Baujahr VALUES ((SELECT MAX(id)+1 FROM Baujahr),(SELECT MAX(jahr)+1 FROM Baujahr), NOW(), NOW())");
-
-
-                //INSERT FÜR AModell
-                DB::insert("INSERT INTO AModell VALUES (1,'A1',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'A2',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'A3',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'A4',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'A5',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'A6',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'A7',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'A8',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'Q5',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-                DB::insert("INSERT INTO AModell VALUES ((SELECT MAX(id)+1 FROM AModell),'Q7',(SELECT id FROM AMarke WHERE name='Audi'),(SELECT id FROM Kraftstoff where name='Benzin'), NOW(), NOW())");
-
-
-                DB::insert("INSERT INTO FMarke VALUES(1,'Fischer', NOW(),NOW())");
-
-        */
-
-        /*       $farbe1 = farbe:: create(array(
-                   'name'=> 'rot'
-               ));
-
-       */
           ort:: create(array(
           'Name'=> 'Konstanz Petershausen-West',
           'plz'=> '78467'
@@ -337,11 +223,38 @@ class SharingSeeder extends Seeder
         ));
 
         $farbe2 = farbe:: create(array(
+            'name'=> 'silber'
+        ));
+
+        $farbe3 = farbe:: create(array(
+            'name'=> 'grau'
+        ));
+
+        $farbe4 = farbe:: create(array(
+            'name'=> 'schwarz'
+        ));
+
+        $farbe5 = farbe:: create(array(
             'name'=> 'gelb'
+        ));
+
+        $farbe6 = farbe:: create(array(
+            'name'=> 'blau'
+        ));
+
+        $farbe7 = farbe:: create(array(
+            'name'=> 'grün'
+        ));
+
+        $farbe8 = farbe:: create(array(
+            'name'=> 'grau'
         ));
 
 
 
+        $firstbaujahr0 = baujahr:: create(array(
+            'jahr' => 2018
+        ));
 
         $firstbaujahr1 = baujahr:: create(array(
             'jahr' => 2017
@@ -359,6 +272,22 @@ class SharingSeeder extends Seeder
             'jahr' => 2014
         ));
 
+        $firstbaujahr5 = baujahr:: create(array(
+            'jahr' => 2013
+        ));
+
+        $firstbaujahr6 = baujahr:: create(array(
+            'jahr' => 2012
+        ));
+
+        $firstbaujahr7 = baujahr:: create(array(
+            'jahr' => 2011
+        ));
+
+        $firstbaujahr8 = baujahr:: create(array(
+            'jahr' => 2010
+        ));
+
 
 
 
@@ -371,121 +300,243 @@ class SharingSeeder extends Seeder
         $firstAMarke3 = amarke:: create(array(
             'name' => 'Mercedes'
         ));
-
-
+        $firstAMarke4 = amarke:: create(array(
+            'name' => 'Porsche'
+        ));
+        $firstAMarke5 = amarke:: create(array(
+            'name' => 'Toyota'
+        ));
+        $firstAMarke6 = amarke:: create(array(
+            'name' => 'Ford'
+        ));
 
 
 
         $firstmodelA1 = amodell::create(array(
-            'aModellname' => 'A1',
-            'idaMarke' => $firstAMarke1->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelA2 = amodell::create(array(
-            'aModellname' => 'A2',
+            'aModellname' => 'A1 Sportback',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff2->id
         ));
         $this->command->info('AModell angelegt!!');
 
         $firstmodelA3 = amodell::create(array(
-            'aModellname' => 'A3',
+            'aModellname' => 'A3 Cabriolet',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff2->id
         ));
         $this->command->info('AModell angelegt!!');
 
         $firstmodelA4 = amodell::create(array(
-            'aModellname' => 'A4',
+            'aModellname' => 'A4 Limousine',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        AModell::create(array(
-            'aModellname' => 'A5',
+        $firstmodelA5 = AModell::create(array(
+            'aModellname' => 'A5 Coupé',
             'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelBMW1 = amodell::create(array(
-            'aModellname' => '3er',
-            'idaMarke' => $firstAMarke2->id,
+        $firstmodelA7 = amodell::create(array(
+            'aModellname' => 'A7 Sportback',
+            'idaMarke' => $firstAMarke1->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
+
+
 
         $firstmodelBMW2 = amodell::create(array(
-            'aModellname' => '1er',
+            'aModellname' => '2er Coupé',
+            'idaMarke' => $firstAMarke2->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelBMW3 = amodell::create(array(
+            'aModellname' => '3er Touring',
             'idaMarke' => $firstAMarke2->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
+        $firstmodelBMW4 = amodell::create(array(
+            'aModellname' => '4er Gran Coupé',
+            'idaMarke' => $firstAMarke2->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelBMW5 = amodell::create(array(
+            'aModellname' => '5er Limousine',
+            'idaMarke' => $firstAMarke2->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelBMW7 = amodell::create(array(
+            'aModellname' => '7er Limousine',
+            'idaMarke' => $firstAMarke2->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+
+
+
+
         $firstmodelM1 = amodell::create(array(
-            'aModellname' => 'CLS',
+            'aModellname' => 'CLA Coupé',
             'idaMarke' => $firstAMarke3->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
         $firstmodelM2 = amodell::create(array(
-            'aModellname' => 'S63',
+            'aModellname' => 'S65 AMG',
             'idaMarke' => $firstAMarke3->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
         $this->command->info('AModell angelegt!!');
 
-
-
-/*
-        $secondcar1= Auto:: create(array(
-            'details' => 'ausprobieren',
-            'idFarbe' => $farbe1->id,
-            'idAmodell' => $firstmodelA1->id,
-            'idBaujahr' => $firstbaujahr1->id
+        $firstmodelM3 = amodell::create(array(
+            'aModellname' => 'GLE Coupé',
+            'idaMarke' => $firstAMarke3->id,
+            'idKraftstoff' => $kraftstoff1->id
         ));
-        $this->command->info('Vermietung angelegt!!');
+        $this->command->info('AModell angelegt!!');
 
-        $secondcar2= Auto:: create(array(
-            'details' => 'ausprobieren',
-            'idFarbe' => $farbe1->id,
-            'idAmodell' => $firstmodelA2->id,
-            'idBaujahr' => $firstbaujahr2->id
+        $firstmodelM4 = amodell::create(array(
+            'aModellname' => 'C-350',
+            'idaMarke' => $firstAMarke3->id,
+            'idKraftstoff' => $kraftstoff2->id
         ));
-        $this->command->info('Vermietung angelegt!!');
+        $this->command->info('AModell angelegt!!');
 
-        $secondcar3= Auto:: create(array(
-            'details' => 'ausprobieren',
-            'idFarbe' => $farbe1->id,
-            'idAmodell' => $firstmodelA3->id,
-            'idBaujahr' => $firstbaujahr3->id
+        $firstmodelM5 = amodell::create(array(
+            'aModellname' => 'E-200',
+            'idaMarke' => $firstAMarke3->id,
+            'idKraftstoff' => $kraftstoff2->id
         ));
-        $this->command->info('Vermietung angelegt!!');
+        $this->command->info('AModell angelegt!!');
 
-        $secondcar4= Auto:: create(array(
-            'details' => 'ausprobieren',
-            'idFarbe' => $farbe1->id,
-            'idAmodell' => $firstmodelA4->id,
-            'idBaujahr' => $firstbaujahr4->id
+
+
+
+
+        $firstmodelP1 = amodell::create(array(
+            'aModellname' => '911 Carrera',
+            'idaMarke' => $firstAMarke4->id,
+            'idKraftstoff' => $kraftstoff1->id
         ));
-        $this->command->info('Vermietung angelegt!!');
+        $this->command->info('AModell angelegt!!');
 
-
-
-
-        $firstRental = Vermieten:: create(array(
-            'preis' => 10.0,
-            'von' => '2017-11-10',
-            'bis' => '2017-11-22',
-            'idBenutzer' => null,
-            'idFahrrad' => null,
-            'idAuto' => $secondcar2->id
+        $firstmodelP2 = amodell::create(array(
+            'aModellname' => '911 Turbo',
+            'idaMarke' => $firstAMarke4->id,
+            'idKraftstoff' => $kraftstoff1->id
         ));
-*/
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelP3 = amodell::create(array(
+            'aModellname' => 'Panamera',
+            'idaMarke' => $firstAMarke4->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelP4 = amodell::create(array(
+            'aModellname' => 'Macan Turbo',
+            'idaMarke' => $firstAMarke4->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelP5 = amodell::create(array(
+            'aModellname' => 'Cayenne S',
+            'idaMarke' => $firstAMarke4->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+
+
+
+        $firstmodelT1 = amodell::create(array(
+            'aModellname' => 'GT86',
+            'idaMarke' => $firstAMarke5->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelT2 = amodell::create(array(
+            'aModellname' => 'Avensis',
+            'idaMarke' => $firstAMarke5->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelT3 = amodell::create(array(
+            'aModellname' => 'Corolla',
+            'idaMarke' => $firstAMarke5->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelT4 = amodell::create(array(
+            'aModellname' => 'Yaris',
+            'idaMarke' => $firstAMarke5->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelT5 = amodell::create(array(
+            'aModellname' => 'Auris',
+            'idaMarke' => $firstAMarke5->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+
+
+
+        $firstmodelFo1 = amodell::create(array(
+            'aModellname' => 'Fiesta',
+            'idaMarke' => $firstAMarke6->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelFo1 = amodell::create(array(
+            'aModellname' => 'Focus',
+            'idaMarke' => $firstAMarke6->id,
+            'idKraftstoff' => $kraftstoff2->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelFo1 = amodell::create(array(
+            'aModellname' => 'GT',
+            'idaMarke' => $firstAMarke6->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelFo1 = amodell::create(array(
+            'aModellname' => 'Mustang',
+            'idaMarke' => $firstAMarke6->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
+
+        $firstmodelFo1 = amodell::create(array(
+            'aModellname' => 'Edge',
+            'idaMarke' => $firstAMarke6->id,
+            'idKraftstoff' => $kraftstoff1->id
+        ));
+        $this->command->info('AModell angelegt!!');
 
 
 
@@ -494,79 +545,321 @@ class SharingSeeder extends Seeder
             'name'=> 'Kinderräder'
         ));
         $fart2 = art:: create(array(
-            'name'=> 'Sporträder'
+            'name'=> 'E-Bike'
         ));
         $fart3 = art:: create(array(
-            'name'=> 'Freizeitbike'
+            'name'=> 'Mountainbike'
         ));
-
+        $fart4 = art:: create(array(
+            'name'=> 'Rennräder'
+        ));
 
 
 
         $fmarke1 = fmarke:: create(array(
-            'name'=> 'Bavaria',
-            'idArt' => $fart1->id,
-        ));
-
-        $fmarke2 = fmarke:: create(array(
-            'name'=> 'Bernds',
-            'idArt' => $fart3->id,
-        ));
-
-        $fmarke3 = fmarke:: create(array(
-            'name'=> 'Alpina',
+            'name'=> 'Bergamont',
             'idArt' => $fart2->id,
         ));
 
+        $fmarke2 = fmarke:: create(array(
+            'name'=> 'Carver',
+            'idArt' => $fart3->id,
+        ));
+
+        $fmarke4 = fmarke:: create(array(
+            'name'=> 'Scott',
+            'idArt' => $fart4->id,
+        ));
+
+        $fmarke5 = fmarke:: create(array(
+            'name'=> 'Cannondale',
+            'idArt' => $fart4->id,
+        ));
+
+        $fmarke6 = fmarke:: create(array(
+            'name'=> 'Ghost',
+            'idArt' => $fart2->id,
+        ));
+
+        $fmarke7 = fmarke:: create(array(
+            'name'=> 'Cube',
+            'idArt' => $fart1->id,
+        ));
+
+        $fmarke8 = fmarke:: create(array(
+            'name'=> 'Bellini',
+            'idArt' => $fart1->id,
+        ));
+
+        $fmarke9 = fmarke:: create(array(
+            'name'=> 'Serious',
+            'idArt' => $fart3->id,
+        ));
+
+        $fmarke10 = fmarke:: create(array(
+            'name'=> 'Leaderfox',
+            'idArt' => $fart1->id,
+        ));
+
+        $fmarke11 = fmarke:: create(array(
+            'name'=> 'Diamant',
+            'idArt' => $fart2->id,
+        ));
+
+        $fmarke12 = fmarke:: create(array(
+            'name'=> 'BMC',
+            'idArt' => $fart3->id,
+        ));
+
+        $fmarke13 = fmarke:: create(array(
+            'name'=> 'Focus',
+            'idArt' => $fart4->id,
+        ));
 
 
 
         $firstmodelF1 = fmodell::create(array(
-            'name' => 'Junior Bike',
-            'idMarke' => $fmarke1->id
+            'name' => 'Bellini Resi',
+            'idMarke' => $fmarke8->id
         ));
         $this->command->info('FModell angelegt!!');
 
         $firstmodelF2 = fmodell::create(array(
-            'name' => 'Mountainbike',
-            'idMarke' => $fmarke3->id
+            'name' => 'Bellini Carlo',
+            'idMarke' => $fmarke8->id
         ));
         $this->command->info('FModell angelegt!!');
 
         $firstmodelF3 = fmodell::create(array(
-            'name' => 'Rennrad',
+            'name' => 'Bellini Emma',
+            'idMarke' => $fmarke8->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+        $firstmodelF5 = fmodell::create(array(
+            'name' => 'E-Ville C XT500',
+            'idMarke' => $fmarke1->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF6 = fmodell::create(array(
+            'name' => 'E-Ville C N330',
+            'idMarke' => $fmarke1->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF7 = fmodell::create(array(
+            'name' => 'E-Horizon 9.0',
+            'idMarke' => $fmarke1->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+        $firstmodelF8 = fmodell::create(array(
+            'name' => 'Provo Trail',
+            'idMarke' => $fmarke9->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF9 = fmodell::create(array(
+            'name' => 'Shoreline',
+            'idMarke' => $fmarke9->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF10 = fmodell::create(array(
+            'name' => 'Eight Ball',
+            'idMarke' => $fmarke9->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+        $firstmodelF11 = fmodell::create(array(
+            'name' => 'CAAD12 Ultegra',
+            'idMarke' => $fmarke5->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF12 = fmodell::create(array(
+            'name' => 'Slate Ultegra',
+            'idMarke' => $fmarke5->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF13 = fmodell::create(array(
+            'name' => 'CAAD12 Disc Ultegra',
+            'idMarke' => $fmarke5->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+        $firstmodelF14 = fmodell::create(array(
+            'name' => 'Speedster 30 Compact',
+            'idMarke' => $fmarke4->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF15 = fmodell::create(array(
+            'name' => 'Speedster SE',
+            'idMarke' => $fmarke4->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF16 = fmodell::create(array(
+            'name' => 'Contessa Solace 15',
+            'idMarke' => $fmarke4->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+
+        $firstmodelF17 = fmodell::create(array(
+            'name' => 'PHT 100',
+            'idMarke' => $fmarke2->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF18 = fmodell::create(array(
+            'name' => 'Transalpin 902',
+            'idMarke' => $fmarke2->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF19 = fmodell::create(array(
+            'name' => 'CCB 01',
             'idMarke' => $fmarke2->id
         ));
         $this->command->info('FModell angelegt!!');
 
 
-/*
-        $firstvermieten1 = FModell::create(array(
-            'idArt'=> $fart1,
-            'idMarke' => $fmarke1->id,
-            'idModell'=> $firstmodelF1,
-            'idFarbe'=> $farbe1
+
+        $firstmodelF20 = fmodell::create(array(
+            'name' => 'Teru 6',
+            'idMarke' => $fmarke6->id
         ));
-        $this->command->info('FVermietung angelegt!!');
+        $this->command->info('FModell angelegt!!');
 
-        $firstvermieten2 = FModell::create(array(
-            'idArt'=> $fart2,
-            'idMarke' => $fmarke2->id,
-            'idModell'=> $firstmodelF2,
-            'idFarbe'=> $farbe1
+        $firstmodelF21 = fmodell::create(array(
+            'name' => 'E-Hybrid Kato 4',
+            'idMarke' => $fmarke6->id
         ));
-        $this->command->info('FVermietung angelegt!!');
+        $this->command->info('FModell angelegt!!');
 
-        $firstvermieten3 = FModell::create(array(
-            'idArt'=> $fart3,
-            'idMarke' => $fmarke2->id,
-            'idModell'=> $firstmodelF3,
-            'idFarbe'=> $farbe2
+        $firstmodelF22 = fmodell::create(array(
+            'name' => 'Kato Hybrid S',
+            'idMarke' => $fmarke6->id
         ));
-        $this->command->info('FVermietung angelegt!!');
+        $this->command->info('FModell angelegt!!');
 
 
-        */
+
+
+        $firstmodelF23 = fmodell::create(array(
+            'name' => 'Kid 200 Street',
+            'idMarke' => $fmarke7->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF24 = fmodell::create(array(
+            'name' => 'Kid 240 Disc',
+            'idMarke' => $fmarke7->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF25 = fmodell::create(array(
+            'name' => 'Kato 200 Allroad',
+            'idMarke' => $fmarke7->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+
+        $firstmodelF26 = fmodell::create(array(
+            'name' => 'Snake Boy',
+            'idMarke' => $fmarke10->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF27 = fmodell::create(array(
+            'name' => 'Keno',
+            'idMarke' => $fmarke10->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF28 = fmodell::create(array(
+            'name' => 'Spide Girl',
+            'idMarke' => $fmarke10->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+        $firstmodelF29 = fmodell::create(array(
+            'name' => 'Ubari Super Deluxe',
+            'idMarke' => $fmarke11->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF30 = fmodell::create(array(
+            'name' => 'Zouma S',
+            'idMarke' => $fmarke11->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF31 = fmodell::create(array(
+            'name' => 'Elan Sport',
+            'idMarke' => $fmarke11->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+        $firstmodelF32 = fmodell::create(array(
+            'name' => 'Fourstroke 02 XT',
+            'idMarke' => $fmarke12->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF33 = fmodell::create(array(
+            'name' => 'Teamelite 02 XT',
+            'idMarke' => $fmarke12->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF34 = fmodell::create(array(
+            'name' => 'Sportelite SLX-XT',
+            'idMarke' => $fmarke12->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
+        $firstmodelF35 = fmodell::create(array(
+            'name' => 'Izalco Chrono',
+            'idMarke' => $fmarke13->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF36 = fmodell::create(array(
+            'name' => 'Paralane Ultegra',
+            'idMarke' => $fmarke13->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+        $firstmodelF37 = fmodell::create(array(
+            'name' => 'Mares AL',
+            'idMarke' => $fmarke13->id
+        ));
+        $this->command->info('FModell angelegt!!');
+
+
+
 
         $role_user = new Role();
         $role_user->name = 'Gast';
@@ -611,9 +904,6 @@ class SharingSeeder extends Seeder
         $admin->telephonenumber = '01745916905';
         $admin->save();
         $admin->roles()->attach($role_admin);
-
-
-
 
     }
 }
