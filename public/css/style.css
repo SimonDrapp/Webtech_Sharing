@@ -1274,9 +1274,11 @@ h5 {
 
 .firstInput>h1{
     color: white;
+    margin: 0;
+    padding: 0;
 }
 .firstInput{
-    margin-top: -20%;
+    margin-top: -13%;
 
 }
 #logo{
@@ -1302,6 +1304,13 @@ h5 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.firstInput>.img-responsive{
+    margin-top: -7%;
+    margin-bottom: -8%;
+    padding:0;
+    width: 40%;
+    height: 20%;
 }
 .bg-1 {
     background-image: url("../img/street.jpeg");

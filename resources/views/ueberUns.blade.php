@@ -25,7 +25,7 @@
 </div>
 <div class="container-fluid whatInput">
     <h3 class="margin">Was sind wir?</h3>
-    <p>Im Rahmen der Veranstaltung Web-Technologien im Wintersemester 2017/2018 der Hochschuule Konstanz haben wir in
+    <p>Im Rahmen der Veranstaltung Web-Technologien im Wintersemester 2017/2018 der Hochschule Konstanz haben wir in
         Gruppenarbeit diese Website erstellt. Hierbei handelt es sich um eine Internetseite welche private Autos und
         Fahrräder zum Vermieten und Mieten anbietet. <br>Kontaktieren können Sie uns mit dem Kontakformular unter
         Kontakt.</p>
