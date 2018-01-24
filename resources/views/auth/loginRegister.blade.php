@@ -15,14 +15,14 @@
     <div class="row">
         <div class="col-md-6 ">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">Einloggen</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('signin2') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail Addresse</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email"
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Passwort</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -55,7 +55,7 @@
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                                        Remember Me
+                                        Merken
                                     </label>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                       <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Login
+                                    Einloggen
                                 </button>
 
                 <!--            <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -78,7 +78,7 @@
         </div>
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">Registrieren</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('signup2') }}">
@@ -100,7 +100,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail Addresse</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email"
@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Passwort</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -129,7 +129,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Passwort bestätigen</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control"
@@ -138,7 +138,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('telephonenumber') ? ' has-error' : '' }}">
-                            <label for="telephonenumber" class="col-md-4 control-label">Telephonenumber</label>
+                            <label for="telephonenumber" class="col-md-4 control-label">Telefonnummer</label>
 
                             <div class="col-md-6">
                                 <input id="telephonenumber" type="text" class="form-control" name="telephonenumber" value="{{ old('telephonenumber') }}"
@@ -155,7 +155,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Registrieren
                                 </button>
                             </div>
                         </div>

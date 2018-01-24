@@ -1222,7 +1222,8 @@
         margin-right: 3px;
     }
     #buttonShowMe{
-        left: 19px;
+        left: 65px;
+        padding-right: 20px;
     }
     #loadMore{
         font-size: 10px;
@@ -1239,6 +1240,7 @@
     }
     #buttonShowMe{
         left: 65px;
+        padding-right: 4px;
     }
 }
 

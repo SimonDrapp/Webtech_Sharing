@@ -4,7 +4,10 @@
 <head>
 
     @include('includes.head')
-    <title>my-easysharing | Login </title>
+    <title>my-easysharing | Einloggen </title>
+      <!--<link rel="stylesheet" type="text/css" href="css/app.css">-->
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+
 </head>
 
 <body id="einloggen1">

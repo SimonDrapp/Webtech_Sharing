@@ -678,12 +678,15 @@ map{
 }
 
 #buttonSortByAll{
-    padding-top: 20px;
-    margin-right: 73px;
-}
+     padding-top: 20px;
+    padding-right: 7px;
+ }
 
 #buttonShowMe{
     bottom: 15px;
+    right: 0;
+    left: 0;
+    padding: 0;
 }
 
 #buttonSortBy{
@@ -1330,7 +1333,38 @@ h5 {
 
 }
 
+.sozialeNetzwerke{
+    width:80%;
+    height:auto;
+    margin-left:10%;
+    margin-top:50px;
+    margin-bottom: 30px;
+}
 
+
+
+.social-network{display:inline-block;background:url(http://virae.org/demo/plain/img/social-networks.png) no-repeat top left;
+    width:32px;
+    height:32px;
+    background-position-y:-42px;
+    -webkit-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    -ms-transition:all .2s ease;
+    transition:all .2s ease;
+    cursor:pointer
+}
+
+.social-network.facebook{background-position:-210px -42px}
+.social-network.instagram{background-position:-378px -42px}
+.social-network.linkedin{background-position:-504px -42px}
+.social-network.twitter{background-position:-1134px -42px}
+.social-network.youtube{background-position:-1260px -42px}
+.social-network.facebook:hover,.active .social-network.facebook{background-position:-210px 0}
+.social-network.instagram:hover,.active .social-network.instagram{background-position:-378px 0}
+.social-network.linkedin:hover,.active .social-network.linkedin{background-position:-504px 0}
+.social-network.twitter:hover,.active .social-network.twitter{background-position:-1134px 0}
+.social-network.youtube:hover,.active .social-network.youtube{background-position:-1260px 0}
 
 
 

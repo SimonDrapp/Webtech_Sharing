@@ -97,6 +97,8 @@ class AutovermietungController extends Controller
         $autovermietung->enddate = $request->session()->get('enddate');
 
 
+        DB::table('vermietungenCounter')->increment('views', 1);
+
 
         DB::table('autovermietung')->insert(['name' => "Auto",'marke'=>$autovermietung->marke2,
             'modell'=>$autovermietung->modell2, 'baujahr'=>$autovermietung->baujahr,'farbe'=>$autovermietung->farbe,
