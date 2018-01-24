@@ -59,17 +59,11 @@
 
 <div class="container sortBtn">
     <div class="row" id="buttonSortByAll">
-        <div class="col-lg-10 col-md-9 col-sm-9" id="buttonShowMe">
+        <div class="col-lg-11 col-md-11 col-sm-11" id="buttonShowMe">
             <div id="btnContainer" class="btn-group myBtnContainer">
-                <button class="btn all active">alle anzeigen</button>
-                <button class="btn cars">Autos</button>
-                <button class="btn bicycles">Fahrräder</button>
-            </div>
-        </div>
-        <div class="col-lg-2 col-md-3 col-sm-3" id="buttonSortBy">
-            <div class="myBtnContainer btn-group">
-                <button class="btn active" onclick="filterSelection('price')"> Preis</button>
-                <button class="btn" onclick="filterSelection('distance')"> Entfernung</button>
+                <button class="btn all {{$allActive}}">alle anzeigen</button>
+                <button class="btn cars {{$carActive}}">Autos</button>
+                <button class="btn bicycles {{$bicycleActive}}">Fahrräder</button>
             </div>
         </div>
     </div>
@@ -101,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="searchFilter_filter">
+           <!-- <div class="searchFilter_filter">
                 <h5 class="searchFilter_filter-title">Entfernung</h5>
                 <div class="searchFilter_filter-content">
                     <div id="slidecontainer">
@@ -109,7 +103,7 @@
                         <p>Entfernung: <span id="demoDistance"></span>km</p>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="inputFilter">
                 <div class="searchFilter_filter">
                     <h5 class="searchFilter_filter-title">Marke</h5>

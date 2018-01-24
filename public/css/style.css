@@ -664,12 +664,15 @@ map{
 }
 
 #buttonSortByAll{
-    padding-top: 20px;
-    margin-right: 73px;
-}
+     padding-top: 20px;
+    padding-right: 7px;
+ }
 
 #buttonShowMe{
     bottom: 15px;
+    right: 0;
+    left: 0;
+    padding: 0;
 }
 
 #buttonSortBy{
