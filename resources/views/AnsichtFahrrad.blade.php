@@ -19,9 +19,10 @@
 
 <?php
 $lala = $vermietungen->bild;
-$result = explode(", ", $lala);
-
-
+$result = explode(", ", $lala)
+for( $i = 1; $i <= count($result); $i++){
+    $counters = $counters + $i;
+}
 
 ?>
 
@@ -29,21 +30,18 @@ $result = explode(", ", $lala);
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         @foreach($result as $val)
-            <li data-target="#myCarousel" data-slide-to="0"></li>
+            <li data-target="#myCarousel" data-slide-to="<?php $counters;?>"></li>
         @endforeach
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="{{ asset('img/searchPictures/'.$result[0])}}" >
+            <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
         </div>
-
+        @foreach($result as $value)
             <div class="item">
-                <img src="{{asset('img/searchPictures/'.$result[1])}}" >
+                <img src="{{asset('img/searchPictures/'.$value)}}" alt="<?php echo $value;?>">
             </div>
-        <div class="item">
-            <img src="{{asset('img/searchPictures/'.$result[2])}}">
-        </div>
-
+        @endforeach
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
