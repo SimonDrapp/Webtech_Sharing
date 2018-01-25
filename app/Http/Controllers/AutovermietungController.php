@@ -123,12 +123,10 @@ class AutovermietungController extends Controller
         $image = $request->file('fileToUpload');
 
         $imageFileName = time() . '.' . $image->getClientOriginalExtension();
-
-
-
+        
         $s3 = Storage::disk('s3');
 
-        $filePath = 'https://s3.eu-central-1.amazonaws.com/weteuploadss2017/' . $imageFileName;
+        $filePath = '/Sharing/' . $imageFileName;
         $s3->put($filePath, file_get_contents($image), 'public');
 
         return view('upload',["filename" => $filePath]);
