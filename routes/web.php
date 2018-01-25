@@ -129,7 +129,7 @@ Route::get('/up', function () {
 
 
 
-Route::post('/upload', "Autovermietungcontroller@uploadFileToS3");
+Route::post('/upload', "AutovermietungController@uploadFileToS3");
 
 
 
