@@ -48,7 +48,6 @@
 
                 <a href="{{ route('Fahrradeigenschaft') }}" id="LinkAutoeigenschaft" ><button  type="button" class="btn btn-basic1 btn-responsive" id="AutoButtonVermietung">Hier vermieten<span
                                 class="glyphicon glyphicon-triangle-right"></span></button></a>
-
         </div>
 
             </div>
