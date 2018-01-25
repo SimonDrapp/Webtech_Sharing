@@ -3,7 +3,7 @@
     <a href="/Ansicht/{{$show->name}}/{{$show->id}}" class="showMoreResults">
         <div class="searchResults_result">
             <div class="searchResults_image">
-                <img src="https://s3.eu-central-1.amazonaws.com/weteuploadss2017{{$show->bild}}" alt="{{$show->marke}}, {{$show->modell}}">
+                <img src="img/searchPictures/{{$show->bild}}" alt="{{$show->marke}}, {{$show->modell}}">
             </div>
             <div class="searchResults_info">
                 <div class="searchResults_info-inner">
