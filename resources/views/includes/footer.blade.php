@@ -8,7 +8,21 @@
                 <li><a href="/AGB">AGB</a></li>
             </ul>
         </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sozialeNetzwerke" align="center">
+                        <a class="social-network facebook" title="Facebook"></a>
+                        <a class="social-network instagram" title="Instagram"></a>
+                        <a class="social-network twitter" title="Twitter"></a>
+                        <a class="social-network linkedin" title="LinkedIn"></a>
+                        <a class="social-network youtube" title="YouTube"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
+
 </footer>
 <script>
     $(document).ready(function() {
