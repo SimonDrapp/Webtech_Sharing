@@ -54,7 +54,7 @@ class AnsichtAutoController extends Controller
     {
 
         if ($name === "Auto"){
-            $vermietungen =autovermietung::findOrFail($id);
+            $vermietungen = autovermietung::findOrFail($id);
             return view('AnsichtAuto', ['vermietungen' => $vermietungen]);
         }
         else if (($name === "Fahrrad")) {
