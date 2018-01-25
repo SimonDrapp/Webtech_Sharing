@@ -48,7 +48,7 @@ class FahrradvermietungController extends Controller
         $marke2 = substr($marke,2, (strlen($marke)-2));
         $fahrradvermietungen->marke = $marke2;
         $modell = $request->modell;
-        $modell2 = substr($modell,3, (strlen($modell)-3));
+        $modell2 = substr($modell,2, (strlen($modell)-2));
         $fahrradvermietungen->modell = $modell2;
         $fahrradvermietungen->farbe = $request->farbe;
         $fahrradvermietungen->preis = $request->preis;
