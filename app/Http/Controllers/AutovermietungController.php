@@ -122,7 +122,7 @@ class AutovermietungController extends Controller
     {
         $image = $request->file('fileToUpload');
 
-        $imageFileName = $image.name . '.' . $image->getClientOriginalExtension();
+        $imageFileName = $image . '.' . $image->getClientOriginalExtension();
 
         $s3 = Storage::disk('s3');
 
