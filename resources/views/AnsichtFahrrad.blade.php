@@ -19,18 +19,16 @@
 
 <?php
 $lala = $vermietungen->bild;
-$result = explode(", ", $lala)
-for( $i = 1; $i <= count($result); $i++){
-    $counters = $counters + $i;
-}
-
+$result = explode(", ", $lala);
+$result2 = $result[0];
+array_shift($result);
 ?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         @foreach($result as $val)
-            <li data-target="#myCarousel" data-slide-to="<?php $counters;?>"></li>
+            <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
         @endforeach
     </ol>
     <div class="carousel-inner">
