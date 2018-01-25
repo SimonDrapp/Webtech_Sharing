@@ -34,14 +34,14 @@ $result = explode(", ", $lala);
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="{{ asset('img/searchPictures/'.$result[0])}}" alt="<?php echo $result2; ?>">
+            <img src="{{ asset('img/searchPictures/'.$result[0])}}" >
         </div>
 
             <div class="item">
-                <img src="{{asset('img/searchPictures/'.$result[1])}}" alt="<?php echo $value;?>">
+                <img src="{{asset('img/searchPictures/'.$result[1])}}" >
             </div>
         <div class="item">
-            <img src="{{asset('img/searchPictures/'.$result[2])}}" alt="<?php echo $value;?>">
+            <img src="{{asset('img/searchPictures/'.$result[2])}}">
         </div>
 
     </div>
