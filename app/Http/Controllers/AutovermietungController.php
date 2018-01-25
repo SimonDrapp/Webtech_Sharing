@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vermieten;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use App\vermietungenCounter;
 use Illuminate\Http\Request;
 use App\AMarke;
@@ -114,6 +115,19 @@ class AutovermietungController extends Controller
         $aAdresses = autovermietung::all();
         $fAdresses = fahrradvermietung::all();
         return view('welcome',['aAdresses' => $aAdresses, 'fAdresses' => $fAdresses]);
+
+    }
+    public function uploadFileToS3(Request $request)
+    {
+        $image = $request->file('fileToUpload');
+
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+
+        $s3 = \Storage::disk('s3');
+        $filePath = '/Sharing/' . $imageFileName;
+        $s3->put($filePath, file_get_contents($image), 'public');
+
+        return view('upload',["filename" => $filePath]);
 
     }
 
