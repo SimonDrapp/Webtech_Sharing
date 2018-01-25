@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\fahrradvermietung;
+use App\mietungenCounter;
+use App\vermietungenCounter;
 use Illuminate\Http\Request;
 use App\autovermietung;
 use App\uniqueVisitor;
@@ -12,6 +14,12 @@ class welcomeController extends Controller
 {
     public function index()
     {
+        if(count(vermietungenCounter::all()) == 0){
+            DB::table('vermietungenCounter')->insert(['views' => 0]);
+        }
+        if(count(mietungenCounter::all()) == 0){
+            DB::table('mietungenCounter')->insert(['views' => 0]);
+        }
 
         $this->countVisitor();
         $aAdresses = autovermietung::all();
@@ -21,15 +29,6 @@ class welcomeController extends Controller
 
     public function countVisitor()
     {
-        DB::table('vermietungenCounter')->insert([
-            'views' => 0
-        ]);
-
-        DB::table('mietungenCounter')->insert([
-            'views' => 0
-        ]);
-
-
         $date = date("Y-m-d");
         $userIP = $_SERVER['REMOTE_ADDR'];
 

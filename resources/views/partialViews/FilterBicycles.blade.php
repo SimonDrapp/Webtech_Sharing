@@ -24,11 +24,11 @@
     <div class="searchFilter_filter-content lastFilterContent">
         <ul id="fModelle">
             @foreach ($fModelle as $fModell)
-                <li id="fahrradModelle"><a class="aContent" id="fahrradModelle"
+                <li class="showMoreBicycle" id="fahrradModelle"><a class="aContent" id="fahrradModelle"
                                                          value="{{$fModell->id}}}}">{{ $fModell->name }}</a></li>
             @endforeach
         </ul>
-        <!--<button type="button" id="loadMore" class="btn btn-basic btn-block">Mehr anzeigen</button>-->
+        <button type="button" id="loadMoreBicycle" class="btn btn-basic btn-block">Mehr anzeigen</button>
     </div>
 </div>
 

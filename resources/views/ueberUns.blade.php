@@ -58,7 +58,7 @@
 <div class="bg-2">
     <div class="caption"></div></div>
 
-<div class="container-fluid counterInput">
+<div id="test" class="container-fluid counterInput">
     <div class="row">
         <div class="stat">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -71,14 +71,14 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="milestone-counter">
                     <i class="fa fa-list-alt fa-3x"></i>
-                    <span class="stat-count highlight" data-count="14">0</span>
+                    <span class="stat-count highlight" data-count="{{$vermietungen->views}}">0</span>
                     <div class="milestone-details">Angebote</div>
                 </div>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="milestone-counter">
                     <i class="fa fa-car fa-3x"></i>
-                    <span class="stat-count highlight" data-count="232">0</span>
+                    <span class="stat-count highlight" data-count="{{$mietungen->views}}">0</span>
                     <div class="milestone-details">Erfolge</div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         </div><!-- stat -->
     </div>
 </div>
-
+<!--
 <div class="container-fluid">
     <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -106,32 +106,38 @@
             </div>
        </div>
 </div>
-
+-->
 <script>
+    $stopAppear = 1;
 
-    $('.stat-count').each(function () {
-        var $this = $(this),
-            countTo = $this.attr('data-count');
+    $('.counterInput').appear();
 
-        $({countNum: $this.text()}).animate({
-                countNum: countTo
-            },
+    $(document.body).on('appear', '.counterInput', function(){
+        if($stopAppear == 1) {
+            $('.stat-count').each(function () {
+                var $this = $(this),
+                    countTo = $this.attr('data-count');
 
-            {
-                duration: 8000,
-                easing: 'linear',
-                step: function () {
-                    $this.text(Math.floor(this.countNum));
-                },
-                complete: function () {
-                    $this.text(this.countNum);
-                    //alert('finished');
-                }
+                $({countNum: $this.text()}).animate({
+                        countNum: countTo
+                    },
 
+                    {
+                        duration: 8000,
+                        easing: 'linear',
+                        step: function () {
+                            $this.text(Math.floor(this.countNum));
+                        },
+                        complete: function () {
+                            $this.text(this.countNum);
+                            //alert('finished');
+                        }
+
+                    });
             });
+            $stopAppear++;
+        }
     });
-
-
 </script>
 </body>
 @include('includes.footer')

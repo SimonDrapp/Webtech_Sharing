@@ -65,3 +65,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.js"></script>
 
+<script type="text/javascript" src="/../../js/jquery.appear.js"></script>
+<!--<script type="text/javascript" src="https://raw.github.com/morr/jquery.appear/master/jquery.appear.js"></script>-->
+
+

@@ -92,6 +92,11 @@ Route::get('/changeFilterAll','allgemeineSucheController@changeFilterAll');
 Route::get('/changeFilterCars','allgemeineSucheController@changeFilterCars');
 Route::get('/changeFilterBicycles','allgemeineSucheController@changeFilterBicycles');
 
+Route::get('/counterMieten',[
+    'uses'=> 'AnsichtAutoController@mietenCounter',
+    'as'=>  'counterMieten'
+    ]);
+
 Route::get('/ueberUns',[
     'uses'=> 'ueberUnsController@index',
     'as'=> 'ueberUns'
@@ -124,6 +129,7 @@ Route::get('/Vermieten', function () {
     return view('Vermieten');
 });
 */
+
 
 
 

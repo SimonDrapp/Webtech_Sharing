@@ -109,7 +109,7 @@ $second = (floatval($price)) * (floatval($results));
                         <p>Hier endet unser Projekt :)</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                        <button id="closeButton" type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -118,5 +118,11 @@ $second = (floatval($price)) * (floatval($results));
 </div>
 
 @include('includes.footer')
+<script>
+    $(document).on('click', '#closeButton', function(){
+        $.get('counterMieten');
+    })
+</script>
+
 </body>
 </html>
