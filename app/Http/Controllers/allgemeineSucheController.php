@@ -39,7 +39,6 @@ class allgemeineSucheController extends Controller
         $showCollection = session()->get('showCollection');
 
 
-
         //aktive Collection in "Ablage" für Filterfunktionen
         session()->put('activeCollection', $showCollection);
 
@@ -486,7 +485,6 @@ class allgemeineSucheController extends Controller
         if ($request->modell) {
 
             session()->put('request', $request->modell);
-
             $filtered = $activeCollection->filter(function ($activeCollection) {
                 $request = session()->get('request');
                 return $activeCollection->modell == $request;

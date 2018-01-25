@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\mietungenCounter;
 use Illuminate\Http\Request;
 use App\autovermietung;
 use App\fahrradvermietung;
-
+use DB;
 
 class AnsichtAutoController extends Controller
 {
@@ -107,5 +108,14 @@ class AnsichtAutoController extends Controller
         $request->session()->put('enddate', $request->enddate);
 
         return view('Bezahlen',['dates'=> $dates]);
+    }
+
+    public function mietenCounter(){
+        $countMieten = mietungenCounter::all();
+        if(count($countMieten) == 0){
+            DB::table('mietungenCounter')->insert(['views' => 1]);
+        }else {
+            DB::table('mietungenCounter')->increment('views', 1);
+        }
     }
 }

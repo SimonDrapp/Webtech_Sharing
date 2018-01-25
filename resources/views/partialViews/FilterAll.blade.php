@@ -34,9 +34,10 @@
         <hr class="headerLine" align="left">
         <ul id="fModelle">
             @foreach ($fModelle as $fModell)
-                <li><a class="aContent" id="fahrradModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
+                <li class="showMoreBicycle"><a class="aContent" id="fahrradModelle" value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
                 </li>
             @endforeach
         </ul>
+        <button type="button" id="loadMoreBicycle" class="btn btn-basic btn-block">Mehr anzeigen</button>
     </div>
 </div>

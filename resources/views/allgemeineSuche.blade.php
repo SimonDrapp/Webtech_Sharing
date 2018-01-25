@@ -7,7 +7,7 @@
 
 </head>
 
-<body>
+<body id="suche">
 @if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
 @elseif(Auth::user() && Auth::user()->isAdministrator())
@@ -18,7 +18,7 @@
 
 <div class="container">
     <form id="quickSearchGeneral">
-        <div class="row">
+        <div id="suchleiste" class="row">
             <div class="eingabefeld">
                 <div class="col-xs-11 col-sm-4 form-group searchPadding">
                     <div class="input-group">
@@ -144,11 +144,12 @@
                         <hr class="headerLine" align="left">
                         <ul id="fModelle">
                             @foreach ($fModelle as $fModell)
-                                <li><a class="aContent" id="fahrradModelle"
+                                <li class="showMoreBicycle"><a class="aContent" id="fahrradModelle"
                                        value="{{$fModell->id}}}}">{{ $fModell->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
+                        <button type="button" id="loadMoreBicycle" class="btn btn-basic btn-block">Mehr anzeigen</button>
                     </div>
                 </div>
             </div>
