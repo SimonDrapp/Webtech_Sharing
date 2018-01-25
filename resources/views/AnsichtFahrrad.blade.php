@@ -19,38 +19,8 @@
 
 <?php
 $lala = $vermietungen->bild;
-$result = explode(", ", $lala);
-$result2 = $result[0];
-
-
+echo $lala;
 ?>
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        @foreach($result as $val)
-            <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
-        @endforeach
-    </ol>
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
-        </div>
-        @foreach($result as $value)
-            <div class="item">
-                <img src="{{asset('img/searchPictures/'.$value)}}" alt="<?php echo $value;?>">
-            </div>
-        @endforeach
-    </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
 
 <form action="{{ route('Bezahlen') }}" method="post">
     {{csrf_field()}}
