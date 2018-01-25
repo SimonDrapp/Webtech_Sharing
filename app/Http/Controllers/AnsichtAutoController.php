@@ -6,7 +6,7 @@ use App\mietungenCounter;
 use Illuminate\Http\Request;
 use App\autovermietung;
 use App\fahrradvermietung;
-
+use DB;
 
 class AnsichtAutoController extends Controller
 {

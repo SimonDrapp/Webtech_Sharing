@@ -92,7 +92,10 @@ Route::get('/changeFilterAll','allgemeineSucheController@changeFilterAll');
 Route::get('/changeFilterCars','allgemeineSucheController@changeFilterCars');
 Route::get('/changeFilterBicycles','allgemeineSucheController@changeFilterBicycles');
 
-Route::get('/counterMieten','AnsichtAutoController@mietenCounter');
+Route::get('/counterMieten',[
+    'uses'=> 'AnsichtAutoController@mietenCounter',
+    'as'=>  'counterMieten'
+    ]);
 
 Route::get('/ueberUns',[
     'uses'=> 'ueberUnsController@index',
