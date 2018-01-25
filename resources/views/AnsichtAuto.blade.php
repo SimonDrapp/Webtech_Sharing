@@ -17,29 +17,18 @@
     @include('includes.header')
 @endif
 
-<?php
-$lala = $vermietungen->bild;
-$result = explode(", ", $lala);
-$result2 = $result[0];
-array_shift($result);
-?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        @foreach($result as $val)
-            <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
-        @endforeach
+
+            <li data-target="#myCarousel" data-slide-to="0"></li>
+
     </ol>
     <div class="carousel-inner">
         <div class="item active">
-            <img src="{{ asset('img/searchPictures/'.$result2)}}" alt="<?php echo $result2; ?>">
+            <img src="{{ asset('https://s3.eu-central-1.amazonaws.com/weteuploadss2017'.$vermietungen->bild)}}" alt="<?php echo $vermietungen->bild;?>">
         </div>
-        @foreach($result as $value)
-            <div class="item">
-                <img src="{{asset('img/searchPictures/'.$value)}}" alt="<?php echo $value;?>">
-            </div>
-        @endforeach
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>

@@ -47,6 +47,11 @@ class AutovermietungController extends Controller
 
 
     public function putCar(Request $request){
+        $image = $request->file('fileToUpload');
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+        $s3 = Storage::disk('s3');
+        $filePath = '/MeinProjekt/' . $imageFileName;
+        $s3->put($filePath, file_get_contents($image), 'public');
         $autovermietungen = new autovermietung;
         $marke = $request->marke;
         $marke2 = substr($marke,3, (strlen($marke)-3));
@@ -58,7 +63,7 @@ class AutovermietungController extends Controller
         $autovermietungen->farbe = $request->farbe;
         $autovermietungen->kraftstoff = $request->kraftstoff;
         $autovermietungen->preis = $request->preis;
-        $autovermietungen->bild = $request->bild;
+        $autovermietungen->bild = $filePath;
         $autovermietungen->details = $request->details;
         $autovermietungen->postleitzahl = $request->postleitzahl;
         $autovermietungen->ort = $request->ort;
@@ -72,7 +77,7 @@ class AutovermietungController extends Controller
         $request->session()->put('farbe', $request->farbe);
         $request->session()->put('kraftstoff', $request->kraftstoff);
         $request->session()->put('preis', $request->preis);
-        $request->session()->put('bild', $request->bild);
+        $request->session()->put('bild', $filePath);
         $request->session()->put('details', $request->details);
         $request->session()->put('postleitzahl', $request->postleitzahl);
         $request->session()->put('ort', $request->ort);
@@ -122,7 +127,7 @@ class AutovermietungController extends Controller
     {
         $image = $request->file('fileToUpload');
 
-        $imageFileName = $image . '.' . $image->getClientOriginalExtension();
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
 
         $s3 = Storage::disk('s3');
 
