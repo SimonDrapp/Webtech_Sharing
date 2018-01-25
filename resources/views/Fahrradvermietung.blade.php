@@ -241,10 +241,10 @@
 
 <script>
     $(function () {
-        var dateFormat = "dd/mm/yy",
+        var dateFormat = "yy-mm-dd",
             from = $("#startdate")
                 .datepicker({
-                    dateFormat: "dd/mm/yy",
+                    dateFormat: "yy-mm-dd",
                     defaultDate: "0w",
                     changeMonth: true,
                     numberOfMonths: 2,
@@ -262,7 +262,7 @@
                 }),
             to = $("#enddate").datepicker({
                 //      defaultDate: "0w",
-                dateFormat: "dd/mm/yy",
+                dateFormat: "yy-mm-dd",
                 changeMonth: true,
                 numberOfMonths: 2,
                 minDate:0,
@@ -317,7 +317,7 @@
 
                     op += '<option value="0" name="marke" selected disabled>Wählen Sie aus</option>';
                     for (var i = 0; i < data.length; i++) {
-                        op += '<option name="marke" value="' + data[i].id + ',' + data[i].name + '">' + data[i].name + '</option>';
+                        op += '<option name="marke" value="' + data[i].id + ', ' + data[i].name + '">' + data[i].name + '</option>';
                     }
 
                     a.find('#Marke').html(" ");
@@ -358,7 +358,7 @@
 
                     op += '<option name="modell" value="0" selected disabled>Wählen Sie aus</option>';
                     for (var i = 0; i < data.length; i++) {
-                        op += '<option name="modell" value="' + data[i].id + ',' + data[i].name + '">' + data[i].name + '</option>';
+                        op += '<option name="modell" value="' + data[i].id + ', ' + data[i].name + '">' + data[i].name + '</option>';
                     }
 
                     div.find('#Modell').html(" ");

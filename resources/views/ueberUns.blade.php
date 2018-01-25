@@ -104,7 +104,7 @@
                     <a class="social-network youtube" title="YouTube"></a>
                 </div>
             </div>
-    </div>
+       </div>
 </div>
 
 <script>

@@ -22,7 +22,6 @@ $lala = $vermietungen->bild;
 $result = explode(", ", $lala);
 $result2 = $result[0];
 array_shift($result);
-
 ?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

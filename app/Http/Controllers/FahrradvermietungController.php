@@ -42,10 +42,10 @@ class FahrradvermietungController extends Controller
 
         $fahrradvermietungen = new fahrradvermietung;
         $art = $request->art;
-        $art2 = substr($art,2, (strlen($art)-2));
+        $art2 = substr($art,3, (strlen($art)-3));
         $fahrradvermietungen->art = $art2;
         $marke = $request->marke;
-        $marke2 = substr($marke,2, (strlen($marke)-2));
+        $marke2 = substr($marke,3, (strlen($marke)-3));
         $fahrradvermietungen->marke = $marke2;
         $modell = $request->modell;
         $modell2 = substr($modell,3, (strlen($modell)-3));
