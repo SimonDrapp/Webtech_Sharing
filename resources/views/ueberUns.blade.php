@@ -18,7 +18,7 @@
     <div class="bg-1">
         <div class="caption">
         <div class="container-fluid firstInput">
-        <h1 class="margin">Wer sind wir?</h1>
+       <!-- <h1 class="margin">Wer sind wir?</h1>-->
         <img id="#logo" src="img/logo_new.png" class="img-responsive" alt="Logo" style="display: inline;">
             <h1>Wir sind die Entwickler dieser Website</h1></div>
 </div>
