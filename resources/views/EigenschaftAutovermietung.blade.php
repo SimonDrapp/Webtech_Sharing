@@ -315,7 +315,7 @@
                     op+='<option name="modell" value="0" selected disabled>Wählen Sie aus</option>';
 
                     for(var i=0; i<data.length; i++){
-                        op+='<option name="modell" value="'+data[i].id+', '+data[i].aModellname+' ">'+data[i].aModellname+'</option>';
+                        op+='<option name="modell" value="'+data[i].id + ',' +data[i].aModellname+' ">'+data[i].aModellname+'</option>';
                     }
 
                     div.find('#Modell').html(" ");
