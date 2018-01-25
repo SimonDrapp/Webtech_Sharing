@@ -29,7 +29,7 @@ array_shift($result);
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         @foreach($result as $val)
-            <li data-target="#myCarousel" data-slide-to="<?php(count($val));?>"></li>
+            <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
         @endforeach
     </ol>
     <div class="carousel-inner">
