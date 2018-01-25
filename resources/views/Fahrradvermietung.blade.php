@@ -262,7 +262,7 @@
                 }),
             to = $("#enddate").datepicker({
                 //      defaultDate: "0w",
-                dateFormat: "dd/mm/yy",
+                dateFormat: "yy-mm-dd",
                 changeMonth: true,
                 numberOfMonths: 2,
                 minDate:0,
