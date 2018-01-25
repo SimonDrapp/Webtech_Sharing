@@ -21,14 +21,15 @@
 $lala = $vermietungen->bild;
 $result = explode(", ", $lala);
 $result2 = $result[0];
-array_shift($result);
+/*array_shift($result);*/
+$dada
 ?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         @foreach($result as $val)
-            <li data-target="#myCarousel" data-slide-to="<?php(sizeof($val));?>"></li>
+            <li data-target="#myCarousel" data-slide-to="<?php(count($val));?>"></li>
         @endforeach
     </ol>
     <div class="carousel-inner">
