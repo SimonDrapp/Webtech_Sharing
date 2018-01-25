@@ -20,6 +20,9 @@
 <?php
 $lala = $vermietungen->bild;
 echo $lala;
+$result = explode(", ", $lala);
+echo $result[0];echo $result[1];echo $result[2];
+
 ?>
 
 <form action="{{ route('Bezahlen') }}" method="post">
