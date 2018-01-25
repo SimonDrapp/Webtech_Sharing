@@ -75,7 +75,7 @@ array_shift($result);
         </div>
     </div>
 
-    <script type="text/javascript">
+    <script>
 
         $(function () {
             var dateFormat = "yy-mm-dd",

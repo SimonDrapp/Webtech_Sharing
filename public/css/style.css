@@ -1289,9 +1289,12 @@ h5 {
 
 .firstInput>h1{
     color: white;
+    margin: 0;
+    padding: 0;
 }
 .firstInput{
-    margin-top: -20%;
+    margin-top: -13%;
+
 }
 #logo{
     width: 35%;
@@ -1317,6 +1320,13 @@ h5 {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.firstInput>.img-responsive{
+    margin-top: -7%;
+    margin-bottom: -8%;
+    padding:0;
+    width: 40%;
+    height: 20%;
+}
 .bg-1 {
     background-image: url("../img/street.jpeg");
     min-height: 100%;
@@ -1339,6 +1349,12 @@ h5 {
     width: 100%;
     text-align: center;
     color: #000;
+}
+@media only screen and (max-device-width: 1024px) {
+    .bg-1, .bg-2, .bg-3 {
+        background-attachment: scroll;
+    }
+
 }
 
 .sozialeNetzwerke{

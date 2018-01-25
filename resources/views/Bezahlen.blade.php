@@ -14,8 +14,10 @@
 @endif
 <?php
 $price = Session::get('price');
-$start = new DateTime($dates->startdate);
-$end = new DateTime($dates->enddate);
+$hs = Session::get('startdate');
+$he = Session::get('enddate');
+$start = new DateTime($hs);
+$end = new DateTime($he);
 $result = date_diff($start, $end, true);
 $results = $result->format('%d ');
 $second = (floatval($price)) * (floatval($results));
@@ -83,9 +85,9 @@ $second = (floatval($price)) * (floatval($results));
             <div class="rechnung">
                 <h1>Rechnungsbetrag</h1>
                 <p>Preis pro Tag: <?php echo $price?> €</p>
-                <p>Anzahl der Tage: <? echo $results?> Tage</p>
+                <p>Anzahl der Tage: <?php echo $results?> Tage</p>
                 <hr>
-                <p>Preis: <?echo $second ?> €</p>
+                <p>Preis: <?php echo $second ?> €</p>
             </div>
         </div>
     </div>
