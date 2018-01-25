@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vermieten;
+use App\vermietungenCounter;
 use Illuminate\Http\Request;
 use App\AMarke;
 use App\AModell;
@@ -96,8 +97,12 @@ class AutovermietungController extends Controller
         $autovermietung->startdate = $request->session()->get('startdate');
         $autovermietung->enddate = $request->session()->get('enddate');
 
-
-        DB::table('vermietungenCounter')->increment('views', 1);
+        $countVermietungen = vermietungenCounter::all();
+            if(count($countVermietungen) == 0){
+            DB::table('vermietungenCounter')->insert(['views' => 1]);
+            }else {
+                DB::table('vermietungenCounter')->increment('views', 1);
+            }
 
 
         DB::table('autovermietung')->insert(['name' => "Auto",'marke'=>$autovermietung->marke2,

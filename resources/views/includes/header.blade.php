@@ -22,6 +22,7 @@
                     <li class="home2" ><a href="/">Startseite</a></li>
                     <li id="registrieren2"><a href="{{ route('signup') }}">Registrieren</a></li>
                     <li id="einloggen2"><a href="{{ route('signin') }}">Einloggen</a></li>
+                    <li id="suche2"><a href="{{ route('allgemeineSuche') }}">Mieten</a></li>
                     <li class="vermieten2"><a href="#myModal2" data-toggle="modal" data-target="#myModal2">Vermieten</a></li>
                     <li id="ueberuns2"><a href="{{ route('ueberUns') }}">Über uns</a></li>
                     </ul>

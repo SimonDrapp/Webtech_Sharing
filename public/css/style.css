@@ -100,7 +100,7 @@ body {
 
 }
 #home1 .home2 >a, #registrieren1 #registrieren2 >a, #einloggen1 #einloggen2 >a, #ueberuns1 #ueberuns2 >a,
-#vermietenheader1 .vermietenheader2 >a, #benutzer1 #benutzer2 >a, #nachrichten1 #nachrichten2 >a {
+#vermietenheader1 .vermietenheader2 >a, #benutzer1 #benutzer2 >a, #nachrichten1 #nachrichten2 >a, #suche #suche2 >a {
     background-color: rgba(112, 173, 71, 1);
     color: #fff;
 
@@ -552,6 +552,9 @@ map{
     position: fixed;
 }
 /*---------allgemeine Suche-------------*/
+#suchleiste{
+    margin-top: 40px;
+}
 #liveSearch{
     list-style-type: none;
     padding: 0;
@@ -859,6 +862,9 @@ h5 {
 .searchFilter_filter-content .showMore{
     display:none;
 }
+.searchFilter_filter-content .showMoreBicycle{
+    display:none;
+}
 
 .searchFilter_filter-content ul li a{
     color: black;
@@ -879,6 +885,15 @@ h5 {
 }
 
 #loadMore{
+    width:70%;
+    font-size: 14px;
+    font-family: Tahoma;
+    margin: auto;
+    background-color: rgba(112, 173, 71, 1);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#loadMoreBicycle{
     width:70%;
     font-size: 14px;
     font-family: Tahoma;

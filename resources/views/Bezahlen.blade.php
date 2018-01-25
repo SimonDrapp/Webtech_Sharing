@@ -116,5 +116,11 @@ $second = (floatval($price)) * (floatval($results));
 </div>
 
 @include('includes.footer')
+
+<script>
+    $('#btZahlen').click(function(){
+        $.get('/counterMieten');
+    });
+</script>
 </body>
 </html>

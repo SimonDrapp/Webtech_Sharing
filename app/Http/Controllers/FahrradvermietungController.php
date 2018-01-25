@@ -16,6 +16,7 @@ use App\FModell;
 use App\Farbe;
 use App\fahrradvermietung;
 use App\Fahrrad;
+use App\vermietungenCounter;
 
 class FahrradvermietungController extends Controller
 {
@@ -95,6 +96,12 @@ class FahrradvermietungController extends Controller
         $fahrradvermietung->startdate = $request->session()->get('startdate');
         $fahrradvermietung->enddate = $request->session()->get('enddate');
 
+        $countVermietungen = vermietungenCounter::all();
+        if(count($countVermietungen) == 0){
+            DB::table('vermietungenCounter')->insert(['views' => 1]);
+        }else {
+            DB::table('vermietungenCounter')->increment('views', 1);
+        }
 
             DB::table('fahrradvermietung')->insert(['name' => "Fahrrad", 'art'=>$fahrradvermietung->art2, 'marke'=>$fahrradvermietung->marke2,
             'modell'=>$fahrradvermietung->modell2, 'farbe'=>$fahrradvermietung->farbe, 'preis'=>$fahrradvermietung->preis,

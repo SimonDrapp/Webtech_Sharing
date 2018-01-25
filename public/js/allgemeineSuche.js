@@ -87,6 +87,15 @@ $(function () {
     });
 });
 
+/*---MehrAnzeigenButton---*/
+$(function () {
+    $(".showMoreBicycle").slice(0, 4).show();
+    $("#loadMoreBicycle").on('click', function (e) {
+        e.preventDefault();
+        $(".showMoreBicycle:hidden").slice(0, 4).slideDown();
+    });
+});
+
 /*---FilterButton---*/
 var filterCounter = 0;
 
@@ -111,6 +120,7 @@ $(document).ready(function () {
     slider_E.oninput = function () {
         output_E.innerHTML = this.value;
     }*/
+
 
 
     /*---Ajax---*/
@@ -186,6 +196,14 @@ $(document).ready(function () {
                     $(".showMore:hidden").slice(0, 4).slideDown();
                 });
             });
+            /*---MehrAnzeigenButton---*/
+            $(function () {
+                $(".showMoreBicycle").slice(0, 4).show();
+                $("#loadMoreBicycle").on('click', function (e) {
+                    e.preventDefault();
+                    $(".showMoreBicycle:hidden").slice(0, 4).slideDown();
+                });
+            });
         });
     });
 
@@ -236,6 +254,14 @@ $(document).ready(function () {
         $.get("/changeFilterBicycles", function (data) {
             $('.inputFilter').empty();
             $('.inputFilter').html(data);
+            /*---MehrAnzeigenButton---*/
+            $(function () {
+                $(".showMoreBicycle").slice(0, 4).show();
+                $("#loadMoreBicycle").on('click', function (e) {
+                    e.preventDefault();
+                    $(".showMoreBicycle:hidden").slice(0, 4).slideDown();
+                });
+            });
         });
     });
 

@@ -15,7 +15,7 @@ class CreateSharingVermietungenCounter extends Migration
     {
         Schema::create('vermietungenCounter', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('views')->default('1');
+            $table->integer('views');
         });
     }
 
