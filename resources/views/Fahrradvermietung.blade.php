@@ -317,7 +317,7 @@
 
                     op += '<option value="0" name="marke" selected disabled>Wählen Sie aus</option>';
                     for (var i = 0; i < data.length; i++) {
-                        op += '<option name="marke" value="' + data[i].id + ',' + data[i].name + '">' + data[i].name + '</option>';
+                        op += '<option name="marke" value="' + data[i].id + ', ' + data[i].name + '">' + data[i].name + '</option>';
                     }
 
                     a.find('#Marke').html(" ");
@@ -358,7 +358,7 @@
 
                     op += '<option name="modell" value="0" selected disabled>Wählen Sie aus</option>';
                     for (var i = 0; i < data.length; i++) {
-                        op += '<option name="modell" value="' + data[i].id + ',' + data[i].name + '">' + data[i].name + '</option>';
+                        op += '<option name="modell" value="' + data[i].id + ', ' + data[i].name + '">' + data[i].name + '</option>';
                     }
 
                     div.find('#Modell').html(" ");
