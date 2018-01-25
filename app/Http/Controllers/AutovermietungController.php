@@ -17,6 +17,7 @@ use DB;
 use App\autovermietung;
 use Session;
 use App\fahrradvermietung;
+use Storage;
 
 class AutovermietungController extends Controller
 {
@@ -123,7 +124,7 @@ class AutovermietungController extends Controller
 
         $imageFileName = time() . '.' . $image->getClientOriginalExtension();
 
-        $s3 = \Storage::disk('s3');
+        $s3 = Storage::disk('s3');
         $filePath = '/Sharing/' . $imageFileName;
         $s3->put($filePath, file_get_contents($image), 'public');
 
