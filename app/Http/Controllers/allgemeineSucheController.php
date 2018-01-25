@@ -25,6 +25,10 @@ class allgemeineSucheController extends Controller
         $startdate = Null;
         $enddate = Null;
 
+        $allActive = "active";
+        $carActive = NULL;
+        $bicycleActive = Null;
+
         $aMarken = amarke::all();
         $aModelle = amodell::all();
         $fMarken = fmarke::all();
@@ -34,12 +38,15 @@ class allgemeineSucheController extends Controller
 
         $showCollection = session()->get('showCollection');
 
+
+
         //aktive Collection in "Ablage" für Filterfunktionen
         session()->put('activeCollection', $showCollection);
 
         return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
             'fModelle' => $fModelle,
             'ortPlz' => $ortPlz, 'startdate' => $startdate, 'enddate' => $enddate,
+            'allActive' => $allActive, 'carActive' => $carActive, 'bicycleActive' => $bicycleActive,
             'showCollection' => $showCollection]);
     }
 
@@ -51,8 +58,77 @@ class allgemeineSucheController extends Controller
         $showCollection = $collection->sortBy('preis');
         $showCollection->values()->all();
 
+        session()->put('cutCollection', $showCollection);
+        $this->cutPicture();
+        $showCollection = session()->get('finishCollection');
+
         session()->put('showCollection', $showCollection);
     }
+
+    public function showCarResults(){
+        $ortPlz = Null;
+        $startdate = Null;
+        $enddate = Null;
+
+        $allActive = Null;
+        $carActive = "active";
+        $bicycleActive = Null;
+
+        $aMarken = amarke::all();
+        $aModelle = amodell::all();
+        $fMarken = fmarke::all();
+        $fModelle = fmodell::all();
+
+        $aVermietung = autovermietung::all();
+        $showCollection = $aVermietung->sortBy('preis');
+        $showCollection->values()->all();
+
+        session()->put('cutCollection', $showCollection);
+        $this->cutPicture();
+        $showCollection = session()->get('finishCollection');
+
+        //aktive Collection in "Ablage" für Filterfunktionen
+        session()->put('activeCollection', $showCollection);
+
+        return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+            'fModelle' => $fModelle,
+            'ortPlz' => $ortPlz, 'startdate' => $startdate, 'enddate' => $enddate,
+            'allActive' => $allActive, 'carActive' => $carActive, 'bicycleActive' => $bicycleActive,
+            'showCollection' => $showCollection]);
+    }
+
+    public function showBicycleResults(){
+        $ortPlz = Null;
+        $startdate = Null;
+        $enddate = Null;
+
+        $allActive = Null;
+        $carActive = NULL;
+        $bicycleActive = "active";
+
+        $aMarken = amarke::all();
+        $aModelle = amodell::all();
+        $fMarken = fmarke::all();
+        $fModelle = fmodell::all();
+
+        $fVermietung = fahrradvermietung::all();
+        $showCollection = $fVermietung->sortBy('preis');
+        $showCollection->values()->all();
+
+        session()->put('cutCollection', $showCollection);
+        $this->cutPicture();
+        $showCollection = session()->get('finishCollection');
+
+        //aktive Collection in "Ablage" für Filterfunktionen
+        session()->put('activeCollection', $showCollection);
+
+        return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
+            'fModelle' => $fModelle,
+            'ortPlz' => $ortPlz, 'startdate' => $startdate, 'enddate' => $enddate,
+            'allActive' => $allActive, 'carActive' => $carActive, 'bicycleActive' => $bicycleActive,
+            'showCollection' => $showCollection]);
+    }
+
 
     public function searchInput(Request $request)
     {
@@ -61,6 +137,10 @@ class allgemeineSucheController extends Controller
             $ortPlz = $request->search;
             $startdate = $request->von;
             $enddate = $request->bis;
+
+            $allActive = "active";
+            $carActive = NULL;
+            $bicycleActive = Null;
 
             $aMarken = amarke::all();
             $aModelle = amodell::all();
@@ -71,12 +151,17 @@ class allgemeineSucheController extends Controller
 
             $showCollection = session()->get('showCollection');
 
+            session()->put('cutCollection', $showCollection);
+            $this->cutPicture();
+            $showCollection = session()->get('finishCollection');
+
             //aktive Collection in "Ablage" für Filterfunktionen
              session()->put('activeCollection', $showCollection);
 
             return view('allgemeineSuche', ['aMarken' => $aMarken, 'aModelle' => $aModelle, 'fMarken' => $fMarken,
                 'fModelle' => $fModelle,
                 'ortPlz' => $ortPlz, 'startdate' => $startdate, 'enddate' => $enddate,
+                'allActive' => $allActive, 'carActive' => $carActive, 'bicycleActive' => $bicycleActive,
                 'showCollection' => $showCollection]);
 
     }
@@ -149,6 +234,10 @@ class allgemeineSucheController extends Controller
 
         $showCollection = $collection->sortBy('preis');
         $showCollection->values()->all();
+
+         session()->put('cutCollection', $showCollection);
+        $this->cutPicture();
+       $showCollection = session()->get('finishCollection');
 
         session()->put('showCollection', $showCollection);
     }
@@ -237,6 +326,10 @@ class allgemeineSucheController extends Controller
         $showCollection = $collection->sortBy('preis');
         $showCollection->values()->all();
 
+        session()->put('cutCollection', $showCollection);
+        $this->cutPicture();
+        $showCollection = session()->get('finishCollection');
+
         session()->put('activeCollection', $collection);
 
         return view('partialViews.liveSearch')->with([
@@ -307,7 +400,8 @@ class allgemeineSucheController extends Controller
         $ort = $Input["ort"];
         $plz = $Input["plz"];
         $startdate = $Input["startdate"];
-        $enddate = $Input["enddate"];;
+        $enddate = $Input["enddate"];
+
 
         if($ort && $startdate && $enddate){
             $aVermietung = autovermietung::where([
@@ -320,17 +414,17 @@ class allgemeineSucheController extends Controller
 
         }elseif(!$ort && $startdate && $enddate){
             $aVermietung = autovermietung::where([
-                ['startdate', '<=', $request->startdate],
-                ['enddate', '>=', $request->enddate]
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
             ])->get();
             $collection = $aVermietung;
 
         }elseif($ort && !$startdate && !$enddate){
-            $fVermietung = fahrradvermietung::where([
-                ['ort', 'LIKE', $request->ort],
-                ['postleitzahl', 'LIKE', $request->plz]
+            $aVermietung = autovermietung::where([
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz]
             ])->get();
-            $collection = $fVermietung;
+            $collection = $aVermietung;
 
         }else{
             $aVermietung = autovermietung::all();
@@ -347,24 +441,24 @@ class allgemeineSucheController extends Controller
 
         if($ort && $startdate && $enddate){
             $fVermietung = fahrradvermietung::where([
-                ['ort', 'LIKE', $request->ort],
-                ['postleitzahl', 'LIKE', $request->plz],
-                ['startdate', '<=', $request->startdate],
-                ['enddate', '>=', $request->enddate]
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz],
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
             ])->get();
             $collection = $fVermietung;
 
         }elseif(!$ort && $startdate && $enddate){
             $fVermietung = fahrradvermietung::where([
-                ['startdate', '<=', $request->startdate],
-                ['enddate', '>=', $request->enddate]
+                ['startdate', '<=', $startdate],
+                ['enddate', '>=', $enddate]
             ])->get();
             $collection = $fVermietung;
 
         }elseif($ort && !$startdate && !$enddate){
             $fVermietung = fahrradvermietung::where([
-                ['ort', 'LIKE', $request->ort],
-                ['postleitzahl', 'LIKE', $request->plz]
+                ['ort', 'LIKE', $ort],
+                ['postleitzahl', 'LIKE', $plz]
             ])->get();
             $collection = $fVermietung;
 
@@ -449,5 +543,22 @@ class allgemeineSucheController extends Controller
 
 
     }
+
+    function cutPicture(){
+    $cut = session()->get('cutCollection');
+
+
+
+        for ($i = 0; $i<count($cut);$i++){
+           $imgData = ($cut["$i"]->bild);
+
+            if(strpos($imgData, ",")){
+                $imgArray = explode(", ", $imgData);
+                $img = $imgArray[0];
+                $cut["$i"]->bild = $img;
+            }
+        }
+    session()->put('finishCollection', $cut);
+}
 
 }

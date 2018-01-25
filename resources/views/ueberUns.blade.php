@@ -19,13 +19,13 @@
         <div class="caption">
         <div class="container-fluid firstInput">
         <h1 class="margin">Wer sind wir?</h1>
-        <img id="#logo" src="img/logo_new.png" class="img-responsive img-circle" alt="Logo" style="display: inline;">
+        <img id="#logo" src="img/logo_new.png" class="img-responsive" alt="Logo" style="display: inline;">
             <h1>Wir sind die Entwickler dieser Website</h1></div>
 </div>
 </div>
 <div class="container-fluid whatInput">
     <h3 class="margin">Was sind wir?</h3>
-    <p>Im Rahmen der Veranstaltung Web-Technologien im Wintersemester 2017/2018 der Hochschuule Konstanz haben wir in
+    <p>Im Rahmen der Veranstaltung Web-Technologien im Wintersemester 2017/2018 der Hochschule Konstanz haben wir in
         Gruppenarbeit diese Website erstellt. Hierbei handelt es sich um eine Internetseite welche private Autos und
         Fahrräder zum Vermieten und Mieten anbietet. <br>Kontaktieren können Sie uns mit dem Kontakformular unter
         Kontakt.</p>

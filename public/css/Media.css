@@ -28,7 +28,10 @@
         margin-left: 850px;
         margin-top: -35px;
     }
+
 }
+
+
 
 /*-----------1200px-------*/
 @media screen and (max-width: 1200px) {
@@ -38,6 +41,9 @@
 
     #FahrradButtonVermietung, #AutoButtonVermietung {
         margin-left: 500px;
+    }
+    .firstInput{
+        margin-top: -13%;
     }
 
    /* .content h1 {
@@ -181,6 +187,16 @@
     }
 
 }
+@media screen and (max-width: 1024px) {
+    .firstInput{
+        margin-top: -15%;
+    }
+    #logo{
+        margin:0;
+    }
+
+}
+
 
 /*-----------1000px-------*/
 @media screen and (max-width: 1000px) {
@@ -573,6 +589,19 @@
     .searchFilter{
         margin-bottom: 20px;
     }
+    .firstInput{
+        margin-top: -22%;
+
+    }
+   .firstInput>.img-responsive{
+       margin: 0;
+       padding:0;
+       height: 30%;
+       width: 40%;
+   }
+   .firstInput > h1{
+       font-size: 30px;
+   }
 
 }
 /*-----------720px-------*/
@@ -1036,6 +1065,11 @@
         width: 220px;
 
     }
+    .firstInput>.img-responsive{
+        margin: 4%;
+
+
+    }
 
 }
 
@@ -1208,7 +1242,8 @@
         margin-right: 3px;
     }
     #buttonShowMe{
-        left: 19px;
+        left: 65px;
+        padding-right: 20px;
     }
     #loadMore{
         font-size: 10px;
@@ -1225,6 +1260,7 @@
     }
     #buttonShowMe{
         left: 65px;
+        padding-right: 4px;
     }
 }
 

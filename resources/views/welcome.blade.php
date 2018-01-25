@@ -85,19 +85,18 @@
                     tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
-                <a href="#">
+                <a href="{{ route('showCarResults') }}">
                     <img class="AutoBild img-rounded" src="img/car1.jpg" data-src="holder.js/500x500/auto"
                          alt="Auto"></a>
             </div>
 
         </div>
-
+       <form action="{{ route('showCarResults') }}" method="get">
         <div class="button1">
-            <a href="#">
-                <button type="button" class="btn btn-basic" id="AutoButton">Zum Auto<span
+                <button type="submit" class="btn btn-basic" id="AutoButton">Zum Auto<span
                             class="glyphicon glyphicon-triangle-right"></span></button>
-            </a>
         </div>
+        </form>
     </section>
 
 
@@ -115,15 +114,18 @@
                     dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
+                <a href="{{ route('showBicycleResults') }}">
                 <img class="FahrradBild img-rounded" src="img/bike1.jpg" data-src="holder.js/500x500/auto"
                      alt="Fahrrad">
+                </a>
             </div>
         </div>
+        <form action="{{ route('showBicycleResults') }}" method="get">
         <div class="button2">
-            <button type="button" class="btn btn-basic1 btn-responsive" id="FahrradButton">Zum Fahrrad<span
+            <button type="submit" class="btn btn-basic1 btn-responsive" id="FahrradButton">Zum Fahrrad<span
                         class="glyphicon glyphicon-triangle-right"></span></button>
         </div>
-
+        </form>
     </section>
 
 </article>
@@ -143,6 +145,7 @@
         };
         var map = new google.maps.Map(document.getElementById('googleMap1'), myOptions);
         var geocoder = new google.maps.Geocoder();
+
 
         @foreach($aAdresses as $a)
         geocoder.geocode({

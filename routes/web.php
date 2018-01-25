@@ -94,7 +94,17 @@ Route::get('/changeFilterBicycles','allgemeineSucheController@changeFilterBicycl
 
 Route::get('/ueberUns',[
     'uses'=> 'ueberUnsController@index',
-    'as'=>'ueberUns'
+    'as'=> 'ueberUns'
+]);
+
+Route::get('/showCarResults',[
+    'uses'=> 'allgemeineSucheController@showCarResults',
+    'as'=> 'showCarResults'
+]);
+
+Route::get('/showBicycleResults',[
+    'uses'=> 'allgemeineSucheController@showBicycleResults',
+    'as'=> 'showBicycleResults'
 ]);
 
 

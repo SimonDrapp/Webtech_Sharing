@@ -104,13 +104,13 @@ $(document).ready(function () {
 
     $checkFilter = 'all';
 
-    var slider_E = document.getElementById("myRangeDistance");
+   /* var slider_E = document.getElementById("myRangeDistance");
     var output_E = document.getElementById("demoDistance");
     output_E.innerHTML = slider_E.value;
 
     slider_E.oninput = function () {
         output_E.innerHTML = this.value;
-    }
+    }*/
 
 
     /*---Ajax---*/
