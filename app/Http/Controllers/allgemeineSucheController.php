@@ -336,9 +336,9 @@ class allgemeineSucheController extends Controller
         $this->cutPicture();
         $showCollection = session()->get('finishCollection');
 
-
-        session()->put('activeCollection', $showCollection);
         session()->put('test', $showCollection);
+        //session()->put('activeCollection', $showCollection);
+
 
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
