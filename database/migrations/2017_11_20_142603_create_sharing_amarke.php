@@ -27,6 +27,6 @@ class CreateSharingAmarke extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AMarke');
+        Schema::dropIfExists('amarke');
     }
 }

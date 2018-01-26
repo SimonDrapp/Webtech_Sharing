@@ -29,6 +29,6 @@ class CreateSharingFmarke extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FMarke');
+        Schema::dropIfExists('fmarke');
     }
 }

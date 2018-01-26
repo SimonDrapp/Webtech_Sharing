@@ -26,6 +26,6 @@ class CreateSharingMietungenCounter extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('mietungenCounter');
     }
 }
