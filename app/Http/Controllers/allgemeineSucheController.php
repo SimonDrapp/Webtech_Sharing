@@ -502,10 +502,10 @@ class allgemeineSucheController extends Controller
             session()->put('minPreis', $request->minPreis);
             session()->put('maxPreis', $request->maxPreis);
 
-            $filtered = $test->filter(function ($test) {
+            $filtered = $activeCollection->filter(function ($activeCollection) {
                 $minPreis = session()->get('minPreis');
                 $maxPreis = session()->get('maxPreis');
-                return $test->preis >= $minPreis && $test->preis <= $maxPreis;
+                return $activeCollection->preis >= $minPreis && $activeCollection->preis <= $maxPreis;
             });
         }
        if ($request->kraftstoff) {
