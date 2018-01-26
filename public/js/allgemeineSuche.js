@@ -305,6 +305,29 @@ $(document).ready(function () {
         })
     });
 
+  /*  $(document).on('click', '#fahrradMarken', function () {
+
+        var fMarken_id = $(this).attr('value');
+        var $fModelle = $('#fModelle');
+
+        $.ajax({
+            type: 'GET',
+            url: '/findFahrradModelle',
+            data: {'id': fMarken_id},
+            success: function (data) {
+
+                console.log(data);
+
+                $("#fModelle").empty();
+                $.each(data, function (i, fModell) {
+                    $fModelle.append('<li class="showMoreBicycle" id="fahrradModelle"><a id="FahrradModelle" value=' + fModell.id + '>' + fModell.fModellname + '</a></li>')
+                });
+
+
+            }
+        })
+    });*/
+
     /*---SuchenButton---*/
     $(document).on('click', '#buttonSearch1, .all, .cars, .bicycles, #buttonSearchMobil', function () {
 

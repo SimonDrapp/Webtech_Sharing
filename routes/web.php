@@ -85,6 +85,7 @@ Route::post('/allgemeineSuche',[
     'as'=> 'allgemeineSuche']);
 Route::get('/allgemeineSuche', 'allgemeineSucheController@index');
 Route::get('/findAutoModelle', 'allgemeineSucheController@findAutoModelle');
+//Route::get('/findFahrradModelle', 'allgemeineSucheController@findFahrradModelle');
 Route::get('/search','allgemeineSucheController@search');
 Route::get('/searchVehicles','allgemeineSucheController@searchVehicles');
 Route::get('/searchVehiclesFilter','allgemeineSucheController@searchVehiclesFilter');
