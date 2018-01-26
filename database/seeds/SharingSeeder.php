@@ -303,28 +303,7 @@ class SharingSeeder extends Seeder
         $firstAMarke4 = amarke:: create(array(
             'name' => 'Porsche'
         ));
-        $firstAMarke5 = amarke:: create(array(
-            'name' => 'Toyota'
-        ));
-        $firstAMarke6 = amarke:: create(array(
-            'name' => 'Ford'
-        ));
 
-
-
-        $firstmodelA1 = amodell::create(array(
-            'aModellname' => 'A1 Sportback',
-            'idaMarke' => $firstAMarke1->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelA3 = amodell::create(array(
-            'aModellname' => 'A3 Cabriolet',
-            'idaMarke' => $firstAMarke1->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
 
         $firstmodelA4 = amodell::create(array(
             'aModellname' => 'A4 Limousine',
@@ -349,13 +328,6 @@ class SharingSeeder extends Seeder
 
 
 
-        $firstmodelBMW2 = amodell::create(array(
-            'aModellname' => '2er Coupé',
-            'idaMarke' => $firstAMarke2->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
         $firstmodelBMW3 = amodell::create(array(
             'aModellname' => '3er Touring',
             'idaMarke' => $firstAMarke2->id,
@@ -370,12 +342,6 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelBMW5 = amodell::create(array(
-            'aModellname' => '5er Limousine',
-            'idaMarke' => $firstAMarke2->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
 
         $firstmodelBMW7 = amodell::create(array(
             'aModellname' => '7er Limousine',
@@ -388,22 +354,9 @@ class SharingSeeder extends Seeder
 
 
 
-        $firstmodelM1 = amodell::create(array(
-            'aModellname' => 'CLA Coupé',
-            'idaMarke' => $firstAMarke3->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
 
         $firstmodelM2 = amodell::create(array(
             'aModellname' => 'S65 AMG',
-            'idaMarke' => $firstAMarke3->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelM3 = amodell::create(array(
-            'aModellname' => 'GLE Coupé',
             'idaMarke' => $firstAMarke3->id,
             'idKraftstoff' => $kraftstoff1->id
         ));
@@ -434,24 +387,10 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('AModell angelegt!!');
 
-        $firstmodelP2 = amodell::create(array(
-            'aModellname' => '911 Turbo',
-            'idaMarke' => $firstAMarke4->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
         $firstmodelP3 = amodell::create(array(
             'aModellname' => 'Panamera',
             'idaMarke' => $firstAMarke4->id,
             'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelP4 = amodell::create(array(
-            'aModellname' => 'Macan Turbo',
-            'idaMarke' => $firstAMarke4->id,
-            'idKraftstoff' => $kraftstoff2->id
         ));
         $this->command->info('AModell angelegt!!');
 
@@ -462,81 +401,6 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('AModell angelegt!!');
 
-
-
-
-        $firstmodelT1 = amodell::create(array(
-            'aModellname' => 'GT86',
-            'idaMarke' => $firstAMarke5->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelT2 = amodell::create(array(
-            'aModellname' => 'Avensis',
-            'idaMarke' => $firstAMarke5->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelT3 = amodell::create(array(
-            'aModellname' => 'Corolla',
-            'idaMarke' => $firstAMarke5->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelT4 = amodell::create(array(
-            'aModellname' => 'Yaris',
-            'idaMarke' => $firstAMarke5->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelT5 = amodell::create(array(
-            'aModellname' => 'Auris',
-            'idaMarke' => $firstAMarke5->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-
-
-
-        $firstmodelFo1 = amodell::create(array(
-            'aModellname' => 'Fiesta',
-            'idaMarke' => $firstAMarke6->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelFo1 = amodell::create(array(
-            'aModellname' => 'Focus',
-            'idaMarke' => $firstAMarke6->id,
-            'idKraftstoff' => $kraftstoff2->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelFo1 = amodell::create(array(
-            'aModellname' => 'GT',
-            'idaMarke' => $firstAMarke6->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelFo1 = amodell::create(array(
-            'aModellname' => 'Mustang',
-            'idaMarke' => $firstAMarke6->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
-
-        $firstmodelFo1 = amodell::create(array(
-            'aModellname' => 'Edge',
-            'idaMarke' => $firstAMarke6->id,
-            'idKraftstoff' => $kraftstoff1->id
-        ));
-        $this->command->info('AModell angelegt!!');
 
 
 
@@ -561,8 +425,18 @@ class SharingSeeder extends Seeder
             'idArt' => $fart2->id,
         ));
 
+        $fmarke6 = fmarke:: create(array(
+            'name'=> 'Ghost',
+            'idArt' => $fart2->id,
+        ));
+
         $fmarke2 = fmarke:: create(array(
             'name'=> 'Carver',
+            'idArt' => $fart3->id,
+        ));
+
+        $fmarke9 = fmarke:: create(array(
+            'name'=> 'Serious',
             'idArt' => $fart3->id,
         ));
 
@@ -571,49 +445,9 @@ class SharingSeeder extends Seeder
             'idArt' => $fart4->id,
         ));
 
-        $fmarke5 = fmarke:: create(array(
-            'name'=> 'Cannondale',
-            'idArt' => $fart4->id,
-        ));
-
-        $fmarke6 = fmarke:: create(array(
-            'name'=> 'Ghost',
-            'idArt' => $fart2->id,
-        ));
-
-        $fmarke7 = fmarke:: create(array(
-            'name'=> 'Cube',
-            'idArt' => $fart1->id,
-        ));
-
         $fmarke8 = fmarke:: create(array(
             'name'=> 'Bellini',
             'idArt' => $fart1->id,
-        ));
-
-        $fmarke9 = fmarke:: create(array(
-            'name'=> 'Serious',
-            'idArt' => $fart3->id,
-        ));
-
-        $fmarke10 = fmarke:: create(array(
-            'name'=> 'Leaderfox',
-            'idArt' => $fart1->id,
-        ));
-
-        $fmarke11 = fmarke:: create(array(
-            'name'=> 'Diamant',
-            'idArt' => $fart2->id,
-        ));
-
-        $fmarke12 = fmarke:: create(array(
-            'name'=> 'BMC',
-            'idArt' => $fart3->id,
-        ));
-
-        $fmarke13 = fmarke:: create(array(
-            'name'=> 'Focus',
-            'idArt' => $fart4->id,
         ));
 
 
@@ -630,12 +464,6 @@ class SharingSeeder extends Seeder
         ));
         $this->command->info('FModell angelegt!!');
 
-        $firstmodelF3 = fmodell::create(array(
-            'name' => 'Bellini Emma',
-            'idMarke' => $fmarke8->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
 
 
         $firstmodelF5 = fmodell::create(array(
@@ -646,12 +474,6 @@ class SharingSeeder extends Seeder
 
         $firstmodelF6 = fmodell::create(array(
             'name' => 'E-Ville C N330',
-            'idMarke' => $fmarke1->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF7 = fmodell::create(array(
-            'name' => 'E-Horizon 9.0',
             'idMarke' => $fmarke1->id
         ));
         $this->command->info('FModell angelegt!!');
@@ -678,25 +500,6 @@ class SharingSeeder extends Seeder
 
 
 
-        $firstmodelF11 = fmodell::create(array(
-            'name' => 'CAAD12 Ultegra',
-            'idMarke' => $fmarke5->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF12 = fmodell::create(array(
-            'name' => 'Slate Ultegra',
-            'idMarke' => $fmarke5->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF13 = fmodell::create(array(
-            'name' => 'CAAD12 Disc Ultegra',
-            'idMarke' => $fmarke5->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-
 
         $firstmodelF14 = fmodell::create(array(
             'name' => 'Speedster 30 Compact',
@@ -706,12 +509,6 @@ class SharingSeeder extends Seeder
 
         $firstmodelF15 = fmodell::create(array(
             'name' => 'Speedster SE',
-            'idMarke' => $fmarke4->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF16 = fmodell::create(array(
-            'name' => 'Contessa Solace 15',
             'idMarke' => $fmarke4->id
         ));
         $this->command->info('FModell angelegt!!');
@@ -727,12 +524,6 @@ class SharingSeeder extends Seeder
 
         $firstmodelF18 = fmodell::create(array(
             'name' => 'Transalpin 902',
-            'idMarke' => $fmarke2->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF19 = fmodell::create(array(
-            'name' => 'CCB 01',
             'idMarke' => $fmarke2->id
         ));
         $this->command->info('FModell angelegt!!');
@@ -754,107 +545,6 @@ class SharingSeeder extends Seeder
         $firstmodelF22 = fmodell::create(array(
             'name' => 'Kato Hybrid S',
             'idMarke' => $fmarke6->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-
-
-
-        $firstmodelF23 = fmodell::create(array(
-            'name' => 'Kid 200 Street',
-            'idMarke' => $fmarke7->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF24 = fmodell::create(array(
-            'name' => 'Kid 240 Disc',
-            'idMarke' => $fmarke7->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF25 = fmodell::create(array(
-            'name' => 'Kato 200 Allroad',
-            'idMarke' => $fmarke7->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-
-
-
-        $firstmodelF26 = fmodell::create(array(
-            'name' => 'Snake Boy',
-            'idMarke' => $fmarke10->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF27 = fmodell::create(array(
-            'name' => 'Keno',
-            'idMarke' => $fmarke10->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF28 = fmodell::create(array(
-            'name' => 'Spide Girl',
-            'idMarke' => $fmarke10->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-
-
-        $firstmodelF29 = fmodell::create(array(
-            'name' => 'Ubari Super Deluxe',
-            'idMarke' => $fmarke11->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF30 = fmodell::create(array(
-            'name' => 'Zouma S',
-            'idMarke' => $fmarke11->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF31 = fmodell::create(array(
-            'name' => 'Elan Sport',
-            'idMarke' => $fmarke11->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-
-        $firstmodelF32 = fmodell::create(array(
-            'name' => 'Fourstroke 02 XT',
-            'idMarke' => $fmarke12->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF33 = fmodell::create(array(
-            'name' => 'Teamelite 02 XT',
-            'idMarke' => $fmarke12->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF34 = fmodell::create(array(
-            'name' => 'Sportelite SLX-XT',
-            'idMarke' => $fmarke12->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-
-
-        $firstmodelF35 = fmodell::create(array(
-            'name' => 'Izalco Chrono',
-            'idMarke' => $fmarke13->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF36 = fmodell::create(array(
-            'name' => 'Paralane Ultegra',
-            'idMarke' => $fmarke13->id
-        ));
-        $this->command->info('FModell angelegt!!');
-
-        $firstmodelF37 = fmodell::create(array(
-            'name' => 'Mares AL',
-            'idMarke' => $fmarke13->id
         ));
         $this->command->info('FModell angelegt!!');
 
