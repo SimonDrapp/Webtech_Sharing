@@ -333,11 +333,13 @@ class allgemeineSucheController extends Controller
         $showCollection = $collection->sortBy('preis');
         $showCollection->values()->all();
 
-        /*session()->put('cutCollection', $showCollection);
+        session()->put('cutCollection', $showCollection);
         $this->cutPicture();
-        $showCollection = session()->get('finishCollection');*/
+        $showCollection = session()->get('finishCollection');
 
+        print($showCollection);
         session()->put('activeCollection', $showCollection);
+
 
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
@@ -503,7 +505,7 @@ class allgemeineSucheController extends Controller
             session()->put('minPreis', $request->minPreis);
             session()->put('maxPreis', $request->maxPreis);
 
-            echo($activeCollection);
+            //echo($activeCollection);
 
             $filtered = $activeCollection->filter(function ($activeCollection) {
                 $minPreis = session()->get('minPreis');
