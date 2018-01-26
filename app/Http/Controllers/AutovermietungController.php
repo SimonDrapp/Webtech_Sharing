@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Vermieten;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use App\vermietungenCounter;
 use Illuminate\Http\Request;
 use App\AMarke;
@@ -16,6 +17,7 @@ use DB;
 use App\autovermietung;
 use Session;
 use App\fahrradvermietung;
+use Storage;
 
 class AutovermietungController extends Controller
 {
@@ -45,6 +47,11 @@ class AutovermietungController extends Controller
 
 
     public function putCar(Request $request){
+        $image = $request->file('fileToUpload');
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+        $s3 = Storage::disk('s3');
+        $filePath = '/MeinProjekt/' . $imageFileName;
+        $s3->put($filePath, file_get_contents($image), 'public');
         $autovermietungen = new autovermietung;
         $marke = $request->marke;
         $marke2 = substr($marke,3, (strlen($marke)-3));
@@ -56,7 +63,7 @@ class AutovermietungController extends Controller
         $autovermietungen->farbe = $request->farbe;
         $autovermietungen->kraftstoff = $request->kraftstoff;
         $autovermietungen->preis = $request->preis;
-        $autovermietungen->bild = $request->bild;
+        $autovermietungen->bild = $filePath;
         $autovermietungen->details = $request->details;
         $autovermietungen->postleitzahl = $request->postleitzahl;
         $autovermietungen->ort = $request->ort;
@@ -70,7 +77,7 @@ class AutovermietungController extends Controller
         $request->session()->put('farbe', $request->farbe);
         $request->session()->put('kraftstoff', $request->kraftstoff);
         $request->session()->put('preis', $request->preis);
-        $request->session()->put('bild', $request->bild);
+        $request->session()->put('bild', $filePath);
         $request->session()->put('details', $request->details);
         $request->session()->put('postleitzahl', $request->postleitzahl);
         $request->session()->put('ort', $request->ort);
@@ -82,6 +89,7 @@ class AutovermietungController extends Controller
 
     }
     public function saveAuto(Request $request){
+
         $autovermietung = new autovermietung;
         $autovermietung->marke2 = $request->session()->get('marke');
         $autovermietung->modell2 = $request->session()->get('modell');
@@ -114,6 +122,20 @@ class AutovermietungController extends Controller
         $aAdresses = autovermietung::all();
         $fAdresses = fahrradvermietung::all();
         return view('welcome',['aAdresses' => $aAdresses, 'fAdresses' => $fAdresses]);
+
+    }
+    public function uploadFileToS3(Request $request)
+    {
+        $image = $request->file('fileToUpload');
+
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+
+        $s3 = Storage::disk('s3');
+
+        $filePath = '/MeinProjekt/' . $imageFileName;
+        $s3->put($filePath, file_get_contents($image), 'public');
+
+        return view('upload',["filename" => $filePath]);
 
     }
 
