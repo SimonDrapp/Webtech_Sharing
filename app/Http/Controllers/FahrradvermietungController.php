@@ -17,6 +17,7 @@ use App\Farbe;
 use App\fahrradvermietung;
 use App\Fahrrad;
 use App\vermietungenCounter;
+use Storage;
 
 class FahrradvermietungController extends Controller
 {
@@ -44,6 +45,7 @@ class FahrradvermietungController extends Controller
         $imageFileName = time() . '.' . $image->getClientOriginalExtension();
         $s3 = Storage::disk('s3');
         $filePath = '/MeinProjekt/' . $imageFileName;
+        $s3->put($filePath, file_get_contents($image), 'public');
         $fahrradvermietungen = new fahrradvermietung;
         $art = $request->art;
         $art2 = substr($art,3, (strlen($art)-3));
