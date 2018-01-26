@@ -4,7 +4,7 @@
     @include('includes.head')
     <title>my-easysharing | Bezahlung</title>
 </head>
-<body>
+<body id="suche">
 @if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
 @elseif(Auth::user() && Auth::user()->isAdministrator())
