@@ -344,6 +344,7 @@ class allgemeineSucheController extends Controller
 
 
         session()->put('activeCollection', $showCollection);
+        print("changed");
 
 
         return view('partialViews.liveSearch')->with([
@@ -487,7 +488,7 @@ class allgemeineSucheController extends Controller
     {
 
         $activeCollection = session()->get('activeCollection');
-
+        print("filter");
        print($activeCollection);
 
         if ($request->marke) {
