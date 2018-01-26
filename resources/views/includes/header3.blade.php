@@ -22,7 +22,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right ">
                     <li class="home2"><a href="/">Startseite</a></li>
-                    <li id="suche2"><a href="{{ route('allgemeineSuche') }}">Mieten</a></li>
+           <!--         <li id="suche2"><a href="{{ route('allgemeineSuche') }}">Mieten</a></li>   -->
                     <li class="vermietenheader2"><a href="{{ route('Vermieten') }}">Vermieten</a></li>
                     <li id="benutzer2"><a href="{{route('admin')}}">Benutzer</a></li>
                     <li id="nachrichten2"><a href="{{ route('nachricht') }}">Nachrichten</a></li>

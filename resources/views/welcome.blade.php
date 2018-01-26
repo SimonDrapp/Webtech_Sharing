@@ -234,12 +234,12 @@
         };
         var visited = jQuery.cookie('visited');
         if (visited == 'yes') {
-            // second page load, cookie active
+
         } else {
-            openFancybox(); // first page load, launch fancybox
+            openFancybox();
         }
         jQuery.cookie('visited', 'yes', {
-            expires: 365 // Anzahl der Tage die, die Cookies gültig sind
+            expires: 365
         });
         jQuery("#popuplink").fancybox({modal:true, maxWidth: 400, overlay : {closeClick : true}});
     });
