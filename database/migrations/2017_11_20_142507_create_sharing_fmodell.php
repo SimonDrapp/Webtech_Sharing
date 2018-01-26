@@ -29,6 +29,6 @@ class CreateSharingFmodell extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FModell');
+        Schema::dropIfExists('fmodell');
     }
 }

@@ -27,6 +27,6 @@ class CreateSharingArt extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Art');
+        Schema::dropIfExists('art');
     }
 }

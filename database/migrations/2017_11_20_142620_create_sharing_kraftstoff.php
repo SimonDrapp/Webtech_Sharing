@@ -27,6 +27,6 @@ class CreateSharingKraftstoff extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Kraftstoff');
+        Schema::dropIfExists('kraftstoff');
     }
 }

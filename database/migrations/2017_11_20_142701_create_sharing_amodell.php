@@ -31,6 +31,6 @@ class CreateSharingAmodell extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('AModell');
+        Schema::dropIfExists('amodell');
     }
 }

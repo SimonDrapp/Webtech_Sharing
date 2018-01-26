@@ -27,6 +27,6 @@ class CreateSharingBaujahr extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Baujahr');
+        Schema::dropIfExists('baujahr');
     }
 }
