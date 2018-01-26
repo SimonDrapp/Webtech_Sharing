@@ -40,7 +40,10 @@ class FahrradvermietungController extends Controller
 
 
     public function putFahrrad(Request $request){
-
+        $image = $request->file('fileToUpload');
+        $imageFileName = time() . '.' . $image->getClientOriginalExtension();
+        $s3 = Storage::disk('s3');
+        $filePath = '/MeinProjekt/' . $imageFileName;
         $fahrradvermietungen = new fahrradvermietung;
         $art = $request->art;
         $art2 = substr($art,3, (strlen($art)-3));
@@ -53,7 +56,7 @@ class FahrradvermietungController extends Controller
         $fahrradvermietungen->modell = $modell2;
         $fahrradvermietungen->farbe = $request->farbe;
         $fahrradvermietungen->preis = $request->preis;
-        $fahrradvermietungen->bild = $request->bild;
+        $fahrradvermietungen->bild = $filePath;
         $fahrradvermietungen->details = $request->details;
         $fahrradvermietungen->postleitzahl = $request->postleitzahl;
         $fahrradvermietungen->ort = $request->ort;
@@ -67,7 +70,7 @@ class FahrradvermietungController extends Controller
         $request->session()->put('modell', $modell2);
         $request->session()->put('farbe', $request->farbe);
         $request->session()->put('preis', $request->preis);
-        $request->session()->put('bild', $request->bild);
+        $request->session()->put('bild', $filePath);
         $request->session()->put('details', $request->details);
         $request->session()->put('postleitzahl', $request->postleitzahl);
         $request->session()->put('ort', $request->ort);

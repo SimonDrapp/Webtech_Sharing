@@ -7,7 +7,7 @@
     <link rel="icon" href="{{ asset('img/logo_new.png')}}">
     <title>my-easysharing | Ansicht</title>
 </head>
-<body>
+<body id="suche">
 
 @if(Auth::user() && Auth::user()->isBenutzer())
     @include('includes.header2')
@@ -21,9 +21,6 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-
-            <li data-target="#myCarousel" data-slide-to="0"></li>
-
     </ol>
     <div class="carousel-inner">
         <div class="item active">
