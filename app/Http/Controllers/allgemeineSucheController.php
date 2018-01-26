@@ -483,7 +483,7 @@ class allgemeineSucheController extends Controller
        // $activeCollection = session()->get('activeCollection');
         $test = session()->get('test');
         echo("hier");
-        echo($test);
+        dd($test);
 
         /*if ($request->marke) {
 
