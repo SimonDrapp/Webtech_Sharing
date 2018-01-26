@@ -19,7 +19,7 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class allgemeineSucheController extends Controller
 {
-    public function index(){
+    /*public function index(){
 
         $ortPlz = Null;
         $startdate = Null;
@@ -62,7 +62,7 @@ class allgemeineSucheController extends Controller
         $showCollection = session()->get('finishCollection');
 
         session()->put('showCollection', $showCollection);
-    }
+    }*/
 
     public function showCarResults(){
         $ortPlz = Null;
@@ -337,7 +337,7 @@ class allgemeineSucheController extends Controller
         $this->cutPicture();
         $showCollection = session()->get('finishCollection');
 
-       // print($showCollection);
+
         session()->put('activeCollection', $showCollection);
 
 
@@ -483,7 +483,7 @@ class allgemeineSucheController extends Controller
 
         $activeCollection = session()->get('activeCollection');
 
-        print($activeCollection);
+       print($activeCollection);
 
         if ($request->marke) {
 
