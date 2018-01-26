@@ -483,7 +483,7 @@ class allgemeineSucheController extends Controller
        // $activeCollection = session()->get('activeCollection');
         $test = session()->get('test');
         echo("hier");
-        dd($test);
+        echo($test);
 
         /*if ($request->marke) {
 
@@ -501,7 +501,7 @@ class allgemeineSucheController extends Controller
                 $request = session()->get('request');
                 return $activeCollection->modell == $request;
             });
-        }
+        }*/
         if ($request->minPreis && $request->maxPreis) {
 
             session()->put('minPreis', $request->minPreis);
@@ -513,7 +513,7 @@ class allgemeineSucheController extends Controller
                 return $activeCollection->preis >= $minPreis && $activeCollection->preis <= $maxPreis;
             });
         }
-        if ($request->kraftstoff) {
+       /* if ($request->kraftstoff) {
 
             session()->put('request', $request->kraftstoff);
 
@@ -539,7 +539,7 @@ class allgemeineSucheController extends Controller
                 $request = session()->get('request');
                 return $activeCollection->art == $request;
             });
-        }
+        }*/
 
         $showCollection = $filtered->sortBy('preis');
         $showCollection->values()->all();
@@ -551,7 +551,7 @@ class allgemeineSucheController extends Controller
 
         //return response()->json(['test'=>$showCollection]);
 
-*/
+
     }
 
     function cutPicture(){
