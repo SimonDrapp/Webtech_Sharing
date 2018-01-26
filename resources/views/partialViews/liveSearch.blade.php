@@ -4,6 +4,7 @@
         <div class="searchResults_result">
             <div class="searchResults_image">
                 <img src="{{asset('https://s3.eu-central-1.amazonaws.com/weteuploadss2017'.$show->bild)}}" alt="{{$show->marke}}, {{$show->modell}}">
+                <?php echo $show->bild?>
             </div>
             <div class="searchResults_info">
                 <div class="searchResults_info-inner">
