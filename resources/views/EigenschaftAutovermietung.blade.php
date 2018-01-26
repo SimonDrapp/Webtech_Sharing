@@ -90,7 +90,7 @@
                     <div class="form-group2">
                         <div class="input-group preis">
                             <label for="preis" class="sr-only"></label>
-                            <input type="tel" class="form-control" name="preis" id="inputPreis" required>
+                            <input type="text" class="form-control" name="preis" id="inputPreis" required>
                             <span class="input-group-addon">€</span>
                         </div>
                     </div>

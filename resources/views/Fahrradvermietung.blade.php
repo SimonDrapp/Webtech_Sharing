@@ -112,7 +112,7 @@
                     <div class="input-group">
                         <label class="input-group-btn">
                     <span class="btn btn-primary">
-                        Öffnen <input id="fahrrad" name="fahrrad" type="file" accept="image/*" style="display: none;"
+                        Öffnen <input id="fileToUpload" name="fileToUpload" type="file" accept="image/*" style="display: none;"
                                       multiple>
                     </span>
                         </label>
@@ -124,7 +124,7 @@
             <script>
                 $(function () {
                     $(document).on('change', ':file', function () {
-                        var files = document.getElementById("fahrrad").files;
+                        var files = document.getElementById("fileToUpload").files;
                         var result = files[0].name;
                         console.log(files.length);
                         if (files.length > 1) {
