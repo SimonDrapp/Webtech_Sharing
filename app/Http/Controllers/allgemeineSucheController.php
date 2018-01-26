@@ -20,7 +20,6 @@ use phpDocumentor\Reflection\Types\Null_;
 class allgemeineSucheController extends Controller
 {
     public function index(){
-
         $ortPlz = Null;
         $startdate = Null;
         $enddate = Null;
@@ -337,7 +336,8 @@ class allgemeineSucheController extends Controller
         $this->cutPicture();
         $showCollection = session()->get('finishCollection');
 
-        session()->put('activeCollection', $collection);
+
+        session()->put('activeCollection', $showCollection);
 
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
@@ -502,7 +502,6 @@ class allgemeineSucheController extends Controller
 
             session()->put('minPreis', $request->minPreis);
             session()->put('maxPreis', $request->maxPreis);
-
 
             $filtered = $activeCollection->filter(function ($activeCollection) {
                 $minPreis = session()->get('minPreis');

@@ -70,44 +70,84 @@ class SharingSeeder extends Seeder
       ));
 
 
-          /*
+
         autovermietung:: create(array(
             'name' => 'Auto',
-            'marke' => 'Mercedes',
-            'modell' => 'CLS',
+            'marke' => 'Audi',
+            'modell' => 'A7 Sportback',
             'baujahr' => '2017',
             'farbe' => 'silber',
             'kraftstoff' => 'Benzin',
             'preis' => 50,
-            'bild' => 'audiA3.jpg',
-            'details' => 'neuer Audi A3',
+            'bild' => 'A7_1.jpg',
+            'details' => 'neuer Audi A7',
             'postleitzahl' => '78467',
             'ort' => 'Konstanz',
             'strasseNr' => 'Fürstenbergstraße 87',
-            'startdate' => '2018-01-12',
-            'enddate' => '2018-01-15'
+            'startdate' => '2018-01-31',
+            'enddate' => '2018-02-19'
         ));
 
         fahrradvermietung:: create(array(
+        'name' => 'Fahrrad',
+        'art' => 'Mountainbike',
+        'marke' => 'Carver',
+        'modell' => 'Transalpin 902',
+        'farbe' => 'schwarz',
+        'preis' => 15,
+        'bild' => 'mountainbikeAlpina.jpg',
+        'details' => 'guter Zustand',
+        'postleitzahl' => '78462',
+        'ort' => 'Konstanz',
+        'strasseNr' => 'Schreibergasse 2',
+        'startdate' => '2018-01-27',
+        'enddate' => '2018-02-20'
+        ));
+        fahrradvermietung:: create(array(
             'name' => 'Fahrrad',
-            'art' => 'Freizeitbike',
-            'marke' => 'Alpina',
-            'modell' => 'Mountainbike',
+            'art' => 'E-Bike',
+            'marke' => 'Bergamont',
+            'modell' => 'Kato Hybrid S',
             'farbe' => 'schwarz',
-            'preis' => 15,
+            'preis' => 5,
             'bild' => 'mountainbikeAlpina.jpg',
             'details' => 'guter Zustand',
             'postleitzahl' => '78462',
             'ort' => 'Konstanz',
             'strasseNr' => 'Schreibergasse 2',
-            'startdate' => '2018-01-10',
-            'enddate' => '2018-01-18'
+            'startdate' => '2018-01-27',
+            'enddate' => '2018-02-20'
         ));
-
-*/
-
-
-
+        fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
+            'art' => 'Kinderräder',
+            'marke' => 'Bellini',
+            'modell' => 'Bellini Carlo',
+            'farbe' => 'schwarz',
+            'preis' => 10,
+            'bild' => 'mountainbikeAlpina.jpg',
+            'details' => 'guter Zustand',
+            'postleitzahl' => '78462',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Schreibergasse 2',
+            'startdate' => '2018-01-27',
+            'enddate' => '2018-02-20'
+        ));
+        fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
+            'art' => 'Rennräder',
+            'marke' => 'Scott',
+            'modell' => 'Speedster 30 Compact',
+            'farbe' => 'schwarz',
+            'preis' => 20,
+            'bild' => 'mountainbikeAlpina.jpg',
+            'details' => 'guter Zustand',
+            'postleitzahl' => '78462',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Schreibergasse 2',
+            'startdate' => '2018-01-27',
+            'enddate' => '2018-02-20'
+        ));
 
         $kraftstoff1 = kraftstoff:: create(array(
             'name'=> 'Benzin'
