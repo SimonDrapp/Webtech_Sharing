@@ -19,7 +19,9 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class allgemeineSucheController extends Controller
 {
-    /*public function index(){
+    public function index(){
+
+        print("index");
 
         $ortPlz = Null;
         $startdate = Null;
@@ -62,9 +64,10 @@ class allgemeineSucheController extends Controller
         $showCollection = session()->get('finishCollection');
 
         session()->put('showCollection', $showCollection);
-    }*/
+    }
 
     public function showCarResults(){
+        print("showCar");
         $ortPlz = Null;
         $startdate = Null;
         $enddate = Null;
@@ -97,6 +100,7 @@ class allgemeineSucheController extends Controller
     }
 
     public function showBicycleResults(){
+        print("showBicycle");
         $ortPlz = Null;
         $startdate = Null;
         $enddate = Null;
@@ -131,6 +135,7 @@ class allgemeineSucheController extends Controller
 
     public function searchInput(Request $request)
     {
+        print("searchInput");
             $allInput = $request->all();
 
             $ortPlz = $request->search;
