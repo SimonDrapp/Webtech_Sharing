@@ -27,6 +27,6 @@ class CreateSharingUniqueVisitors extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('unique_visitors');
     }
 }

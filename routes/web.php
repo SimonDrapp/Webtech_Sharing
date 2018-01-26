@@ -124,6 +124,15 @@ Route::get('/Bild2', function () {
 });
 
 
+Route::get('/up', function () {
+    return view('uploadform');
+});
+
+
+
+Route::post('/upload', "AutovermietungController@uploadFileToS3");
+
+
 
 /*
 Route::get('/Vermieten', function () {

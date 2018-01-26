@@ -28,6 +28,6 @@ class CreateSharingOrt extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Ort');
+        Schema::dropIfExists('ort');
     }
 }

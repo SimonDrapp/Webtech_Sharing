@@ -27,6 +27,6 @@ class CreateSharingFarbe extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Farbe');
+        Schema::dropIfExists('farbe');
     }
 }
