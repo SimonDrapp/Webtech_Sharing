@@ -32,7 +32,13 @@ class SharingSeeder extends Seeder
         DB::table('kraftstoff')->delete();
         DB::table('baujahr')->delete();
         DB::table('farbe')->delete();
-
+        DB::table('fmodell')->delete();
+        DB::table('fmarke')->delete();
+        DB::table('User')->delete();
+        DB::table('Role')->delete();
+        DB::table('art')->delete();
+        DB::table('autovermietung')->delete();
+        DB::table('fahrradvermietung')->delete();
 
           ort:: create(array(
           'Name'=> 'Konstanz Petershausen-West',
