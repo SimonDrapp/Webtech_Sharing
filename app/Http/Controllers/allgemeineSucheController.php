@@ -336,9 +336,7 @@ class allgemeineSucheController extends Controller
         $this->cutPicture();
         $showCollection = session()->get('finishCollection');
 
-        session()->put('test', $showCollection);
-        //session()->put('activeCollection', $showCollection);
-
+        session()->put('activeCollection', $showCollection);
 
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
@@ -480,12 +478,9 @@ class allgemeineSucheController extends Controller
     public function searchVehiclesFilter(Request $request)
     {
 
-       // $activeCollection = session()->get('activeCollection');
-        $test = session()->get('test');
-        echo("hier");
-        echo($test);
+        $activeCollection = session()->get('activeCollection');
 
-        /*if ($request->marke) {
+        if ($request->marke) {
 
             session()->put('request', $request->marke);
 
@@ -501,7 +496,7 @@ class allgemeineSucheController extends Controller
                 $request = session()->get('request');
                 return $activeCollection->modell == $request;
             });
-        }*/
+        }
         if ($request->minPreis && $request->maxPreis) {
 
             session()->put('minPreis', $request->minPreis);
@@ -513,7 +508,7 @@ class allgemeineSucheController extends Controller
                 return $test->preis >= $minPreis && $test->preis <= $maxPreis;
             });
         }
-       /* if ($request->kraftstoff) {
+       if ($request->kraftstoff) {
 
             session()->put('request', $request->kraftstoff);
 
@@ -539,7 +534,7 @@ class allgemeineSucheController extends Controller
                 $request = session()->get('request');
                 return $activeCollection->art == $request;
             });
-        }*/
+        }
 
         $showCollection = $filtered->sortBy('preis');
         $showCollection->values()->all();
