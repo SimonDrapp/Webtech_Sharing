@@ -329,7 +329,7 @@ $(document).ready(function () {
     });*/
 
     /*---SuchenButton---*/
-    $(document).on('click', '#buttonSearch1, .all, .cars, .bicycles, #buttonSearchMobil', function () {
+    $(document).on('click', '#buttonSearch1, .all, .cars, .bicycles', function () {
 
         var ort = null;
         var plz = null;
