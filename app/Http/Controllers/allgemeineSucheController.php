@@ -484,7 +484,7 @@ class allgemeineSucheController extends Controller
         $test = session()->get('test');
         echo($test);
 
-        if ($request->marke) {
+        /*if ($request->marke) {
 
             session()->put('request', $request->marke);
 
@@ -550,7 +550,7 @@ class allgemeineSucheController extends Controller
 
         //return response()->json(['test'=>$showCollection]);
 
-
+*/
     }
 
     function cutPicture(){
