@@ -20,9 +20,6 @@ use phpDocumentor\Reflection\Types\Null_;
 class allgemeineSucheController extends Controller
 {
     public function index(){
-
-        print("index");
-
         $ortPlz = Null;
         $startdate = Null;
         $enddate = Null;
@@ -67,7 +64,6 @@ class allgemeineSucheController extends Controller
     }
 
     public function showCarResults(){
-        print("showCar");
         $ortPlz = Null;
         $startdate = Null;
         $enddate = Null;
@@ -100,7 +96,6 @@ class allgemeineSucheController extends Controller
     }
 
     public function showBicycleResults(){
-        print("showBicycle");
         $ortPlz = Null;
         $startdate = Null;
         $enddate = Null;
@@ -135,7 +130,6 @@ class allgemeineSucheController extends Controller
 
     public function searchInput(Request $request)
     {
-        print("searchInput");
             $allInput = $request->all();
 
             $ortPlz = $request->search;
@@ -344,8 +338,6 @@ class allgemeineSucheController extends Controller
 
 
         session()->put('activeCollection', $showCollection);
-        print("changed");
-
 
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
@@ -488,8 +480,6 @@ class allgemeineSucheController extends Controller
     {
 
         $activeCollection = session()->get('activeCollection');
-        print("filter");
-       print($activeCollection);
 
         if ($request->marke) {
 
@@ -512,8 +502,6 @@ class allgemeineSucheController extends Controller
 
             session()->put('minPreis', $request->minPreis);
             session()->put('maxPreis', $request->maxPreis);
-
-            //echo($activeCollection);
 
             $filtered = $activeCollection->filter(function ($activeCollection) {
                 $minPreis = session()->get('minPreis');
