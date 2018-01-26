@@ -283,6 +283,14 @@ class allgemeineSucheController extends Controller
 
     }
 
+   /* public function findFahrradModelle(Request $request)
+    {
+
+        $data = fmodell::where('idFmarke', $request->id)->get();
+        return response()->json($data);
+
+    }*/
+
     public function search(Request $request)
     {
 
@@ -494,6 +502,7 @@ class allgemeineSucheController extends Controller
 
             session()->put('minPreis', $request->minPreis);
             session()->put('maxPreis', $request->maxPreis);
+
 
             $filtered = $activeCollection->filter(function ($activeCollection) {
                 $minPreis = session()->get('minPreis');
