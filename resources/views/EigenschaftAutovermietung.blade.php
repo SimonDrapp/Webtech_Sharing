@@ -90,7 +90,7 @@
                     <div class="form-group2">
                         <div class="input-group preis">
                             <label for="preis" class="sr-only"></label>
-                            <input type="text" class="form-control" name="preis" id="inputPreis" required>
+                            <input type="tel" class="form-control" name="preis" id="inputPreis" required>
                             <span class="input-group-addon">€</span>
                         </div>
                     </div>
@@ -287,14 +287,12 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function (){       //zählt wie oft das erste select (erste dropdownliste); addiert jedes mal um eins hoch
+    $(document).ready(function (){
 
         $(document).on('change','#prod_cat_id',function () {
 
-            //        console.log("hmm its change");
 
-            var cat_id = $(this).val(); //über this den ausgewählten wert im ersten selcet speichern in eine variable
-            //             console.log(cat_id);        //in konsole in firefox wird der ausgewählte wert angezeigt.
+            var cat_id = $(this).val();
 
 
             var div=$(this).parent().parent().parent().parent().parent();
@@ -304,7 +302,7 @@
             $.ajax({
                 type:'get',
                 url:'{!!URL::to('findModellName')!!}',
-                data:{'id':cat_id},     //id der im ersten select gespeichert wird, wird hier ausgewählt (-> oben in value={..}})
+                data:{'id':cat_id},                          //id der im ersten select gespeichert wird, wird hier ausgewählt (-> oben in value={..}})
                 success:function(data){
                     //  console.log('success')
 

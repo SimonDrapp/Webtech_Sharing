@@ -70,6 +70,44 @@ class SharingSeeder extends Seeder
       ));
 
 
+          /*
+        autovermietung:: create(array(
+            'name' => 'Auto',
+            'marke' => 'Mercedes',
+            'modell' => 'CLS',
+            'baujahr' => '2017',
+            'farbe' => 'silber',
+            'kraftstoff' => 'Benzin',
+            'preis' => 50,
+            'bild' => 'audiA3.jpg',
+            'details' => 'neuer Audi A3',
+            'postleitzahl' => '78467',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Fürstenbergstraße 87',
+            'startdate' => '2018-01-12',
+            'enddate' => '2018-01-15'
+        ));
+
+        fahrradvermietung:: create(array(
+            'name' => 'Fahrrad',
+            'art' => 'Freizeitbike',
+            'marke' => 'Alpina',
+            'modell' => 'Mountainbike',
+            'farbe' => 'schwarz',
+            'preis' => 15,
+            'bild' => 'mountainbikeAlpina.jpg',
+            'details' => 'guter Zustand',
+            'postleitzahl' => '78462',
+            'ort' => 'Konstanz',
+            'strasseNr' => 'Schreibergasse 2',
+            'startdate' => '2018-01-10',
+            'enddate' => '2018-01-18'
+        ));
+
+*/
+
+
+
 
         $kraftstoff1 = kraftstoff:: create(array(
             'name'=> 'Benzin'
