@@ -333,9 +333,9 @@ class allgemeineSucheController extends Controller
         $showCollection = $collection->sortBy('preis');
         $showCollection->values()->all();
 
-        session()->put('cutCollection', $showCollection);
+        /*session()->put('cutCollection', $showCollection);
         $this->cutPicture();
-        $showCollection = session()->get('finishCollection');
+        $showCollection = session()->get('finishCollection');*/
 
         session()->put('activeCollection', $showCollection);
 
