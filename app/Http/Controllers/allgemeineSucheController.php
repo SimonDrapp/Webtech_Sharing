@@ -503,6 +503,7 @@ class allgemeineSucheController extends Controller
             session()->put('minPreis', $request->minPreis);
             session()->put('maxPreis', $request->maxPreis);
 
+            echo($activeCollection);
 
             $filtered = $activeCollection->filter(function ($activeCollection) {
                 $minPreis = session()->get('minPreis');
