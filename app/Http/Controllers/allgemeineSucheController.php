@@ -338,6 +338,7 @@ class allgemeineSucheController extends Controller
 
 
         session()->put('activeCollection', $showCollection);
+        session()->put('test', $showCollection);
 
         return view('partialViews.liveSearch')->with([
             'showCollection' => $showCollection
@@ -479,7 +480,9 @@ class allgemeineSucheController extends Controller
     public function searchVehiclesFilter(Request $request)
     {
 
-        $activeCollection = session()->get('activeCollection');
+       // $activeCollection = session()->get('activeCollection');
+        $test = session()->get('test');
+        echo($test);
 
         if ($request->marke) {
 
