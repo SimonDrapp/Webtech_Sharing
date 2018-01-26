@@ -337,7 +337,7 @@ class allgemeineSucheController extends Controller
         $this->cutPicture();
         $showCollection = session()->get('finishCollection');
 
-        print($showCollection);
+       // print($showCollection);
         session()->put('activeCollection', $showCollection);
 
 
@@ -482,6 +482,8 @@ class allgemeineSucheController extends Controller
     {
 
         $activeCollection = session()->get('activeCollection');
+
+        print($activeCollection);
 
         if ($request->marke) {
 
